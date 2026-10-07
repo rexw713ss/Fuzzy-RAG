@@ -124,9 +124,13 @@ def fit_scaler(values):
 
 
 def apply_scaler(values, scaler):
-    """Rescale to [0, 1] and clip. Returns (scaled, fraction clipped to 0 or 1)."""
+    """Rescale to [0, 1] and clip. Returns (scaled, fraction clipped to 0 or 1).
+
+    A value counts as clipped only if it falls strictly outside [0, 1] before clipping, so a
+    value exactly at p5 and one exactly at p95 are treated alike (spec v0.3 O-5 / review D1).
+    """
     v = np.asarray(values, dtype=float)
     raw = (v - scaler["p5"]) / (scaler["p95"] - scaler["p5"] + EPS)
     scaled = np.clip(raw, 0.0, 1.0)
-    clipped = float(np.mean((raw <= 0.0) | (raw >= 1.0)))
+    clipped = float(np.mean((raw < 0.0) | (raw > 1.0)))
     return scaled, clipped

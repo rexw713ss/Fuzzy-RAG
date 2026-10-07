@@ -118,10 +118,17 @@ def test_apply_scaler_clips_to_unit_interval():
     scaler = sg.fit_scaler(np.arange(101.0))        # p5 = 5, p95 = 95
     scaled, clipped = sg.apply_scaler([5.0, 50.0, 95.0, -10.0, 200.0], scaler)
     assert scaled.tolist() == pytest.approx([0.0, 0.5, 1.0, 0.0, 1.0], abs=1e-6)
-    # Asymmetric endpoint handling (flagged, not yet a spec decision): a value
-    # exactly at p5 gives raw == 0.0 and counts as clipped, but one exactly at
-    # p95 gives raw == 90/(90+EPS) < 1.0 and does not. So 3 of 5, not 4.
-    assert clipped == pytest.approx(0.6)
+    # Only -10 and 200 fall strictly outside [p5, p95]; 5 and 95 sit exactly on the ends.
+    assert clipped == pytest.approx(0.4)
+
+
+def test_apply_scaler_endpoints_are_symmetric():
+    """D1: a value exactly at p5 and one exactly at p95 are both not clipped."""
+    scaler = sg.fit_scaler(np.arange(101.0))
+    assert sg.apply_scaler([5.0], scaler)[1] == 0.0
+    assert sg.apply_scaler([95.0], scaler)[1] == 0.0
+    assert sg.apply_scaler([4.999], scaler)[1] == 1.0
+    assert sg.apply_scaler([95.001], scaler)[1] == 1.0
 
 
 # --- end to end -----------------------------------------------------------
