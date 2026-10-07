@@ -43,11 +43,24 @@ def test_at_most_two_labels_active():
         assert (fz.memberships(x) > 0).sum() <= 2
 
 
-@pytest.mark.parametrize("w", [0.0, 0.30, -0.1])
+@pytest.mark.parametrize("w", [0.0, -0.1, 0.26, 0.28, 0.30, np.nan])
 def test_invalid_width_rejected(w):
-    """Shapes stop being valid trapezoids at w <= 0 or w >= 0.30 (Med core vanishes)."""
+    """w must lie in (0, 0.25] (spec v0.3 C7). 0.26 and 0.28 are still valid trapezoids,
+    but they break the pre-registered cap, so fuzzy.py refuses them rather than clipping."""
     with pytest.raises(ValueError):
         fz.input_mf(w)
+
+
+def test_width_cap_itself_is_accepted():
+    """Calibration clips to exactly 0.25, so the cap must pass; its Med core is 0.05 wide."""
+    a, b, c, d = fz.input_mf(fz.W_MAX)["Med"]
+    assert c - b == pytest.approx(0.05)
+
+
+def test_one_bad_per_signal_width_is_refused():
+    """After calibration each signal has its own width; one over the cap must stop escalate."""
+    with pytest.raises(ValueError, match=r"\(0, 0.25\]"):
+        fz.escalate([0.5] * 4, widths=[0.20, 0.20, 0.27, 0.20])
 
 
 # --- 4 rule base ----------------------------------------------------------

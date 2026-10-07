@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Virtual environment
+.venv/
+
+# Experiment outputs (spec §7.5: results come from config.yaml + commit ID, not from blobs)
+results/
+indexes/
+*.faiss
+*.npy
+
+# Extra environments (e.g. .venv-bm25 for pyserini on Python 3.13)
+.venv-*/
+
+data/

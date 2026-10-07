@@ -16,6 +16,7 @@ SIGNALS = ("S1", "S2", "S3", "S4")
 
 CENTRES = (0.35, 0.65)   # crossover centres (section 3.1)
 W_DEFAULT = 0.20         # band width before jitter calibration
+W_MAX = 0.25             # hard cap on band width (section 3.1)
 N_OUT = 1001             # output-axis resolution for the centroid (not in the spec)
 
 # Output membership functions as trapezoids (a, b, c, d); a triangle has b == c (section 3.2).
@@ -37,13 +38,18 @@ def trapezoid(x, a, b, c, d):
 def input_mf(w=W_DEFAULT):
     """Low / Med / High trapezoid parameters for band width w (section 3.1).
 
-    Only checks that the shapes are valid trapezoids (0 < w < 0.30, so the Med core
-    keeps positive width). The w <= 0.25 policy cap is enforced at calibration.
+    Refuses w > 0.25 (spec v0.3, C7): the cap keeps the Med core at least 0.05 wide.
+    Clipping a measured jitter to the cap and flagging the signal is the calibration
+    step's job (section 7.3), so a wider w arriving here is a bug upstream. It raises
+    instead of clipping, so the flag the spec requires can never be skipped silently.
     """
     lo, hi = CENTRES
-    # Med core width is (hi - lo) - w; the tolerance absorbs 0.65 - 0.35 != 0.30 in floats.
-    if not (w > 0.0 and (hi - lo) - w > 1e-9):
-        raise ValueError(f"w must be in (0, 0.30), got {w}")
+    # The tolerance lets a w of exactly 0.25 through despite float rounding.
+    if not (w > 0.0 and w <= W_MAX + 1e-9):
+        raise ValueError(f"w must be in (0, {W_MAX}], got {w}")
+    # Med core width is (hi - lo) - w. Only bites if CENTRES are moved closer together.
+    if not (hi - lo) - w > 1e-9:
+        raise ValueError(f"w = {w} leaves no Med core between centres {CENTRES}")
     h = w / 2
     return {
         "Low": (0.0, 0.0, lo - h, lo + h),

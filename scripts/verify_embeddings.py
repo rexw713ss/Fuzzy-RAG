@@ -1,0 +1,99 @@
+"""Spot-check Meta's precomputed contriever-msmarco passage embeddings (spec v0.3, section 7.2).
+
+Why: we did not compute the 21M passage vectors ourselves, so we do not control how passages were
+formatted or truncated. Queries are encoded by us; if our passage formatting differed from Meta's,
+query and passage vectors would come from slightly different procedures and every dense score
+would be subtly off. This script encodes a fixed random sample of passages ourselves and checks
+that each matches Meta's vector.
+
+Pass: cosine >= 0.999 for every sampled passage (Meta stored float16 and likely computed in
+float16; we compute in float32, so tiny differences are expected). On failure, formatting
+variants are tried on a subset to show which one Meta used.
+
+Run from the repo root:  .venv\\Scripts\\python.exe -m scripts.verify_embeddings
+"""
+
+import argparse
+import json
+import sys
+import time
+from pathlib import Path
+
+import numpy as np
+
+from main_logic import corpus as cp
+from main_logic import dense as dn
+
+DATA = Path(r"D:\Han\rex_rag\data")
+COS_MIN = 0.999
+
+
+def cosines(a, b):
+    a = a / np.linalg.norm(a, axis=1, keepdims=True)
+    b = b / np.linalg.norm(b, axis=1, keepdims=True)
+    return (a * b).sum(axis=1)
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--n", type=int, default=1000)
+    ap.add_argument("--seed", type=int, default=0)
+    ap.add_argument("--out", default=str(DATA / "checks" / "verify_embeddings.json"))
+    args = ap.parse_args()
+    sys.stdout.reconfigure(encoding="utf-8")
+
+    rng = np.random.default_rng(args.seed)
+    ids = sorted({str(i) for i in rng.choice(cp.CORPUS_SIZE, args.n, replace=False) + 1}, key=int)
+
+    t = time.time()
+    passages = cp.load_passages(DATA / "dpr" / "psgs_w100.tsv.gz", ids)
+    print(f"read {len(passages)} sampled passages in {time.time() - t:.0f}s")
+
+    t = time.time()
+    index = dn.EmbeddingIndex.from_shards(DATA / "contriever-msmarco" / "wikipedia_embeddings")
+    print(f"loaded {len(index):,} precomputed vectors in {time.time() - t:.0f}s")
+    meta = index.vectors(ids)
+
+    encoder = dn.load_encoder()
+    t = time.time()
+    ours = dn.encode([dn.passage_text(*passages[i]) for i in ids], encoder)
+    print(f"encoded {len(ids)} passages on {next(encoder[1].parameters()).device} "
+          f"in {time.time() - t:.0f}s")
+
+    cos = cosines(ours, meta)
+    norm_ratio = np.linalg.norm(ours, axis=1) / np.linalg.norm(meta, axis=1)
+    report = {
+        "n": len(ids), "seed": args.seed, "model": dn.MODEL, "revision": dn.REVISION,
+        "format": "title + ' ' + text", "max_length": dn.MAX_LENGTH,
+        "cosine": {"min": float(cos.min()), "p1": float(np.percentile(cos, 1)),
+                   "median": float(np.median(cos)), "mean": float(cos.mean())},
+        "norm_ratio": {"min": float(norm_ratio.min()), "max": float(norm_ratio.max())},
+        "passed": bool(cos.min() >= COS_MIN),
+        "shards_covered": int(len(set(np.searchsorted(index.starts, [int(i) - 1 for i in ids],
+                                                      side="right")))),
+    }
+    worst = np.argsort(cos)[:3]
+    report["worst"] = [{"id": ids[i], "cosine": float(cos[i]),
+                        "title": passages[ids[i]][0]} for i in worst]
+
+    if not report["passed"]:
+        sub = ids[:100]
+        variants = {
+            "text only": lambda ti, te: te,
+            "lowercase title + text": lambda ti, te: f"{ti} {te}".lower(),
+            "title + newline + text": lambda ti, te: f"{ti}\n{te}",
+            "title + '. ' + text": lambda ti, te: f"{ti}. {te}",
+        }
+        report["variants"] = {}
+        for name, fmt in variants.items():
+            v = dn.encode([fmt(*passages[i]) for i in sub], encoder)
+            report["variants"][name] = float(cosines(v, meta[:len(sub)]).min())
+
+    Path(args.out).parent.mkdir(parents=True, exist_ok=True)
+    Path(args.out).write_text(json.dumps(report, indent=2, ensure_ascii=False), encoding="utf8")
+    print(json.dumps(report, indent=2, ensure_ascii=False))
+    return 0 if report["passed"] else 1
+
+
+if __name__ == "__main__":
+    sys.exit(main())
