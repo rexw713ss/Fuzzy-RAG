@@ -2,7 +2,7 @@
 
 Uncertainty-aware adaptive routing for retrieval-augmented generation using an interpretable fuzzy controller.
 
-> **Project status:** Active research prototype. The retrieval, uncertainty-signal, fuzzy-controller, and threshold-selection components are implemented. The complete A0/A1/A2 generation and evaluation pipeline is still under development. No final paper results are reported in this repository yet.
+> **Project status:** Active research prototype. The retrieval, uncertainty-signal, fuzzy-controller, threshold-selection, width-calibration, data-split, and evaluation-metric components are implemented and unit-tested. The paraphrase clusters and the complete A0/A1/A2 generation pipeline are still under development. No final paper results are reported in this repository yet.
 
 ## Overview
 
@@ -31,7 +31,7 @@ flowchart TD
     A2 --> G
 ```
 
-The current repository implements retrieval, fusion, S1–S4, fuzzy inference, and cost-constrained threshold selection. The three complete action pipelines and shared answer generator shown above are part of the planned experimental pipeline.
+The current repository implements retrieval, fusion, S1–S4, fuzzy inference, cost-constrained threshold selection, the A2 merge rule, jitter-width calibration, the cluster-level data split, and the evaluation metrics. The three complete action pipelines and shared answer generator shown above are part of the planned experimental pipeline.
 
 ## Retrieval and Fusion
 
@@ -133,91 +133,117 @@ All actions are intended to use the same final top-5 context size, answer genera
 - [x] S1–S4 computation
 - [x] Training-only percentile scaler primitives
 - [x] 81-rule Mamdani fuzzy controller
+- [x] Operator ablations: product t-norm, probabilistic sum, Sugeno-0
+- [x] Output-monotonicity report (reproduces the specification's grid measurements)
 - [x] Validation-time threshold search under a cost budget
 - [x] Fixed-action policy evaluation primitives
+- [x] A2 candidate merge and rewrite-fallback rule
+- [x] Cluster-level train/validation/test split
+- [x] Jitter-width calibration (per-signal widths, with clipping flagged)
+- [x] Oracle action, routing flip rate (RFR), harmful flip rate (HRFR), and within-cluster robustness measures
+- [x] Cluster-bootstrap confidence intervals and paired comparisons
+- [x] Hard-threshold (B1), crisp ordinal (B2), fixed-width (B3), and calibrated-fuzzy (B4) baselines
+- [x] `config.yaml` with every fixed parameter, checked against the code by tests
+- [x] Pinned environment files
 - [x] Unit tests for implemented components
 - [ ] Config-driven data and experiment pipeline
-- [ ] Cluster-level train/validation/test split
 - [ ] Paraphrase generation and cluster validation
-- [ ] Jitter-width calibration pipeline
 - [ ] A0, A1, and A2 end-to-end actions
 - [ ] Shared answer-generation pipeline
-- [ ] EM, token-level F1, robustness, and cost evaluation
-- [ ] Crisp, hard-threshold, fixed-width, and calibrated-fuzzy baselines
-- [ ] Confidence intervals and final paper tables
+- [ ] EM and token-level F1 on generated answers
+- [ ] Final paper tables
 
 ## Repository Structure
 
 ```text
 Fuzzy-RAG/
 ├── main_logic/
+│   ├── actions.py       # A2 candidate merge and rewrite fallback
 │   ├── answers.py       # DPR-style answer matching and Recall@k
 │   ├── bm25.py          # BM25 retrieval wrapper
+│   ├── baselines.py     # Controller baselines B1-B4 and their threshold fitting
+│   ├── calibration.py   # Jitter-width calibration of the membership functions
+│   ├── config.py        # Loads config.yaml
 │   ├── corpus.py        # DPR passage reader
 │   ├── dense.py         # Contriever encoder and dense retrieval
-│   ├── fuzzy.py         # Mamdani fuzzy controller and rule base
+│   ├── evaluation.py    # Oracle action, RFR/HRFR, robustness, bootstrap CIs
+│   ├── fuzzy.py         # Mamdani fuzzy controller, rule base, and operator ablations
+│   ├── monotonicity.py  # Grid measurement of output-monotonicity violations
 │   ├── routing.py       # Action assignment and threshold selection
-│   └── signals.py       # Fusion, S1-S4, and signal scaling
+│   ├── signals.py       # Fusion, S1-S4, and signal scaling
+│   └── splits.py        # Cluster-level train/validation/test split
 ├── scripts/
 │   ├── bm25_search.py
+│   ├── monotonicity_report.py
 │   ├── smoke_retrieval.py
 │   └── verify_embeddings.py
 ├── tests/
+├── config.yaml              # Every fixed experiment parameter; fitted values added later
+├── requirements.txt         # Main environment, exact versions
+├── requirements-bm25.txt    # BM25 environment, exact versions
 └── .gitignore
 ```
 
 ## Installation
 
-The project currently uses separate environments for the main dense-retrieval pipeline and Pyserini BM25 retrieval. Pinned environment files will be added as the experiment pipeline is finalized.
+The project uses separate environments for the main pipeline and Pyserini BM25 retrieval. Both are pinned to exact package versions.
 
-### Core and dense-retrieval environment
-
-```bash
-python -m venv .venv
-source .venv/bin/activate
-python -m pip install --upgrade pip
-python -m pip install numpy regex pytest torch transformers
-```
-
-On Windows PowerShell, activate the environment with:
+### Core and dense-retrieval environment (Python 3.14)
 
 ```powershell
-.venv\Scripts\Activate.ps1
+py -3.14 -m venv .venv
+.venv\Scripts\python.exe -m pip install -r requirements.txt
 ```
 
-### BM25 environment
+`requirements.txt` installs PyTorch `2.14.1+cu126` from the PyTorch CUDA 12.6 index. Do not replace it with a plain `pip install torch`: on Windows that installs a CPU-only build, and newer CUDA builds no longer support Pascal GPUs such as the Quadro P2200 used here. Check that the GPU is usable:
 
-Pyserini requires a compatible Java installation. Create a separate environment and install Pyserini according to the requirements of the selected release:
-
-```bash
-python -m venv .venv-bm25
-source .venv-bm25/bin/activate
-python -m pip install --upgrade pip
-python -m pip install pyserini
+```powershell
+.venv\Scripts\python.exe -c "import torch; print(torch.cuda.is_available(), torch.cuda.get_arch_list())"
 ```
 
-Before running an experiment, record the Python, Java, Pyserini, PyTorch, Transformers, NumPy, and CUDA versions.
+### BM25 environment (Python 3.13)
+
+Pyserini does not support Python 3.14, and installing it into the main environment would replace the CUDA build of PyTorch, so it has its own environment:
+
+```powershell
+py -3.13 -m venv .venv-bm25
+.venv-bm25\Scripts\python.exe -m pip install -r requirements-bm25.txt
+```
+
+Pyserini also needs a Java Development Kit and `JAVA_HOME`. It documents Java 21; Microsoft OpenJDK 25.0.4 was tested and works:
+
+```powershell
+setx JAVA_HOME "C:\Program Files\Microsoft\jdk-25.0.4.101-hotspot"
+```
+
+On Windows consoles that cannot print all Unicode characters, set `PYTHONUTF8=1` before running the scripts.
 
 ## External Data and Indexes
 
-Large datasets and indexes are not included in the repository. The current implementation expects compatible copies of:
+Large datasets and indexes are not included in the repository. The experiment uses these exact files:
 
-- DPR Wikipedia passages (`psgs_w100.tsv` or `psgs_w100.tsv.gz`)
-- A Lucene BM25 index built over the same DPR passage IDs
-- Precomputed `facebook/contriever-msmarco` passage embeddings
-- A question file in JSON Lines format
+| File | Source | Size | Check |
+|---|---|---|---|
+| DPR Wikipedia passages, `psgs_w100.tsv.gz` (21,015,324 passages) | `https://dl.fbaipublicfiles.com/dpr/wikipedia_split/psgs_w100.tsv.gz` | 4,694,541,059 bytes | SHA-256 `c39b020c855a2b5c25ffef3abe4a3b6f9b829ad7dbc14ec3d163d34d7c53ea8d` |
+| Precomputed `facebook/contriever-msmarco` passage embeddings | `https://dl.fbaipublicfiles.com/contriever/embeddings/contriever-msmarco/wikipedia_embeddings.tar` | 32,499,691,520 bytes | No published checksum; verified with `scripts.verify_embeddings` |
+| Prebuilt Lucene BM25 index over the same passages | `https://rgw.cs.uwaterloo.ca/pyserini/indexes/lucene/lucene-inverted.wikipedia-dpr-100w.20260508.deb4c7b.tar` | 11,078,635,520 bytes | MD5 `1ef94a97f2ac418577d1e6a9ecf44806` |
+| NQ-open development questions (smoke tests only) | `https://raw.githubusercontent.com/google-research-datasets/natural-questions/master/nq_open/NQ-open.dev.jsonl` | 3,610 questions | SHA-256 `f15567f38099f3615f5b8a685c0aef449c11ad90d3da3735e8d1b98115b40616` |
+
+Unpack the two archives:
+
+```bash
+mkdir -p bm25 contriever-msmarco
+tar -xf lucene-inverted.wikipedia-dpr-100w.20260508.deb4c7b.tar -C bm25
+tar -xf wikipedia_embeddings.tar -C contriever-msmarco
+```
+
+The unsupervised `contriever` and the `contriever-msmarco` embedding archives have exactly the same size, so check that you downloaded the right one; `scripts.verify_embeddings` fails for the wrong checkpoint. The embedding shards are Python pickles, and loading a pickle can execute code, so load only the official release.
 
 The dense embeddings and sparse index must use the same passage-ID space. The loader verifies consecutive dense passage IDs, and the smoke test checks retrieval behavior and answer recall.
 
-### Temporary path configuration
+### Path configuration
 
-The current scripts still contain local path constants that must be updated before execution:
-
-- `scripts/bm25_search.py`: `INDEX`
-- `scripts/smoke_retrieval.py`: `DATA`
-- `scripts/verify_embeddings.py`: `DATA`
-
-These constants will be replaced by YAML configuration and command-line arguments in a subsequent revision.
+Data paths are recorded in `config.yaml` under `data:`. The three scripts still define their own path constants (`INDEX` in `scripts/bm25_search.py`, `DATA` in `scripts/smoke_retrieval.py` and `scripts/verify_embeddings.py`); `tests/test_config.py` checks that they match `config.yaml`, so if the data moves, update both.
 
 ## Running the Tests
 
@@ -227,7 +253,7 @@ From the repository root:
 python -m pytest -q
 ```
 
-The tests cover retrieval primitives, ranking signals, the complete fuzzy rule base, membership functions, deterministic action assignment, threshold selection, and cost-aware policy evaluation. Tests that require large external indexes are handled through separate smoke scripts rather than the unit-test suite.
+The tests cover retrieval primitives, ranking signals, the complete fuzzy rule base, membership functions, deterministic action assignment, threshold selection, cost-aware policy evaluation, the A2 merge rule, width calibration, the data split, the evaluation metrics, and the agreement between `config.yaml` and the code. Tests that require large external indexes are handled through separate smoke scripts rather than the unit-test suite.
 
 ## Running Retrieval Checks
 
@@ -271,6 +297,9 @@ This compares a deterministic sample of locally encoded passages with the precom
 
 ## Reproducibility Notes
 
+- Python packages are pinned to exact versions in `requirements.txt` and `requirements-bm25.txt`.
+- Every fixed parameter is recorded in `config.yaml`, and a test checks each one against the constant the code uses. Fitted values (signal scalers, calibrated widths, selected thresholds) are added to its `fitted:` section by the fitting steps.
+- The data split uses seed 42, and a test pins the resulting shuffle.
 - The Contriever checkpoint is pinned to a specific Hugging Face revision in `main_logic/dense.py`.
 - Retrieval ties are resolved deterministically.
 - Passage IDs are checked for consistency across embedding shards.
@@ -283,7 +312,7 @@ This compares a deterministic sample of locally encoded passages with the precom
 
 - Exact dense retrieval over approximately 21 million passages is computationally expensive and is currently provisional.
 - The complete A0/A1/A2 execution pipeline is not yet implemented.
-- Width calibration, paraphrase robustness evaluation, and generation metrics are not yet integrated.
+- Width calibration and the paraphrase-robustness metrics are implemented but have not been run on paraphrase clusters yet; generation metrics are not yet integrated.
 - Current experiment scripts still contain machine-specific paths.
 - No state-of-the-art or cross-domain performance claim is made at this stage.
 

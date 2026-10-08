@@ -7,9 +7,10 @@ from pathlib import Path
 
 import pytest
 
-from main_logic import actions, bm25, calibration, dense, fuzzy, routing, signals, splits
+from main_logic import (actions, baselines, bm25, calibration, dense, evaluation, fuzzy, routing, signals,
+                        splits)
 from main_logic.config import load_config
-from scripts import bm25_search, smoke_retrieval
+from scripts import bm25_search, smoke_retrieval, verify_embeddings
 
 CFG = load_config()
 
@@ -34,24 +35,30 @@ CFG = load_config()
     ("routing", "quality", routing.QUALITY),
     ("routing", "cost", routing.COST),
     ("actions", "a2_rerank", actions.A2_RERANK),
+    ("baselines", "b1_weight_step", baselines.WEIGHT_STEP),
+    ("baselines", "b2_t_max", baselines.T_MAX),
     ("calibration", "quantile", calibration.QUANTILE),
     ("calibration", "cluster_size", calibration.CLUSTER_SIZE),
     ("splits", "seed", splits.SEED),
     ("splits", "names", list(splits.SPLITS)),
+    ("evaluation", "oracle_delta", evaluation.DELTA),
+    ("evaluation", "bootstrap_resamples", evaluation.N_BOOT),
+    ("evaluation", "ci_level", evaluation.CI_LEVEL),
+    ("evaluation", "bootstrap_seed", evaluation.SEED),
 ])
 def test_config_matches_code(section, key, constant):
     assert CFG[section][key] == constant
 
 
-def test_evaluation_values_match_the_spec():
-    """No code constant yet; step 0i adds them and moves these checks to them."""
-    assert CFG["evaluation"]["oracle_delta"] == 0.02           # 6.1
-    assert CFG["evaluation"]["bootstrap_resamples"] == 1000    # 6.3
+def test_evaluation_values_are_the_specs():
+    """6.1 fixes delta at 0.02 and 6.3 fixes 1,000 resamples."""
+    assert evaluation.DELTA == 0.02
+    assert evaluation.N_BOOT == 1000
 
 
 def test_data_paths_match_the_scripts():
     data = CFG["data"]
-    assert Path(data["root"]) == smoke_retrieval.DATA
+    assert Path(data["root"]) == smoke_retrieval.DATA == verify_embeddings.DATA
     assert Path(data["bm25_index"]) == bm25_search.INDEX
     assert Path(data["corpus"]) == smoke_retrieval.DATA / "dpr" / "psgs_w100.tsv.gz"
     assert Path(data["embeddings"]) == (smoke_retrieval.DATA / "contriever-msmarco"

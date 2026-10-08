@@ -9,8 +9,8 @@ from pathlib import Path
 import yaml
 
 CONFIG = Path(__file__).resolve().parents[1] / "config.yaml"
-SECTIONS = ("data", "retrieval", "signals", "fuzzy", "routing", "actions", "calibration",
-            "splits", "evaluation", "fitted")
+SECTIONS = ("data", "retrieval", "signals", "fuzzy", "routing", "actions", "baselines",
+            "calibration", "splits", "evaluation", "fitted")
 
 
 def load_config(path=CONFIG):

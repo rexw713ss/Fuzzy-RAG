@@ -2,7 +2,7 @@
 
 Covers the section 8.1 acceptance items that belong to the controller (81 rules,
 31/19/31 split, all-Low = minimum, all-High = maximum), the rule CSV, and a
-hand-computed example. Ablations and the monotonicity report are not covered yet.
+hand-computed example, and the three section 3.3 ablations.
 """
 
 import csv
@@ -158,3 +158,78 @@ def test_per_signal_widths():
 def test_bad_signals_rejected(s):
     with pytest.raises(ValueError):
         fz.escalate(s)
+
+
+# --- 3.3 ablations ---------------------------------------------------------
+
+@pytest.mark.parametrize("name", list(fz.ABLATIONS))
+def test_every_ablation_keeps_the_endpoints(name):
+    """All-Low and all-High fire one rule at strength 1, so every operator choice agrees."""
+    kw = fz.ABLATIONS[name]
+    assert fz.escalate([0.0] * 4, **kw)[0] == pytest.approx(ESC_MIN, abs=1e-3)
+    assert fz.escalate([1.0] * 4, **kw)[0] == pytest.approx(ESC_MAX, abs=1e-3)
+
+
+@pytest.mark.parametrize("name", list(fz.ABLATIONS))
+def test_ablations_agree_where_one_rule_fires(name):
+    """Inside the flat cores only one rule fires at strength 1; no operator can change that."""
+    s = [0.1, 0.5, 0.9, 0.5]
+    main = fz.escalate(s)[0]
+    assert fz.escalate(s, **fz.ABLATIONS[name])[0] == pytest.approx(main, abs=1e-3)
+
+
+def test_main_ablation_is_the_default():
+    rng = np.random.default_rng(3)
+    for s in rng.random((50, 4)):
+        assert fz.escalate(s, **fz.ABLATIONS["main"])[0] == fz.escalate(s)[0]
+
+
+def test_product_tnorm_hand_example():
+    """Same input as the hand example; strengths are products of the degrees instead of minima.
+    LMMM .75 x .25, LMMH .75 x .75, MMMM .25 x .25, MMMH .25 x .75. Clips Low .1875 /
+    Med .5625 / High .1875 are still symmetric, so the centroid stays 0.5."""
+    esc, trace = fz.escalate([0.30, 0.50, 0.50, 0.70], tnorm="product")
+    fired = {r["labels"]: r["strength"] for r in trace["fired"]}
+    assert fired == pytest.approx({
+        ("Low", "Med", "Med", "Med"): 0.1875,
+        ("Low", "Med", "Med", "High"): 0.5625,
+        ("Med", "Med", "Med", "Med"): 0.0625,
+        ("Med", "Med", "Med", "High"): 0.1875,
+    })
+    assert esc == pytest.approx(0.5, abs=1e-9)
+    assert trace["operators"]["tnorm"] == "product"
+
+
+def test_probsum_combines_every_fired_rule():
+    """S1 = 0.35 sits on the Low/Med crossover (0.5 each), the rest are Low. Two rules fire,
+    LLLL (t=0) and MLLL (t=1), both at 0.5 and both with consequent Low.
+
+    Per fired rule (adopted, section 3.3): Low set clipped at 0.5, combined with itself,
+    1 - (1 - a)^2, so the plateau rises to 0.75. Per label it would stay at 0.5 and equal
+    the main controller; the test checks the two differ, i.e. the per-rule form is used.
+    """
+    s = [0.35, 0.1, 0.1, 0.1]
+    esc = fz.escalate(s, aggregation="probsum")[0]
+    y = np.linspace(0.0, 1.0, fz.N_OUT)
+    a = np.minimum(fz.trapezoid(y, *fz.OUT_MF["Low"]), 0.5)
+    agg = 1 - (1 - a) ** 2
+    assert esc == pytest.approx(float((agg * y).sum() / agg.sum()), abs=1e-12)
+    assert esc != pytest.approx(fz.escalate(s)[0], abs=1e-4)
+
+
+def test_sugeno_hand_example():
+    """S1 = 0.65 sits on the Med/High crossover, the rest are Med. MMMM (Med, 0.5) and HMMM
+    (High, 0.5) fire: score = (0.5 x 0.5 + 0.5 x 0.8667) / 1.0 = 0.6833."""
+    esc = fz.escalate([0.65, 0.5, 0.5, 0.5], defuzz="sugeno")[0]
+    assert esc == pytest.approx((0.5 * 0.5 + 0.5 * ESC_MAX) / 1.0, abs=1e-12)
+
+
+def test_sugeno_constants_are_the_output_centroids():
+    assert fz.SUGENO_Z == pytest.approx({"Low": ESC_MIN, "Med": 0.5, "High": ESC_MAX})
+
+
+@pytest.mark.parametrize("kw", [{"tnorm": "max"}, {"aggregation": "sum"}, {"defuzz": "mom"},
+                                {"defuzz": "sugeno", "aggregation": "probsum"}])
+def test_unknown_or_meaningless_operators_rejected(kw):
+    with pytest.raises(ValueError):
+        fz.escalate([0.5] * 4, **kw)

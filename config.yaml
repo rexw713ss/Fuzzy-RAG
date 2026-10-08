@@ -42,6 +42,10 @@ routing:                        # 3.4
 actions:                        # 1
   a2_rerank: 30                 # passages the cross-encoder re-scores after the A2 merge
 
+baselines:                      # 5
+  b1_weight_step: 0.25          # B1 weight lattice: 35 vectors summing to 1
+  b2_t_max: 8                   # ordinal sum t ranges 0..8; cut points 0 <= c1 < c2 <= 9
+
 calibration:                    # 7.3
   quantile: 75
   cluster_size: 3               # incomplete clusters are skipped
@@ -51,8 +55,10 @@ splits:                         # 7.1
   names: [train, val, test]     # 60 / 20 / 20
 
 evaluation:                     # 6
-  oracle_delta: 0.02            # 6.1
+  oracle_delta: 0.02            # 6.1; also HRFR's delta (6.2)
   bootstrap_resamples: 1000     # 6.3
+  ci_level: 0.95                # percentile intervals (user decision, Oct 8)
+  bootstrap_seed: 42
 
 # Written by the fitting steps on training / validation data; empty until stage 1.
 fitted:
