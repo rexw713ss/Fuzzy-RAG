@@ -1,8 +1,11 @@
-"""Dense retrieval with Contriever over the DPR Wikipedia passages (spec v0.3, sections 2.1, 7.2).
+"""Dense retrieval with Contriever (spec v0.3, sections 2.1, 7.2).
 
-Passage vectors are Meta's precomputed contriever-msmarco embeddings of the 21,015,324 DPR
-passages (16 pickle shards; provenance in data/SOURCES.txt). Queries are encoded here with the
-same checkpoint, pinned to one revision. As in Contriever, an embedding is the mean of the last
+Passage vectors are precomputed contriever-msmarco embeddings (provenance in data/SOURCES.txt):
+  - NQ: Meta's embeddings of the 21,015,324 DPR passages, 16 pickle shards, float16;
+  - HotpotQA: pyserini's FAISS flat index of the 5,233,329 BEIR HotpotQA abstracts, float32.
+    Only the file is used, not the FAISS library: it is a 45-byte header followed by the raw
+    vectors, read here with numpy.
+Queries are encoded here with the same checkpoint, pinned to one revision. As in Contriever, an embedding is the mean of the last
 hidden states over real tokens, left unnormalized, and the score is the inner product.
 
 Search is exact: every query is scored against every passage. This is provisional until open
@@ -11,6 +14,7 @@ EmbeddingIndex.search and nothing else.
 """
 
 import pickle
+import struct
 from pathlib import Path
 
 import numpy as np
@@ -20,6 +24,7 @@ REVISION = "abe8c1493371369031bcb1e02acb754cf4e162fa"   # Hugging Face commit, d
 MAX_LENGTH = 512        # Contriever's default passage and question length
 DIM = 768
 CHUNK = 262_144         # rows scored per matmul: ~0.8 GB as float32
+FAISS_HEADER = 45       # bytes before the vectors in a FAISS IndexFlat file
 
 
 def passage_text(title, text):
@@ -61,22 +66,34 @@ def encode(texts, encoder, batch_size=64, max_length=MAX_LENGTH):
 
 
 class EmbeddingIndex:
-    """Passage vectors held in RAM as float16 blocks, one per shard (~32 GB for all of DPR).
+    """Passage vectors in blocks: float16 shards in RAM for DPR (~32 GB), one float32 memory map
+    for HotpotQA (16 GB, paged in by the OS on the first search).
 
     The blocks are never concatenated: joining 16 shards of 2 GB would briefly need twice the
-    memory. Passage ids must be "1", "2", ... in block order, which is how the DPR corpus and
-    Meta's shards are laid out; this is checked at load, and lets an id map to a row by
-    arithmetic (row = int(id) - 1) instead of a 21M-entry dictionary.
+    memory.
+
+    Ids: with ids=None the passage ids are "1", "2", ... in block order, as in the DPR corpus
+    and Meta's shards (checked at load), so an id maps to a row by arithmetic (row = int(id) - 1)
+    instead of a 21M-entry dictionary. Otherwise `ids` lists the id of every row (HotpotQA's
+    Wikipedia page ids, which are not consecutive).
     """
 
-    def __init__(self, blocks):
-        self.blocks = [np.asarray(b) for b in blocks]
+    def __init__(self, blocks, ids=None):
+        self.blocks = [b if isinstance(b, np.memmap) else np.asarray(b) for b in blocks]
         for b in self.blocks:
             if b.ndim != 2 or b.shape[1] != DIM:
                 raise ValueError(f"every block must be (n, {DIM}), got {b.shape}")
         sizes = [len(b) for b in self.blocks]
         self.starts = np.concatenate([[0], np.cumsum(sizes)]).astype(np.int64)
         self.n = int(self.starts[-1])
+        self.ids = None
+        if ids is not None:
+            self.ids = [str(i) for i in ids]
+            if len(self.ids) != self.n:
+                raise ValueError(f"{len(self.ids)} ids for {self.n} vectors")
+            self._rows = {d: r for r, d in enumerate(self.ids)}
+            if len(self._rows) != self.n:
+                raise ValueError("passage ids are not unique")
 
     @classmethod
     def from_shards(cls, directory, pattern="passages_*"):
@@ -95,16 +112,46 @@ class EmbeddingIndex:
             expected += len(ids)
         return cls(blocks)
 
+    @classmethod
+    def from_faiss(cls, directory):
+        """Load a pyserini FAISS flat index directory: `index` (the vectors) and `docid` (one
+        passage id per line, in row order). The vectors are memory-mapped, not copied.
+
+        Only an inner-product flat index of float32 vectors of dimension 768 is accepted;
+        anything else raises rather than being misread.
+        """
+        directory = Path(directory)
+        with open(directory / "index", "rb") as f:
+            head = f.read(FAISS_HEADER)
+        magic, d, ntotal, _, _, trained, metric, n_codes = struct.unpack("<4siqqq?iq", head)
+        if magic != b"IxFI":
+            raise ValueError(f"not a FAISS flat inner-product index (magic {magic!r})")
+        if d != DIM or metric != 0 or not trained or n_codes != ntotal * d:
+            raise ValueError(f"unexpected FAISS header: d={d}, metric={metric}, "
+                             f"trained={trained}, ntotal={ntotal}, codes={n_codes}")
+        size = (directory / "index").stat().st_size
+        if size != FAISS_HEADER + 4 * ntotal * d:
+            raise ValueError(f"index file is {size} bytes, expected "
+                             f"{FAISS_HEADER + 4 * ntotal * d} for {ntotal} vectors")
+        vecs = np.memmap(directory / "index", dtype="<f4", mode="r", offset=FAISS_HEADER,
+                         shape=(ntotal, d))
+        with open(directory / "docid", encoding="utf8") as f:
+            ids = [line.rstrip("\n") for line in f]
+        return cls([vecs], ids=ids)
+
     def __len__(self):
         return self.n
 
-    @staticmethod
-    def row_of(doc_id):
-        return int(doc_id) - 1
+    def row_of(self, doc_id):
+        if self.ids is None:
+            return int(doc_id) - 1
+        try:
+            return self._rows[str(doc_id)]
+        except KeyError:
+            raise KeyError(f"passage id {doc_id!r} not in the index") from None
 
-    @staticmethod
-    def id_of(row):
-        return str(int(row) + 1)
+    def id_of(self, row):
+        return str(int(row) + 1) if self.ids is None else self.ids[int(row)]
 
     def vectors(self, doc_ids):
         """float32 vectors for the given passage ids, in the given order (S3 needs the top-10)."""
@@ -121,8 +168,9 @@ class EmbeddingIndex:
         """Exact top-k passages by inner product for each query.
 
         queries: float32 (n_queries, 768). Returns one list per query of (doc_id, score), score
-        descending, ties broken by lower doc id. Scoring all queries in one call reads the 32 GB
-        of vectors once, so batch queries rather than calling per query.
+        descending, ties broken by lower row (for DPR, the lower doc id; for HotpotQA, the
+        earlier line in `docid`). Scoring all queries in one call reads every vector once, so
+        batch queries rather than calling per query.
         """
         q = np.asarray(queries, dtype=np.float32)
         if q.ndim != 2 or q.shape[1] != DIM:

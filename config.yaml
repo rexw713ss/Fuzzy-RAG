@@ -12,6 +12,10 @@ data:
   corpus: D:/Han/rex_rag/data/dpr/psgs_w100.tsv.gz
   embeddings: D:/Han/rex_rag/data/contriever-msmarco/wikipedia_embeddings
   bm25_index: D:/Han/rex_rag/data/bm25/lucene-inverted.wikipedia-dpr-100w.20260508.deb4c7b
+  # HotpotQA: BEIR abstracts. Prebuilt pyserini indexes; corpus exported by scripts/export_corpus.py
+  hotpotqa_corpus: D:/Han/rex_rag/data/hotpotqa/corpus.tsv.gz
+  hotpotqa_embeddings: D:/Han/rex_rag/data/hotpotqa/faiss-flat.beir-v1.0.0-hotpotqa.contriever-msmarco.20230124
+  hotpotqa_bm25_index: D:/Han/rex_rag/data/hotpotqa/lucene-inverted.beir-v1.0.0-hotpotqa.flat.20221116.505594
 
 retrieval:                      # 2.1, 7.2
   dense_model: facebook/contriever-msmarco

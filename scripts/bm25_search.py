@@ -1,10 +1,11 @@
 """Run BM25 for a file of questions and write the top-k hits (spec v0.3, sections 2.1, 7.2).
 
 Runs in the BM25 environment, from the repo root:
-    .venv-bm25\\Scripts\\python.exe -m scripts.bm25_search QUESTIONS.jsonl OUT.jsonl
+    .venv-bm25\\Scripts\\python.exe -m scripts.bm25_search QUESTIONS OUT.jsonl [--dataset hotpotqa]
 
-QUESTIONS.jsonl: one {"question": ...} per line (NQ-open format). OUT.jsonl: one line per question,
-in input order: {"qid", "question", "hits": [[doc_id, score], ...]}.
+QUESTIONS: NQ-open .jsonl or HotpotQA .json (corpus.load_questions). --dataset picks the index
+(default nq). OUT.jsonl: one line per question, in input order:
+{"qid", "question", "hits": [[doc_id, score], ...]}.
 """
 
 import argparse
@@ -13,9 +14,9 @@ import sys
 import time
 from pathlib import Path
 
+from main_logic import corpus as cp
 from main_logic.bm25 import BM25
-
-INDEX = Path(r"D:\Han\rex_rag\data\bm25\lucene-inverted.wikipedia-dpr-100w.20260508.deb4c7b")
+from scripts import datasets as ds
 
 
 def main():
@@ -25,13 +26,13 @@ def main():
     ap.add_argument("--n", type=int, default=None, help="use only the first n questions")
     ap.add_argument("--k", type=int, default=50)
     ap.add_argument("--threads", type=int, default=8)
+    ap.add_argument("--dataset", choices=ds.NAMES, default="nq")
     args = ap.parse_args()
     sys.stdout.reconfigure(encoding="utf-8")
 
-    with open(args.questions, encoding="utf8") as f:
-        qs = [json.loads(line)["question"] for line in f][:args.n]
+    qs = [q["question"] for q in cp.load_questions(args.questions, args.n)]
 
-    bm25 = BM25(INDEX)
+    bm25 = BM25(ds.BM25_INDEX[args.dataset])
     t = time.time()
     hits = bm25.search(qs, k=args.k, threads=args.threads)
     dt = time.time() - t

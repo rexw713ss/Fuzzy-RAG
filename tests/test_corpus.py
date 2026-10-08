@@ -1,6 +1,7 @@
-"""Tests for reading the DPR passage file (spec v0.3, section 7.2)."""
+"""Tests for reading the passage files and question files (spec v0.3, section 7.2)."""
 
 import gzip
+import json
 
 import pytest
 
@@ -49,3 +50,25 @@ def test_wrong_header_rejected(tmp_path):
     path.write_text("id\ttitle\ttext\n1\ta\tb\n", encoding="utf8")
     with pytest.raises(ValueError, match="unexpected header"):
         list(cp.iter_passages(path))
+
+
+def test_load_questions_reads_nq_jsonl(tmp_path):
+    p = tmp_path / "nq.jsonl"
+    p.write_text('{"question": "q1", "answer": ["a", "b"]}\n{"question": "q2", "answer": ["c"]}\n',
+                 encoding="utf8")
+    assert cp.load_questions(p) == [{"question": "q1", "answer": ["a", "b"]},
+                                    {"question": "q2", "answer": ["c"]}]
+    assert len(cp.load_questions(p, n=1)) == 1
+
+
+def test_load_questions_reads_hotpotqa_json(tmp_path):
+    p = tmp_path / "hotpot.json"
+    p.write_text(json.dumps([{"_id": "x1", "question": "q", "answer": "yes", "type": "comparison",
+                              "level": "hard", "context": []}]), encoding="utf8")
+    assert cp.load_questions(p) == [{"question": "q", "answer": ["yes"], "_id": "x1",
+                                     "type": "comparison", "level": "hard"}]
+
+
+def test_load_questions_rejects_other_files(tmp_path):
+    with pytest.raises(ValueError, match="expected a .jsonl"):
+        cp.load_questions(tmp_path / "questions.csv")

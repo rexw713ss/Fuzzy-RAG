@@ -174,6 +174,8 @@ Fuzzy-RAG/
 │   └── splits.py        # Cluster-level train/validation/test split
 ├── scripts/
 │   ├── bm25_search.py
+│   ├── datasets.py           # Corpus and index paths per dataset
+│   ├── export_corpus.py      # Lucene stored passages -> DPR-layout TSV
 │   ├── monotonicity_report.py
 │   ├── smoke_retrieval.py
 │   └── verify_embeddings.py
@@ -227,6 +229,9 @@ Large datasets and indexes are not included in the repository. The experiment us
 | DPR Wikipedia passages, `psgs_w100.tsv.gz` (21,015,324 passages) | `https://dl.fbaipublicfiles.com/dpr/wikipedia_split/psgs_w100.tsv.gz` | 4,694,541,059 bytes | SHA-256 `c39b020c855a2b5c25ffef3abe4a3b6f9b829ad7dbc14ec3d163d34d7c53ea8d` |
 | Precomputed `facebook/contriever-msmarco` passage embeddings | `https://dl.fbaipublicfiles.com/contriever/embeddings/contriever-msmarco/wikipedia_embeddings.tar` | 32,499,691,520 bytes | No published checksum; verified with `scripts.verify_embeddings` |
 | Prebuilt Lucene BM25 index over the same passages | `https://rgw.cs.uwaterloo.ca/pyserini/indexes/lucene/lucene-inverted.wikipedia-dpr-100w.20260508.deb4c7b.tar` | 11,078,635,520 bytes | MD5 `1ef94a97f2ac418577d1e6a9ecf44806` |
+| HotpotQA questions (train, dev distractor, dev fullwiki) | Hugging Face `hotpotqa/hotpot_qa`, converted to the original JSON layout | 90,447 / 7,405 / 7,405 questions | — |
+| Prebuilt Lucene BM25 index of the BEIR HotpotQA abstracts (5,233,329) | `https://huggingface.co/datasets/castorini/prebuilt-indexes-beir/resolve/main/lucene-inverted/flat/lucene-inverted.beir-v1.0.0-hotpotqa.flat.20221116.505594.tar.gz` | 2,019,088,696 bytes | MD5 `3f41d640a8ebbcad4f598140750c24f8` |
+| Prebuilt `contriever-msmarco` FAISS flat index of the same abstracts | `https://rgw.cs.uwaterloo.ca/pyserini/indexes/faiss/faiss-flat.beir-v1.0.0-hotpotqa.contriever-msmarco.20230124.tar.gz` | 14,889,518,959 bytes | MD5 `38c37708f9927501ca2f7563aa43f407`; verified with `scripts.verify_embeddings --dataset hotpotqa` |
 | NQ-open development questions (smoke tests only) | `https://raw.githubusercontent.com/google-research-datasets/natural-questions/master/nq_open/NQ-open.dev.jsonl` | 3,610 questions | SHA-256 `f15567f38099f3615f5b8a685c0aef449c11ad90d3da3735e8d1b98115b40616` |
 
 Unpack the two archives:
@@ -235,15 +240,28 @@ Unpack the two archives:
 mkdir -p bm25 contriever-msmarco
 tar -xf lucene-inverted.wikipedia-dpr-100w.20260508.deb4c7b.tar -C bm25
 tar -xf wikipedia_embeddings.tar -C contriever-msmarco
+mkdir -p hotpotqa
+tar -xzf lucene-inverted.beir-v1.0.0-hotpotqa.flat.20221116.505594.tar.gz -C hotpotqa
+tar -xzf faiss-flat.beir-v1.0.0-hotpotqa.contriever-msmarco.20230124.tar.gz -C hotpotqa
 ```
+
+HotpotQA's abstract texts are stored only inside the BM25 index. Export them once, in the BM25 environment, to a TSV in the DPR layout that the main environment reads:
+
+```bash
+.venv-bm25/Scripts/python -m scripts.export_corpus \
+  data/hotpotqa/lucene-inverted.beir-v1.0.0-hotpotqa.flat.20221116.505594 \
+  data/hotpotqa/corpus.tsv.gz
+```
+
+The HotpotQA dense index is read directly from the FAISS file with numpy (a 45-byte header followed by the float32 vectors); the FAISS library is not needed.
 
 The unsupervised `contriever` and the `contriever-msmarco` embedding archives have exactly the same size, so check that you downloaded the right one; `scripts.verify_embeddings` fails for the wrong checkpoint. The embedding shards are Python pickles, and loading a pickle can execute code, so load only the official release.
 
-The dense embeddings and sparse index must use the same passage-ID space. The loader verifies consecutive dense passage IDs, and the smoke test checks retrieval behavior and answer recall.
+The dense embeddings and sparse index must use the same passage-ID space. For NQ the loader verifies consecutive dense passage IDs; for HotpotQA it reads the index's `docid` file (Wikipedia page IDs) and rejects duplicates. The smoke test checks retrieval behavior and answer recall.
 
 ### Path configuration
 
-Data paths are recorded in `config.yaml` under `data:`. The three scripts still define their own path constants (`INDEX` in `scripts/bm25_search.py`, `DATA` in `scripts/smoke_retrieval.py` and `scripts/verify_embeddings.py`); `tests/test_config.py` checks that they match `config.yaml`, so if the data moves, update both.
+Data paths are recorded in `config.yaml` under `data:`. The scripts take their paths from `scripts/datasets.py`, and `tests/test_config.py` checks that it matches `config.yaml`, so if the data moves, update both.
 
 ## Running the Tests
 
@@ -259,7 +277,7 @@ The tests cover retrieval primitives, ranking signals, the complete fuzzy rule b
 
 ### 1. BM25 retrieval
 
-The input is a JSON Lines file containing one `{"question": "..."}` object per line.
+The input is NQ-open's JSON Lines file or a HotpotQA `.json` file. Add `--dataset hotpotqa` for HotpotQA (default `nq`); the same option applies to the next two scripts.
 
 ```bash
 python -m scripts.bm25_search \
@@ -271,7 +289,7 @@ python -m scripts.bm25_search \
 
 ### 2. End-to-end retrieval smoke test
 
-The question file used by the smoke test must provide `question` and `answer` fields. The `answer` field is a list of accepted gold-answer strings.
+The question file must provide `question` and `answer` fields (NQ: a list of accepted answers; HotpotQA: one string). HotpotQA's yes/no answers cannot be found in a passage by string matching, so those questions are left out of Recall@k and counted.
 
 ```bash
 python -m scripts.smoke_retrieval \
@@ -313,7 +331,8 @@ This compares a deterministic sample of locally encoded passages with the precom
 - Exact dense retrieval over approximately 21 million passages is computationally expensive and is currently provisional.
 - The complete A0/A1/A2 execution pipeline is not yet implemented.
 - Width calibration and the paraphrase-robustness metrics are implemented but have not been run on paraphrase clusters yet; generation metrics are not yet integrated.
-- Current experiment scripts still contain machine-specific paths.
+- Data paths are machine-specific (`scripts/datasets.py`, `config.yaml`).
+- HotpotQA uses the BEIR version of the HotpotQA Wikipedia abstracts (5,233,329), because the original corpus host was unavailable.
 - No state-of-the-art or cross-domain performance claim is made at this stage.
 
 ## Planned Evaluation

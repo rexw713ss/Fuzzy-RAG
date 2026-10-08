@@ -10,7 +10,7 @@ import pytest
 from main_logic import (actions, baselines, bm25, calibration, dense, evaluation, fuzzy, routing, signals,
                         splits)
 from main_logic.config import load_config
-from scripts import bm25_search, smoke_retrieval, verify_embeddings
+from scripts import datasets, monotonicity_report
 
 CFG = load_config()
 
@@ -57,12 +57,13 @@ def test_evaluation_values_are_the_specs():
 
 
 def test_data_paths_match_the_scripts():
+    """The scripts take every path from scripts/datasets.py; it must equal config.yaml."""
     data = CFG["data"]
-    assert Path(data["root"]) == smoke_retrieval.DATA == verify_embeddings.DATA
-    assert Path(data["bm25_index"]) == bm25_search.INDEX
-    assert Path(data["corpus"]) == smoke_retrieval.DATA / "dpr" / "psgs_w100.tsv.gz"
-    assert Path(data["embeddings"]) == (smoke_retrieval.DATA / "contriever-msmarco"
-                                        / "wikipedia_embeddings")
+    assert Path(data["root"]) == datasets.DATA == monotonicity_report.DATA
+    for name, prefix in (("nq", ""), ("hotpotqa", "hotpotqa_")):
+        assert Path(data[prefix + "corpus"]) == datasets.CORPUS[name]
+        assert Path(data[prefix + "embeddings"]) == datasets.EMBEDDINGS[name]
+        assert Path(data[prefix + "bm25_index"]) == datasets.BM25_INDEX[name]
 
 
 def test_fitted_values_are_empty_until_stage_1():

@@ -1,10 +1,12 @@
-"""Tests for exact dense search over sharded float16 vectors (spec v0.3, sections 2.1, 7.2).
+"""Tests for exact dense search (spec v0.3, sections 2.1, 7.2): sharded float16 vectors (DPR) and
+a FAISS flat file with an id table (HotpotQA).
 
 The encoder (torch + the contriever-msmarco download) is not unit-tested here: it is checked
 end to end by scripts/verify_embeddings.py, which compares our passage embeddings with Meta's.
 """
 
 import pickle
+import struct
 
 import numpy as np
 import pytest
@@ -115,3 +117,79 @@ def test_from_shards_needs_files(tmp_path):
 
 def test_passage_text_is_title_space_text():
     assert dn.passage_text("Aaron", "Aaron is a prophet") == "Aaron Aaron is a prophet"
+
+
+# --- FAISS flat files with an id table (HotpotQA) ------------------------------------------------
+
+def write_faiss(directory, vecs, ids, metric=0, d=None):
+    """A FAISS IndexFlatIP file laid out byte for byte as faiss writes it, plus the docid file."""
+    directory.mkdir(parents=True, exist_ok=True)
+    n, dim = vecs.shape
+    d = dim if d is None else d
+    head = struct.pack("<4siqqq?iq", b"IxFI", d, n, 1 << 20, 1 << 20, True, metric, n * d)
+    assert len(head) == dn.FAISS_HEADER
+    (directory / "index").write_bytes(head + vecs.astype("<f4").tobytes())
+    (directory / "docid").write_text("".join(f"{i}\n" for i in ids), encoding="utf8")
+
+
+def test_from_faiss_reads_vectors_and_ids(tmp_path):
+    v = np.random.default_rng(5).standard_normal((4, dn.DIM)).astype(np.float32)
+    write_faiss(tmp_path, v, ["303", "35370504", "12", "7"])
+    idx = dn.EmbeddingIndex.from_faiss(tmp_path)
+    assert len(idx) == 4
+    assert np.array_equal(idx.vectors(["12", "303"]), v[[2, 0]])
+    assert idx.row_of("35370504") == 1 and idx.id_of(3) == "7"
+
+
+def test_from_faiss_search_returns_page_ids(tmp_path):
+    v = np.random.default_rng(6).standard_normal((50, dn.DIM)).astype(np.float32)
+    ids = [str(1000 + 7 * i) for i in range(50)]
+    write_faiss(tmp_path, v, ids)
+    q = np.random.default_rng(7).standard_normal((3, dn.DIM)).astype(np.float32)
+    got = dn.EmbeddingIndex.from_faiss(tmp_path).search(q, k=5, chunk=16)
+    ref = brute_force([v], q, 5)
+    # brute_force numbers rows 1..n; map those to the page ids of the docid file.
+    assert [[d for d, _ in row] for row in got] == [[ids[int(d) - 1] for d, _ in row]
+                                                    for row in ref]
+    assert np.allclose([[s for _, s in row] for row in got],
+                       [[s for _, s in row] for row in ref], rtol=1e-5)
+
+
+def test_ties_go_to_the_earlier_row_not_the_smaller_id(tmp_path):
+    """Identical vectors: the earlier line of docid wins, even when its id is larger."""
+    v = np.ones((3, dn.DIM), dtype=np.float32)
+    write_faiss(tmp_path, v, ["900", "5", "40"])
+    hits = dn.EmbeddingIndex.from_faiss(tmp_path).search(np.ones((1, dn.DIM)), k=3)[0]
+    assert [d for d, _ in hits] == ["900", "5", "40"]
+
+
+def test_unknown_id_is_an_error(tmp_path):
+    write_faiss(tmp_path, np.zeros((2, dn.DIM), dtype=np.float32), ["1", "2"])
+    with pytest.raises(KeyError, match="not in the index"):
+        dn.EmbeddingIndex.from_faiss(tmp_path).vectors(["3"])
+
+
+def test_duplicate_or_missing_ids_are_errors(tmp_path):
+    write_faiss(tmp_path / "dup", np.zeros((2, dn.DIM), dtype=np.float32), ["1", "1"])
+    with pytest.raises(ValueError, match="not unique"):
+        dn.EmbeddingIndex.from_faiss(tmp_path / "dup")
+    write_faiss(tmp_path / "short", np.zeros((2, dn.DIM), dtype=np.float32), ["1"])
+    with pytest.raises(ValueError, match="1 ids for 2 vectors"):
+        dn.EmbeddingIndex.from_faiss(tmp_path / "short")
+
+
+def test_wrong_metric_or_dimension_is_refused(tmp_path):
+    write_faiss(tmp_path / "l2", np.zeros((2, dn.DIM), dtype=np.float32), ["1", "2"], metric=1)
+    with pytest.raises(ValueError, match="unexpected FAISS header"):
+        dn.EmbeddingIndex.from_faiss(tmp_path / "l2")
+    write_faiss(tmp_path / "small", np.zeros((2, 8), dtype=np.float32), ["1", "2"])
+    with pytest.raises(ValueError, match="unexpected FAISS header"):
+        dn.EmbeddingIndex.from_faiss(tmp_path / "small")
+
+
+def test_truncated_file_is_refused(tmp_path):
+    write_faiss(tmp_path, np.zeros((3, dn.DIM), dtype=np.float32), ["1", "2", "3"])
+    f = tmp_path / "index"
+    f.write_bytes(f.read_bytes()[:-4])
+    with pytest.raises(ValueError, match="bytes, expected"):
+        dn.EmbeddingIndex.from_faiss(tmp_path)

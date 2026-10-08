@@ -13,11 +13,9 @@ Writes data/checks/monotonicity.json.
 import argparse
 import json
 import time
-from pathlib import Path
 
 from main_logic import monotonicity as mo
-
-DATA = Path(r"D:\Han\rex_rag\data")
+from scripts.datasets import DATA
 
 
 def main():
