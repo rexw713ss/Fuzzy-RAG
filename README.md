@@ -1,6 +1,6 @@
 # FuzzyRoute-RAG
 
-[English](README.md) | [繁體中文](README.zh-TW.md)
+[English](README.md) | [繁體中文](README.zh-TW (1).md)
 
 Interpretable uncertainty-aware routing for retrieval-augmented generation.
 
