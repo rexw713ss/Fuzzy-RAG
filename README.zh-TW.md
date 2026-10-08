@@ -41,6 +41,7 @@ flowchart TD
 - 兩個 retriever 各回傳 top-50。每個問題分別做 min-max 正規化，再取等權平均；未出現在某個清單的 passage，在該 retriever 計為零分。融合清單保留 top-50。
 - 完全相同的分數目前全部正規化為 1。融合與 A2 合併遇到同分時，依 passage ID 的字串表示排序。
 - 稠密檢索目前對 21,015,324 個 passages 進行完整搜尋，運算與記憶體成本較高，正式搜尋後端尚待決定。
+- **HotpotQA：** 由於原始 corpus 主機無法連線，改用 BEIR 版本的 HotpotQA Wikipedia abstracts（5,233,329 篇），搭配 Pyserini 預建的 BM25 與 `contriever-msmarco` indexes。稠密 index 直接以 NumPy 讀取其 FAISS 檔案，不需要安裝 FAISS 函式庫。
 
 ### 不確定性訊號
 
@@ -217,6 +218,9 @@ Pyserini 需要相容的 JDK 與 `JAVA_HOME`。既有開發紀錄使用 Microsof
 | Contriever-MSMARCO embeddings | [wikipedia_embeddings.tar](https://dl.fbaipublicfiles.com/contriever/embeddings/contriever-msmarco/wikipedia_embeddings.tar) | 16 個 pickle shards |
 | BM25 index | [Lucene DPR index](https://rgw.cs.uwaterloo.ca/pyserini/indexes/lucene/lucene-inverted.wikipedia-dpr-100w.20260508.deb4c7b.tar) | 相同 passage-ID space |
 | NQ-open dev | [NQ-open.dev.jsonl](https://raw.githubusercontent.com/google-research-datasets/natural-questions/master/nq_open/NQ-open.dev.jsonl) | 3,610 題；僅供 smoke checks |
+| HotpotQA 問題 | Hugging Face `hotpotqa/hotpot_qa`，轉回原始 JSON 格式 | train 90,447 題；dev distractor 與 dev fullwiki 各 7,405 題 |
+| HotpotQA BM25 index | [Lucene BEIR HotpotQA index](https://huggingface.co/datasets/castorini/prebuilt-indexes-beir/resolve/main/lucene-inverted/flat/lucene-inverted.beir-v1.0.0-hotpotqa.flat.20221116.505594.tar.gz) | 5,233,329 篇 abstracts |
+| HotpotQA 稠密 index | [FAISS flat，contriever-msmarco](https://rgw.cs.uwaterloo.ca/pyserini/indexes/faiss/faiss-flat.beir-v1.0.0-hotpotqa.contriever-msmarco.20230124.tar.gz) | 相同 abstracts；IDs 記錄於其 `docid` 檔 |
 
 <details>
 <summary>既有檔案大小與 checksums 紀錄</summary>
@@ -229,21 +233,30 @@ Pyserini 需要相容的 JDK 與 `JAVA_HOME`。既有開發紀錄使用 Microsof
 | Embedding archive | 32,499,691,520 | 未記錄官方 checksum；可執行 embedding verification |
 | BM25 archive | 11,078,635,520 | MD5：`1ef94a97f2ac418577d1e6a9ecf44806` |
 | NQ-open dev | 未記錄 | SHA-256：`f15567f38099f3615f5b8a685c0aef449c11ad90d3da3735e8d1b98115b40616` |
+| HotpotQA BM25 archive | 2,019,088,696 | MD5：`3f41d640a8ebbcad4f598140750c24f8` |
+| HotpotQA 稠密 archive | 14,889,518,959 | MD5：`38c37708f9927501ca2f7563aa43f407`；已用 `verify_embeddings --dataset hotpotqa` 驗證 |
 
 </details>
 
 Loader 使用可能執行程式碼的 `pickle`，僅應讀取可信任的 release。`verify_embeddings` 檢查抽樣 embeddings 的方向一致性並回報 norm ratios，不是密碼學完整性驗證。請使用對應的 `contriever-msmarco` archive，不要混用 unsupervised `contriever` archive。
 
-請修改 `config.yaml` 的 `data` 區段與下列 script constants：
+將 archives 解壓至資料目錄：
 
-| 檔案 | Constant |
-|---|---|
-| `scripts/bm25_search.py` | `INDEX` |
-| `scripts/smoke_retrieval.py` | `DATA` |
-| `scripts/verify_embeddings.py` | `DATA` |
-| `scripts/monotonicity_report.py` | `DATA` |
+~~~bash
+mkdir -p bm25 contriever-msmarco hotpotqa
+tar -xf lucene-inverted.wikipedia-dpr-100w.20260508.deb4c7b.tar -C bm25
+tar -xf wikipedia_embeddings.tar -C contriever-msmarco
+tar -xzf lucene-inverted.beir-v1.0.0-hotpotqa.flat.20221116.505594.tar.gz -C hotpotqa
+tar -xzf faiss-flat.beir-v1.0.0-hotpotqa.contriever-msmarco.20230124.tar.gz -C hotpotqa
+~~~
 
-Scripts 尚未完全 config-driven，只改 YAML 不會重新導向檔案讀取路徑。Corpus/index IDs 必須一致；請準備約 32 GB embeddings 所需 RAM 及額外搜尋 workspace。
+HotpotQA 的 abstract 文字只存在 BM25 index 內。請在 BM25 環境中執行一次匯出，轉成主要環境可讀取的 DPR 格式 TSV：
+
+~~~powershell
+.\.venv-bm25\Scripts\python.exe -m scripts.export_corpus "data/hotpotqa/lucene-inverted.beir-v1.0.0-hotpotqa.flat.20221116.505594" "data/hotpotqa/corpus.tsv.gz"
+~~~
+
+所有 script 路徑集中在 `scripts/datasets.py`（每個資料集的 corpus、稠密 index 與 BM25 index），`tests/test_config.py` 會檢查它與 `config.yaml` 的 `data` 區段是否一致。資料搬移時兩者都要更新；只改 YAML 不會重新導向 scripts 的檔案讀取路徑。Corpus/index IDs 必須一致；請準備約 32 GB embeddings 所需 RAM 及額外搜尋 workspace。
 
 ## 執行目前提供的 scripts
 
@@ -251,7 +264,7 @@ Scripts 尚未完全 config-driven，只改 YAML 不會重新導向檔案讀取�
 
 ### BM25 檢索
 
-輸入每行為包含 `question` 的 JSON object。輸出保持順序，記錄 `qid`、`question` 與 hits。
+輸入為 NQ-open 的 JSON Lines 檔或 HotpotQA 的 `.json` 檔。HotpotQA 請加上 `--dataset hotpotqa`（預設為 `nq`）；smoke test 與 embedding 檢查也使用相同選項。輸出保持順序，記錄 `qid`、`question` 與 hits。
 
 ~~~powershell
 .\.venv-bm25\Scripts\python.exe -m scripts.bm25_search "path/to/NQ-open.dev.jsonl" "results/smoke/bm25.jsonl" --n 100 --k 50
@@ -259,7 +272,7 @@ Scripts 尚未完全 config-driven，只改 YAML 不會重新導向檔案讀取�
 
 ### Hybrid retrieval smoke test
 
-使用相同 question file，需包含 `question` 與 `answer`；`answer` 為 gold-answer 字串列表。
+使用相同 question file，需包含 `question` 與 `answer`（NQ：gold-answer 字串列表；HotpotQA：單一字串）。HotpotQA 的 yes/no 答案無法以字串比對在 passage 中找到，因此這些問題不列入 Recall@k，另行計數。
 
 ~~~powershell
 .\.venv\Scripts\python.exe -m scripts.smoke_retrieval "results/smoke/bm25.jsonl" "path/to/NQ-open.dev.jsonl" "results/smoke"
@@ -276,6 +289,7 @@ Recall 使用 DPR-style token-sequence answer matching，不是生成答案正�
 
 ~~~powershell
 .\.venv\Scripts\python.exe -m scripts.verify_embeddings --n 1000 --seed 0 --out "results/checks/verify_embeddings.json"
+.\.venv\Scripts\python.exe -m scripts.verify_embeddings --dataset hotpotqa --n 1000 --seed 0
 ~~~
 
 ### 單調性報告
@@ -286,7 +300,7 @@ Recall 使用 DPR-style token-sequence answer matching，不是生成答案正�
 .\.venv-core\Scripts\python.exe -m scripts.monotonicity_report --steps 5 10 20 --theta1 0.30 --theta2 0.60
 ~~~
 
-報告寫入 script 的 `DATA` 目錄下的 `checks/monotonicity.json`。上述 thresholds 僅為示範，不是擬合結果。
+報告寫入 `scripts/datasets.py` 中 `DATA` 目錄下的 `checks/monotonicity.json`。上述 thresholds 僅為示範，不是擬合結果。
 
 ## 資料切分、評估與可重現性
 
@@ -310,7 +324,7 @@ Recall 使用 DPR-style token-sequence answer matching，不是生成答案正�
 | `main_logic/actions.py` | A2 合併與 rewrite 可用性規則 |
 | `main_logic/splits.py`、`evaluation.py`、`monotonicity.py` | 切分、cached-outcome 指標、診斷 |
 | `main_logic/config.py`、`config.yaml` | Configuration 載入與參數紀錄 |
-| `scripts/` | Retrieval smoke、embedding、單調性檢查 |
+| `scripts/` | Retrieval smoke、embedding、單調性檢查；`datasets.py`（所有資料路徑）；`export_corpus.py`（Lucene passages 轉 TSV） |
 | `tests/` | Unit tests、合成評估、config 一致性 |
 | `requirements*.txt` | 已記錄的開發 dependencies |
 
@@ -319,6 +333,7 @@ Recall 使用 DPR-style token-sequence answer matching，不是生成答案正�
 ## 後續工作
 
 - [x] Sparse/dense retrieval 與 S1–S4 基礎函式
+- [x] NQ 與 HotpotQA indexes（HotpotQA 使用預建 BEIR indexes，embeddings 已驗證）
 - [x] 完整 fuzzy rule base 與 operator ablations
 - [x] Cluster split 與 width-calibration 基礎函式
 - [x] B1–B4 擬合與 cached-policy evaluation
