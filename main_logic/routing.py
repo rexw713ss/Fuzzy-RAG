@@ -21,6 +21,15 @@ Choices the spec leaves open (user decisions, Oct 6, 2026):
     frontier is exact with no arbitrary binning.
   - The cost field is pluggable (default end-to-end latency, per section 3.4) because
     laptop latency is thermally noisy; the secondary counts can be swapped in.
+  - theta2 runs up to 1.00, not the spec's 0.80 (open decision O-3, user decision Oct 11,
+    2026). On the stage 3 pilot A1 cost about the same latency as A0 while A2 cost ~3 s more,
+    so any score >= 0.80 forced to A2 broke the always-A1 budget and no pair was feasible.
+    Up to 1.00, every router can switch A2 off, as B2's cut points already could.
+  - theta1 runs down to 0.00, not 0.20, for the same reason: measured latency does not
+    strictly follow A0 < A1 (A1's five passages can be shorter, so its generation is faster),
+    so forcing low scores to A0 could itself exceed the always-A1 budget (NQ pilot: by
+    0.004 s per query). From 0.00, every router can switch A0 off, as B2 can, so the
+    always-A1 policy itself is reachable and the budget always has a feasible pair.
 """
 
 import itertools
@@ -30,8 +39,8 @@ import numpy as np
 ACTIONS = ("A0", "A1", "A2")          # strictly ordered by added cost (section 1)
 _A = {a: i for i, a in enumerate(ACTIONS)}
 
-T1_RANGE = (0.20, 0.50)               # theta1 grid bounds (section 3.4)
-T2_RANGE = (0.50, 0.80)               # theta2 grid bounds
+T1_RANGE = (0.00, 0.50)               # theta1 grid bounds; spec 0.20, widened (O-3, Oct 11)
+T2_RANGE = (0.50, 1.00)               # theta2 grid bounds; spec 0.80, widened (O-3, user Oct 11)
 STEP = 0.01
 QUALITY = "F1"                        # section 6.1 selects on F1
 COST = "latency_total"                # section 3.4 primary cost metric

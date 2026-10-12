@@ -4,8 +4,7 @@
 # Values here must equal the constants in main_logic/ — tests/test_config.py checks that, so the
 # file and the code cannot silently disagree. Section numbers refer to the spec.
 #
-# Not here yet, because they are not decided: generator settings, prompts, cross-encoder,
-# paraphrase protocol, question sample (stage 1 and stage 3 pins, spec 9.3).
+# Every spec 9.3 pin is now here (stage 3 pins added Oct 11).
 
 data:
   root: D:/Han/rex_rag/data
@@ -16,6 +15,27 @@ data:
   hotpotqa_corpus: D:/Han/rex_rag/data/hotpotqa/corpus.tsv.gz
   hotpotqa_embeddings: D:/Han/rex_rag/data/hotpotqa/faiss-flat.beir-v1.0.0-hotpotqa.contriever-msmarco.20230124
   hotpotqa_bm25_index: D:/Han/rex_rag/data/hotpotqa/lucene-inverted.beir-v1.0.0-hotpotqa.flat.20221116.505594
+  # Question sources for the clusters (7.1): NQ-open dev and HotpotQA dev (fullwiki file)
+  questions: D:/Han/rex_rag/data/nq/NQ-open.dev.jsonl
+  hotpotqa_questions: D:/Han/rex_rag/data/hotpot_dev_fullwiki_v1.json
+
+generator:                      # 1.3; llama.cpp b11505 llama-server on the desktop (Oct 10)
+  model: D:/Han/rex_rag/data/models/Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf
+  gpu_layers: 31                # of 33; fastest on the P2200 (RUNLOG_2026-10-08_hotpotqa)
+  ctx: 4096
+
+paraphrase:                     # 7.1, step 1 (user decisions, Oct 10)
+  prompt: "Paraphrase this question: reword it using different words or sentence structure so that it still asks exactly the same thing. Do not add or remove information and do not include the answer."
+  n_candidates: 5
+  temperature: 0.7
+  max_tokens: 64
+  seed: 42                      # question sample; candidate i uses seed 42 + i
+  per_cluster: 2                # first 2 passing candidates, in generation order
+  cosine_min: 0.75              # spec 7.1: 0.85; user decision Oct 10
+  nli_model: microsoft/deberta-large-mnli
+  nli_revision: 7296194b9009373def4f7c5dad292651e4b5cf4e
+  embed_model: sentence-transformers/all-mpnet-base-v2
+  embed_revision: e8c3b32edf5434bc2275fc9bab85f82640a19130
 
 retrieval:                      # 2.1, 7.2
   dense_model: facebook/contriever-msmarco
@@ -37,14 +57,24 @@ fuzzy:                          # 3.1-3.3
   n_out: 1001                   # centroid output-axis points (C2)
 
 routing:                        # 3.4
-  theta1_range: [0.20, 0.50]
-  theta2_range: [0.50, 0.80]
+  theta1_range: [0.00, 0.50]     # spec 0.20; widened for O-3 (Oct 11)
+  theta2_range: [0.50, 1.00]     # spec 0.80; widened for O-3 (user, Oct 11)
   step: 0.01
   quality: F1
   cost: latency_total           # pluggable; primary metric per 3.4
 
-actions:                        # 1
+actions:                        # 1; stage 3 pins chosen as defaults Oct 11 (DECISIONS 14)
+  top_n: 5                      # passages given to the generator, every action
+  a1_rerank: 20                 # passages the cross-encoder re-scores for A1
   a2_rerank: 30                 # passages the cross-encoder re-scores after the A2 merge
+  cross_encoder: cross-encoder/ms-marco-MiniLM-L-6-v2
+  cross_encoder_revision: 233902d25c440f23af6f7d6e94d2946bac0bee0a
+  answer_prompt: "Answer the question using the passages below. Reply with the answer only: a short phrase of a few words, with no explanation. If it is a yes/no question, reply yes or no."
+  rewrite_prompt: "Rewrite this question as a search query that will find Wikipedia passages answering it. Keep every name and detail in the question. Reply with the query only."
+  temperature: 0.0              # answers and rewrites (7.5)
+  seed: 42
+  answer_max_tokens: 32
+  rewrite_max_tokens: 64
 
 baselines:                      # 5
   b1_weight_step: 0.25          # B1 weight lattice: 35 vectors summing to 1

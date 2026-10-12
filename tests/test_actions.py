@@ -81,3 +81,33 @@ def test_unusable_rewrites_fall_back_to_a1(rewrite):
 def test_real_rewrites_are_usable(rewrite):
     """Any change beyond whitespace and case counts, even dropping the question mark."""
     assert ac.rewrite_usable("Who wrote Hamlet?", rewrite)
+
+
+# --- prompts, reply cleaning, rerank order (stage 3 pins) ---
+
+def test_answer_messages_number_passages_in_rank_order():
+    m = ac.answer_messages("who wrote it", [("T1", "first"), ("T2", "second")])
+    c = m[0]["content"]
+    assert c.startswith(ac.ANSWER_PROMPT)
+    assert "Passage 1 (T1): first" in c and "Passage 2 (T2): second" in c
+    assert c.index("Passage 1") < c.index("Passage 2")
+    assert c.endswith("Question: who wrote it\nAnswer:")
+
+
+def test_rewrite_messages():
+    c = ac.rewrite_messages("who wrote it")[0]["content"]
+    assert ac.REWRITE_PROMPT in c and c.endswith("Question: who wrote it")
+
+
+@pytest.mark.parametrize("reply, expected", [
+    ("Leonard Cohen", "Leonard Cohen"),
+    ("Answer: Leonard Cohen\nHe wrote it in 1984.", "Leonard Cohen"),
+    ('Search query: "hallelujah song author"', "hallelujah song author"),
+    ("", ""), (None, ""),
+])
+def test_first_line(reply, expected):
+    assert ac.first_line(reply) == expected
+
+
+def test_rerank_order_breaks_ties_by_pool_rank():
+    assert ac.rerank_order([0.1, 0.9, 0.9, -2.0]) == [1, 2, 0, 3]

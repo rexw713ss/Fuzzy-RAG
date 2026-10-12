@@ -47,14 +47,15 @@ def test_every_grid_pair_satisfies_theta1_below_theta2():
     assert all(t1 < t2 for t1, t2 in grid)
 
 
-def test_grid_has_960_pairs_on_the_exact_lattice():
-    """31 x 31 candidates less the one (0.50, 0.50) that fails theta1 < theta2."""
+def test_grid_has_2600_pairs_on_the_exact_lattice():
+    """51 x 51 candidates less the one (0.50, 0.50) that fails theta1 < theta2 (theta1 from
+    0.00 and theta2 up to 1.00 since O-3, Oct 11)."""
     grid = rt.threshold_grid()
-    assert len(grid) == 31 * 31 - 1 == 960
+    assert len(grid) == 51 * 51 - 1 == 2600
     t1s = sorted({t1 for t1, _ in grid})
     t2s = sorted({t2 for _, t2 in grid})
-    assert t1s[0] == 0.20 and t1s[-1] == 0.50
-    assert t2s[0] == 0.50 and t2s[-1] == 0.80
+    assert t1s[0] == 0.00 and t1s[-1] == 0.50
+    assert t2s[0] == 0.50 and t2s[-1] == 1.00
     # No float drift: every value equals the literal it should be.
     assert 0.27 in t1s and 0.73 in t2s
     assert (0.50, 0.50) not in grid
@@ -170,7 +171,7 @@ def test_selection_respects_the_budget():
     assert out["budget"] == pytest.approx(2.0)
     assert out["cost"] <= out["budget"] + 1e-12
     assert out["n_feasible"] >= 1
-    assert out["n_grid"] == 960
+    assert out["n_grid"] == 2600
     assert out["quality_key"] == "F1" and out["cost_key"] == "latency_total"
 
 
@@ -205,7 +206,7 @@ def test_ties_then_break_to_the_lowest_thresholds():
         {a: 0.5 for a in rt.ACTIONS}, {a: 1.0 for a in rt.ACTIONS}, n=3))
     scores = {k: 0.5 for k in table.instances}
     out = rt.select_thresholds(table, scores)
-    assert (out["theta1"], out["theta2"]) == (0.20, 0.50)
+    assert (out["theta1"], out["theta2"]) == (0.00, 0.50)
 
 
 def test_selection_is_deterministic():
@@ -218,10 +219,10 @@ def test_selection_is_deterministic():
 def test_unused_actions_are_reported():
     """Never-selected actions are a section 3.4 finding, not an error."""
     table = simple_table(n=3)
-    scores = {k: 0.1 for k in table.instances}        # everything below any theta1
+    scores = {k: 0.1 for k in table.instances}        # below every theta2: A0 or A1 only
     out = rt.select_thresholds(table, scores, budget=10.0)
-    assert out["counts"]["A0"] == 3
-    assert out["unused_actions"] == ["A1", "A2"]
+    assert out["counts"]["A1"] == 3                   # A1 beats A0 on quality
+    assert out["unused_actions"] == ["A0", "A2"]
 
 
 def test_infeasible_budget_raises_with_the_cheapest_cost():
@@ -231,28 +232,26 @@ def test_infeasible_budget_raises_with_the_cheapest_cost():
         rt.select_thresholds(table, scores, budget=0.5)
 
 
-def test_always_a1_budget_is_generally_unreachable():
-    """The budget is a bound, not an attainable point.
-
-    Fuzzy scores span [0.1333, 0.8667] while theta1 >= 0.20 and theta2 <= 0.80, so no
-    pair sends every instance to A1 once scores sit at both ends of that span.
-    """
+def test_always_a1_is_reachable_on_the_widened_grid():
+    """Since O-3 (Oct 11) theta1 can be 0.00 and theta2 1.00, so every fuzzy score
+    (within [0.1333, 0.8667]) can be sent to A1, and the always-A1 budget is attainable."""
     table = simple_table(n=2)
     scores = {k: v for k, v in zip(table.instances, [0.1333, 0.8667])}
-    for t1, t2 in rt.threshold_grid():
-        assert set(rt.assign_action(table.align(scores), t1, t2)) != {"A1"}
+    assert any(set(rt.assign_action(table.align(scores), t1, t2)) == {"A1"}
+               for t1, t2 in rt.threshold_grid())
+    assert rt.select_thresholds(table, scores)["n_feasible"] >= 1
 
 
 def test_default_always_a1_budget_can_itself_be_infeasible():
     """A finding about section 3.4, not a bug.
 
-    A score at or above 0.80 is forced to A2 (theta2 <= 0.80) and one at or above 0.50 can
-    never be A0 (theta1 <= 0.50). When A2 is much dearer than A1, the forced A2 instances
+    A score at 1.00 is forced to A2 (theta2 <= 1.00) and one at or above 0.50 can never be
+    A0 (theta1 <= 0.50). (B1's weighted sum can reach 1.00; fuzzy scores cannot.) When A2 is much dearer than A1, the forced A2 instances
     alone can push the mean past the always-A1 budget, leaving the constrained problem
     empty. The Pareto sweep is therefore the reporting that always has an answer.
     """
     table = simple_table(n=5)
-    scores = {k: v for k, v in zip(table.instances, [0.2, 0.4, 0.5, 0.6, 0.8])}
+    scores = {k: v for k, v in zip(table.instances, [0.2, 0.4, 0.5, 0.6, 1.0])}
     assert rt.always_policy(table, "A1")[1] == pytest.approx(2.0)
     with pytest.raises(ValueError, match="no threshold pair meets the cost budget"):
         rt.select_thresholds(table, scores)

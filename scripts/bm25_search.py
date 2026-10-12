@@ -41,6 +41,9 @@ def main():
     with open(args.out, "w", encoding="utf8") as f:
         for i, (q, h) in enumerate(zip(qs, hits)):
             f.write(json.dumps({"qid": i, "question": q, "hits": h}, ensure_ascii=False) + "\n")
+    # Search time alone (no JVM start or index open), for the latency cost of section 3.4.
+    Path(args.out + ".timing.json").write_text(
+        json.dumps({"search_s": dt, "n": len(qs), "threads": args.threads}), encoding="utf8")
     short = sum(len(h) < args.k for h in hits)
     print(f"BM25 k1={bm25.k1} b={bm25.b}: {len(qs)} questions, k={args.k}, "
           f"{dt:.1f}s ({dt / max(len(qs), 1) * 1000:.0f} ms/question), "

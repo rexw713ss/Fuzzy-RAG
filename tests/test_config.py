@@ -7,8 +7,8 @@ from pathlib import Path
 
 import pytest
 
-from main_logic import (actions, baselines, bm25, calibration, dense, evaluation, fuzzy, routing, signals,
-                        splits)
+from main_logic import (actions, baselines, bm25, calibration, dense, evaluation, fuzzy, llm,
+                        paraphrase, routing, signals, splits)
 from main_logic.config import load_config
 from scripts import datasets, monotonicity_report
 
@@ -34,7 +34,17 @@ CFG = load_config()
     ("routing", "step", routing.STEP),
     ("routing", "quality", routing.QUALITY),
     ("routing", "cost", routing.COST),
+    ("actions", "top_n", actions.TOP_N),
+    ("actions", "a1_rerank", actions.A1_RERANK),
     ("actions", "a2_rerank", actions.A2_RERANK),
+    ("actions", "cross_encoder", actions.CROSS_ENCODER),
+    ("actions", "cross_encoder_revision", actions.CROSS_ENCODER_REVISION),
+    ("actions", "answer_prompt", actions.ANSWER_PROMPT),
+    ("actions", "rewrite_prompt", actions.REWRITE_PROMPT),
+    ("actions", "temperature", actions.TEMPERATURE),
+    ("actions", "seed", actions.SEED),
+    ("actions", "answer_max_tokens", actions.ANSWER_MAX_TOKENS),
+    ("actions", "rewrite_max_tokens", actions.REWRITE_MAX_TOKENS),
     ("baselines", "b1_weight_step", baselines.WEIGHT_STEP),
     ("baselines", "b2_t_max", baselines.T_MAX),
     ("calibration", "quantile", calibration.QUANTILE),
@@ -64,6 +74,30 @@ def test_data_paths_match_the_scripts():
         assert Path(data[prefix + "corpus"]) == datasets.CORPUS[name]
         assert Path(data[prefix + "embeddings"]) == datasets.EMBEDDINGS[name]
         assert Path(data[prefix + "bm25_index"]) == datasets.BM25_INDEX[name]
+        assert Path(data[prefix + "questions"]) == datasets.QUESTIONS[name]
+
+
+@pytest.mark.parametrize("key, constant", [
+    ("prompt", paraphrase.PROMPT),
+    ("n_candidates", paraphrase.N_CANDIDATES),
+    ("temperature", paraphrase.TEMPERATURE),
+    ("max_tokens", paraphrase.MAX_TOKENS),
+    ("seed", paraphrase.SEED),
+    ("per_cluster", paraphrase.PER_CLUSTER),
+    ("cosine_min", paraphrase.COSINE_MIN),
+    ("nli_model", paraphrase.NLI_MODEL),
+    ("nli_revision", paraphrase.NLI_REVISION),
+    ("embed_model", paraphrase.EMBED_MODEL),
+    ("embed_revision", paraphrase.EMBED_REVISION),
+])
+def test_paraphrase_protocol_matches_code(key, constant):
+    assert CFG["paraphrase"][key] == constant
+
+
+def test_generator_matches_code():
+    g = CFG["generator"]
+    assert Path(g["model"]) == llm.MODEL
+    assert (g["gpu_layers"], g["ctx"]) == (llm.GPU_LAYERS, llm.CTX)
 
 
 def test_fitted_values_are_empty_until_stage_1():

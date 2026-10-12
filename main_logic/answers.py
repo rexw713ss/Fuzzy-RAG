@@ -6,6 +6,7 @@ other visible character), lowercase, then a contiguous token-sequence match. Onl
 text is searched, not its title, as in DPR.
 """
 
+import string
 import unicodedata
 
 import regex
@@ -33,3 +34,42 @@ def recall_at(hit_flags, ks):
     """{k: fraction of questions with an answer in the top k}. hit_flags: per question, a list
     of booleans in rank order."""
     return {k: sum(any(f[:k]) for f in hit_flags) / len(hit_flags) for k in ks}
+
+
+# --- Answer quality: EM and F1 (section 7.4), the standard SQuAD / NQ-open definitions --------
+
+_PUNCT = set(string.punctuation)
+_ARTICLES = regex.compile(r"\b(a|an|the)\b")
+
+
+def normalize_answer(s):
+    """The official SQuAD normalization: lower case, ASCII punctuation deleted, articles
+    removed, whitespace collapsed."""
+    s = "".join(ch for ch in s.lower() if ch not in _PUNCT)
+    return " ".join(_ARTICLES.sub(" ", s).split())
+
+
+def exact_match(prediction, answers):
+    """1.0 if the normalized prediction equals any normalized gold answer, else 0.0."""
+    p = normalize_answer(prediction)
+    return float(any(p == normalize_answer(a) for a in answers))
+
+
+def _f1(prediction, answer):
+    p, g = normalize_answer(prediction).split(), normalize_answer(answer).split()
+    if not p or not g:
+        return float(p == g)
+    common = {}
+    for t in p:
+        if t in g:
+            common[t] = min(p.count(t), g.count(t))
+    same = sum(common.values())
+    if same == 0:
+        return 0.0
+    precision, recall = same / len(p), same / len(g)
+    return 2 * precision * recall / (precision + recall)
+
+
+def f1_score(prediction, answers):
+    """Token F1 between prediction and gold answer, the best over the gold answers."""
+    return max(_f1(prediction, a) for a in answers)

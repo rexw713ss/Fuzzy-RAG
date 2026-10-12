@@ -17,6 +17,10 @@ EMBEDDINGS = {
     "nq": DATA / "contriever-msmarco" / "wikipedia_embeddings",
     "hotpotqa": DATA / "hotpotqa" / "faiss-flat.beir-v1.0.0-hotpotqa.contriever-msmarco.20230124",
 }
+QUESTIONS = {           # cluster sources (section 7.1): NQ-open dev, HotpotQA dev
+    "nq": DATA / "nq" / "NQ-open.dev.jsonl",
+    "hotpotqa": DATA / "hotpot_dev_fullwiki_v1.json",
+}
 BM25_INDEX = {
     "nq": DATA / "bm25" / "lucene-inverted.wikipedia-dpr-100w.20260508.deb4c7b",
     "hotpotqa": DATA / "hotpotqa" / "lucene-inverted.beir-v1.0.0-hotpotqa.flat.20221116.505594",

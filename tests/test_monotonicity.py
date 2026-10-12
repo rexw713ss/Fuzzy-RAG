@@ -80,7 +80,7 @@ def test_report_counts_straddles_and_the_selected_pair():
     assert r["violations"] == 1
     assert r["straddle_any_threshold"] == 1
     assert r["per_threshold"][0.6] == 1 and r["per_threshold"][0.58] == 0
-    assert r["thresholds_without_flips"] == 61 - 4          # 0.59, 0.60, 0.61, 0.62
+    assert r["thresholds_without_flips"] == 101 - 4         # 0.59, 0.60, 0.61, 0.62
     assert r["selected"] == {"theta1": 0.30, "theta2": 0.60, "downgrades": 1}
     assert mo.report(synthetic(), theta1=0.30, theta2=0.70)["selected"]["downgrades"] == 0
 
@@ -90,9 +90,9 @@ def test_monotone_grid_reports_zeros():
     assert r["violations"] == 0 and r["drop_max"] == 0.0 and r["straddle_any_threshold"] == 0
 
 
-def test_threshold_values_are_the_61_grid_values():
+def test_threshold_values_are_the_101_grid_values():
     t = mo.threshold_values()
-    assert len(t) == 61 and t[0] == 0.20 and t[-1] == 0.80
+    assert len(t) == 101 and t[0] == 0.00 and t[-1] == 1.00
 
 
 def test_ablations_can_be_measured_the_same_way():
