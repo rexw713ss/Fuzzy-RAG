@@ -26,8 +26,9 @@ STEPS = 20          # 0.05 spacing (section 4.2)
 TOL = 1e-9          # violation tolerance (section 4.2)
 
 
-def grid_scores(steps=STEPS, widths=fz.W_DEFAULT, **operators):
-    """Escalation score at every point of the grid: an array of shape (steps+1,) * 4.
+def grid_scores(steps=STEPS, widths=fz.W_DEFAULT, signals=fz.SIGNALS, **operators):
+    """Escalation score at every point of the grid: an array of shape (steps+1,) * n, n the
+    number of signals (v0.3: 4; v0.4: 3, `signals=("S2", "S3", "S4")`).
 
     operators: passed to fuzzy.escalate (tnorm, aggregation, defuzz), so an ablation can be
     measured the same way. The full 0.05 grid takes about a minute.
@@ -36,24 +37,24 @@ def grid_scores(steps=STEPS, widths=fz.W_DEFAULT, **operators):
         raise ValueError(f"steps must be a positive integer, got {steps}")
     axis = np.linspace(0.0, 1.0, int(steps) + 1)
     m = axis.size
-    scores = np.empty((m,) * 4)
+    scores = np.empty((m,) * len(signals))
     for idx in np.ndindex(scores.shape):
-        scores[idx] = fz.escalate(axis[list(idx)], widths, **operators)[0]
+        scores[idx] = fz.escalate(axis[list(idx)], widths, signals=signals, **operators)[0]
     return scores
 
 
-def violations(scores, tol=TOL):
+def violations(scores, tol=TOL, n_signals=4):
     """Every adjacent pair whose score drops by more than tol when one signal rises one step.
 
     Returns (n_pairs, records): records is a dict of arrays, one entry per violation:
     signal (0..3), before (score at the lower input), after (score one step higher), drop.
     """
     scores = np.asarray(scores, dtype=float)
-    if scores.ndim != 4 or len(set(scores.shape)) != 1:
-        raise ValueError(f"need a 4-d grid with equal sides, got shape {scores.shape}")
+    if scores.ndim != n_signals or len(set(scores.shape)) != 1:
+        raise ValueError(f"need a {n_signals}-d grid with equal sides, got shape {scores.shape}")
     n_pairs = 0
     sig, before, after = [], [], []
-    for k in range(4):
+    for k in range(n_signals):
         lo = np.moveaxis(scores, k, 0)[:-1]
         hi = np.moveaxis(scores, k, 0)[1:]
         n_pairs += lo.size
@@ -77,7 +78,8 @@ def threshold_values(grid=None):
     return sorted({t for pair in grid for t in pair})
 
 
-def report(scores, tol=TOL, thresholds=None, theta1=None, theta2=None):
+def report(scores, tol=TOL, thresholds=None, theta1=None, theta2=None, signals=fz.SIGNALS,
+           theta=None):
     """The five reporting items of section 4.2.
 
     1 pairs examined; 2 violations (count and rate); 3 per signal; 4 drop max / mean / p95;
@@ -85,7 +87,7 @@ def report(scores, tol=TOL, thresholds=None, theta1=None, theta2=None):
     at each threshold value, and, once theta1 and theta2 are selected, how many violations
     downgrade the action there (an A2 -> A1 or A1 -> A0 change while a signal increased).
     """
-    n_pairs, rec = violations(scores, tol)
+    n_pairs, rec = violations(scores, tol, len(signals))
     n = rec["drop"].size
     thresholds = threshold_values() if thresholds is None else list(thresholds)
     per_threshold = {round(t, 10): downgrades(rec, t) for t in thresholds}
@@ -97,7 +99,7 @@ def report(scores, tol=TOL, thresholds=None, theta1=None, theta2=None):
         "pairs": n_pairs,
         "violations": n,
         "rate": n / n_pairs,
-        "per_signal": {s: int(np.sum(rec["signal"] == i)) for i, s in enumerate(fz.SIGNALS)},
+        "per_signal": {s: int(np.sum(rec["signal"] == i)) for i, s in enumerate(signals)},
         "drop_max": float(rec["drop"].max()) if n else 0.0,
         "drop_mean": float(rec["drop"].mean()) if n else 0.0,
         "drop_p95": float(np.percentile(rec["drop"], 95)) if n else 0.0,
@@ -110,4 +112,6 @@ def report(scores, tol=TOL, thresholds=None, theta1=None, theta2=None):
         hit = (((rec["after"] < t1) & (t1 <= rec["before"]))
                | ((rec["after"] < t2) & (t2 <= rec["before"])))
         out["selected"] = {"theta1": t1, "theta2": t2, "downgrades": int(hit.sum())}
+    if theta is not None:                       # v0.4: one threshold, A2 -> A1 downgrades
+        out["selected"] = {"theta": float(theta), "downgrades": downgrades(rec, float(theta))}
     return out

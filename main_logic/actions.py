@@ -18,6 +18,17 @@ experiment, Oct 11, 2026 -- DECISIONS.md section 14):
   - rewriter: the generator LLM with REWRITE_PROMPT, temperature 0, seed 42 (section 1.1);
   - decoding: temperature 0, seed 42; at most 32 answer tokens, 64 rewrite tokens.
 torch and transformers are imported only by the cross-encoder functions.
+
+v0.4 (REDESIGN_2026-10-15, user decision Oct 15): A0 is merged into A1, and A2 becomes an
+evidence-aware second hop:
+
+    A2  follow-up query (the generator reads the question and A1's top 5) -> second hybrid
+        retrieval -> cross-encoder on the second pool's top 20 against the FOLLOW-UP query ->
+        A1's top 3 + the 2 best new passages -> generate
+        V1: the A1 answer prompt;  V2: a short reasoning step, then "Answer: ..."
+
+followup_messages, reason_messages, final_answer and second_hop_context are the v0.4 pieces;
+the v0.3 functions above them are unchanged.
 """
 
 import numpy as np
@@ -42,20 +53,84 @@ SEED = 42
 ANSWER_MAX_TOKENS = 32
 REWRITE_MAX_TOKENS = 64
 
+# v0.4 A2 (REDESIGN_2026-10-15 section 4.2).
+FOLLOWUP_PROMPT = ("Below are a question and passages retrieved for it. Write one search query "
+                   "that would find the information still missing to answer the question, such "
+                   "as a person, place or work that the passages mention and the question "
+                   "depends on. Reply with the query only.")
+REASON_PROMPT = ("Answer the question using the passages below. Reply in exactly this format:\n"
+                 "Reasoning: <at most two short sentences>\n"
+                 "Answer: <a short phrase of a few words, with no explanation>\n"
+                 "If it is a yes/no question, the answer is yes or no.")
+FOLLOWUP_MAX_TOKENS = 64
+REASON_MAX_TOKENS = 192
+SECOND_RERANK = 20  # second-hop passages the cross-encoder re-scores (against the follow-up)
+A2_KEEP = 3         # A1's top passages kept in A2's context
+A2_NEW = 2          # best second-hop passages added (not already in A1's top 5)
+
 _LABELS = ("answer:", "search query:", "query:", "rewritten query:", "rewritten question:")
 
 
 def answer_messages(question, passages):
     """Chat messages for one generation. passages: [(title, text), ...] in rank order."""
-    body = "\n\n".join(f"Passage {i} ({title}): {text}"
-                       for i, (title, text) in enumerate(passages, 1))
     return [{"role": "user",
-             "content": f"{ANSWER_PROMPT}\n\n{body}\n\nQuestion: {question}\nAnswer:"}]
+             "content": f"{ANSWER_PROMPT}\n\n{_passage_body(passages)}\n\nQuestion: {question}\nAnswer:"}]
 
 
 def rewrite_messages(question):
     """Chat messages for the A2 rewrite (section 1.1)."""
     return [{"role": "user", "content": f"{REWRITE_PROMPT}\n\nQuestion: {question}"}]
+
+
+def _passage_body(passages):
+    return "\n\n".join(f"Passage {i} ({title}): {text}"
+                       for i, (title, text) in enumerate(passages, 1))
+
+
+def followup_messages(question, passages):
+    """v0.4 A2: chat messages asking for one follow-up search query, given A1's passages."""
+    return [{"role": "user", "content": f"{FOLLOWUP_PROMPT}\n\n{_passage_body(passages)}\n\n"
+                                        f"Question: {question}\nSearch query:"}]
+
+
+def reason_messages(question, passages):
+    """v0.4 A2 variant V2: a short reasoning step before the answer."""
+    return [{"role": "user", "content": f"{REASON_PROMPT}\n\n{_passage_body(passages)}\n\n"
+                                        f"Question: {question}"}]
+
+
+def final_answer(text):
+    """The answer of a V2 (reasoning) reply: what follows the last "Answer:", or the last
+    non-empty line if there is none (e.g. the reply was cut off). Cleaned like first_line."""
+    t = text or ""
+    i = t.lower().rfind("answer:")
+    if i >= 0:
+        return first_line(t[i + len("answer:"):])
+    lines = [line for line in t.splitlines() if line.strip()]
+    return first_line(lines[-1]) if lines else ""
+
+
+def second_hop_context(a1_top, second_ranked, keep=A2_KEEP, new=A2_NEW, top_n=TOP_N):
+    """v0.4 A2 passages: A1's first `keep`, then the best `new` second-hop passages that are not
+    in A1's top_n, then A1's next passages if fewer than `new` were found.
+
+    a1_top: A1's top_n doc ids in rank order; second_ranked: second-hop doc ids, best first.
+    Returns (doc ids, number of second-hop passages used).
+    """
+    a1_top = list(a1_top)[:top_n]
+    seen = set(a1_top)
+    fresh = []
+    for d in second_ranked:
+        if d not in seen and d not in fresh:
+            fresh.append(d)
+        if len(fresh) == new:
+            break
+    ctx = a1_top[:keep] + fresh
+    for d in a1_top[keep:]:
+        if len(ctx) >= top_n:
+            break
+        ctx.append(d)
+    return ctx[:top_n], len(fresh)
 
 
 def first_line(text):

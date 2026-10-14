@@ -111,3 +111,40 @@ def test_first_line(reply, expected):
 
 def test_rerank_order_breaks_ties_by_pool_rank():
     assert ac.rerank_order([0.1, 0.9, 0.9, -2.0]) == [1, 2, 0, 3]
+
+
+# --- v0.4 A2: follow-up query, reasoning answer, second-hop context (REDESIGN_2026-10-15) ---
+
+def test_followup_messages_show_passages_then_question():
+    c = ac.followup_messages("who wrote it", [("T1", "first")])[0]["content"]
+    assert c.startswith(ac.FOLLOWUP_PROMPT)
+    assert "Passage 1 (T1): first" in c
+    assert c.endswith("Question: who wrote it\nSearch query:")
+
+
+def test_reason_messages():
+    c = ac.reason_messages("who wrote it", [("T1", "first")])[0]["content"]
+    assert c.startswith(ac.REASON_PROMPT) and c.endswith("Question: who wrote it")
+
+
+@pytest.mark.parametrize("reply, expected", [
+    ("Passage 2 says X wrote it.\nAnswer: Leonard Cohen", "Leonard Cohen"),
+    ("The answer: is unclear.\nAnswer: \"yes\"", "yes"),
+    ("It was written by Cohen.\nANSWER: Leonard Cohen.", "Leonard Cohen."),
+    ("Reasoning cut off\nLeonard Cohen", "Leonard Cohen"),
+    ("", ""), (None, ""),
+])
+def test_final_answer_takes_the_last_answer_label(reply, expected):
+    assert ac.final_answer(reply) == expected
+
+
+def test_second_hop_context_keeps_a1_top3_then_new_passages():
+    a1 = ["a", "b", "c", "d", "e"]
+    ctx, n = ac.second_hop_context(a1, ["b", "x", "d", "y", "z"])
+    assert ctx == ["a", "b", "c", "x", "y"] and n == 2
+
+
+def test_second_hop_context_fills_from_a1_when_nothing_new():
+    a1 = ["a", "b", "c", "d", "e"]
+    assert ac.second_hop_context(a1, ["e", "a"]) == (a1, 0)
+    assert ac.second_hop_context(a1, ["q", "a"]) == (["a", "b", "c", "q", "d"], 1)

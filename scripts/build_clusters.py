@@ -4,7 +4,9 @@ Run from the repo root, in the main environment:
     .venv\\Scripts\\python.exe -m scripts.build_clusters --dataset nq --n 20
 
 Three phases, each resumable:
-  1. sample n questions from the dataset's dev file (seed 42; the first n of one permutation);
+  1. sample n questions from the dataset's dev file (seed 42; the first n of one permutation,
+     or with --offset K positions K+1 .. K+n of the same permutation: the v0.4 fresh held-out
+     set takes 301-450, which cannot overlap the 300 originals already used);
   2. generate 5 candidates per question with llama-server, which this script starts and stops.
      Every finished question is appended to candidates.jsonl at once, and questions already
      there are skipped, so an interrupted run continues where it stopped;
@@ -83,6 +85,8 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--dataset", choices=ds.NAMES, required=True)
     ap.add_argument("--n", type=int, required=True, help="originals to sample")
+    ap.add_argument("--offset", type=int, default=0,
+                    help="skip the first K originals of the seed-42 order (v0.4 fresh set)")
     ap.add_argument("--outdir", default=None)
     args = ap.parse_args()
     sys.stdout.reconfigure(encoding="utf-8")
@@ -93,7 +97,7 @@ def main():
     # 1. Sample.
     pool = cp.load_questions(ds.QUESTIONS[args.dataset])
     sample = []
-    for idx in pp.sample(len(pool), args.n):
+    for idx in pp.sample(len(pool), args.offset + args.n)[args.offset:]:
         q = pool[idx]
         sample.append({"cluster_id": f"{args.dataset}-{idx:05d}", "dataset": args.dataset,
                        "source_index": idx, **q})
@@ -134,7 +138,8 @@ def main():
     gen = [c for r in rows for c in r["candidates"]]
     report = {
         "dataset": args.dataset, "source": ds.QUESTIONS[args.dataset].name,
-        "n_originals": len(rows), "n_complete": complete, "n_incomplete": len(rows) - complete,
+        "n_originals": len(rows), "offset": args.offset,
+        "n_complete": complete, "n_incomplete": len(rows) - complete,
         "n_candidates": len(gen), "candidate_outcomes": dict(reasons),
         "pass_rate": reasons["passed"] / max(len(gen), 1),
         "settings": {"prompt": pp.PROMPT, "n_candidates": pp.N_CANDIDATES,

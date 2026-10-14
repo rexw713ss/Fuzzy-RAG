@@ -109,3 +109,19 @@ def test_missing_section_is_an_error(tmp_path):
     p.write_text("data: {}\n", encoding="utf8")
     with pytest.raises(ValueError, match="missing section"):
         load_config(p)
+
+
+@pytest.mark.parametrize("key, constant", [
+    ("active_signals", list(fuzzy.SIGNALS_V4)),
+    ("actions", list(routing.ACTIONS_V4)),
+    ("theta_range", list(routing.THETA_RANGE)),
+    ("followup_prompt", actions.FOLLOWUP_PROMPT),
+    ("reason_prompt", actions.REASON_PROMPT),
+    ("followup_max_tokens", actions.FOLLOWUP_MAX_TOKENS),
+    ("reason_max_tokens", actions.REASON_MAX_TOKENS),
+    ("second_rerank", actions.SECOND_RERANK),
+    ("a2_keep", actions.A2_KEEP),
+    ("a2_new", actions.A2_NEW),
+])
+def test_v4_matches_code(key, constant):
+    assert CFG["v4"][key] == constant
