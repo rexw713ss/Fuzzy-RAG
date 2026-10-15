@@ -1,0 +1,735 @@
+hotpotqa: 710 instances, phase a1
+a1: 710 instances; read 7980 passages in 20 s
+Loading weights:   0%|          | 0/105 [00:00<?, ?it/s]Loading weights: 100%|██████████| 105/105 [00:00<00:00, 13069.86it/s]
+a1: done; reused A1 whose recomputed top 5 differs from the cached one: 0
+hotpotqa: 710 instances, phase followups
+followups: 608 calls
+  50/608
+  100/608
+  150/608
+  200/608
+  250/608
+  300/608
+  350/608
+  400/608
+  450/608
+  500/608
+  550/608
+  600/608
+hotpotqa: 710 instances, phase second
+second: 710 follow-up queries
+BM25 k1=0.9 b=0.4: 710 questions, k=50, 70.3s (99 ms/question), 0 with fewer than 50 hits -> ..\data\v4\hotpotqa\second_bm25.jsonl
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 29755.32it/s]
+hotpotqa: 710 instances, phase selection
+selection: 710 instances, 710 with a second hop; read 9143 passages in 20 s
+Loading weights:   0%|          | 0/105 [00:00<?, ?it/s]Loading weights: 100%|██████████| 105/105 [00:00<00:00, 25831.54it/s]
+hotpotqa: 710 instances, phase generation
+generation: 710 calls (variants ['V1'])
+  50/710
+  100/710
+  150/710
+  200/710
+  250/710
+  300/710
+  350/710
+  400/710
+  450/710
+  500/710
+  550/710
+  600/710
+  650/710
+  700/710
+hotpotqa: 710 instances, phase outcomes
+{
+  "instances": 710,
+  "mean": {
+    "A1": {
+      "EM": 0.37746478873239436,
+      "F1": 0.4787930507018721,
+      "latency_total": 4.269428191748051
+    },
+    "A2": {
+      "EM": 0.4084507042253521,
+      "F1": 0.520993286378539,
+      "latency_total": 8.976043267678794
+    },
+    "A2_fallbacks": 0
+  }
+}
+nq: 671 instances, phase a1
+a1: 671 instances; read 8167 passages in 161 s
+Loading weights:   0%|          | 0/105 [00:00<?, ?it/s]Loading weights: 100%|██████████| 105/105 [00:00<00:00, 26197.25it/s]
+a1: done; reused A1 whose recomputed top 5 differs from the cached one: 0
+nq: 671 instances, phase followups
+followups: 569 calls
+  50/569
+  100/569
+  150/569
+  200/569
+  250/569
+  300/569
+  350/569
+  400/569
+  450/569
+  500/569
+  550/569
+nq: 671 instances, phase second
+second: 648 follow-up queries
+BM25 k1=0.9 b=0.4: 648 questions, k=50, 121.4s (187 ms/question), 0 with fewer than 50 hits -> ..\data\v4\nq\second_bm25.jsonl
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 29464.36it/s]
+nq: 671 instances, phase selection
+selection: 671 instances, 648 with a second hop; read 8497 passages in 162 s
+Loading weights:   0%|          | 0/105 [00:00<?, ?it/s]Loading weights: 100%|██████████| 105/105 [00:00<00:00, 27330.39it/s]
+nq: 671 instances, phase generation
+generation: 671 calls (variants ['V1'])
+  50/671
+  100/671
+  150/671
+  200/671
+  250/671
+  300/671
+  350/671
+  400/671
+  450/671
+  500/671
+  550/671
+  600/671
+  650/671
+nq: 671 instances, phase outcomes
+{
+  "instances": 671,
+  "mean": {
+    "A1": {
+      "EM": 0.3204172876304024,
+      "F1": 0.4622182891401238,
+      "latency_total": 6.2246276023488205
+    },
+    "A2": {
+      "EM": 0.32786885245901637,
+      "F1": 0.46961895625943095,
+      "latency_total": 11.954765774151689
+    },
+    "A2_fallbacks": 23
+  }
+}
+generating 5 candidates for 150 questions
+  1/150 hotpotqa-06678
+  2/150 hotpotqa-07302
+  3/150 hotpotqa-01539
+  4/150 hotpotqa-01926
+  5/150 hotpotqa-02655
+  6/150 hotpotqa-03421
+  7/150 hotpotqa-02249
+  8/150 hotpotqa-03367
+  9/150 hotpotqa-01620
+  10/150 hotpotqa-06177
+  11/150 hotpotqa-00844
+  12/150 hotpotqa-06018
+  13/150 hotpotqa-02161
+  14/150 hotpotqa-07149
+  15/150 hotpotqa-03386
+  16/150 hotpotqa-02310
+  17/150 hotpotqa-00150
+  18/150 hotpotqa-05040
+  19/150 hotpotqa-05610
+  20/150 hotpotqa-02970
+  21/150 hotpotqa-02465
+  22/150 hotpotqa-00487
+  23/150 hotpotqa-06509
+  24/150 hotpotqa-06725
+  25/150 hotpotqa-00354
+  26/150 hotpotqa-00090
+  27/150 hotpotqa-02590
+  28/150 hotpotqa-03174
+  29/150 hotpotqa-00361
+  30/150 hotpotqa-06750
+  31/150 hotpotqa-02844
+  32/150 hotpotqa-06433
+  33/150 hotpotqa-04932
+  34/150 hotpotqa-01403
+  35/150 hotpotqa-02935
+  36/150 hotpotqa-01329
+  37/150 hotpotqa-04473
+  38/150 hotpotqa-03801
+  39/150 hotpotqa-04126
+  40/150 hotpotqa-01962
+  41/150 hotpotqa-01690
+  42/150 hotpotqa-06037
+  43/150 hotpotqa-01069
+  44/150 hotpotqa-05786
+  45/150 hotpotqa-03119
+  46/150 hotpotqa-04819
+  47/150 hotpotqa-03788
+  48/150 hotpotqa-04615
+  49/150 hotpotqa-06274
+  50/150 hotpotqa-04011
+  51/150 hotpotqa-04944
+  52/150 hotpotqa-04747
+  53/150 hotpotqa-02557
+  54/150 hotpotqa-05068
+  55/150 hotpotqa-06359
+  56/150 hotpotqa-02008
+  57/150 hotpotqa-03436
+  58/150 hotpotqa-03481
+  59/150 hotpotqa-04977
+  60/150 hotpotqa-05275
+  61/150 hotpotqa-02759
+  62/150 hotpotqa-04905
+  63/150 hotpotqa-03493
+  64/150 hotpotqa-05851
+  65/150 hotpotqa-00926
+  66/150 hotpotqa-02223
+  67/150 hotpotqa-01417
+  68/150 hotpotqa-04012
+  69/150 hotpotqa-00765
+  70/150 hotpotqa-04322
+  71/150 hotpotqa-00757
+  72/150 hotpotqa-01796
+  73/150 hotpotqa-03861
+  74/150 hotpotqa-00767
+  75/150 hotpotqa-01812
+  76/150 hotpotqa-03771
+  77/150 hotpotqa-06440
+  78/150 hotpotqa-03356
+  79/150 hotpotqa-04675
+  80/150 hotpotqa-05715
+  81/150 hotpotqa-04446
+  82/150 hotpotqa-07039
+  83/150 hotpotqa-06683
+  84/150 hotpotqa-06070
+  85/150 hotpotqa-06320
+  86/150 hotpotqa-02468
+  87/150 hotpotqa-04647
+  88/150 hotpotqa-03960
+  89/150 hotpotqa-05198
+  90/150 hotpotqa-07244
+  91/150 hotpotqa-02691
+  92/150 hotpotqa-05158
+  93/150 hotpotqa-02611
+  94/150 hotpotqa-03602
+  95/150 hotpotqa-02362
+  96/150 hotpotqa-04582
+  97/150 hotpotqa-06290
+  98/150 hotpotqa-03455
+  99/150 hotpotqa-04439
+  100/150 hotpotqa-06315
+  101/150 hotpotqa-05535
+  102/150 hotpotqa-02658
+  103/150 hotpotqa-03672
+  104/150 hotpotqa-03404
+  105/150 hotpotqa-00860
+  106/150 hotpotqa-06271
+  107/150 hotpotqa-04990
+  108/150 hotpotqa-07269
+  109/150 hotpotqa-03291
+  110/150 hotpotqa-02427
+  111/150 hotpotqa-04862
+  112/150 hotpotqa-01991
+  113/150 hotpotqa-07257
+  114/150 hotpotqa-02907
+  115/150 hotpotqa-05350
+  116/150 hotpotqa-03945
+  117/150 hotpotqa-07368
+  118/150 hotpotqa-05189
+  119/150 hotpotqa-05787
+  120/150 hotpotqa-05685
+  121/150 hotpotqa-01748
+  122/150 hotpotqa-00684
+  123/150 hotpotqa-03619
+  124/150 hotpotqa-05266
+  125/150 hotpotqa-01568
+  126/150 hotpotqa-03962
+  127/150 hotpotqa-01890
+  128/150 hotpotqa-02574
+  129/150 hotpotqa-06875
+  130/150 hotpotqa-07102
+  131/150 hotpotqa-02444
+  132/150 hotpotqa-05356
+  133/150 hotpotqa-01082
+  134/150 hotpotqa-05436
+  135/150 hotpotqa-04590
+  136/150 hotpotqa-04653
+  137/150 hotpotqa-04975
+  138/150 hotpotqa-03932
+  139/150 hotpotqa-02053
+  140/150 hotpotqa-03369
+  141/150 hotpotqa-04483
+  142/150 hotpotqa-00677
+  143/150 hotpotqa-02553
+  144/150 hotpotqa-05850
+  145/150 hotpotqa-01280
+  146/150 hotpotqa-04123
+  147/150 hotpotqa-07202
+  148/150 hotpotqa-03019
+  149/150 hotpotqa-06415
+  150/150 hotpotqa-02845
+D:\Han\rex_rag\Fuzzy-RAG\.venv\Lib\site-packages\torch\jit\_script.py:1485: FutureWarning: `torch.jit.script` is not supported in Python 3.14+ and may break. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/392 [00:00<?, ?it/s]Loading weights: 100%|██████████| 392/392 [00:00<00:00, 27024.89it/s]
+[transformers] [1mDebertaForSequenceClassification LOAD REPORT[0m from: microsoft/deberta-large-mnli
+Key    | Status     |  | 
+-------+------------+--+-
+config | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights:  23%|██▎       | 45/199 [00:00<00:00, 404.60it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 988.51it/s]
+{
+  "dataset": "hotpotqa",
+  "source": "hotpot_dev_fullwiki_v1.json",
+  "n_originals": 150,
+  "offset": 300,
+  "n_complete": 143,
+  "n_incomplete": 7,
+  "n_candidates": 750,
+  "candidate_outcomes": {
+    "passed": 602,
+    "duplicate": 59,
+    "nli": 86,
+    "cosine": 3
+  },
+  "pass_rate": 0.8026666666666666,
+  "settings": {
+    "prompt": "Paraphrase this question: reword it using different words or sentence structure so that it still asks exactly the same thing. Do not add or remove information and do not include the answer.",
+    "n_candidates": 5,
+    "temperature": 0.7,
+    "max_tokens": 64,
+    "seed": 42,
+    "cosine_min": 0.75,
+    "generator": "Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf",
+    "gpu_layers": 31,
+    "nli": "microsoft/deberta-large-mnli@7296194b9009373def4f7c5dad292651e4b5cf4e",
+    "embedder": "sentence-transformers/all-mpnet-base-v2@e8c3b32edf5434bc2275fc9bab85f82640a19130"
+  },
+  "generation_s_per_candidate": 2.5763761167526247,
+  "timing": {
+    "generate_s": 1936.1601762771606,
+    "screen_s": 65.80307030677795
+  }
+}
+443 query instances
+BM25 k1=0.9 b=0.4: 443 questions, k=50, 55.1s (124 ms/question), 0 with fewer than 50 hits -> ..\data\v4\fresh_src\hotpotqa\initial_bm25.jsonl
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 28970.41it/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+{
+  "dataset": "hotpotqa",
+  "instances": 443,
+  "timing": {
+    "bm25_search_s": 55.09351587295532,
+    "load_encoder_s": 6.576195240020752,
+    "encode_s": 2.876336097717285,
+    "load_index_s": 3.1134674549102783,
+    "dense_search_s": 110.01623702049255,
+    "per_query_s": 0.3792011038175286,
+    "read_texts_s": 19.731027603149414
+  }
+}
+hotpotqa: 443 instances, phase a1
+a1: 443 instances; read 4966 passages in 20 s
+Loading weights:   0%|          | 0/105 [00:00<?, ?it/s]Loading weights: 100%|██████████| 105/105 [00:00<00:00, 27056.70it/s]
+a1: done; reused A1 whose recomputed top 5 differs from the cached one: 0
+hotpotqa: 443 instances, phase followups
+followups: 443 calls
+  50/443
+  100/443
+  150/443
+  200/443
+  250/443
+  300/443
+  350/443
+  400/443
+hotpotqa: 443 instances, phase second
+second: 443 follow-up queries
+BM25 k1=0.9 b=0.4: 443 questions, k=50, 28.9s (65 ms/question), 1 with fewer than 50 hits -> ..\data\v4\fresh\hotpotqa\second_bm25.jsonl
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 29464.36it/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+hotpotqa: 443 instances, phase selection
+selection: 443 instances, 443 with a second hop; read 5573 passages in 20 s
+Loading weights:   0%|          | 0/105 [00:00<?, ?it/s]Loading weights: 100%|██████████| 105/105 [00:00<00:00, 27509.65it/s]
+hotpotqa: 443 instances, phase generation
+generation: 886 calls (variants ['V1'])
+  50/886
+  100/886
+  150/886
+  200/886
+  250/886
+  300/886
+  350/886
+  400/886
+  450/886
+  500/886
+  550/886
+  600/886
+  650/886
+  700/886
+  750/886
+  800/886
+  850/886
+hotpotqa: 443 instances, phase outcomes
+{
+  "instances": 443,
+  "mean": {
+    "A1": {
+      "EM": 0.34085778781038373,
+      "F1": 0.4516052207135729,
+      "latency_total": 4.290600874623111
+    },
+    "A2": {
+      "EM": 0.37020316027088035,
+      "F1": 0.4921667346949514,
+      "latency_total": 9.022801695235964
+    },
+    "A2_fallbacks": 0
+  }
+}
+generating 5 candidates for 150 questions
+  1/150 nq-02790
+  2/150 nq-01135
+  3/150 nq-00080
+  4/150 nq-00242
+  5/150 nq-02663
+  6/150 nq-03543
+  7/150 nq-03043
+  8/150 nq-01055
+  9/150 nq-03252
+  10/150 nq-02381
+  11/150 nq-01489
+  12/150 nq-00223
+  13/150 nq-02824
+  14/150 nq-00514
+  15/150 nq-03204
+  16/150 nq-03243
+  17/150 nq-02939
+  18/150 nq-00177
+  19/150 nq-02714
+  20/150 nq-03113
+  21/150 nq-01333
+  22/150 nq-00175
+  23/150 nq-01487
+  24/150 nq-01375
+  25/150 nq-00530
+  26/150 nq-01660
+  27/150 nq-01226
+  28/150 nq-00402
+  29/150 nq-02485
+  30/150 nq-00719
+  31/150 nq-03012
+  32/150 nq-01568
+  33/150 nq-01670
+  34/150 nq-02019
+  35/150 nq-00435
+  36/150 nq-01419
+  37/150 nq-01100
+  38/150 nq-00783
+  39/150 nq-00974
+  40/150 nq-01120
+  41/150 nq-01963
+  42/150 nq-03199
+  43/150 nq-03348
+  44/150 nq-02352
+  45/150 nq-02330
+  46/150 nq-00854
+  47/150 nq-01762
+  48/150 nq-02776
+  49/150 nq-01917
+  50/150 nq-02334
+  51/150 nq-00880
+  52/150 nq-01144
+  53/150 nq-00592
+  54/150 nq-01386
+  55/150 nq-03330
+  56/150 nq-00859
+  57/150 nq-00409
+  58/150 nq-03314
+  59/150 nq-02030
+  60/150 nq-01964
+  61/150 nq-01776
+  62/150 nq-02322
+  63/150 nq-01517
+  64/150 nq-01693
+  65/150 nq-01879
+  66/150 nq-03244
+  67/150 nq-02611
+  68/150 nq-02845
+  69/150 nq-01196
+  70/150 nq-02878
+  71/150 nq-01780
+  72/150 nq-01390
+  73/150 nq-01403
+  74/150 nq-03318
+  75/150 nq-01321
+  76/150 nq-02696
+  77/150 nq-01637
+  78/150 nq-00285
+  79/150 nq-00957
+  80/150 nq-01988
+  81/150 nq-02868
+  82/150 nq-02242
+  83/150 nq-02222
+  84/150 nq-00372
+  85/150 nq-01847
+  86/150 nq-02965
+  87/150 nq-02309
+  88/150 nq-02752
+  89/150 nq-00332
+  90/150 nq-01323
+  91/150 nq-02434
+  92/150 nq-00668
+  93/150 nq-00216
+  94/150 nq-01592
+  95/150 nq-00956
+  96/150 nq-00739
+  97/150 nq-00191
+  98/150 nq-02832
+  99/150 nq-03421
+  100/150 nq-02108
+  101/150 nq-01073
+  102/150 nq-00522
+  103/150 nq-01129
+  104/150 nq-02621
+  105/150 nq-00797
+  106/150 nq-01976
+  107/150 nq-00233
+  108/150 nq-01132
+  109/150 nq-00709
+  110/150 nq-02606
+  111/150 nq-02995
+  112/150 nq-02703
+  113/150 nq-02304
+  114/150 nq-03046
+  115/150 nq-03545
+  116/150 nq-02799
+  117/150 nq-01503
+  118/150 nq-03324
+  119/150 nq-01460
+  120/150 nq-00660
+  121/150 nq-03213
+  122/150 nq-02573
+  123/150 nq-00686
+  124/150 nq-00454
+  125/150 nq-00466
+  126/150 nq-00947
+  127/150 nq-03533
+  128/150 nq-01157
+  129/150 nq-00100
+  130/150 nq-01618
+  131/150 nq-03263
+  132/150 nq-00001
+  133/150 nq-01338
+  134/150 nq-03235
+  135/150 nq-02748
+  136/150 nq-02017
+  137/150 nq-00847
+  138/150 nq-02437
+  139/150 nq-01770
+  140/150 nq-02741
+  141/150 nq-02820
+  142/150 nq-02855
+  143/150 nq-02943
+  144/150 nq-03309
+  145/150 nq-01983
+  146/150 nq-02988
+  147/150 nq-01251
+  148/150 nq-00031
+  149/150 nq-03439
+  150/150 nq-03485
+D:\Han\rex_rag\Fuzzy-RAG\.venv\Lib\site-packages\torch\jit\_script.py:1485: FutureWarning: `torch.jit.script` is not supported in Python 3.14+ and may break. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/392 [00:00<?, ?it/s]Loading weights: 100%|██████████| 392/392 [00:00<00:00, 28077.58it/s]
+[transformers] [1mDebertaForSequenceClassification LOAD REPORT[0m from: microsoft/deberta-large-mnli
+Key    | Status     |  | 
+-------+------------+--+-
+config | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights:  12%|█▏        | 23/199 [00:00<00:00, 213.40it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 1343.94it/s]
+{
+  "dataset": "nq",
+  "source": "NQ-open.dev.jsonl",
+  "n_originals": 150,
+  "offset": 300,
+  "n_complete": 128,
+  "n_incomplete": 22,
+  "n_candidates": 750,
+  "candidate_outcomes": {
+    "nli": 119,
+    "passed": 482,
+    "duplicate": 86,
+    "cosine": 63
+  },
+  "pass_rate": 0.6426666666666667,
+  "settings": {
+    "prompt": "Paraphrase this question: reword it using different words or sentence structure so that it still asks exactly the same thing. Do not add or remove information and do not include the answer.",
+    "n_candidates": 5,
+    "temperature": 0.7,
+    "max_tokens": 64,
+    "seed": 42,
+    "cosine_min": 0.75,
+    "generator": "Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf",
+    "gpu_layers": 31,
+    "nli": "microsoft/deberta-large-mnli@7296194b9009373def4f7c5dad292651e4b5cf4e",
+    "embedder": "sentence-transformers/all-mpnet-base-v2@e8c3b32edf5434bc2275fc9bab85f82640a19130"
+  },
+  "generation_s_per_candidate": 1.9039758202234904,
+  "timing": {
+    "generate_s": 1431.8416676521301,
+    "screen_s": 36.508538007736206
+  }
+}
+412 query instances
+BM25 k1=0.9 b=0.4: 412 questions, k=50, 88.6s (215 ms/question), 0 with fewer than 50 hits -> ..\data\v4\fresh_src\nq\initial_bm25.jsonl
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 29171.90it/s]
+{
+  "dataset": "nq",
+  "instances": 412,
+  "timing": {
+    "bm25_search_s": 88.57358527183533,
+    "load_encoder_s": 6.145580768585205,
+    "encode_s": 1.507375955581665,
+    "load_index_s": 160.40983772277832,
+    "dense_search_s": 153.83824229240417,
+    "per_query_s": 0.5920369017471387,
+    "read_texts_s": 160.152441740036
+  }
+}
+nq: 412 instances, phase a1
+a1: 412 instances; read 5044 passages in 160 s
+Loading weights:   0%|          | 0/105 [00:00<?, ?it/s]Loading weights: 100%|██████████| 105/105 [00:00<00:00, 19839.71it/s]
+a1: done; reused A1 whose recomputed top 5 differs from the cached one: 0
+nq: 412 instances, phase followups
+followups: 412 calls
+  50/412
+  100/412
+  150/412
+  200/412
+  250/412
+  300/412
+  350/412
+  400/412
+nq: 412 instances, phase second
+second: 394 follow-up queries
+BM25 k1=0.9 b=0.4: 394 questions, k=50, 88.6s (225 ms/question), 0 with fewer than 50 hits -> ..\data\v4\fresh\nq\second_bm25.jsonl
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 29572.93it/s]
+nq: 412 instances, phase selection
+selection: 412 instances, 394 with a second hop; read 5282 passages in 161 s
+Loading weights:   0%|          | 0/105 [00:00<?, ?it/s]Loading weights: 100%|██████████| 105/105 [00:00<00:00, 26883.28it/s]
+nq: 412 instances, phase generation
+generation: 824 calls (variants ['V1'])
+  50/824
+  100/824
+  150/824
+  200/824
+  250/824
+  300/824
+  350/824
+  400/824
+  450/824
+  500/824
+  550/824
+  600/824
+  650/824
+  700/824
+  750/824
+  800/824
+nq: 412 instances, phase outcomes
+{
+  "instances": 412,
+  "mean": {
+    "A1": {
+      "EM": 0.3179611650485437,
+      "F1": 0.4407266104959528,
+      "latency_total": 5.661136181030457
+    },
+    "A2": {
+      "EM": 0.3422330097087379,
+      "F1": 0.46879976660816186,
+      "latency_total": 11.916387335189338
+    },
+    "A2_fallbacks": 18
+  }
+}
+hotpotqa: 886 instances, phase a1
+a1: 176 instances; read 2058 passages in 20 s
+Loading weights:   0%|          | 0/105 [00:00<?, ?it/s]Loading weights: 100%|██████████| 105/105 [00:00<00:00, 26785.18it/s]
+a1: done; reused A1 whose recomputed top 5 differs from the cached one: 0
+hotpotqa: 886 instances, phase followups
+followups: 176 calls
+  50/176
+  100/176
+  150/176
+hotpotqa: 886 instances, phase second
+second: 176 follow-up queries
+BM25 k1=0.9 b=0.4: 176 questions, k=50, 26.4s (150 ms/question), 0 with fewer than 50 hits -> ..\data\v4\hotpotqa\second_bm25.jsonl
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 29211.72it/s]
+hotpotqa: 886 instances, phase selection
+selection: 176 instances, 176 with a second hop; read 2219 passages in 20 s
+Loading weights:   0%|          | 0/105 [00:00<?, ?it/s]Loading weights: 100%|██████████| 105/105 [00:00<00:00, 10611.58it/s]
+hotpotqa: 886 instances, phase generation
+generation: 176 calls (variants ['V1'])
+  50/176
+  100/176
+  150/176
+hotpotqa: 886 instances, phase outcomes
+{
+  "instances": 886,
+  "mean": {
+    "A1": {
+      "EM": 0.3905191873589165,
+      "F1": 0.4889155965105369,
+      "latency_total": 4.274927900553287
+    },
+    "A2": {
+      "EM": 0.4198645598194131,
+      "F1": 0.5276109199330231,
+      "latency_total": 9.041816277643894
+    },
+    "A2_fallbacks": 0
+  }
+}
+nq: 841 instances, phase a1
+a1: 170 instances; read 2050 passages in 161 s
+Loading weights:   0%|          | 0/105 [00:00<?, ?it/s]Loading weights: 100%|██████████| 105/105 [00:00<00:00, 26578.27it/s]
+a1: done; reused A1 whose recomputed top 5 differs from the cached one: 0
+nq: 841 instances, phase followups
+followups: 170 calls
+  50/170
+  100/170
+  150/170
+nq: 841 instances, phase second
+second: 164 follow-up queries
+BM25 k1=0.9 b=0.4: 164 questions, k=50, 42.1s (257 ms/question), 0 with fewer than 50 hits -> ..\data\v4\nq\second_bm25.jsonl
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 29085.50it/s]
+nq: 841 instances, phase selection
+selection: 170 instances, 164 with a second hop; read 2218 passages in 161 s
+Loading weights:   0%|          | 0/105 [00:00<?, ?it/s]Loading weights: 100%|██████████| 105/105 [00:00<00:00, 9574.79it/s]
+nq: 841 instances, phase generation
+generation: 170 calls (variants ['V1'])
+  50/170
+  100/170
+  150/170
+nq: 841 instances, phase outcomes
+{
+  "instances": 841,
+  "mean": {
+    "A1": {
+      "EM": 0.3388822829964328,
+      "F1": 0.47550231303447843,
+      "latency_total": 6.210015343145582
+    },
+    "A2": {
+      "EM": 0.3448275862068966,
+      "F1": 0.48161669392577233,
+      "latency_total": 11.9890870497995
+    },
+    "A2_fallbacks": 29
+  }
+}
+v0.4 experiment complete

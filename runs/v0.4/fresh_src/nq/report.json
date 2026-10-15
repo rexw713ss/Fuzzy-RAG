@@ -1,0 +1,33 @@
+{
+  "dataset": "nq",
+  "source": "NQ-open.dev.jsonl",
+  "n_originals": 150,
+  "offset": 300,
+  "n_complete": 128,
+  "n_incomplete": 22,
+  "n_candidates": 750,
+  "candidate_outcomes": {
+    "nli": 119,
+    "passed": 482,
+    "duplicate": 86,
+    "cosine": 63
+  },
+  "pass_rate": 0.6426666666666667,
+  "settings": {
+    "prompt": "Paraphrase this question: reword it using different words or sentence structure so that it still asks exactly the same thing. Do not add or remove information and do not include the answer.",
+    "n_candidates": 5,
+    "temperature": 0.7,
+    "max_tokens": 64,
+    "seed": 42,
+    "cosine_min": 0.75,
+    "generator": "Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf",
+    "gpu_layers": 31,
+    "nli": "microsoft/deberta-large-mnli@7296194b9009373def4f7c5dad292651e4b5cf4e",
+    "embedder": "sentence-transformers/all-mpnet-base-v2@e8c3b32edf5434bc2275fc9bab85f82640a19130"
+  },
+  "generation_s_per_candidate": 1.9039758202234904,
+  "timing": {
+    "generate_s": 1431.8416676521301,
+    "screen_s": 36.508538007736206
+  }
+}

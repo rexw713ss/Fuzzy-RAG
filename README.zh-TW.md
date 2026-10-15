@@ -326,6 +326,7 @@ Recall 使用 DPR-style token-sequence answer matching，不是生成答案正�
 | `main_logic/config.py`、`config.yaml` | Configuration 載入與參數紀錄 |
 | `scripts/` | Retrieval smoke、embedding、單調性檢查；`datasets.py`（所有資料路徑）；`export_corpus.py`（Lucene passages 轉 TSV） |
 | `tests/` | Unit tests、合成評估、config 一致性 |
+| `runs/` | v0.3 與 v0.4 兩次實驗的結果與 outcome rows,可據此重算結果([runs/README.md](runs/README.md)) |
 | `requirements*.txt` | 已記錄的開發 dependencies |
 
 部分 source comments 引用的 specification v0.3 與外部 rule/provenance files 尚未包含於 repository。

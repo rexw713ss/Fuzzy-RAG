@@ -189,7 +189,7 @@ The ordinal consequents are monotone, but the defuzzified surface is not globall
 
 ## Full-run results (2026-10-12)
 
-Code at commit `6cb7b28`; 329 unit tests pass (Windows, development environment). Hardware: one Quadro P2200 (5 GB). Outputs are in the data directory, not in this repository: `full/results/{nq,hotpotqa,pooled}.json`, `full/evaluate.log`, and the per-instance outcome rows `full/<dataset>/outcomes.jsonl`.
+Code at commit `6cb7b28`; 329 unit tests pass (Windows, development environment). Hardware: one Quadro P2200 (5 GB). Outputs were written to the data directory: `full/results/{nq,hotpotqa,pooled}.json`, `full/evaluate.log`, and the per-instance outcome rows `full/<dataset>/outcomes.jsonl`. A copy of the results and outcome rows is in [`runs/v0.3/`](runs/README.md), together with the second run (v0.4, [`runs/v0.4/`](runs/README.md)). Both can be recomputed from these copies without any model or index.
 
 ### Data
 
@@ -436,6 +436,7 @@ The report is written to `checks/monotonicity.json` under `DATA` in `scripts/dat
 | `scripts/build_clusters.py`, `retrieve_clusters.py`, `stage1_checks.py`, `outcomes.py`, `evaluate.py`, `audit_sheet.py` | Full experiment pipeline (steps 1–9) |
 | `scripts/` (others) | Retrieval smoke, embedding, monotonicity checks; `datasets.py` (all data paths); `export_corpus.py` (Lucene passages to TSV) |
 | `tests/` | Unit tests, synthetic evaluation, config consistency |
+| `runs/` | Saved results and outcome rows of the v0.3 and v0.4 runs, enough to recompute them ([runs/README.md](runs/README.md)) |
 | `requirements*.txt` | Recorded development dependencies |
 
 Some source comments reference specification v0.3 and external rule/provenance files not included in the repository.

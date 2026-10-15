@@ -1,0 +1,38 @@
+{
+  "dataset": "hotpotqa",
+  "n": 1000,
+  "seed": 0,
+  "model": "facebook/contriever-msmarco",
+  "revision": "abe8c1493371369031bcb1e02acb754cf4e162fa",
+  "format": "title + ' ' + text",
+  "max_length": 512,
+  "cosine": {
+    "min": 0.9999986886978149,
+    "p1": 0.9999997019767761,
+    "median": 0.9999998807907104,
+    "mean": 0.9999998807907104
+  },
+  "norm_ratio": {
+    "min": 0.9998189210891724,
+    "max": 1.000170111656189
+  },
+  "passed": true,
+  "shards_covered": 1,
+  "worst": [
+    {
+      "id": "992682",
+      "cosine": 0.9999986886978149,
+      "title": "Aero A.300"
+    },
+    {
+      "id": "43484715",
+      "cosine": 0.999999463558197,
+      "title": "Charltona desistalis"
+    },
+    {
+      "id": "18456371",
+      "cosine": 0.9999995231628418,
+      "title": "Field hockey at the 2008 Summer Olympics – Men's team squads"
+    }
+  ]
+}
