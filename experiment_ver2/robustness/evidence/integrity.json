@@ -1,0 +1,570 @@
+{
+  "nq": {
+    "dataset": "nq",
+    "splits": {
+      "train": {
+        "issues": [],
+        "n_clusters": 180,
+        "n_queries": 506,
+        "complete_clusters": 157,
+        "sibling_pairs": 483,
+        "sibling_token_jaccard_median": 0.46153846153846156,
+        "sibling_pairs_jaccard_at_least_0_9": [
+          {
+            "cluster_id": "nq-03188",
+            "variants": [
+              1,
+              2
+            ],
+            "token_jaccard": 0.9166666666666666
+          },
+          {
+            "cluster_id": "nq-03472",
+            "variants": [
+              1,
+              2
+            ],
+            "token_jaccard": 0.9
+          },
+          {
+            "cluster_id": "nq-01087",
+            "variants": [
+              1,
+              2
+            ],
+            "token_jaccard": 0.9090909090909091
+          },
+          {
+            "cluster_id": "nq-03441",
+            "variants": [
+              1,
+              2
+            ],
+            "token_jaccard": 0.9230769230769231
+          },
+          {
+            "cluster_id": "nq-03483",
+            "variants": [
+              1,
+              2
+            ],
+            "token_jaccard": 0.9230769230769231
+          },
+          {
+            "cluster_id": "nq-02228",
+            "variants": [
+              1,
+              2
+            ],
+            "token_jaccard": 0.9230769230769231
+          },
+          {
+            "cluster_id": "nq-03171",
+            "variants": [
+              1,
+              2
+            ],
+            "token_jaccard": 0.9285714285714286
+          },
+          {
+            "cluster_id": "nq-03304",
+            "variants": [
+              1,
+              2
+            ],
+            "token_jaccard": 0.9230769230769231
+          },
+          {
+            "cluster_id": "nq-00751",
+            "variants": [
+              1,
+              2
+            ],
+            "token_jaccard": 0.9166666666666666
+          },
+          {
+            "cluster_id": "nq-00048",
+            "variants": [
+              1,
+              2
+            ],
+            "token_jaccard": 1.0
+          },
+          {
+            "cluster_id": "nq-01104",
+            "variants": [
+              1,
+              2
+            ],
+            "token_jaccard": 0.9333333333333333
+          },
+          {
+            "cluster_id": "nq-01890",
+            "variants": [
+              1,
+              2
+            ],
+            "token_jaccard": 0.9090909090909091
+          },
+          {
+            "cluster_id": "nq-00770",
+            "variants": [
+              1,
+              2
+            ],
+            "token_jaccard": 0.9230769230769231
+          }
+        ],
+        "interpretation": "lexical diagnostic only; answer metadata agreement does not establish semantic equivalence",
+        "variants_per_cluster": {
+          "1": 11,
+          "2": 12,
+          "3": 157
+        }
+      },
+      "val": {
+        "issues": [],
+        "n_clusters": 60,
+        "n_queries": 165,
+        "complete_clusters": 50,
+        "sibling_pairs": 155,
+        "sibling_token_jaccard_median": 0.5,
+        "sibling_pairs_jaccard_at_least_0_9": [
+          {
+            "cluster_id": "nq-00281",
+            "variants": [
+              0,
+              1
+            ],
+            "token_jaccard": 0.9
+          },
+          {
+            "cluster_id": "nq-00281",
+            "variants": [
+              0,
+              2
+            ],
+            "token_jaccard": 0.9
+          },
+          {
+            "cluster_id": "nq-00281",
+            "variants": [
+              1,
+              2
+            ],
+            "token_jaccard": 1.0
+          },
+          {
+            "cluster_id": "nq-02874",
+            "variants": [
+              1,
+              2
+            ],
+            "token_jaccard": 0.9090909090909091
+          },
+          {
+            "cluster_id": "nq-02935",
+            "variants": [
+              1,
+              2
+            ],
+            "token_jaccard": 0.9166666666666666
+          },
+          {
+            "cluster_id": "nq-01407",
+            "variants": [
+              1,
+              2
+            ],
+            "token_jaccard": 0.9090909090909091
+          }
+        ],
+        "interpretation": "lexical diagnostic only; answer metadata agreement does not establish semantic equivalence",
+        "variants_per_cluster": {
+          "1": 5,
+          "2": 5,
+          "3": 50
+        }
+      },
+      "test": {
+        "issues": [],
+        "n_clusters": 60,
+        "n_queries": 170,
+        "complete_clusters": 54,
+        "sibling_pairs": 164,
+        "sibling_token_jaccard_median": 0.46153846153846156,
+        "sibling_pairs_jaccard_at_least_0_9": [
+          {
+            "cluster_id": "nq-01921",
+            "variants": [
+              1,
+              2
+            ],
+            "token_jaccard": 0.9166666666666666
+          },
+          {
+            "cluster_id": "nq-00122",
+            "variants": [
+              1,
+              2
+            ],
+            "token_jaccard": 0.9166666666666666
+          },
+          {
+            "cluster_id": "nq-01714",
+            "variants": [
+              1,
+              2
+            ],
+            "token_jaccard": 0.9166666666666666
+          },
+          {
+            "cluster_id": "nq-00628",
+            "variants": [
+              1,
+              2
+            ],
+            "token_jaccard": 0.9090909090909091
+          },
+          {
+            "cluster_id": "nq-00158",
+            "variants": [
+              1,
+              2
+            ],
+            "token_jaccard": 0.9090909090909091
+          }
+        ],
+        "interpretation": "lexical diagnostic only; answer metadata agreement does not establish semantic equivalence",
+        "variants_per_cluster": {
+          "1": 4,
+          "2": 2,
+          "3": 54
+        }
+      },
+      "fresh": {
+        "issues": [],
+        "n_clusters": 150,
+        "n_queries": 412,
+        "complete_clusters": 128,
+        "sibling_pairs": 390,
+        "sibling_token_jaccard_median": 0.46153846153846156,
+        "sibling_pairs_jaccard_at_least_0_9": [
+          {
+            "cluster_id": "nq-01660",
+            "variants": [
+              1,
+              2
+            ],
+            "token_jaccard": 0.9230769230769231
+          },
+          {
+            "cluster_id": "nq-00974",
+            "variants": [
+              1,
+              2
+            ],
+            "token_jaccard": 0.9090909090909091
+          },
+          {
+            "cluster_id": "nq-02611",
+            "variants": [
+              0,
+              1
+            ],
+            "token_jaccard": 0.9
+          },
+          {
+            "cluster_id": "nq-02242",
+            "variants": [
+              1,
+              2
+            ],
+            "token_jaccard": 1.0
+          },
+          {
+            "cluster_id": "nq-01132",
+            "variants": [
+              1,
+              2
+            ],
+            "token_jaccard": 0.9166666666666666
+          },
+          {
+            "cluster_id": "nq-02995",
+            "variants": [
+              1,
+              2
+            ],
+            "token_jaccard": 0.9090909090909091
+          },
+          {
+            "cluster_id": "nq-02741",
+            "variants": [
+              1,
+              2
+            ],
+            "token_jaccard": 0.9090909090909091
+          },
+          {
+            "cluster_id": "nq-02943",
+            "variants": [
+              1,
+              2
+            ],
+            "token_jaccard": 0.9166666666666666
+          }
+        ],
+        "interpretation": "lexical diagnostic only; answer metadata agreement does not establish semantic equivalence",
+        "variants_per_cluster": {
+          "1": 16,
+          "2": 6,
+          "3": 128
+        }
+      }
+    },
+    "normalized_duplicates": {
+      "within_cluster": [],
+      "cross_cluster": [],
+      "cross_split": []
+    },
+    "all_metadata_checks_pass": true,
+    "no_exact_normalized_cross_split_overlap": true,
+    "semantic_deduplication": "not established; requires semantic review with original source data"
+  },
+  "hotpotqa": {
+    "dataset": "hotpotqa",
+    "splits": {
+      "train": {
+        "issues": [],
+        "n_clusters": 180,
+        "n_queries": 531,
+        "complete_clusters": 174,
+        "sibling_pairs": 525,
+        "sibling_token_jaccard_median": 0.5333333333333333,
+        "sibling_pairs_jaccard_at_least_0_9": [
+          {
+            "cluster_id": "hotpotqa-04264",
+            "variants": [
+              0,
+              1
+            ],
+            "token_jaccard": 0.9230769230769231
+          },
+          {
+            "cluster_id": "hotpotqa-04114",
+            "variants": [
+              1,
+              2
+            ],
+            "token_jaccard": 0.9230769230769231
+          },
+          {
+            "cluster_id": "hotpotqa-04956",
+            "variants": [
+              1,
+              2
+            ],
+            "token_jaccard": 1.0
+          },
+          {
+            "cluster_id": "hotpotqa-01183",
+            "variants": [
+              1,
+              2
+            ],
+            "token_jaccard": 0.9047619047619048
+          },
+          {
+            "cluster_id": "hotpotqa-02952",
+            "variants": [
+              1,
+              2
+            ],
+            "token_jaccard": 0.9333333333333333
+          },
+          {
+            "cluster_id": "hotpotqa-05560",
+            "variants": [
+              0,
+              2
+            ],
+            "token_jaccard": 1.0
+          },
+          {
+            "cluster_id": "hotpotqa-01168",
+            "variants": [
+              1,
+              2
+            ],
+            "token_jaccard": 0.9285714285714286
+          },
+          {
+            "cluster_id": "hotpotqa-00621",
+            "variants": [
+              1,
+              2
+            ],
+            "token_jaccard": 0.9523809523809523
+          },
+          {
+            "cluster_id": "hotpotqa-05337",
+            "variants": [
+              1,
+              2
+            ],
+            "token_jaccard": 0.9
+          }
+        ],
+        "interpretation": "lexical diagnostic only; answer metadata agreement does not establish semantic equivalence",
+        "variants_per_cluster": {
+          "1": 3,
+          "2": 3,
+          "3": 174
+        }
+      },
+      "val": {
+        "issues": [],
+        "n_clusters": 60,
+        "n_queries": 179,
+        "complete_clusters": 59,
+        "sibling_pairs": 178,
+        "sibling_token_jaccard_median": 0.5638586956521738,
+        "sibling_pairs_jaccard_at_least_0_9": [
+          {
+            "cluster_id": "hotpotqa-02996",
+            "variants": [
+              1,
+              2
+            ],
+            "token_jaccard": 0.9411764705882353
+          },
+          {
+            "cluster_id": "hotpotqa-03745",
+            "variants": [
+              1,
+              2
+            ],
+            "token_jaccard": 1.0
+          },
+          {
+            "cluster_id": "hotpotqa-05265",
+            "variants": [
+              1,
+              2
+            ],
+            "token_jaccard": 0.9047619047619048
+          },
+          {
+            "cluster_id": "hotpotqa-01818",
+            "variants": [
+              0,
+              1
+            ],
+            "token_jaccard": 0.9411764705882353
+          }
+        ],
+        "interpretation": "lexical diagnostic only; answer metadata agreement does not establish semantic equivalence",
+        "variants_per_cluster": {
+          "2": 1,
+          "3": 59
+        }
+      },
+      "test": {
+        "issues": [],
+        "n_clusters": 60,
+        "n_queries": 176,
+        "complete_clusters": 57,
+        "sibling_pairs": 173,
+        "sibling_token_jaccard_median": 0.5454545454545454,
+        "sibling_pairs_jaccard_at_least_0_9": [
+          {
+            "cluster_id": "hotpotqa-02938",
+            "variants": [
+              1,
+              2
+            ],
+            "token_jaccard": 0.9090909090909091
+          },
+          {
+            "cluster_id": "hotpotqa-04186",
+            "variants": [
+              0,
+              2
+            ],
+            "token_jaccard": 1.0
+          }
+        ],
+        "interpretation": "lexical diagnostic only; answer metadata agreement does not establish semantic equivalence",
+        "variants_per_cluster": {
+          "1": 1,
+          "2": 2,
+          "3": 57
+        }
+      },
+      "fresh": {
+        "issues": [],
+        "n_clusters": 150,
+        "n_queries": 443,
+        "complete_clusters": 143,
+        "sibling_pairs": 436,
+        "sibling_token_jaccard_median": 0.55,
+        "sibling_pairs_jaccard_at_least_0_9": [
+          {
+            "cluster_id": "hotpotqa-01069",
+            "variants": [
+              1,
+              2
+            ],
+            "token_jaccard": 0.9285714285714286
+          },
+          {
+            "cluster_id": "hotpotqa-05715",
+            "variants": [
+              1,
+              2
+            ],
+            "token_jaccard": 0.9333333333333333
+          },
+          {
+            "cluster_id": "hotpotqa-04446",
+            "variants": [
+              1,
+              2
+            ],
+            "token_jaccard": 1.0
+          },
+          {
+            "cluster_id": "hotpotqa-06070",
+            "variants": [
+              1,
+              2
+            ],
+            "token_jaccard": 0.9285714285714286
+          },
+          {
+            "cluster_id": "hotpotqa-02658",
+            "variants": [
+              0,
+              1
+            ],
+            "token_jaccard": 0.9166666666666666
+          }
+        ],
+        "interpretation": "lexical diagnostic only; answer metadata agreement does not establish semantic equivalence",
+        "variants_per_cluster": {
+          "2": 7,
+          "3": 143
+        }
+      }
+    },
+    "normalized_duplicates": {
+      "within_cluster": [],
+      "cross_cluster": [],
+      "cross_split": []
+    },
+    "all_metadata_checks_pass": true,
+    "no_exact_normalized_cross_split_overlap": true,
+    "semantic_deduplication": "not established; requires semantic review with original source data"
+  }
+}

@@ -10,7 +10,7 @@ Environment: Windows 10, Python 3.12.14, NumPy 2.3.5, pytest 9.1.1, regex 2026.9
 .\.venv-core\Scripts\python.exe -m pytest -q -rs
 ```
 
-Final result: **528 passed, 2 skipped**. The two existing external rule-CSV tests are skipped because `Fuzzy_RAG_personal/etc/rule_base_81.csv` and `rule_base_27.csv` are not in this repository. Internal generated rule-base tests pass. All 156 ver2 tests pass.
+Final result after robustness and additive follow-up: **641 passed, 2 skipped**. The two existing external rule-CSV tests are skipped because `Fuzzy_RAG_personal/etc/rule_base_81.csv` and `rule_base_27.csv` are not in this repository. Internal generated rule-base tests pass. All 269 ver2 tests pass.
 
 The suite covers:
 
@@ -20,6 +20,10 @@ The suite covers:
 - Test-label and measured-cost mutation invariance for synthetic three-action and real two-action datasets, with both three and four signals.
 - Primary fuzzy trace weights reconstruct the recorded predicted gain.
 - Minimal input ZIP round trip, failure artifacts, and refusal to overwrite run outputs or write inside original input caches.
+- Whole-cluster TRAIN/VAL resampling, exact fuzzy sufficient-statistic cache parity, no TEST-label fitting, and fallback/width failure behavior.
+- Three test-bootstrap estimands checked against literal duplicated-row calculations, cluster weighting, conservative family intervals, and descriptive subgroups.
+- Metadata and split audits, outcome-blind human-review sampling, cluster-level support/ESS and tied-rank diagnostics.
+- Additive basis geometry, independent weighted-ridge solve, collinearity, inability to learn a balanced XOR interaction, model serialization, TEST-outcome absence/perturbation invariance, and saved-reference verification.
 
 ## Original result reproduction
 
@@ -37,8 +41,12 @@ An independent numerical audit recomputed all 240 method × quota × dataset blo
 
 ## Limits
 
+The additional [robustness evidence](robustness/evidence/) uses 10,000 test-cluster resamples per dataset, three sampling definitions and 100 independent TRAIN/VAL resampling fits. The original primary candidates, all six policy action arrays and F1 values matched saved evidence. Repeating the robustness run after review produced identical statistical and stability outputs. [Additive follow-up evidence](additive_evidence/) contains two additional families fitted on TRAIN, selected on VAL and evaluated once under its written exploratory protocol. Both datasets and all 12 planned comparisons are preserved, including negative/uncertain findings.
+
+After correcting Windows newline serialization, both runs were repeated without any model or protocol change: every non-manifest result matched the earlier run after newline normalization. All saved evidence checksums match both working files and staged Git blobs. The new PNG/PDF comparison figure was visually inspected. This serialization replay is not another independent statistical experiment.
+
 - Published fresh-set results were already inspected; this is exploratory replay, not a new blinded test.
 - Archived old raw signals are absent, so their scaler provenance cannot be independently reconstructed. Saved TRAIN jitter was independently checked.
-- CIs condition on fitted models and observed batch assignments, without model-selection or future-batch uncertainty; they are unadjusted for multiple comparisons.
+- Original ver2 CIs condition on fitted models and observed batch assignments and are unadjusted. The new robustness outputs separately examine reranked batches, TRAIN/VAL fitting variation and approximate multiplicity-adjusted intervals; none repairs test reuse or substitutes for a new confirmatory dataset.
 - A2 count matching is not latency matching. Cached component latency excludes a newly measured online serving path.
 - Human paraphrase review and new confirmatory data collection remain research work, not replaced by unit tests.

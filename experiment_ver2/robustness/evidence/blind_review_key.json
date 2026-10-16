@@ -1,0 +1,436 @@
+{
+  "seed": 20261016,
+  "eligibility": {
+    "nq": {
+      "eligible_clusters": 134,
+      "no_retained_paraphrase": 16
+    },
+    "hotpotqa": {
+      "eligible_clusters": 150,
+      "no_retained_paraphrase": 0
+    }
+  },
+  "items": [
+    {
+      "review_id": "R001",
+      "dataset": "nq",
+      "cluster_id": "nq-03199",
+      "paraphrase_variant_id": 2,
+      "original_side": "right"
+    },
+    {
+      "review_id": "R002",
+      "dataset": "nq",
+      "cluster_id": "nq-01321",
+      "paraphrase_variant_id": 2,
+      "original_side": "right"
+    },
+    {
+      "review_id": "R003",
+      "dataset": "nq",
+      "cluster_id": "nq-00001",
+      "paraphrase_variant_id": 1,
+      "original_side": "right"
+    },
+    {
+      "review_id": "R004",
+      "dataset": "nq",
+      "cluster_id": "nq-02663",
+      "paraphrase_variant_id": 1,
+      "original_side": "left"
+    },
+    {
+      "review_id": "R005",
+      "dataset": "nq",
+      "cluster_id": "nq-01503",
+      "paraphrase_variant_id": 1,
+      "original_side": "left"
+    },
+    {
+      "review_id": "R006",
+      "dataset": "nq",
+      "cluster_id": "nq-00216",
+      "paraphrase_variant_id": 1,
+      "original_side": "right"
+    },
+    {
+      "review_id": "R007",
+      "dataset": "nq",
+      "cluster_id": "nq-02939",
+      "paraphrase_variant_id": 2,
+      "original_side": "right"
+    },
+    {
+      "review_id": "R008",
+      "dataset": "nq",
+      "cluster_id": "nq-03043",
+      "paraphrase_variant_id": 2,
+      "original_side": "left"
+    },
+    {
+      "review_id": "R009",
+      "dataset": "nq",
+      "cluster_id": "nq-00435",
+      "paraphrase_variant_id": 2,
+      "original_side": "left"
+    },
+    {
+      "review_id": "R010",
+      "dataset": "nq",
+      "cluster_id": "nq-00402",
+      "paraphrase_variant_id": 1,
+      "original_side": "right"
+    },
+    {
+      "review_id": "R011",
+      "dataset": "nq",
+      "cluster_id": "nq-00233",
+      "paraphrase_variant_id": 2,
+      "original_side": "right"
+    },
+    {
+      "review_id": "R012",
+      "dataset": "nq",
+      "cluster_id": "nq-00854",
+      "paraphrase_variant_id": 1,
+      "original_side": "left"
+    },
+    {
+      "review_id": "R013",
+      "dataset": "nq",
+      "cluster_id": "nq-00372",
+      "paraphrase_variant_id": 2,
+      "original_side": "left"
+    },
+    {
+      "review_id": "R014",
+      "dataset": "nq",
+      "cluster_id": "nq-01637",
+      "paraphrase_variant_id": 2,
+      "original_side": "right"
+    },
+    {
+      "review_id": "R015",
+      "dataset": "nq",
+      "cluster_id": "nq-03204",
+      "paraphrase_variant_id": 1,
+      "original_side": "left"
+    },
+    {
+      "review_id": "R016",
+      "dataset": "nq",
+      "cluster_id": "nq-00956",
+      "paraphrase_variant_id": 2,
+      "original_side": "right"
+    },
+    {
+      "review_id": "R017",
+      "dataset": "nq",
+      "cluster_id": "nq-02437",
+      "paraphrase_variant_id": 1,
+      "original_side": "left"
+    },
+    {
+      "review_id": "R018",
+      "dataset": "nq",
+      "cluster_id": "nq-02334",
+      "paraphrase_variant_id": 1,
+      "original_side": "left"
+    },
+    {
+      "review_id": "R019",
+      "dataset": "nq",
+      "cluster_id": "nq-03545",
+      "paraphrase_variant_id": 2,
+      "original_side": "left"
+    },
+    {
+      "review_id": "R020",
+      "dataset": "nq",
+      "cluster_id": "nq-03318",
+      "paraphrase_variant_id": 2,
+      "original_side": "right"
+    },
+    {
+      "review_id": "R021",
+      "dataset": "nq",
+      "cluster_id": "nq-03213",
+      "paraphrase_variant_id": 2,
+      "original_side": "right"
+    },
+    {
+      "review_id": "R022",
+      "dataset": "nq",
+      "cluster_id": "nq-02845",
+      "paraphrase_variant_id": 1,
+      "original_side": "right"
+    },
+    {
+      "review_id": "R023",
+      "dataset": "nq",
+      "cluster_id": "nq-01976",
+      "paraphrase_variant_id": 1,
+      "original_side": "right"
+    },
+    {
+      "review_id": "R024",
+      "dataset": "nq",
+      "cluster_id": "nq-01776",
+      "paraphrase_variant_id": 1,
+      "original_side": "right"
+    },
+    {
+      "review_id": "R025",
+      "dataset": "nq",
+      "cluster_id": "nq-01135",
+      "paraphrase_variant_id": 1,
+      "original_side": "right"
+    },
+    {
+      "review_id": "R026",
+      "dataset": "nq",
+      "cluster_id": "nq-00668",
+      "paraphrase_variant_id": 1,
+      "original_side": "right"
+    },
+    {
+      "review_id": "R027",
+      "dataset": "nq",
+      "cluster_id": "nq-01460",
+      "paraphrase_variant_id": 1,
+      "original_side": "right"
+    },
+    {
+      "review_id": "R028",
+      "dataset": "nq",
+      "cluster_id": "nq-02381",
+      "paraphrase_variant_id": 1,
+      "original_side": "left"
+    },
+    {
+      "review_id": "R029",
+      "dataset": "nq",
+      "cluster_id": "nq-00031",
+      "paraphrase_variant_id": 2,
+      "original_side": "right"
+    },
+    {
+      "review_id": "R030",
+      "dataset": "nq",
+      "cluster_id": "nq-01375",
+      "paraphrase_variant_id": 1,
+      "original_side": "left"
+    },
+    {
+      "review_id": "R031",
+      "dataset": "hotpotqa",
+      "cluster_id": "hotpotqa-03672",
+      "paraphrase_variant_id": 2,
+      "original_side": "left"
+    },
+    {
+      "review_id": "R032",
+      "dataset": "hotpotqa",
+      "cluster_id": "hotpotqa-00860",
+      "paraphrase_variant_id": 1,
+      "original_side": "left"
+    },
+    {
+      "review_id": "R033",
+      "dataset": "hotpotqa",
+      "cluster_id": "hotpotqa-06683",
+      "paraphrase_variant_id": 2,
+      "original_side": "right"
+    },
+    {
+      "review_id": "R034",
+      "dataset": "hotpotqa",
+      "cluster_id": "hotpotqa-06315",
+      "paraphrase_variant_id": 1,
+      "original_side": "right"
+    },
+    {
+      "review_id": "R035",
+      "dataset": "hotpotqa",
+      "cluster_id": "hotpotqa-01280",
+      "paraphrase_variant_id": 2,
+      "original_side": "right"
+    },
+    {
+      "review_id": "R036",
+      "dataset": "hotpotqa",
+      "cluster_id": "hotpotqa-05198",
+      "paraphrase_variant_id": 2,
+      "original_side": "left"
+    },
+    {
+      "review_id": "R037",
+      "dataset": "hotpotqa",
+      "cluster_id": "hotpotqa-03436",
+      "paraphrase_variant_id": 2,
+      "original_side": "left"
+    },
+    {
+      "review_id": "R038",
+      "dataset": "hotpotqa",
+      "cluster_id": "hotpotqa-05356",
+      "paraphrase_variant_id": 2,
+      "original_side": "left"
+    },
+    {
+      "review_id": "R039",
+      "dataset": "hotpotqa",
+      "cluster_id": "hotpotqa-05189",
+      "paraphrase_variant_id": 1,
+      "original_side": "left"
+    },
+    {
+      "review_id": "R040",
+      "dataset": "hotpotqa",
+      "cluster_id": "hotpotqa-05610",
+      "paraphrase_variant_id": 2,
+      "original_side": "right"
+    },
+    {
+      "review_id": "R041",
+      "dataset": "hotpotqa",
+      "cluster_id": "hotpotqa-07269",
+      "paraphrase_variant_id": 1,
+      "original_side": "right"
+    },
+    {
+      "review_id": "R042",
+      "dataset": "hotpotqa",
+      "cluster_id": "hotpotqa-03788",
+      "paraphrase_variant_id": 1,
+      "original_side": "left"
+    },
+    {
+      "review_id": "R043",
+      "dataset": "hotpotqa",
+      "cluster_id": "hotpotqa-03945",
+      "paraphrase_variant_id": 1,
+      "original_side": "right"
+    },
+    {
+      "review_id": "R044",
+      "dataset": "hotpotqa",
+      "cluster_id": "hotpotqa-03455",
+      "paraphrase_variant_id": 2,
+      "original_side": "right"
+    },
+    {
+      "review_id": "R045",
+      "dataset": "hotpotqa",
+      "cluster_id": "hotpotqa-02444",
+      "paraphrase_variant_id": 1,
+      "original_side": "left"
+    },
+    {
+      "review_id": "R046",
+      "dataset": "hotpotqa",
+      "cluster_id": "hotpotqa-04582",
+      "paraphrase_variant_id": 1,
+      "original_side": "right"
+    },
+    {
+      "review_id": "R047",
+      "dataset": "hotpotqa",
+      "cluster_id": "hotpotqa-00767",
+      "paraphrase_variant_id": 1,
+      "original_side": "right"
+    },
+    {
+      "review_id": "R048",
+      "dataset": "hotpotqa",
+      "cluster_id": "hotpotqa-02935",
+      "paraphrase_variant_id": 1,
+      "original_side": "right"
+    },
+    {
+      "review_id": "R049",
+      "dataset": "hotpotqa",
+      "cluster_id": "hotpotqa-04862",
+      "paraphrase_variant_id": 1,
+      "original_side": "left"
+    },
+    {
+      "review_id": "R050",
+      "dataset": "hotpotqa",
+      "cluster_id": "hotpotqa-03356",
+      "paraphrase_variant_id": 2,
+      "original_side": "right"
+    },
+    {
+      "review_id": "R051",
+      "dataset": "hotpotqa",
+      "cluster_id": "hotpotqa-05158",
+      "paraphrase_variant_id": 1,
+      "original_side": "left"
+    },
+    {
+      "review_id": "R052",
+      "dataset": "hotpotqa",
+      "cluster_id": "hotpotqa-04473",
+      "paraphrase_variant_id": 1,
+      "original_side": "left"
+    },
+    {
+      "review_id": "R053",
+      "dataset": "hotpotqa",
+      "cluster_id": "hotpotqa-02611",
+      "paraphrase_variant_id": 1,
+      "original_side": "right"
+    },
+    {
+      "review_id": "R054",
+      "dataset": "hotpotqa",
+      "cluster_id": "hotpotqa-04990",
+      "paraphrase_variant_id": 2,
+      "original_side": "left"
+    },
+    {
+      "review_id": "R055",
+      "dataset": "hotpotqa",
+      "cluster_id": "hotpotqa-01926",
+      "paraphrase_variant_id": 2,
+      "original_side": "left"
+    },
+    {
+      "review_id": "R056",
+      "dataset": "hotpotqa",
+      "cluster_id": "hotpotqa-05786",
+      "paraphrase_variant_id": 2,
+      "original_side": "right"
+    },
+    {
+      "review_id": "R057",
+      "dataset": "hotpotqa",
+      "cluster_id": "hotpotqa-02249",
+      "paraphrase_variant_id": 1,
+      "original_side": "left"
+    },
+    {
+      "review_id": "R058",
+      "dataset": "hotpotqa",
+      "cluster_id": "hotpotqa-04905",
+      "paraphrase_variant_id": 2,
+      "original_side": "right"
+    },
+    {
+      "review_id": "R059",
+      "dataset": "hotpotqa",
+      "cluster_id": "hotpotqa-06037",
+      "paraphrase_variant_id": 2,
+      "original_side": "left"
+    },
+    {
+      "review_id": "R060",
+      "dataset": "hotpotqa",
+      "cluster_id": "hotpotqa-04977",
+      "paraphrase_variant_id": 2,
+      "original_side": "right"
+    }
+  ],
+  "status": "pending human ratings; never infer agreement or equivalence from this template"
+}

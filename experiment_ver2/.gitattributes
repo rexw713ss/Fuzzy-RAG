@@ -1,0 +1,10 @@
+additive_evidence/*.json text eol=lf
+additive_evidence/*.jsonl text eol=lf
+additive_evidence/*.md text eol=lf
+additive_models.py text eol=lf
+run_additive.py text eol=lf
+ADDITIVE_*.md text eol=lf
+tests/test_additive*.py text eol=lf
+tests/test_robustness*.py text eol=lf
+tests/test_stability.py text eol=lf
+.gitattributes text eol=lf

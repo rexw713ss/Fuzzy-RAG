@@ -1,0 +1,10 @@
+{
+  "hotpotqa_decisions.jsonl": "bb734d0f388fe0be0d482c6245f3417700ed17506b644623e626e89289daf4d6",
+  "hotpotqa_models.json": "d164fab0d2603a66def3a2b489bc7ec8241ee3fddba0802900f8686a12db5681",
+  "hotpotqa_report.json": "f9af6917a3dbfa6d78dce63aa1f6e3a902c8574b608e13cf8eb0422816f960e9",
+  "manifest.json": "371419caca080f7bd6d010d224803aac2ee7271e008735b5d31c67f1ccd92b60",
+  "nq_decisions.jsonl": "cd6753d5d6c3c93e1806a83ccb4edc32672d5fc55cac1e9098c3c4f1715d0345",
+  "nq_models.json": "d1d1de6fb17322e0915af12322708b916bd7e9dd5e71a3a18b8dff483850c119",
+  "nq_report.json": "bd049aee780f2cb0055f3a0b3e696af00c99d5e41a5758bd817e3665c372d076",
+  "REPORT.md": "e204bea3b9e0cae4793ef37f96d5156b0bd941e4dc883b5ae786c5312ebe8999"
+}

@@ -1,0 +1,10 @@
+{
+  "blind_paraphrase_review.jsonl": "f78ff7b4c0b98ca17af56b800a47175ee4d6641274f64acb1d1b7b3d86ae0d0b",
+  "blind_review_key.json": "548f32277ddb426060d290c4e2901e5cc7f4a47936fc7b33eeeae494b2e8428f",
+  "hotpotqa_robustness.json": "6953ec1cd1b427f31883b3571eaf77c40a651a3e1e849ab78bfda00a1ca31764",
+  "hotpotqa_stability.json": "3eb200934185abd578d7c8838f6d77b8f887639bbf6d12c4eb3644af6ddb7bfd",
+  "integrity.json": "915d7602cc30bacc82ef813c3ff28f8b60b2b9b5a2a665757eb7f849f9fab986",
+  "manifest.json": "936ed87d8ad4080e166cdd8ed7ff805c4380d59b69b3f6b20f45897c457108d0",
+  "nq_robustness.json": "5c0642b19e86d25a910d315822239f296fe9e1ab0ba48de2f0425d30b4b0f3b5",
+  "nq_stability.json": "2fc21213a74028b9352cb50c911e70bc4e73042aefefa930beeeb480af5ac6f7"
+}

@@ -4,6 +4,8 @@
 
 **目前：已整合 main 的 `667639a`，完成真實 NQ／HotpotQA cache 重評。** 原 v0.4 的 6,494 個報告數值完全重現，並完成 v0.3 舊測試、v0.4 舊測試、v0.4 fresh 四訊號主分析及三訊號消融。結果與限制見 [實驗報告](EXPERIMENT_REPORT.zh-TW.md)，完整輸出見 [evidence](evidence/)。所有分析均為探索性；名為 fresh 的資料已有公開結果，不能再視為本方法未見過的確認性測試。
 
+**新增：已完成穩健性稽核與另一輪真實cache實驗。** 兩資料集各10,000次cluster bootstrap、100次TRAIN／VAL重新抽樣；另測12基底additive fuzzy。HotpotQA F1由原fuzzy的0.47497增至0.48458，但對ridge差值區間仍含0，且改寫HRFR較高；NQ未改善。請見 [完整穩健性稽核](robustness/REPORT.zh-TW.md)、[新實驗結果](ADDITIVE_EXPERIMENT_REPORT.zh-TW.md) 與 [預先寫定的新實驗程序](ADDITIVE_EXPERIMENT_PROTOCOL.md)。沒有新增模型API或GPU生成呼叫。
+
 ## 為何改方法
 
 第一輪在 always-A1 時間上限下幾乎全部選 A1，因 rerank 相對 generation 幾乎免費；硬性要求多用 A0／A2 不會解決這件事。第二版把主問題改為：**哪些問題值得額外執行 A2？**
