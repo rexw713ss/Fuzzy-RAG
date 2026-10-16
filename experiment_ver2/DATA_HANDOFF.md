@@ -1,5 +1,7 @@
 # 第一輪實驗資料交接
 
+更新：main `667639a` 已提供 `runs/v0.3`／`runs/v0.4`，足以用 `--archive` 重評。本頁保留為補交 raw training signals 或未來實驗的說明，並非目前執行的阻礙。下述打包工具只適用於 v0.3 原始三動作 cache；不是 v0.4 兩動作 archive 的打包指令。
+
 第二版需要重評第一輪的逐題快取。**不用重跑模型，也不用上傳 Wikipedia corpus、dense embeddings、Lucene／FAISS index 或 GGUF。**
 
 必需檔案：

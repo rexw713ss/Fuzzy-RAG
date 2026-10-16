@@ -2,6 +2,8 @@
 
 制定日期：2026-10-15。這份程序是在讀過 v1 結果後制定的修訂，**不是事前註冊，也不是實驗已成功的證明**。v1 程式與結果保留；ver2 的程式、設定與產物均置於 `experiment_ver2/`，在同名 Git 分支開發。
 
+更新（2026-10-16）：已整合 main `667639a` 的 v0.3／v0.4 caches。沿用此處固定的四訊號效益模型、候選超參數與配額作主分析；S2–S4 三訊號另列消融，不用 test 選主特徵。v0.4 的 A2 是 evidence-aware second-hop action，與 v0.3 rewrite action 分開分析；v0.4 不存在 A0 outcome，故不補造 A0。所有已公開舊／fresh 結果的重評均標探索性。實際結果見 `EXPERIMENT_REPORT.zh-TW.md`。
+
 ## 1. v1 的問題與證據界線
 
 下列數值來自 repository 的 `README.md`「Uncertainty signals」與「Full-run results (2026-10-12)」，本文件未重新產生這些模型輸出。AUC 表位於前者；latency、oracle shares、correlation 與樣本數位於後者。
@@ -21,7 +23,7 @@
 
 **主問題：當 reranking 幾乎免費時，能否辨識哪些查詢值得額外 rewrite + retrieve，讓有限 A2 配額帶來正的答案改善？**
 
-v2 主分析以 A1 為預設，僅在 A1 / A2 之間分配額外處理。A0 保留為固定參考策略；這是根據已知成本結構提出的新研究設定，不能宣稱原本「always-A1 時間上限下三路 routing」的假說已成立。
+v2 主分析以 A1 為預設，僅在 A1 / A2 之間分配額外處理。只有 v0.3 保留 A0 固定參考；v0.4 原資料只有 A1／A2。這是根據已知成本結構提出的新研究設定，不能宣稱原本「always-A1 時間上限下三路 routing」的假說已成立。
 
 定義每筆查詢的真實改善量：
 
@@ -44,6 +46,8 @@ v2 主分析以 A1 為預設，僅在 A1 / A2 之間分配額外處理。A0 保�
 
 輸入僅為作決策時已可取得的 S1–S4。P5/P95 scaling 及 paraphrase jitter widths 都只以 training clusters 估計；validation 與 test 使用 frozen 參數。不可輸入 gold answers、任何 action 的實際 F1、後續 A2 context、或事後量得的個別 action latency。
 
+本次 `--archive` 模式的可驗證範圍：v0.3 原始 signals 沒有上傳，沿用封存中聲明由 TRAIN 擬合的 scaler 與 scaled values，不能獨立證實它們當初只用 TRAIN；可以從 TRAIN scaled values 重算 jitter 並核對保存的 widths／cluster counts，結果一致。v0.4 fresh 原始 signals 使用相同 frozen scaler。所有來源都保存 SHA256。原始 `--root` 模式仍強制從 raw TRAIN signals 重算，不會偷偷改用 scaled cache。
+
 Fuzzy utility 沿用 Low / Medium / High membership，每個訊號三種 membership 的和為 1。四訊號 membership 的乘積形成 81 個 rule 權重；每個 rule 估計各 action 的條件平均 F1，稀疏 rule 向 training global action mean 收縮。最後由 rule 權重加總 action 品質估計，再計算 `predicted_F1_A2 - predicted_F1_A1`。
 
 目前實作保存模型的 81 個 rule 品質與成本估計、`rule_support`、`rule_effective_rows`，並將每筆 test query 的 ID、quota、method、score 與所選 action 寫入 decisions JSONL。主配額的 fuzzy 政策若未回退 always-A1，另輸出啟動 rule ID、乘積權重、training support 與各 rule 的 A2−A1 品質估計；回退政策不使用模型，所以 score 為 null。rule 支持程度與效益都是模型估計，不能寫成已驗證的因果解釋。
@@ -62,7 +66,7 @@ Fuzzy utility 沿用 Low / Medium / High membership，每個訊號三種 members
 
 這是**離線批次資源分配**：它使用整批待處理查詢的特徵來排序，但不讀取其答案或 outcomes。不能稱為逐筆到達、無未來查詢資訊的線上 router；若研究線上部署，需另在 validation 固定 threshold 並報告 test 使用率漂移。
 
-公平基準包含 always-A0/A1/A2、原 B3/B4 uncertainty 排序、global utility、ridge utility，以及同實際 A2 使用率的隨機混合。若 router 實際 A2 比率為 r，隨機混合的期望 F1 為：
+公平基準包含資料中實際存在的 always-action 策略、原 B3/B4 uncertainty 排序、global utility、ridge utility，以及同實際 A2 使用率的隨機混合。若 router 實際 A2 比率為 r，隨機混合的期望 F1 為：
 
 \[
 (1-r)\overline{F1(A1)}+r\overline{F1(A2)}.
@@ -106,4 +110,4 @@ NQ、HotpotQA 分開報告，不能只用 pooled 結果掩蓋方向相反。比�
 
 ver2 目前的工程交付為可重現的 cache replay 程式、模型參數與 rule-support 診斷、逐筆 action／score 紀錄、主配額 fuzzy rule trace、完整 cluster 的 F1 SD／range／minimum、固定配額下全部比較，以及 paired uncertainty estimates。人工語意稽核仍待執行。合成 fixture 通過、模型 API 正確、原有單元測試通過，均只屬工程驗證。
 
-本機目前沒有原實驗 cache；原實驗執行者將另行提供。runner 所需檔案為 root 的 `splits.json`，以及各 dataset 子目錄的 `queries.jsonl`、原始未縮放 `signals.jsonl`、涵蓋所有 action 的 `outcomes.jsonl`；原始 clusters、retrieval 與審核紀錄亦應保留供追溯。缺少外部檔案時應列出缺少項目與可執行命令，不能創造實驗成績。新方法若無收益，也應完成並保存負結果，說明是 action 缺乏 headroom、效益不可預測、樣本不足，或模型限制；「把研究做完整」不等於保證某個方法勝出。
+目前已完成 repo 封存資料上的真實重評、原 v0.4 數值重現及來源完整性檢查，完整輸出保存在 `evidence/`。尚缺 raw training signals 的獨立 scaler 核對、人工語意稽核與未曝光的確認性測試。新方法無收益的資料集與設定照樣保存；「把研究做完整」不等於保證某個方法勝出。

@@ -163,7 +163,7 @@ def test_model_json_roundtrip_and_empty_prediction(fitter):
     assert [a.shape for a in models.predict(restored, np.empty((0, 4)))] == [(0, 3), (0, 3)]
 
 
-@pytest.mark.parametrize("bad_X", [np.ones((2, 3)), [[0, 0, 0, np.nan]],
+@pytest.mark.parametrize("bad_X", [np.ones((2, 2)), np.ones((2, 5)), [[0, 0, 0, np.nan]],
                                     [[0, 0, 0, np.inf]], [[0, 0, 0, 1.1]],
                                     [[0, 0, 0, -0.1]], np.empty((0, 4))])
 def test_rejects_invalid_training_features(bad_X):
@@ -220,3 +220,145 @@ def test_rejects_corrupted_model_parameters():
         models.predict(model, X)
     with pytest.raises(ValueError, match="schema_version"):
         models.predict({}, X)
+
+
+@pytest.mark.parametrize("n_features", [3, 4])
+@pytest.mark.parametrize("n_actions", [2, 3])
+@pytest.mark.parametrize("fitter", [models.fit, models.fit_global, models.fit_ridge])
+def test_supported_dimensions_roundtrip_without_artificial_action_or_feature(
+        n_features, n_actions, fitter):
+    train_X = X[:, :n_features]
+    # Two-action data are the real A1/A2 columns, without a copied A0.
+    quality, cost = QUALITY[:, -n_actions:], COST[:, -n_actions:]
+    model = fitter(train_X, quality, cost, sample_weight=[1 / 3, 1 / 3])
+    assert model["n_features"] == n_features
+    assert model["n_actions"] == n_actions
+    assert len(model["global_quality"]) == n_actions
+    restored = json.loads(json.dumps(model, allow_nan=False))
+    predictions = models.predict(model, train_X)
+    for original, reloaded in zip(predictions, models.predict(restored, train_X)):
+        assert original.shape == (2, n_actions)
+        np.testing.assert_allclose(original, reloaded)
+    empty = models.predict(restored, np.empty((0, n_features)))
+    assert [a.shape for a in empty] == [(0, n_actions), (0, n_actions)]
+    if model["kind"] == "fuzzy":
+        assert len(model["widths"]) == n_features
+        assert np.shape(model["rule_quality"]) == (3**n_features, n_actions)
+    if model["kind"] == "ridge":
+        assert np.shape(model["coefficients"]) == (n_features, 2 * n_actions)
+
+
+def test_three_signal_product_partition_matches_original_27_rule_order():
+    rng = np.random.default_rng(143)
+    train_X = np.vstack((X[:, :3], rng.uniform(size=(20, 3)), [0.35] * 3))
+    widths = [0.20, 0.22, 0.25]
+    weights = models.rule_weights(train_X, widths)
+    np.testing.assert_allclose(weights.sum(axis=1), 1)
+    assert np.all(weights >= 0)
+    assert weights.shape == (len(train_X), 27)
+    assert weights[0, 0] == weights[1, 26] == 1
+    indices = models.rule_index(3)
+    original_rules = fz.rule_base(3)
+    for idx, (_, labels, _, _) in zip(indices, original_rules):
+        assert tuple(fz.LABELS[i] for i in idx) == labels
+    for row, actual in zip(train_X, weights):
+        degrees = np.array([fz.memberships(x, w) for x, w in zip(row, widths)])
+        expected = np.prod(degrees[np.arange(3), indices], axis=1)
+        np.testing.assert_allclose(actual, expected, atol=1e-15)
+    assert models.rule_weights(np.empty((0, 3)), widths).shape == (0, 27)
+    np.testing.assert_array_equal(models.rule_index(4), models.RULE_INDEX)
+
+
+def test_two_action_three_signal_shrinkage_and_rule_trace_reconstruction():
+    train_X, quality, cost = X[:, :3], QUALITY[:, 1:], COST[:, 1:]
+    model = models.fit(train_X, quality, cost, widths=[0.2, 0.21, 0.24], prior_strength=2)
+    test_X = np.vstack((train_X, [0.5] * 3, [0.35, 0.6, 0.9]))
+    predicted_quality, predicted_cost = models.predict(model, test_X)
+    np.testing.assert_allclose(predicted_quality[:2], (quality + 2 * quality.mean(axis=0)) / 3)
+    np.testing.assert_allclose(predicted_cost[:2], (cost + 2 * cost.mean(axis=0)) / 3)
+    np.testing.assert_allclose(predicted_quality[2], quality.mean(axis=0))
+    assert model["rule_support"][13] == 0  # Med,Med,Med.
+    active = models.rule_weights(test_X, model["widths"])
+    np.testing.assert_allclose(active @ model["rule_quality"], predicted_quality)
+    np.testing.assert_allclose(active @ model["rule_cost"], predicted_cost)
+    assert predicted_quality[0, 1] > predicted_quality[0, 0]
+    assert predicted_quality[1, 1] < predicted_quality[1, 0]
+
+
+def test_three_feature_two_action_ridge_recovers_linear_outcomes_on_new_inputs():
+    rng = np.random.default_rng(38)
+    train_X = rng.uniform(size=(80, 3))
+    test_X = rng.uniform(size=(20, 3))
+
+    def targets(features):
+        quality = np.column_stack((0.1 + 0.3 * features[:, 0] + 0.2 * features[:, 2],
+                                   0.9 - 0.3 * features[:, 1]))
+        return quality, 1 + 3 * quality
+
+    model = models.fit_ridge(train_X, *targets(train_X), alpha=0)
+    for actual, expected in zip(models.predict(model, test_X), targets(test_X)):
+        np.testing.assert_allclose(actual, expected, atol=1e-12)
+
+
+@pytest.mark.parametrize("fitter", [models.fit, models.fit_global, models.fit_ridge])
+@pytest.mark.parametrize("n_features", [3, 4])
+def test_prediction_rejects_other_supported_but_untrained_feature_count(fitter, n_features):
+    model = fitter(X[:, :n_features], QUALITY[:, 1:], COST[:, 1:])
+    other_width = 7 - n_features
+    with pytest.raises(ValueError, match="X must have shape"):
+        models.predict(model, np.zeros((2, other_width)))
+    with pytest.raises(ValueError, match="X must have shape"):
+        models.predict(model, np.empty((0, other_width)))
+
+
+@pytest.mark.parametrize("fitter", [models.fit, models.fit_global, models.fit_ridge])
+def test_legacy_schema_one_models_still_predict_four_signals_three_actions(fitter):
+    current = fitter(X, QUALITY, COST)
+    legacy = {key: value for key, value in current.items() if key not in ("n_features", "n_actions")}
+    legacy["schema_version"] = 1
+    for expected, actual in zip(models.predict(current, X), models.predict(legacy, X)):
+        np.testing.assert_allclose(actual, expected)
+    with pytest.raises(ValueError, match="X must have shape"):
+        models.predict(legacy, X[:, :3])
+
+
+@pytest.mark.parametrize("key,value", [("n_features", 2), ("n_features", 5),
+                                        ("n_features", 3.0), ("n_features", True),
+                                        ("n_actions", 1), ("n_actions", 4),
+                                        ("n_actions", 2.0), ("n_actions", True)])
+def test_rejects_invalid_model_dimension_metadata(key, value):
+    model = models.fit_global(X[:, :3], QUALITY[:, 1:], COST[:, 1:])
+    model[key] = value
+    with pytest.raises(ValueError, match=key):
+        models.predict(model, X[:, :3])
+
+
+@pytest.mark.parametrize("fitter", [models.fit, models.fit_global, models.fit_ridge])
+def test_predict_checks_action_count_and_required_dimension_metadata(fitter):
+    model = fitter(X[:, :3], QUALITY[:, 1:], COST[:, 1:])
+    model["global_quality"].append(0.5)
+    with pytest.raises(ValueError, match="global_quality"):
+        models.predict(model, X[:, :3])
+    model = fitter(X[:, :3], QUALITY[:, 1:], COST[:, 1:])
+    del model["n_features"]
+    with pytest.raises(ValueError, match="missing predictive parameter n_features"):
+        models.predict(model, X[:, :3])
+
+
+def test_three_signal_widths_and_rule_count_are_exact():
+    with pytest.raises(ValueError, match="3 signal widths"):
+        models.fit(X[:, :3], QUALITY[:, 1:], COST[:, 1:], widths=[0.2] * 4)
+    model = models.fit(X[:, :3], QUALITY[:, 1:], COST[:, 1:])
+    model["rule_quality"] = model["rule_quality"][:26]
+    with pytest.raises(ValueError, match="exactly 27"):
+        models.predict(model, X[:, :3])
+    model = models.fit(X[:, :3], QUALITY[:, 1:], COST[:, 1:])
+    model["rule_cost"] = [row + [1.0] for row in model["rule_cost"]]
+    with pytest.raises(ValueError, match="rule_cost must have shape"):
+        models.predict(model, X[:, :3])
+
+
+@pytest.mark.parametrize("count", [0, 1, 2, 5, 3.0, "3", True])
+def test_rule_index_rejects_unsupported_or_noninteger_dimension(count):
+    with pytest.raises(ValueError, match="n_features"):
+        models.rule_index(count)

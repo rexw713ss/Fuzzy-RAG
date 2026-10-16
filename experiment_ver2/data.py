@@ -34,6 +34,8 @@ class Split:
     keys: tuple
     questions: tuple
     secondary: dict[str, np.ndarray] = field(default_factory=dict)
+    actions: tuple[str, ...] = ACTIONS
+    signals: tuple[str, ...] = SIGNALS
 
     def __len__(self):
         return len(self.keys)
@@ -55,6 +57,8 @@ class Dataset:
     test: Split
     widths: np.ndarray
     metadata: dict[str, Any] = field(default_factory=dict)
+    actions: tuple[str, ...] = ACTIONS
+    signals: tuple[str, ...] = SIGNALS
 
     @property
     def splits(self):

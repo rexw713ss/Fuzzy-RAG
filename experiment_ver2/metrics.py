@@ -8,8 +8,8 @@ from main_logic.routing import OutcomeTable
 
 def arrays(split, actions):
     a = np.asarray(actions)
-    if a.shape != (len(split),) or a.dtype.kind not in "iu" or not np.isin(a, [0, 1, 2]).all():
-        raise ValueError("one action index (0, 1, 2) required per row")
+    if a.shape != (len(split),) or a.dtype.kind not in "iu" or not np.isin(a, range(len(split.actions))).all():
+        raise ValueError("one valid action index required per row")
     idx = np.arange(len(split))
     return {"F1": split.f1[idx, a], "EM": split.em[idx, a], "cost": split.cost[idx, a]}
 
@@ -20,10 +20,10 @@ def summarize(split, actions, n_boot=1000, seed=42):
     result = {k: ev.bootstrap_ci(v, split.groups, n_boot=n_boot, seed=seed)
               for k, v in values.items()}
     table = OutcomeTable([(g, key[2]) for g, key in zip(split.groups, split.keys)],
-                         split.f1, split.cost)
+                         split.f1, split.cost, actions=split.actions)
     ids, flips, harm, skipped = ev.pair_flags(table, a)
-    result.update({"counts": {f"A{i}": int((a == i).sum()) for i in range(3)},
-                   "A2_fraction": float(np.mean(a == 2)),
+    result.update({"counts": {label: int((a == i).sum()) for i, label in enumerate(split.actions)},
+                   "A2_fraction": float(np.mean(a == split.actions.index("A2"))),
                    "robustness_incomplete_clusters_skipped": skipped,
                    "robustness_pairs": len(ids)})
     for name, v in (("RFR", flips), ("HRFR_legacy_action_order", harm)):
@@ -53,7 +53,8 @@ def paired(split, actions, other_actions=None, random_fraction=None, n_boot=1000
         # Expected uniform random allocation with the SAME number of A2 calls.
         # The probability comes only from the frozen policy's action count.
         # No test F1/cost is used to optimize mixture weights.
-        reference = {k: (1 - p) * v[:, 1] + p * v[:, 2]
+        base, escalation = (split.actions.index(label) for label in ("A1", "A2"))
+        reference = {k: (1 - p) * v[:, base] + p * v[:, escalation]
                      for k, v in (("F1", split.f1), ("EM", split.em), ("cost", split.cost))}
     else:
         reference = arrays(split, other_actions)

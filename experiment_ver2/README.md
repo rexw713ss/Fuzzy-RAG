@@ -2,17 +2,17 @@
 
 這是獨立的第二版研究程式。開發分支為 `experiment_ver2`，所有新增檔案均在本目錄；`main` 與第一版程式保留。
 
-**目前：實作與合成流程驗證完成；真實 NQ／HotpotQA 重評待第一輪 cache。** 本機沒有第一輪逐題資料。任何合成輸出都不是 benchmark 結果，也不能據此宣稱研究成功。舊 test 已被檢視，所以未來以原 cache 跑出的 ver2 結果仍屬探索性；確認性結果需要新的原始問題 clusters。
+**目前：已整合 main 的 `667639a`，完成真實 NQ／HotpotQA cache 重評。** 原 v0.4 的 6,494 個報告數值完全重現，並完成 v0.3 舊測試、v0.4 舊測試、v0.4 fresh 四訊號主分析及三訊號消融。結果與限制見 [實驗報告](EXPERIMENT_REPORT.zh-TW.md)，完整輸出見 [evidence](evidence/)。所有分析均為探索性；名為 fresh 的資料已有公開結果，不能再視為本方法未見過的確認性測試。
 
 ## 為何改方法
 
 第一輪在 always-A1 時間上限下幾乎全部選 A1，因 rerank 相對 generation 幾乎免費；硬性要求多用 A0／A2 不會解決這件事。第二版把主問題改為：**哪些問題值得額外執行 A2？**
 
 - 以 A1 為預設，估計 `F1(A2) - F1(A1)`，允許 rewrite 造成負效益。
-- 使用 81 條 product fuzzy rules 學習 action 品質；資料少的 rule 向 training global mean 收縮。
+- 使用四訊號 81 條 product fuzzy rules 學習 action 品質；資料少的 rule 向 training global mean 收縮。另固定評估 S2–S4 三訊號、27 規則消融。
 - 比較固定／校準 fuzzy、同訊號 ridge、global、原 B3/B4 uncertainty 排序及相同實際 A2 次數的隨機參考。
 - 固定最大 A2 配額 `[0, .10, .25, .50, 1]`，主配額 `.25`；不強迫花完配額。這是離線批次分配，不是線上 latency 保證。
-- TRAIN 擬合 scaler、width 與模型；VAL 選超參數及是否回退 always-A1；TEST 只評分。不得挑 test 最好的 budget 或 baseline 當作事前設定。
+- 原始資料模式以 TRAIN 擬合 scaler、width 與模型；封存模式沿用有 provenance 的 TRAIN scaler，從 TRAIN scaled signals 重算並核對 width。VAL 選超參數及是否回退 always-A1；TEST 只評分。
 
 完整問題定義、統計限制與下一輪收集程序見 [研究程序](RESEARCH_PROTOCOL.md)。
 
@@ -36,7 +36,36 @@ py -3.12 -m venv .venv-core
 
 Linux／macOS 可用 `python3 -m venv .venv-core` 與 `.venv-core/bin/python`。舊版 `tests/test_config.py` 的 Windows 路徑測試仍可能在 POSIX 失敗；此分支未修改第一版程式。
 
-## 取得真實 cache 後執行
+## 直接重評 repo 已提供的真實資料
+
+以下四個設定都已執行，沒有新的 LLM 呼叫。`--archive` 是明確啟用的封存相容模式；因 v0.3 未上傳 raw training signals，不能宣稱從原始值獨立重驗過 scaler。
+
+```powershell
+# 四訊號主分析，v0.4 的 150 fresh clusters / dataset
+.\.venv-core\Scripts\python.exe -m experiment_ver2.run --archive runs --version v0.4 --test-set fresh --out experiment_ver2/runs/replay-v04-fresh
+# 三訊號消融，不能依 test 結果取代主方法
+.\.venv-core\Scripts\python.exe -m experiment_ver2.run --archive runs --version v0.4 --test-set fresh --signals S2 S3 S4 --out experiment_ver2/runs/replay-v04-3sig
+# 兩組歷史測試，各自保存
+.\.venv-core\Scripts\python.exe -m experiment_ver2.run --archive runs --version v0.4 --test-set old_test --out experiment_ver2/runs/replay-v04-old
+.\.venv-core\Scripts\python.exe -m experiment_ver2.run --archive runs --version v0.3 --test-set old_test --out experiment_ver2/runs/replay-v03-old
+```
+
+v0.4 矩陣只有 A1／A2，程式不補造 A0；v0.3 保留 A0 固定參考。所有模型按實際維度學習。
+
+原 v0.4 數值與資料完整性驗證：
+
+```powershell
+.\.venv-core\Scripts\python.exe -m experiment_ver2.reproduction --full runs/v0.3 --v4 runs/v0.4 --out experiment_ver2/runs/reproduction-check.json
+```
+
+繪圖需額外安裝 report dependencies：
+
+```powershell
+.\.venv-core\Scripts\python.exe -m pip install -r experiment_ver2/requirements-report.txt
+.\.venv-core\Scripts\python.exe -m experiment_ver2.plot_results --root experiment_ver2/runs/replay-v04-fresh
+```
+
+## 原始未縮放 cache 模式
 
 最小目錄結構（`signals.jsonl` 必須是原始 S1–S4，不能拿 scaled 檔替代）：
 
@@ -78,13 +107,14 @@ full/
 
 ## 請原實驗人提供資料
 
-可將 [資料交接說明](DATA_HANDOFF.md) 轉給原實驗人；`package_cache.py` 只打包小型逐題資料，不收模型或索引。不需要重新執行 A0/A1/A2 generation。
+目前 repo 的封存資料足以重評，不必再等交接。若要獨立驗證原 scaler 或新增實驗，可參考 [資料交接說明](DATA_HANDOFF.md)；`package_cache.py` 專用於原 v0.3 三動作、未縮放 cache，不收模型或索引。
 
 ## 原始檔案
 
 | 檔案 | 責任 |
 |---|---|
 | `data.py` | 嚴格讀取、train calibration、來源雜湊 |
+| `archive.py` | 明確啟用的 v0.3／v0.4 封存資料相容與 freshness 檢查 |
 | `models.py` | 可序列化 fuzzy/global/ridge action outcome 模型 |
 | `policies.py` | 正效益排序、批次配額、validation 選擇 |
 | `metrics.py` | 固定政策評估與 paired cluster bootstrap |
@@ -92,5 +122,7 @@ full/
 | `demo.py` | 明確標示的合成機制檢查 |
 | `package_cache.py` | 最小 cache 交接工具 |
 | `tests/` | 邊界、資料洩漏、配額與完整流程測試 |
+| `reproduction.py` | 原 v0.4 重現與逐題答案／成本／重複資料檢查 |
+| `plot_results.py` | 主比較 CI 及所有固定配額圖表 |
 
-真實 cache 未到齊、人工 paraphrase 稽核與 fresh test 未完成前，不宣稱 fuzzy 優於 baseline。若重新分析仍無收益，也會是應保存的有效負結果。
+HotpotQA 的效益路由有正向探索結果，但 fuzzy 沒有勝過 ridge；NQ 未明確勝過同 A2 次數隨機策略。人工 paraphrase 稽核與新的確認性 test 尚未完成，不宣稱 fuzzy 特有優勢。

@@ -1,0 +1,297 @@
+{
+  "kind": "cached_v0.4_numerical_reproduction",
+  "interpretation": "reproducibility audit only; no new model outputs or success claim",
+  "absolute_numeric_tolerance": 1e-10,
+  "all_reports_matched": true,
+  "input_files_checked": 32,
+  "input_files_changed": [],
+  "input_sha256": {
+    "D:\\ICGHIT 2027\\Fuzzy-RAG\\runs\\v0.3\\hotpotqa\\clusters.jsonl": "05472df8e762e9f7e391c90c5f71836441b4e34da83e85512479c9bc3bd9f890",
+    "D:\\ICGHIT 2027\\Fuzzy-RAG\\runs\\v0.3\\hotpotqa\\outcomes.jsonl": "7cd5b42364bdf73a6302634b915f69f00093e4932e1126fb072c95696b5faf9f",
+    "D:\\ICGHIT 2027\\Fuzzy-RAG\\runs\\v0.3\\hotpotqa\\queries.jsonl": "550adcd206d496b9ae9d346f4717378177fffa3d43ff86d01a25805d01d7786b",
+    "D:\\ICGHIT 2027\\Fuzzy-RAG\\runs\\v0.3\\jitter.json": "06d8dd0daefe04a7efc1ec5cfb07e8690d4fc61a87e42efbd327a783bb74b854",
+    "D:\\ICGHIT 2027\\Fuzzy-RAG\\runs\\v0.3\\nq\\clusters.jsonl": "1cba90e703b58c58b77476fadf868a8198ee8ec75818e2f2aad2e7c3329abf9b",
+    "D:\\ICGHIT 2027\\Fuzzy-RAG\\runs\\v0.3\\nq\\outcomes.jsonl": "30117a3d39f2170a1a9b91ce515b5590cc2cd7121f73bfe60b7ee7df416bb87c",
+    "D:\\ICGHIT 2027\\Fuzzy-RAG\\runs\\v0.3\\nq\\queries.jsonl": "20f4adbc8731f30c34ccfabf09c8657abfc098c0fcb24e16ea7a3ab938513324",
+    "D:\\ICGHIT 2027\\Fuzzy-RAG\\runs\\v0.3\\reported\\hotpotqa.json": "0c933410c29865267a155f0d6cfd48d150c0c06d4f9e1509948579fba47b0577",
+    "D:\\ICGHIT 2027\\Fuzzy-RAG\\runs\\v0.3\\reported\\nq.json": "b656b99a221960cc7ef17990bcf47bed6d1a99e4579eab908c9287b1aebf0774",
+    "D:\\ICGHIT 2027\\Fuzzy-RAG\\runs\\v0.3\\reported\\pooled.json": "74c284ff202d0e46f89f732af9c8c718f0000a7a0b90f539e81cf6a20eaa0afb",
+    "D:\\ICGHIT 2027\\Fuzzy-RAG\\runs\\v0.3\\scalers.json": "a3ad86f4cb98322c2cbbaaeee9a7f9689aaebda369c62af1bb4bfb8bb545501b",
+    "D:\\ICGHIT 2027\\Fuzzy-RAG\\runs\\v0.3\\signals_scaled.jsonl": "fff47c0c0c723de8e6727735fc824805f2af88b271cf74f5347b964acbf30fc4",
+    "D:\\ICGHIT 2027\\Fuzzy-RAG\\runs\\v0.3\\splits.json": "e2c36230c5dea67f936cff34a21ed325bd09560abfa6095b35a53e068449c5d3",
+    "D:\\ICGHIT 2027\\Fuzzy-RAG\\runs\\v0.4\\dryrun_oldA2\\reported\\hotpotqa.json": "5a638f86cc80b4c4d56e86d9ed0e089a4ecdbec7e6607efa330d70d7a05ac79b",
+    "D:\\ICGHIT 2027\\Fuzzy-RAG\\runs\\v0.4\\dryrun_oldA2\\reported\\nq.json": "43222dc619c2679e0544f32c6b68471a64e6888b38c318f7d47a3f4ee271b985",
+    "D:\\ICGHIT 2027\\Fuzzy-RAG\\runs\\v0.4\\dryrun_oldA2\\reported\\pooled.json": "980b28daabdbaaa182061f74de6df5a657800c45c37496547e3bc897351b6fc4",
+    "D:\\ICGHIT 2027\\Fuzzy-RAG\\runs\\v0.4\\fresh\\hotpotqa\\outcomes.jsonl": "637e5f0b068653b6205ce50338f5ad66350613bd55c8683479f2a2445b8e7822",
+    "D:\\ICGHIT 2027\\Fuzzy-RAG\\runs\\v0.4\\fresh\\nq\\outcomes.jsonl": "26904b3046febae25d1ee501712f61a225ba3418679d7a5e92f95eba04383c50",
+    "D:\\ICGHIT 2027\\Fuzzy-RAG\\runs\\v0.4\\fresh_src\\hotpotqa\\clusters.jsonl": "342e5b126c1d8bca6c137ad1feb5999bd9299a0634828954e04ffc390a12b8fa",
+    "D:\\ICGHIT 2027\\Fuzzy-RAG\\runs\\v0.4\\fresh_src\\hotpotqa\\queries.jsonl": "b04025833114e8e1cb07b17a643a24ae0e73f4174b34a29b756885412460625f",
+    "D:\\ICGHIT 2027\\Fuzzy-RAG\\runs\\v0.4\\fresh_src\\hotpotqa\\report.json": "ab554a858289f3bd4e3f6fb9d5dec3a350bdf6e71233aa8bdb782e5caf059e48",
+    "D:\\ICGHIT 2027\\Fuzzy-RAG\\runs\\v0.4\\fresh_src\\hotpotqa\\signals.jsonl": "2f38e95fd0001221f49d721d03611bfe2894f7492fdfe831cc0d179d9fee57de",
+    "D:\\ICGHIT 2027\\Fuzzy-RAG\\runs\\v0.4\\fresh_src\\nq\\clusters.jsonl": "0e62291c9031e4cc060b1a63a93aab834db23c57ea49e791393cd96c98e68d28",
+    "D:\\ICGHIT 2027\\Fuzzy-RAG\\runs\\v0.4\\fresh_src\\nq\\queries.jsonl": "ac1973e6c2a5279f00ba1069221024c81c358ee1a47b23bb2d987d2f77491750",
+    "D:\\ICGHIT 2027\\Fuzzy-RAG\\runs\\v0.4\\fresh_src\\nq\\report.json": "cac0aa63de6e134d4f72ad26ee429d3e78863f22d4ee141c3ce9df38bc8b3003",
+    "D:\\ICGHIT 2027\\Fuzzy-RAG\\runs\\v0.4\\fresh_src\\nq\\signals.jsonl": "73e60c44546b0966c242ea0144974399e20e1d9e8b7c52af79985c327c0175bd",
+    "D:\\ICGHIT 2027\\Fuzzy-RAG\\runs\\v0.4\\hotpotqa\\outcomes.jsonl": "cc45b8450980f4cc88877924eb3db53f49463a6bc6c092e6adfc36e280609479",
+    "D:\\ICGHIT 2027\\Fuzzy-RAG\\runs\\v0.4\\nq\\outcomes.jsonl": "03d97b2f269211adc436367a1e8a71778e8099ed8b49713a8c727edd0b139d90",
+    "D:\\ICGHIT 2027\\Fuzzy-RAG\\runs\\v0.4\\pilot\\report.json": "e4a8da27dade50cfcb27cb70f649f3ee97eaf0d8d03724033b73fa5185096ab3",
+    "D:\\ICGHIT 2027\\Fuzzy-RAG\\runs\\v0.4\\reported\\hotpotqa.json": "1dede45adcbc5654af3b20baee2eec4c59464fb62327bdac5d066b3f94dda486",
+    "D:\\ICGHIT 2027\\Fuzzy-RAG\\runs\\v0.4\\reported\\nq.json": "b1ce24e0c2303aa98178a34ebaa2d6781f6ff9304c3cc92a6ac47cddde986a6d",
+    "D:\\ICGHIT 2027\\Fuzzy-RAG\\runs\\v0.4\\reported\\pooled.json": "198613c83d4fc8030f61e111f07c0a009e3acf06d6a84b2543911fa05a635853"
+  },
+  "reports": {
+    "nq": {
+      "saved_report": "D:\\ICGHIT 2027\\Fuzzy-RAG\\runs\\v0.4\\reported\\nq.json",
+      "saved_sha256": "b1ce24e0c2303aa98178a34ebaa2d6781f6ff9304c3cc92a6ac47cddde986a6d",
+      "reproduced_canonical_sha256": "d31745fefe45925ded25f7f8de4bf99611ddf3c40cb281670d911b2338fb8b54",
+      "numeric_values_compared": 2884,
+      "integer_values_compared": 223,
+      "nonnumeric_values_compared": 104,
+      "max_absolute_error": 0.0,
+      "mismatches": [],
+      "mismatch_count": 0,
+      "matched": true
+    },
+    "hotpotqa": {
+      "saved_report": "D:\\ICGHIT 2027\\Fuzzy-RAG\\runs\\v0.4\\reported\\hotpotqa.json",
+      "saved_sha256": "1dede45adcbc5654af3b20baee2eec4c59464fb62327bdac5d066b3f94dda486",
+      "reproduced_canonical_sha256": "c3147c8f2a9cbbb6be1cf050170cadffd852eedc6d68a968666baa60479a8958",
+      "numeric_values_compared": 2884,
+      "integer_values_compared": 223,
+      "nonnumeric_values_compared": 104,
+      "max_absolute_error": 0.0,
+      "mismatches": [],
+      "mismatch_count": 0,
+      "matched": true
+    },
+    "pooled": {
+      "saved_report": "D:\\ICGHIT 2027\\Fuzzy-RAG\\runs\\v0.4\\reported\\pooled.json",
+      "saved_sha256": "198613c83d4fc8030f61e111f07c0a009e3acf06d6a84b2543911fa05a635853",
+      "reproduced_canonical_sha256": "01fed80f9089601f8f8a1ee787ba9af009f82e81fd15dd6d8dc2d4f94fd8d8be",
+      "numeric_values_compared": 726,
+      "integer_values_compared": 96,
+      "nonnumeric_values_compared": 66,
+      "max_absolute_error": 0.0,
+      "mismatches": [],
+      "mismatch_count": 0,
+      "matched": true
+    }
+  },
+  "dataset_integrity": {
+    "scope": "v0.4 old and fresh action outcomes; original cluster records",
+    "absolute_numeric_tolerance": 1e-10,
+    "original_question_normalization": "str.casefold then retain Unicode str.isalnum characters",
+    "limitations": [
+      "No semantic duplicate detection",
+      "No human paraphrase-equivalence audit",
+      "Recomputed EM/F1 uses repository's existing SQuAD-compatible scorer",
+      "Latency sums check accounting, not hardware timing accuracy"
+    ],
+    "datasets": {
+      "nq": {
+        "clusters": {
+          "old": {
+            "cluster_count": 300,
+            "unique_cluster_ids": 300,
+            "duplicate_cluster_id_count": 0,
+            "complete_clusters": 261,
+            "incomplete_clusters": 39,
+            "complete_flag_mismatches": []
+          },
+          "fresh": {
+            "cluster_count": 150,
+            "unique_cluster_ids": 150,
+            "duplicate_cluster_id_count": 0,
+            "complete_clusters": 128,
+            "incomplete_clusters": 22,
+            "complete_flag_mismatches": []
+          }
+        },
+        "old_fresh_overlap": {
+          "cluster_id": {
+            "count": 0,
+            "values": []
+          },
+          "source_index": {
+            "count": 0,
+            "values": []
+          },
+          "normalized_original_question": {
+            "count": 0,
+            "values": []
+          }
+        },
+        "outcomes": {
+          "old": {
+            "outcome_file": "D:\\ICGHIT 2027\\Fuzzy-RAG\\runs\\v0.4\\nq\\outcomes.jsonl",
+            "query_rows": 841,
+            "duplicate_query_keys": 0,
+            "outcome_rows": 1682,
+            "unique_action_keys": 1682,
+            "duplicate_action_keys": 0,
+            "action_counts": {
+              "A1": 841,
+              "A2": 841
+            },
+            "expected_action_keys": 1682,
+            "missing_action_keys": [],
+            "extra_action_keys": [],
+            "outcomes_without_query": [],
+            "EM_mismatches": [],
+            "F1_mismatches": [],
+            "max_EM_absolute_error": 0.0,
+            "max_F1_absolute_error": 0.0,
+            "latency_component_fields": [
+              "retrieval_latency",
+              "rerank_latency",
+              "followup_latency",
+              "generation_latency"
+            ],
+            "max_latency_sum_absolute_error": 1.7763568394002505e-15,
+            "latency_sum_mismatches": [],
+            "A2_fallback_count": 29,
+            "passed": true
+          },
+          "fresh": {
+            "outcome_file": "D:\\ICGHIT 2027\\Fuzzy-RAG\\runs\\v0.4\\fresh\\nq\\outcomes.jsonl",
+            "query_rows": 412,
+            "duplicate_query_keys": 0,
+            "outcome_rows": 824,
+            "unique_action_keys": 824,
+            "duplicate_action_keys": 0,
+            "action_counts": {
+              "A1": 412,
+              "A2": 412
+            },
+            "expected_action_keys": 824,
+            "missing_action_keys": [],
+            "extra_action_keys": [],
+            "outcomes_without_query": [],
+            "EM_mismatches": [],
+            "F1_mismatches": [],
+            "max_EM_absolute_error": 0.0,
+            "max_F1_absolute_error": 0.0,
+            "latency_component_fields": [
+              "retrieval_latency",
+              "rerank_latency",
+              "followup_latency",
+              "generation_latency"
+            ],
+            "max_latency_sum_absolute_error": 0.0,
+            "latency_sum_mismatches": [],
+            "A2_fallback_count": 18,
+            "passed": true
+          }
+        },
+        "passed": true
+      },
+      "hotpotqa": {
+        "clusters": {
+          "old": {
+            "cluster_count": 300,
+            "unique_cluster_ids": 300,
+            "duplicate_cluster_id_count": 0,
+            "complete_clusters": 290,
+            "incomplete_clusters": 10,
+            "complete_flag_mismatches": []
+          },
+          "fresh": {
+            "cluster_count": 150,
+            "unique_cluster_ids": 150,
+            "duplicate_cluster_id_count": 0,
+            "complete_clusters": 143,
+            "incomplete_clusters": 7,
+            "complete_flag_mismatches": []
+          }
+        },
+        "old_fresh_overlap": {
+          "cluster_id": {
+            "count": 0,
+            "values": []
+          },
+          "source_index": {
+            "count": 0,
+            "values": []
+          },
+          "normalized_original_question": {
+            "count": 0,
+            "values": []
+          }
+        },
+        "outcomes": {
+          "old": {
+            "outcome_file": "D:\\ICGHIT 2027\\Fuzzy-RAG\\runs\\v0.4\\hotpotqa\\outcomes.jsonl",
+            "query_rows": 886,
+            "duplicate_query_keys": 0,
+            "outcome_rows": 1772,
+            "unique_action_keys": 1772,
+            "duplicate_action_keys": 0,
+            "action_counts": {
+              "A1": 886,
+              "A2": 886
+            },
+            "expected_action_keys": 1772,
+            "missing_action_keys": [],
+            "extra_action_keys": [],
+            "outcomes_without_query": [],
+            "EM_mismatches": [],
+            "F1_mismatches": [],
+            "max_EM_absolute_error": 0.0,
+            "max_F1_absolute_error": 0.0,
+            "latency_component_fields": [
+              "retrieval_latency",
+              "rerank_latency",
+              "followup_latency",
+              "generation_latency"
+            ],
+            "max_latency_sum_absolute_error": 0.0,
+            "latency_sum_mismatches": [],
+            "A2_fallback_count": 0,
+            "passed": true
+          },
+          "fresh": {
+            "outcome_file": "D:\\ICGHIT 2027\\Fuzzy-RAG\\runs\\v0.4\\fresh\\hotpotqa\\outcomes.jsonl",
+            "query_rows": 443,
+            "duplicate_query_keys": 0,
+            "outcome_rows": 886,
+            "unique_action_keys": 886,
+            "duplicate_action_keys": 0,
+            "action_counts": {
+              "A1": 443,
+              "A2": 443
+            },
+            "expected_action_keys": 886,
+            "missing_action_keys": [],
+            "extra_action_keys": [],
+            "outcomes_without_query": [],
+            "EM_mismatches": [],
+            "F1_mismatches": [],
+            "max_EM_absolute_error": 0.0,
+            "max_F1_absolute_error": 0.0,
+            "latency_component_fields": [
+              "retrieval_latency",
+              "rerank_latency",
+              "followup_latency",
+              "generation_latency"
+            ],
+            "max_latency_sum_absolute_error": 1.7763568394002505e-15,
+            "latency_sum_mismatches": [],
+            "A2_fallback_count": 0,
+            "passed": true
+          }
+        },
+        "passed": true
+      }
+    },
+    "total_outcome_rows": 5164,
+    "all_checks_passed": true
+  },
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "commit": "e71776c1068bb860aede3b25af9a06e52b6e0a49",
+  "source_sha256": {
+    "D:\\ICGHIT 2027\\Fuzzy-RAG\\experiment_ver2\\reproduction.py": "8597c91f71dc1d44eadfc88bc8cca2e50213852caaf4702053a982223061dc5a",
+    "D:\\ICGHIT 2027\\Fuzzy-RAG\\main_logic\\answers.py": "bbf82cb2a71d1bf71d545763e2b054ce4c1a505d51ce02acad79e09a26c44ce1",
+    "D:\\ICGHIT 2027\\Fuzzy-RAG\\scripts\\evaluate_v4.py": "c29b7cbf01bdb965bec3ebb3c252cf2e918ca72de1f82497f7fadab5f12a3263"
+  }
+}

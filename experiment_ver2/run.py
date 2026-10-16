@@ -53,42 +53,45 @@ def fit_candidates(dataset):
     return candidates
 
 
-def score_candidates(candidates, X, widths):
+def score_candidates(candidates, X, widths, actions=("A0", "A1", "A2"), signals=fz.SIGNALS):
     """Prediction takes features only; no outcome or sibling-answer access."""
     scores = {}
     for method, params in candidates.items():
         scores[method] = {}
         for name, model in params.items():
             quality, _cost = models.predict(model, X)
-            scores[method][name] = quality[:, 2] - quality[:, 1]
+            scores[method][name] = quality[:, actions.index("A2")] - quality[:, actions.index("A1")]
     for name, width in (("uncertainty-B3", .2), ("uncertainty-B4", widths)):
-        scores[name] = {"original-score": np.array([fz.escalate(row, width)[0] for row in X])}
+        scores[name] = {"original-score": np.array([fz.escalate(row, width, signals=signals)[0] for row in X])}
     return scores
 
 
 def freeze_policy(method, variants, validation, fraction):
-    choices = [("always-A1", np.ones(len(validation), dtype=int))]
+    base, escalation = (validation.actions.index(label) for label in ("A1", "A2"))
+    choices = [("always-A1", np.full(len(validation), base, dtype=int))]
     for name, scores in variants.items():
         choices.append((name, quota_actions(scores, validation.questions, fraction,
-                                            positive_only=not method.startswith("uncertainty-"))))
-    fit = choose_on_validation(choices, validation.f1, validation.cost)
-    fit["all_candidates"] = [choose_on_validation([c], validation.f1, validation.cost) for c in choices]
+                            positive_only=not method.startswith("uncertainty-"), base=base, escalation=escalation)))
+    fit = choose_on_validation(choices, validation.f1, validation.cost, base=base, escalation=escalation)
+    fit["all_candidates"] = [choose_on_validation([c], validation.f1, validation.cost,
+                                    base=base, escalation=escalation) for c in choices]
     fit["quota"] = fraction
     return fit
 
 
-def apply_policy(method, fit, variants, questions):
+def apply_policy(method, fit, variants, questions, actions=("A0", "A1", "A2")):
+    base, escalation = (actions.index(label) for label in ("A1", "A2"))
     if fit["candidate"] == "always-A1":
-        return np.ones(len(questions), dtype=int)
+        return np.full(len(questions), base, dtype=int)
     return quota_actions(variants[fit["candidate"]], questions, fit["quota"],
-                         positive_only=not method.startswith("uncertainty-"))
+                         positive_only=not method.startswith("uncertainty-"), base=base, escalation=escalation)
 
 
 def evaluate_dataset(dataset, n_boot=1000):
     start = time.perf_counter()
     candidates = fit_candidates(dataset)
     training_seconds = time.perf_counter() - start
-    val_scores = score_candidates(candidates, dataset.val.X, dataset.widths)
+    val_scores = score_candidates(candidates, dataset.val.X, dataset.widths, dataset.actions, dataset.signals)
     # Freeze every setting before test outcomes are evaluated.
     fits = {str(q): {m: freeze_policy(m, variants, dataset.val, q)
                      for m, variants in val_scores.items()} for q in BUDGETS}
@@ -98,19 +101,21 @@ def evaluate_dataset(dataset, n_boot=1000):
         strongest[q] = min(baselines, key=lambda m: (-baselines[m]["F1"],
                             baselines[m]["A2_count"], baselines[m]["cost"], m))
     start = time.perf_counter()
-    test_scores = score_candidates(candidates, dataset.test.X, dataset.widths)
+    test_scores = score_candidates(candidates, dataset.test.X, dataset.widths, dataset.actions, dataset.signals)
     scoring_seconds = time.perf_counter() - start
     test = dataset.test
-    baseline_a1 = np.ones(len(test), dtype=int)
+    base, escalation = (dataset.actions.index(label) for label in ("A1", "A2"))
+    baseline_a1 = np.full(len(test), base, dtype=int)
     report = {"dataset": dataset.name, "data": dataset.metadata,
               "training_seconds": training_seconds,
               "diagnostic_all_candidate_scoring_seconds": scoring_seconds,
               "latency_scope": "cached component sum; not new online end-to-end measurement",
-              "fixed": {f"always-A{i}": summarize(test, np.full(len(test), i), n_boot)
-                        for i in range(3)}, "budgets": {}}
+              "actions": dataset.actions, "signals": dataset.signals,
+              "fixed": {f"always-{label}": summarize(test, np.full(len(test), i), n_boot)
+                        for i, label in enumerate(dataset.actions)}, "budgets": {}}
     decisions = []
     for q, by_method in fits.items():
-        assignments = {m: apply_policy(m, fit, test_scores[m], test.questions)
+        assignments = {m: apply_policy(m, fit, test_scores[m], test.questions, dataset.actions)
                        for m, fit in by_method.items()}
         block = {"quota": float(q), "strongest_baseline_selected_on_validation": strongest[q],
                  "methods": {}}
@@ -122,6 +127,8 @@ def evaluate_dataset(dataset, n_boot=1000):
                                         random_fraction=result["A2_fraction"], n_boot=n_boot)
             result["vs_validation_selected_baseline"] = paired(test, actions,
                                             other_actions=assignments[strongest[q]], n_boot=n_boot)
+            result["vs_ridge"] = paired(test, actions, other_actions=assignments["ridge"], n_boot=n_boot)
+            result["vs_fuzzy_fixed"] = paired(test, actions, other_actions=assignments["fuzzy-fixed"], n_boot=n_boot)
             # These are unadjusted, exploratory paired intervals; not a paper success flag.
             result["comparison_status"] = "exploratory; no multiplicity-adjusted confirmatory claim"
             block["methods"][method] = result
@@ -133,19 +140,19 @@ def evaluate_dataset(dataset, n_boot=1000):
                 active = models.rule_weights(test.X, model["widths"])
             for i, (key, action) in enumerate(zip(test.keys, actions)):
                 decision = {"dataset": key[0], "cluster_id": key[1], "variant_id": key[2],
-                            "quota": float(q), "method": method, "action": f"A{int(action)}",
+                            "quota": float(q), "method": method, "action": dataset.actions[int(action)],
                             "candidate": candidate,
                             "score": float(selected_scores[i]) if selected_scores is not None else None,
                             "score_kind": "uncertainty" if method.startswith("uncertainty-") else "predicted_A2_minus_A1_F1"}
                 if active is not None:
                     decision["active_rules"] = [{"rule_id": int(r + 1), "weight": float(active[i, r]),
                         "training_support": model["rule_support"][r],
-                        "A2_minus_A1_consequent": model["rule_quality"][r][2] - model["rule_quality"][r][1]}
+                        "A2_minus_A1_consequent": model["rule_quality"][r][escalation] - model["rule_quality"][r][base]}
                         for r in np.flatnonzero(active[i] > 0)]
                 decisions.append(decision)
         report["budgets"][q] = block
     train = dataset.train
-    gains = train.f1[:, 2] - train.f1[:, 1]
+    gains = train.f1[:, escalation] - train.f1[:, base]
     report["train_action_headroom"] = {
         "mean_A2_minus_A1": float(gains.mean()),
         "share_gain_above_0.02": float(np.mean(gains > .02)),
@@ -207,6 +214,11 @@ def main(argv=None):
     inputs = parser.add_mutually_exclusive_group(required=True)
     inputs.add_argument("--root", type=Path, help="original full directory, read only")
     inputs.add_argument("--demo", action="store_true", help="synthetic plumbing check, never benchmark evidence")
+    inputs.add_argument("--archive", type=Path, help="committed runs directory; explicit frozen-scaler replay")
+    parser.add_argument("--version", choices=("v0.3", "v0.4"), default="v0.4")
+    parser.add_argument("--test-set", choices=("fresh", "old_test"), default="fresh")
+    parser.add_argument("--signals", nargs="+", choices=fz.SIGNALS,
+                        help="optional prespecified feature ablation; defaults to all four signals")
     parser.add_argument("--out", type=Path, required=True, help="new output directory")
     parser.add_argument("--datasets", nargs="+", help="defaults to datasets in splits.json")
     parser.add_argument("--check-only", action="store_true", help="validate and fingerprint data without fitting")
@@ -216,7 +228,8 @@ def main(argv=None):
         parser.error("--bootstrap must be at least 100")
     if args.out.exists() and any(args.out.iterdir()):
         parser.error("--out must be new or empty; existing runs are never overwritten")
-    if args.root and (args.out.resolve() == args.root.resolve() or args.root.resolve() in args.out.resolve().parents):
+    input_path = args.root or args.archive
+    if input_path and (args.out.resolve() == input_path.resolve() or input_path.resolve() in args.out.resolve().parents):
         parser.error("write ver2 outputs outside the original cache root")
     args.out.mkdir(parents=True, exist_ok=True)
     try:
@@ -224,13 +237,34 @@ def main(argv=None):
             from experiment_ver2.demo import create_demo
             root = args.out / "synthetic_input"
             create_demo(root)
+        elif args.archive:
+            from experiment_ver2.archive import load_archive
+            root = args.archive
         else:
             root = args.root
-        names = args.datasets or discover_datasets(root)
-        datasets = [load_dataset(root, name) for name in names]
+        names = args.datasets or discover_datasets(root / "v0.3" if args.archive else root)
+        datasets = ([load_archive(root, name, version=args.version, test_set=args.test_set) for name in names]
+                    if args.archive else [load_dataset(root, name) for name in names])
+        if args.signals:
+            requested = tuple(args.signals)
+            if requested not in (tuple(fz.SIGNALS), tuple(fz.SIGNALS_V4)):
+                raise ValueError("supported signal sets are S1 S2 S3 S4 or S2 S3 S4, in that order")
+            for data in datasets:
+                indices = [data.signals.index(s) for s in requested]
+                data.widths = data.widths[indices]
+                data.signals = requested
+                for split in data.splits.values():
+                    split.X = split.X[:, indices]
+                    split.signals = requested
+                data.metadata["selected_signals"] = requested
         manifest = provenance()
         manifest.update({"synthetic": args.demo, "bootstrap_resamples": args.bootstrap,
-                         "input_root": str(root.resolve()), "datasets": names})
+                         "input_root": str(root.resolve()), "datasets": names,
+                         "archive_version": args.version if args.archive else None,
+                         "archive_test_set": args.test_set if args.archive else None,
+                         "signals": datasets[0].signals})
+        if args.archive:
+            manifest["test_status"] = "archived published results already inspected; exploratory replay, including the set named fresh"
         if args.demo:
             manifest["test_status"] = "synthetic mechanism check, no empirical dataset evidence"
         _json(args.out / "manifest.json", manifest)

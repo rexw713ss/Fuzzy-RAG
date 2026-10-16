@@ -1,4 +1,5 @@
 import json
+from pathlib import Path
 from zipfile import ZipFile
 
 import numpy as np
@@ -85,3 +86,34 @@ def test_cli_refuses_outputs_inside_original_data(cache):
     root, _ = cache
     with pytest.raises(SystemExit):
         main(["--root", str(root), "--out", str(root / "new-run"), "--check-only"])
+
+
+@pytest.mark.parametrize("signals", [("S1", "S2", "S3", "S4"), ("S2", "S3", "S4")])
+def test_actual_two_action_archive_decisions_are_outcome_blind(signals):
+    from experiment_ver2.archive import load_archive
+    dataset = load_archive(Path(__file__).resolve().parents[2] / "runs", "nq")
+    columns = [dataset.signals.index(s) for s in signals]
+    dataset.signals = signals
+    dataset.widths = dataset.widths[columns]
+    for split in dataset.splits.values():
+        split.X = split.X[:, columns]
+        split.signals = signals
+    before, model, decisions = evaluate_dataset(dataset, n_boot=100)
+    dataset.test.f1[:] = 1 - dataset.test.f1
+    dataset.test.cost[:] *= 3
+    dataset.test.em[:] = 1 - dataset.test.em
+    after, changed_model, changed_decisions = evaluate_dataset(dataset, n_boot=100)
+    assert decisions == changed_decisions
+    assert model == changed_model
+    assert set(before["fixed"]) == {"always-A1", "always-A2"}
+    assert {r["action"] for r in decisions} <= {"A1", "A2"}
+    for q, block in before["budgets"].items():
+        for method, result in block["methods"].items():
+            assert result["fit"] == after["budgets"][q]["methods"][method]["fit"]
+            assert result["counts"]["A2"] <= int(block["quota"] * len(dataset.test) + 1e-12)
+    for row in decisions:
+        if "active_rules" in row:
+            rules = row["active_rules"]
+            assert sum(r["weight"] for r in rules) == pytest.approx(1)
+            assert sum(r["weight"] * r["A2_minus_A1_consequent"] for r in rules) == pytest.approx(row["score"])
+            assert max(r["rule_id"] for r in rules) <= 3**len(signals)
