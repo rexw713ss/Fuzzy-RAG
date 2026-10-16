@@ -99,3 +99,21 @@ fitted:
   scalers: null                 # p5 / p95 per signal per dataset (2.6)
   widths: null                  # calibrated band width per signal, B4 (7.3)
   thresholds: null              # theta1, theta2 selected on validation (3.4)
+
+# v0.4 redesign (REDESIGN_2026-10-15; user decision Oct 15). S1 dropped, A0 merged into A1, A2 is
+# an evidence-aware second hop. The v0.3 sections above stay the record of the first run.
+v4:
+  active_signals: [S2, S3, S4]  # 27-rule base, consequent cut t <= 2 / 3 / >= 4
+  actions: [A1, A2]             # one threshold: A1 if score < theta, else A2
+  theta_range: [0.00, 1.00]
+  followup_prompt: "Below are a question and passages retrieved for it. Write one search query that would find the information still missing to answer the question, such as a person, place or work that the passages mention and the question depends on. Reply with the query only."
+  reason_prompt: "Answer the question using the passages below. Reply in exactly this format:\nReasoning: <at most two short sentences>\nAnswer: <a short phrase of a few words, with no explanation>\nIf it is a yes/no question, the answer is yes or no."
+  followup_max_tokens: 64
+  reason_max_tokens: 192
+  second_rerank: 20             # second-hop passages re-scored against the follow-up query
+  a2_keep: 3                    # A1's top passages kept in A2's context
+  a2_new: 2                     # best new second-hop passages added
+  variant: V1                   # chosen by the pilot rule (RUNLOG_2026-10-15_v04 §0); failed the 0.04 bar
+  budget: midpoint              # mean latency <= (always-A1 + always-A2) / 2 on validation
+  fresh_offset: 300             # fresh held-out originals: positions 301-450 of the seed-42 order
+  fresh_n: 150

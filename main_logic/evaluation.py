@@ -33,19 +33,20 @@ SEED = 42
 TOL = 1e-12
 
 
-def _indices(actions, n):
-    """Action labels ('A0'...) or indices (0..2) -> int array of length n."""
+def _indices(actions, n, labels=ACTIONS):
+    """Action labels ('A0'...) or indices -> int array of length n (labels: the table's
+    actions; v0.3 A0, A1, A2, v0.4 A1, A2)."""
     a = np.asarray(actions)
     if a.shape != (n,):
         raise ValueError(f"need one action per instance ({n}), got {a.shape}")
     if a.dtype.kind in "US":
-        unknown = set(a.tolist()) - set(ACTIONS)
+        unknown = set(a.tolist()) - set(labels)
         if unknown:
             raise ValueError(f"unknown action label(s): {sorted(unknown)}")
-        return np.array([ACTIONS.index(x) for x in a])
+        return np.array([labels.index(x) for x in a])
     idx = a.astype(int)
-    if not np.all((idx >= 0) & (idx < len(ACTIONS))):
-        raise ValueError("action indices must be 0, 1 or 2")
+    if not np.all((idx >= 0) & (idx < len(labels))):
+        raise ValueError(f"action indices must be in 0..{len(labels) - 1}")
     return idx
 
 
@@ -53,7 +54,8 @@ def _indices(actions, n):
 
 
 def oracle_actions(table, delta=DELTA):
-    """Per instance, the cheapest action with F1 >= best F1 - delta (cost order A0 < A1 < A2)."""
+    """Per instance, the cheapest action with F1 >= best F1 - delta (cost order A0 < A1 < A2;
+    v0.4: A1 < A2), as column indices of the table."""
     best = table.f1.max(axis=1, keepdims=True)
     ok = table.f1 >= best - delta - TOL
     return ok.argmax(axis=1)            # first True = cheapest qualifying action
@@ -65,6 +67,11 @@ def oracle_shares(table, delta=DELTA):
     'A0 suffices')."""
     a = oracle_actions(table, delta)
     identical = np.all(np.abs(table.f1 - table.f1[:, :1]) <= TOL, axis=1)
+    if tuple(table.actions) != ACTIONS:         # v0.4 (A1, A2): the cheapest suffices / A2 needed
+        first, *rest = table.actions
+        out = {f"{first.lower()}_suffices": float(np.mean(a == 0))}
+        out.update({f"{x.lower()}_required": float(np.mean(a == i)) for i, x in enumerate(rest, 1)})
+        return {**out, "all_identical": float(np.mean(identical))}
     return {"a0_suffices": float(np.mean(a == 0)), "a1_required": float(np.mean(a == 1)),
             "a2_required": float(np.mean(a == 2)), "all_identical": float(np.mean(identical))}
 
@@ -92,7 +99,7 @@ def pair_flags(table, actions, delta=DELTA):
       (b) the more expensive action bought nothing: on the query that received it, it beats the
           cheaper action by less than delta.
     """
-    a = _indices(actions, len(table))
+    a = _indices(actions, len(table), table.actions)
     f1 = table.f1
     clusters, n_skipped = complete_clusters(table)
     ids, flipped, harmful = [], [], []
@@ -129,7 +136,7 @@ def within_cluster(table, actions, scores):
     scores: {(cluster_id, variant_id): score} or an array in table.instances order.
     Standard deviations are population sd (ddof = 0) over a cluster's 3 phrasings.
     """
-    a = _indices(actions, len(table))
+    a = _indices(actions, len(table), table.actions)
     s = table.align(scores) if isinstance(scores, dict) else np.asarray(scores, dtype=float)
     if s.shape != (len(table),):
         raise ValueError(f"need one score per instance ({len(table)}), got {s.shape}")

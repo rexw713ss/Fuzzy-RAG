@@ -1,0 +1,88 @@
+hotpotqa: 102 instances, phase a1
+a1: 102 instances; read 1163 passages in 20 s
+Loading weights:   0%|          | 0/105 [00:00<?, ?it/s]Loading weights: 100%|██████████| 105/105 [00:00<00:00, 26399.83it/s]
+a1: done; reused A1 whose recomputed top 5 differs from the cached one: 0
+hotpotqa: 102 instances, phase followups
+followups: 102 calls
+  50/102
+  100/102
+hotpotqa: 102 instances, phase second
+second: 102 follow-up queries
+BM25 k1=0.9 b=0.4: 102 questions, k=50, 15.3s (150 ms/question), 0 with fewer than 50 hits -> ..\data\v4\pilot\hotpotqa\second_bm25.jsonl
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 28480.11it/s]
+hotpotqa: 102 instances, phase selection
+selection: 102 instances, 102 with a second hop; read 1288 passages in 20 s
+Loading weights:   0%|          | 0/105 [00:00<?, ?it/s]Loading weights: 100%|██████████| 105/105 [00:00<00:00, 26192.57it/s]
+hotpotqa: 102 instances, phase generation
+generation: 204 calls (variants ['V1', 'V2'])
+  50/204
+  100/204
+  150/204
+  200/204
+hotpotqa: 102 instances, phase outcomes
+{
+  "instances": 102,
+  "mean": {
+    "A1": {
+      "EM": 0.3137254901960784,
+      "F1": 0.4276882975412387,
+      "latency_total": 4.409555345244738
+    },
+    "A2-V1": {
+      "EM": 0.30392156862745096,
+      "F1": 0.42838651800589517,
+      "latency_total": 9.322543007541407
+    },
+    "A2-V2": {
+      "EM": 0.35294117647058826,
+      "F1": 0.4393090569561157,
+      "latency_total": 12.340918558540771
+    },
+    "A2_fallbacks": 0
+  }
+}
+nq: 102 instances, phase a1
+a1: 102 instances; read 1200 passages in 161 s
+Loading weights:   0%|          | 0/105 [00:00<?, ?it/s]Loading weights: 100%|██████████| 105/105 [00:00<00:00, 23691.53it/s]
+a1: done; reused A1 whose recomputed top 5 differs from the cached one: 0
+nq: 102 instances, phase followups
+followups: 102 calls
+  50/102
+  100/102
+nq: 102 instances, phase second
+second: 99 follow-up queries
+BM25 k1=0.9 b=0.4: 99 questions, k=50, 29.1s (294 ms/question), 0 with fewer than 50 hits -> ..\data\v4\pilot\nq\second_bm25.jsonl
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 28294.74it/s]
+nq: 102 instances, phase selection
+selection: 102 instances, 99 with a second hop; read 1260 passages in 159 s
+Loading weights:   0%|          | 0/105 [00:00<?, ?it/s]Loading weights: 100%|██████████| 105/105 [00:00<00:00, 27156.81it/s]
+nq: 102 instances, phase generation
+generation: 204 calls (variants ['V1', 'V2'])
+  50/204
+  100/204
+  150/204
+  200/204
+nq: 102 instances, phase outcomes
+{
+  "instances": 102,
+  "mean": {
+    "A1": {
+      "EM": 0.37254901960784315,
+      "F1": 0.5093891402714932,
+      "latency_total": 6.2039966611545765
+    },
+    "A2-V1": {
+      "EM": 0.37254901960784315,
+      "F1": 0.5110799875505757,
+      "latency_total": 12.41345434144539
+    },
+    "A2-V2": {
+      "EM": 0.38235294117647056,
+      "F1": 0.4665787883780963,
+      "latency_total": 15.165585740431759
+    },
+    "A2_fallbacks": 3
+  }
+}

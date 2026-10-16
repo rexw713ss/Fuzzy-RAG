@@ -10,7 +10,7 @@ import yaml
 
 CONFIG = Path(__file__).resolve().parents[1] / "config.yaml"
 SECTIONS = ("data", "generator", "paraphrase", "retrieval", "signals", "fuzzy", "routing",
-            "actions", "baselines", "calibration", "splits", "evaluation", "fitted")
+            "actions", "baselines", "calibration", "splits", "evaluation", "fitted", "v4")
 
 
 def load_config(path=CONFIG):

@@ -1,0 +1,37 @@
+{
+  "n": 1000,
+  "seed": 0,
+  "model": "facebook/contriever-msmarco",
+  "revision": "abe8c1493371369031bcb1e02acb754cf4e162fa",
+  "format": "title + ' ' + text",
+  "max_length": 512,
+  "cosine": {
+    "min": 0.9999979138374329,
+    "p1": 0.9999989867210388,
+    "median": 0.9999992847442627,
+    "mean": 0.9999992251396179
+  },
+  "norm_ratio": {
+    "min": 0.9997303485870361,
+    "max": 1.0002471208572388
+  },
+  "passed": true,
+  "shards_covered": 16,
+  "worst": [
+    {
+      "id": "16250369",
+      "cosine": 0.9999979138374329,
+      "title": "George Alexander Hill"
+    },
+    {
+      "id": "7846950",
+      "cosine": 0.9999987483024597,
+      "title": "O'Higgins F.C."
+    },
+    {
+      "id": "18070833",
+      "cosine": 0.9999988675117493,
+      "title": "Macrosiphini"
+    }
+  ]
+}

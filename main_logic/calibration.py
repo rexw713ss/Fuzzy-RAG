@@ -26,17 +26,17 @@ CLUSTER_SIZE = 3
 QUANTILE = 75
 
 
-def pair_differences(clusters):
+def pair_differences(clusters, n_signals=4):
     """Pooled |S_a - S_b| over all phrasing pairs of every complete cluster.
 
-    clusters: iterable of arrays (n_phrasings, 4) of scaled signals, one per training cluster.
-    Returns (diffs of shape (n_pairs, 4), n_used, n_skipped).
+    clusters: iterable of arrays (n_phrasings, n_signals) of scaled signals, one per training
+    cluster. Returns (diffs of shape (n_pairs, n_signals), n_used, n_skipped).
     """
     diffs, used, skipped = [], 0, 0
     for c in clusters:
         c = np.asarray(c, dtype=float)
-        if c.ndim != 2 or c.shape[1] != 4:
-            raise ValueError(f"each cluster must be (n_phrasings, 4), got {c.shape}")
+        if c.ndim != 2 or c.shape[1] != n_signals:
+            raise ValueError(f"each cluster must be (n_phrasings, {n_signals}), got {c.shape}")
         if not np.all((c >= 0.0) & (c <= 1.0)):
             raise ValueError("signals must be scaled to [0, 1] (and finite) before calibration")
         if len(c) > CLUSTER_SIZE:
@@ -46,10 +46,10 @@ def pair_differences(clusters):
             continue
         used += 1
         diffs.extend(np.abs(c[i] - c[j]) for i, j in itertools.combinations(range(len(c)), 2))
-    return np.array(diffs).reshape(-1, 4), used, skipped
+    return np.array(diffs).reshape(-1, n_signals), used, skipped
 
 
-def calibrate(clusters):
+def calibrate(clusters, signals=fz.SIGNALS):
     """Per-signal widths from jitter (section 7.3), with clipping flagged (section 8.1).
 
     Returns a dict:
@@ -60,7 +60,7 @@ def calibrate(clusters):
                       controller, so no contribution from it may be claimed (section 5)
       n_clusters, n_skipped
     """
-    diffs, used, skipped = pair_differences(clusters)
+    diffs, used, skipped = pair_differences(clusters, len(signals))
     if used == 0:
         raise ValueError(f"no complete clusters ({skipped} incomplete skipped)")
 
@@ -73,7 +73,7 @@ def calibrate(clusters):
         name: {"jitter": float(p75[i]), "jitter_median": float(med[i]),
                "width": float(widths[i]), "at_floor": bool(p75[i] <= W_FLOOR),
                "capped": bool(p75[i] > W_CAP)}
-        for i, name in enumerate(fz.SIGNALS)
+        for i, name in enumerate(signals)
     }
     return {
         "widths": widths.tolist(),

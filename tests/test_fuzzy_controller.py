@@ -233,3 +233,53 @@ def test_sugeno_constants_are_the_output_centroids():
 def test_unknown_or_meaningless_operators_rejected(kw):
     with pytest.raises(ValueError):
         fz.escalate([0.5] * 4, **kw)
+
+
+# --- v0.4: three signals (S1 dropped; REDESIGN_2026-10-15) ---------------------------------
+
+V4 = ("S2", "S3", "S4")
+RULE_CSV_27 = RULE_CSV.with_name("rule_base_27.csv")
+
+
+def test_rule_base_27_counts():
+    rules = fz.rule_base(3)
+    assert len(rules) == 27
+    assert Counter(c for *_, c in rules) == {"Low": 10, "Med": 7, "High": 10}
+
+
+def test_consequent_cut_is_the_midpoint_for_any_n():
+    assert [fz.consequent(t) for t in range(9)] == ["Low"] * 4 + ["Med"] + ["High"] * 4
+    assert [fz.consequent(t, 3) for t in range(7)] == ["Low"] * 3 + ["Med"] + ["High"] * 3
+
+
+def test_rule_base_27_matches_csv():
+    if not RULE_CSV_27.exists():
+        pytest.skip(f"rule CSV not found at {RULE_CSV_27}")
+    with open(RULE_CSV_27, encoding="utf8") as f:
+        rows = list(csv.DictReader(f))
+    assert len(rows) == 27
+    for (rid, labs, t, cons), row in zip(fz.rule_base(3), rows):
+        assert rid == int(row["rule_id"])
+        assert labs == (row["S2_disagreement"], row["S3_dispersion"], row["S4_entropy"])
+        assert t == float(row["level_sum_t"]) and cons == row["escalation"]
+
+
+def test_three_signal_controller_runs_and_spans_the_output_range():
+    lo, _ = fz.escalate([0.0] * 3, signals=V4)
+    hi, _ = fz.escalate([1.0] * 3, signals=V4)
+    mid, trace = fz.escalate([0.5] * 3, widths=[0.229, 0.20, 0.25], signals=V4)
+    assert lo == pytest.approx(ESC_MIN, abs=1e-3) and hi == pytest.approx(ESC_MAX, abs=1e-3)
+    assert lo < mid < hi
+    assert set(trace["memberships"]) == set(V4)
+    assert all(len(r["labels"]) == 3 for r in trace["fired"])
+
+
+def test_three_signal_controller_rejects_four_values():
+    with pytest.raises(ValueError, match="need 3 signals"):
+        fz.escalate([0.5] * 4, signals=V4)
+
+
+@pytest.mark.parametrize("name", list(fz.ABLATIONS))
+def test_three_signal_ablations_run(name):
+    score, _ = fz.escalate([0.2, 0.6, 0.9], signals=V4, **fz.ABLATIONS[name])
+    assert 0.0 < score < 1.0

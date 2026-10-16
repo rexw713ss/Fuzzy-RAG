@@ -1,0 +1,96 @@
+{
+  "nq": {
+    "widths": [
+      0.25,
+      0.22874885521744998,
+      0.2,
+      0.25
+    ],
+    "widths_median": [
+      0.21033971567238102,
+      0.2,
+      0.2,
+      0.2
+    ],
+    "signals": {
+      "S1": {
+        "jitter": 0.4438599465863231,
+        "jitter_median": 0.21033971567238102,
+        "width": 0.25,
+        "at_floor": false,
+        "capped": true
+      },
+      "S2": {
+        "jitter": 0.22874885521744998,
+        "jitter_median": 0.10757733736170516,
+        "width": 0.22874885521744998,
+        "at_floor": false,
+        "capped": false
+      },
+      "S3": {
+        "jitter": 0.1685067670099325,
+        "jitter_median": 0.07932720264262111,
+        "width": 0.2,
+        "at_floor": true,
+        "capped": false
+      },
+      "S4": {
+        "jitter": 0.3761490857344935,
+        "jitter_median": 0.15415618127731867,
+        "width": 0.25,
+        "at_floor": false,
+        "capped": true
+      }
+    },
+    "all_at_floor": false,
+    "n_clusters": 157,
+    "n_skipped": 23
+  },
+  "hotpotqa": {
+    "widths": [
+      0.22108483538841792,
+      0.2,
+      0.2,
+      0.2
+    ],
+    "widths_median": [
+      0.2,
+      0.2,
+      0.2,
+      0.2
+    ],
+    "signals": {
+      "S1": {
+        "jitter": 0.22108483538841792,
+        "jitter_median": 0.08890487621901809,
+        "width": 0.22108483538841792,
+        "at_floor": false,
+        "capped": false
+      },
+      "S2": {
+        "jitter": 0.18906742749767574,
+        "jitter_median": 0.07486395926884382,
+        "width": 0.2,
+        "at_floor": true,
+        "capped": false
+      },
+      "S3": {
+        "jitter": 0.11095373491630553,
+        "jitter_median": 0.04995054550036204,
+        "width": 0.2,
+        "at_floor": true,
+        "capped": false
+      },
+      "S4": {
+        "jitter": 0.14584644428122068,
+        "jitter_median": 0.04481208575464864,
+        "width": 0.2,
+        "at_floor": true,
+        "capped": false
+      }
+    },
+    "all_at_floor": false,
+    "n_clusters": 174,
+    "n_skipped": 6
+  }
+}

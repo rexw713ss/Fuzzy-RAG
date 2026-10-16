@@ -72,6 +72,10 @@ def probabilities(model, questions):
 
 
 def scores(model, questions):
-    """Expected action in [0, 1]: P(A1) * 0.5 + P(A2) * 1.0."""
+    """Expected action scaled to [0, 1]: sum_j P(action j) * j / (k - 1).
+
+    Three classes (v0.3): P(A1) * 0.5 + P(A2) * 1.0. Two classes (v0.4: A1, A2): P(A2).
+    """
     p = probabilities(model, questions)
-    return p[:, 1] * 0.5 + p[:, 2]
+    k = p.shape[1]
+    return p @ (np.arange(k) / (k - 1))
