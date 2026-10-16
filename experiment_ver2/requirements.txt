@@ -1,0 +1,3 @@
+# Lightweight cache replay. No LLM, CUDA, Java, or passage indexes are required.
+numpy>=1.26,<3
+pytest>=8,<10
