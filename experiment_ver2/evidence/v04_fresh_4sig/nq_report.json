@@ -1,0 +1,6164 @@
+{
+  "dataset": "nq",
+  "data": {
+    "root": "D:\\ICGHIT 2027\\Fuzzy-RAG\\runs",
+    "dataset": "nq",
+    "archive_version": "v0.4",
+    "test_set": "fresh",
+    "actions": [
+      "A1",
+      "A2"
+    ],
+    "signals": [
+      "S1",
+      "S2",
+      "S3",
+      "S4"
+    ],
+    "cost_key": "latency_total",
+    "preprocessing_mode": "archived_frozen_preprocessing",
+    "calibration_split": "train",
+    "scaler_origin": "v0.3 archived scalers, documented as TRAIN-fitted",
+    "raw_training_signals_available": false,
+    "scalers_independently_refitted": false,
+    "preprocessing_limitation": "Original raw signals were not archived. The original scaler fit cannot be independently verified or repeated; archived scaled values and documented TRAIN scaler parameters are frozen inputs.",
+    "jitter_recomputed_from_training_scaled_signals": true,
+    "scalers": {
+      "S1": {
+        "p5": 0.35831887828373177,
+        "p95": 1.0
+      },
+      "S2": {
+        "p5": 0.4351824633089285,
+        "p95": 1.0
+      },
+      "S3": {
+        "p5": 0.2359775294052055,
+        "p95": 0.5668816571998407
+      },
+      "S4": {
+        "p5": 0.1173695465463142,
+        "p95": 0.9235339521485962
+      }
+    },
+    "jitter": {
+      "widths": [
+        0.25,
+        0.22874885521744998,
+        0.2,
+        0.25
+      ],
+      "p75": [
+        0.4438599465863231,
+        0.22874885521744998,
+        0.1685067670099325,
+        0.3761490857344935
+      ],
+      "widths_median": [
+        0.21033971567238102,
+        0.2,
+        0.2,
+        0.2
+      ],
+      "training_complete_clusters": 157,
+      "training_incomplete_clusters_skipped": 23,
+      "saved_metadata_verified": true
+    },
+    "counts": {
+      "train": {
+        "instances": 506,
+        "clusters": 180,
+        "complete_clusters": 157,
+        "incomplete_clusters_in_source": 23
+      },
+      "val": {
+        "instances": 165,
+        "clusters": 60,
+        "complete_clusters": 50,
+        "incomplete_clusters_in_source": 10
+      },
+      "test": {
+        "instances": 412,
+        "clusters": 150,
+        "complete_clusters": 128,
+        "incomplete_clusters_in_source": 22
+      }
+    },
+    "fresh_disjointness": {
+      "cluster_overlap_original_all_splits": 0,
+      "normalized_question_overlap_original_all_splits": 0,
+      "question_normalization": "NFKC + casefold + remove Unicode Cf + punctuation/whitespace collapse",
+      "clipped_fraction": {
+        "S1": 0.06796116504854369,
+        "S2": 0.024271844660194174,
+        "S3": 0.06796116504854369,
+        "S4": 0.13106796116504854
+      },
+      "raw_signal_source": "D:\\ICGHIT 2027\\Fuzzy-RAG\\runs\\v0.4\\fresh_src\\nq\\signals.jsonl"
+    },
+    "test_status": "previously reported archived test; exploratory reanalysis",
+    "input_sha256": {
+      "v0.3/splits.json": "e2c36230c5dea67f936cff34a21ed325bd09560abfa6095b35a53e068449c5d3",
+      "v0.3/nq/queries.jsonl": "20f4adbc8731f30c34ccfabf09c8657abfc098c0fcb24e16ea7a3ab938513324",
+      "v0.3/signals_scaled.jsonl": "fff47c0c0c723de8e6727735fc824805f2af88b271cf74f5347b964acbf30fc4",
+      "v0.3/scalers.json": "a3ad86f4cb98322c2cbbaaeee9a7f9689aaebda369c62af1bb4bfb8bb545501b",
+      "v0.3/jitter.json": "06d8dd0daefe04a7efc1ec5cfb07e8690d4fc61a87e42efbd327a783bb74b854",
+      "v0.4/nq/outcomes.jsonl": "03d97b2f269211adc436367a1e8a71778e8099ed8b49713a8c727edd0b139d90",
+      "v0.4/fresh_src/nq/queries.jsonl": "ac1973e6c2a5279f00ba1069221024c81c358ee1a47b23bb2d987d2f77491750",
+      "v0.4/fresh_src/nq/signals.jsonl": "73e60c44546b0966c242ea0144974399e20e1d9e8b7c52af79985c327c0175bd",
+      "v0.4/fresh/nq/outcomes.jsonl": "26904b3046febae25d1ee501712f61a225ba3418679d7a5e92f95eba04383c50"
+    }
+  },
+  "training_seconds": 0.3581961002200842,
+  "diagnostic_all_candidate_scoring_seconds": 0.4992141001857817,
+  "latency_scope": "cached component sum; not new online end-to-end measurement",
+  "actions": [
+    "A1",
+    "A2"
+  ],
+  "signals": [
+    "S1",
+    "S2",
+    "S3",
+    "S4"
+  ],
+  "fixed": {
+    "always-A1": {
+      "F1": {
+        "mean": 0.4407266104959528,
+        "lo": 0.37449491802149937,
+        "hi": 0.5046285761987162
+      },
+      "EM": {
+        "mean": 0.3179611650485437,
+        "lo": 0.25181751816359405,
+        "hi": 0.380252935862692
+      },
+      "cost": {
+        "mean": 5.661136181030457,
+        "lo": 5.598305346677781,
+        "hi": 5.7428107134953486
+      },
+      "counts": {
+        "A1": 412,
+        "A2": 0
+      },
+      "A2_fraction": 0.0,
+      "robustness_incomplete_clusters_skipped": 22,
+      "robustness_pairs": 384,
+      "RFR": {
+        "mean": 0.0,
+        "lo": 0.0,
+        "hi": 0.0
+      },
+      "HRFR_legacy_action_order": {
+        "mean": 0.0,
+        "lo": 0.0,
+        "hi": 0.0
+      },
+      "secondary": {
+        "retrievals": 1.0,
+        "ce_passes": 20.0,
+        "llm_calls": 1.0,
+        "input_tokens": 825.6019417475728,
+        "output_tokens": 6.230582524271845
+      },
+      "within_cluster": {
+        "F1_SD": {
+          "mean": 0.10364897902711465,
+          "lo": 0.07772357356600626,
+          "hi": 0.1351327714826892
+        },
+        "F1_range": {
+          "mean": 0.22810521917828905,
+          "lo": 0.16993852275303334,
+          "hi": 0.29562667472565224
+        },
+        "minimum_F1": {
+          "mean": 0.32753624413780663,
+          "lo": 0.25892193418560605,
+          "hi": 0.39789306992920276
+        }
+      }
+    },
+    "always-A2": {
+      "F1": {
+        "mean": 0.46879976660816186,
+        "lo": 0.4057308955086299,
+        "hi": 0.5333465577638892
+      },
+      "EM": {
+        "mean": 0.3422330097087379,
+        "lo": 0.2764383404645477,
+        "hi": 0.40898888946130196
+      },
+      "cost": {
+        "mean": 11.916387335189338,
+        "lo": 11.81246425096535,
+        "hi": 12.029932634219252
+      },
+      "counts": {
+        "A1": 0,
+        "A2": 412
+      },
+      "A2_fraction": 1.0,
+      "robustness_incomplete_clusters_skipped": 22,
+      "robustness_pairs": 384,
+      "RFR": {
+        "mean": 0.0,
+        "lo": 0.0,
+        "hi": 0.0
+      },
+      "HRFR_legacy_action_order": {
+        "mean": 0.0,
+        "lo": 0.0,
+        "hi": 0.0
+      },
+      "secondary": {
+        "retrievals": 1.9563106796116505,
+        "ce_passes": 39.12621359223301,
+        "llm_calls": 2.0,
+        "input_tokens": 1665.7791262135922,
+        "output_tokens": 18.87864077669903
+      },
+      "within_cluster": {
+        "F1_SD": {
+          "mean": 0.11258432583074583,
+          "lo": 0.08613346421605536,
+          "hi": 0.14341297106538098
+        },
+        "F1_range": {
+          "mean": 0.246510434010434,
+          "lo": 0.18881648516414146,
+          "hi": 0.31434102789571544
+        },
+        "minimum_F1": {
+          "mean": 0.3429062818309142,
+          "lo": 0.274585704073296,
+          "hi": 0.41298930995220046
+        }
+      }
+    }
+  },
+  "budgets": {
+    "0.0": {
+      "quota": 0.0,
+      "strongest_baseline_selected_on_validation": "global",
+      "methods": {
+        "global": {
+          "F1": {
+            "mean": 0.4407266104959528,
+            "lo": 0.37449491802149937,
+            "hi": 0.5046285761987162
+          },
+          "EM": {
+            "mean": 0.3179611650485437,
+            "lo": 0.25181751816359405,
+            "hi": 0.380252935862692
+          },
+          "cost": {
+            "mean": 5.661136181030457,
+            "lo": 5.598305346677781,
+            "hi": 5.7428107134953486
+          },
+          "counts": {
+            "A1": 412,
+            "A2": 0
+          },
+          "A2_fraction": 0.0,
+          "robustness_incomplete_clusters_skipped": 22,
+          "robustness_pairs": 384,
+          "RFR": {
+            "mean": 0.0,
+            "lo": 0.0,
+            "hi": 0.0
+          },
+          "HRFR_legacy_action_order": {
+            "mean": 0.0,
+            "lo": 0.0,
+            "hi": 0.0
+          },
+          "secondary": {
+            "retrievals": 1.0,
+            "ce_passes": 20.0,
+            "llm_calls": 1.0,
+            "input_tokens": 825.6019417475728,
+            "output_tokens": 6.230582524271845
+          },
+          "within_cluster": {
+            "F1_SD": {
+              "mean": 0.10364897902711465,
+              "lo": 0.07772357356600626,
+              "hi": 0.1351327714826892
+            },
+            "F1_range": {
+              "mean": 0.22810521917828905,
+              "lo": 0.16993852275303334,
+              "hi": 0.29562667472565224
+            },
+            "minimum_F1": {
+              "mean": 0.32753624413780663,
+              "lo": 0.25892193418560605,
+              "hi": 0.39789306992920276
+            }
+          },
+          "fit": {
+            "candidate": "always-A1",
+            "F1": 0.49079266560127804,
+            "A2_count": 0,
+            "cost": 6.2274845534924514,
+            "all_candidates": [
+              {
+                "candidate": "always-A1",
+                "F1": 0.49079266560127804,
+                "A2_count": 0,
+                "cost": 6.2274845534924514
+              },
+              {
+                "candidate": "global",
+                "F1": 0.49079266560127804,
+                "A2_count": 0,
+                "cost": 6.2274845534924514
+              }
+            ],
+            "quota": 0.0
+          },
+          "vs_always_A1": {
+            "F1": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            }
+          },
+          "vs_random_same_A2_count": {
+            "F1": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "reference": {
+              "A2_fraction": 0.0,
+              "kind": "expected_uniform_random_allocation",
+              "means": {
+                "F1": 0.4407266104959528,
+                "EM": 0.3179611650485437,
+                "cost": 5.661136181030457
+              },
+              "CI_scope": "cluster sampling only; random allocation integrated analytically"
+            }
+          },
+          "vs_validation_selected_baseline": {
+            "F1": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            }
+          },
+          "vs_ridge": {
+            "F1": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            }
+          },
+          "vs_fuzzy_fixed": {
+            "F1": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            }
+          },
+          "comparison_status": "exploratory; no multiplicity-adjusted confirmatory claim"
+        },
+        "ridge": {
+          "F1": {
+            "mean": 0.4407266104959528,
+            "lo": 0.37449491802149937,
+            "hi": 0.5046285761987162
+          },
+          "EM": {
+            "mean": 0.3179611650485437,
+            "lo": 0.25181751816359405,
+            "hi": 0.380252935862692
+          },
+          "cost": {
+            "mean": 5.661136181030457,
+            "lo": 5.598305346677781,
+            "hi": 5.7428107134953486
+          },
+          "counts": {
+            "A1": 412,
+            "A2": 0
+          },
+          "A2_fraction": 0.0,
+          "robustness_incomplete_clusters_skipped": 22,
+          "robustness_pairs": 384,
+          "RFR": {
+            "mean": 0.0,
+            "lo": 0.0,
+            "hi": 0.0
+          },
+          "HRFR_legacy_action_order": {
+            "mean": 0.0,
+            "lo": 0.0,
+            "hi": 0.0
+          },
+          "secondary": {
+            "retrievals": 1.0,
+            "ce_passes": 20.0,
+            "llm_calls": 1.0,
+            "input_tokens": 825.6019417475728,
+            "output_tokens": 6.230582524271845
+          },
+          "within_cluster": {
+            "F1_SD": {
+              "mean": 0.10364897902711465,
+              "lo": 0.07772357356600626,
+              "hi": 0.1351327714826892
+            },
+            "F1_range": {
+              "mean": 0.22810521917828905,
+              "lo": 0.16993852275303334,
+              "hi": 0.29562667472565224
+            },
+            "minimum_F1": {
+              "mean": 0.32753624413780663,
+              "lo": 0.25892193418560605,
+              "hi": 0.39789306992920276
+            }
+          },
+          "fit": {
+            "candidate": "alpha=0.1",
+            "F1": 0.49079266560127804,
+            "A2_count": 0,
+            "cost": 6.2274845534924514,
+            "all_candidates": [
+              {
+                "candidate": "always-A1",
+                "F1": 0.49079266560127804,
+                "A2_count": 0,
+                "cost": 6.2274845534924514
+              },
+              {
+                "candidate": "alpha=0.1",
+                "F1": 0.49079266560127804,
+                "A2_count": 0,
+                "cost": 6.2274845534924514
+              },
+              {
+                "candidate": "alpha=1.0",
+                "F1": 0.49079266560127804,
+                "A2_count": 0,
+                "cost": 6.2274845534924514
+              },
+              {
+                "candidate": "alpha=10.0",
+                "F1": 0.49079266560127804,
+                "A2_count": 0,
+                "cost": 6.2274845534924514
+              }
+            ],
+            "quota": 0.0
+          },
+          "vs_always_A1": {
+            "F1": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            }
+          },
+          "vs_random_same_A2_count": {
+            "F1": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "reference": {
+              "A2_fraction": 0.0,
+              "kind": "expected_uniform_random_allocation",
+              "means": {
+                "F1": 0.4407266104959528,
+                "EM": 0.3179611650485437,
+                "cost": 5.661136181030457
+              },
+              "CI_scope": "cluster sampling only; random allocation integrated analytically"
+            }
+          },
+          "vs_validation_selected_baseline": {
+            "F1": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            }
+          },
+          "vs_ridge": {
+            "F1": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            }
+          },
+          "vs_fuzzy_fixed": {
+            "F1": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            }
+          },
+          "comparison_status": "exploratory; no multiplicity-adjusted confirmatory claim"
+        },
+        "fuzzy-fixed": {
+          "F1": {
+            "mean": 0.4407266104959528,
+            "lo": 0.37449491802149937,
+            "hi": 0.5046285761987162
+          },
+          "EM": {
+            "mean": 0.3179611650485437,
+            "lo": 0.25181751816359405,
+            "hi": 0.380252935862692
+          },
+          "cost": {
+            "mean": 5.661136181030457,
+            "lo": 5.598305346677781,
+            "hi": 5.7428107134953486
+          },
+          "counts": {
+            "A1": 412,
+            "A2": 0
+          },
+          "A2_fraction": 0.0,
+          "robustness_incomplete_clusters_skipped": 22,
+          "robustness_pairs": 384,
+          "RFR": {
+            "mean": 0.0,
+            "lo": 0.0,
+            "hi": 0.0
+          },
+          "HRFR_legacy_action_order": {
+            "mean": 0.0,
+            "lo": 0.0,
+            "hi": 0.0
+          },
+          "secondary": {
+            "retrievals": 1.0,
+            "ce_passes": 20.0,
+            "llm_calls": 1.0,
+            "input_tokens": 825.6019417475728,
+            "output_tokens": 6.230582524271845
+          },
+          "within_cluster": {
+            "F1_SD": {
+              "mean": 0.10364897902711465,
+              "lo": 0.07772357356600626,
+              "hi": 0.1351327714826892
+            },
+            "F1_range": {
+              "mean": 0.22810521917828905,
+              "lo": 0.16993852275303334,
+              "hi": 0.29562667472565224
+            },
+            "minimum_F1": {
+              "mean": 0.32753624413780663,
+              "lo": 0.25892193418560605,
+              "hi": 0.39789306992920276
+            }
+          },
+          "fit": {
+            "candidate": "always-A1",
+            "F1": 0.49079266560127804,
+            "A2_count": 0,
+            "cost": 6.2274845534924514,
+            "all_candidates": [
+              {
+                "candidate": "always-A1",
+                "F1": 0.49079266560127804,
+                "A2_count": 0,
+                "cost": 6.2274845534924514
+              },
+              {
+                "candidate": "prior=1.0",
+                "F1": 0.49079266560127804,
+                "A2_count": 0,
+                "cost": 6.2274845534924514
+              },
+              {
+                "candidate": "prior=5.0",
+                "F1": 0.49079266560127804,
+                "A2_count": 0,
+                "cost": 6.2274845534924514
+              },
+              {
+                "candidate": "prior=20.0",
+                "F1": 0.49079266560127804,
+                "A2_count": 0,
+                "cost": 6.2274845534924514
+              }
+            ],
+            "quota": 0.0
+          },
+          "vs_always_A1": {
+            "F1": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            }
+          },
+          "vs_random_same_A2_count": {
+            "F1": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "reference": {
+              "A2_fraction": 0.0,
+              "kind": "expected_uniform_random_allocation",
+              "means": {
+                "F1": 0.4407266104959528,
+                "EM": 0.3179611650485437,
+                "cost": 5.661136181030457
+              },
+              "CI_scope": "cluster sampling only; random allocation integrated analytically"
+            }
+          },
+          "vs_validation_selected_baseline": {
+            "F1": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            }
+          },
+          "vs_ridge": {
+            "F1": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            }
+          },
+          "vs_fuzzy_fixed": {
+            "F1": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            }
+          },
+          "comparison_status": "exploratory; no multiplicity-adjusted confirmatory claim"
+        },
+        "fuzzy-calibrated": {
+          "F1": {
+            "mean": 0.4407266104959528,
+            "lo": 0.37449491802149937,
+            "hi": 0.5046285761987162
+          },
+          "EM": {
+            "mean": 0.3179611650485437,
+            "lo": 0.25181751816359405,
+            "hi": 0.380252935862692
+          },
+          "cost": {
+            "mean": 5.661136181030457,
+            "lo": 5.598305346677781,
+            "hi": 5.7428107134953486
+          },
+          "counts": {
+            "A1": 412,
+            "A2": 0
+          },
+          "A2_fraction": 0.0,
+          "robustness_incomplete_clusters_skipped": 22,
+          "robustness_pairs": 384,
+          "RFR": {
+            "mean": 0.0,
+            "lo": 0.0,
+            "hi": 0.0
+          },
+          "HRFR_legacy_action_order": {
+            "mean": 0.0,
+            "lo": 0.0,
+            "hi": 0.0
+          },
+          "secondary": {
+            "retrievals": 1.0,
+            "ce_passes": 20.0,
+            "llm_calls": 1.0,
+            "input_tokens": 825.6019417475728,
+            "output_tokens": 6.230582524271845
+          },
+          "within_cluster": {
+            "F1_SD": {
+              "mean": 0.10364897902711465,
+              "lo": 0.07772357356600626,
+              "hi": 0.1351327714826892
+            },
+            "F1_range": {
+              "mean": 0.22810521917828905,
+              "lo": 0.16993852275303334,
+              "hi": 0.29562667472565224
+            },
+            "minimum_F1": {
+              "mean": 0.32753624413780663,
+              "lo": 0.25892193418560605,
+              "hi": 0.39789306992920276
+            }
+          },
+          "fit": {
+            "candidate": "always-A1",
+            "F1": 0.49079266560127804,
+            "A2_count": 0,
+            "cost": 6.2274845534924514,
+            "all_candidates": [
+              {
+                "candidate": "always-A1",
+                "F1": 0.49079266560127804,
+                "A2_count": 0,
+                "cost": 6.2274845534924514
+              },
+              {
+                "candidate": "prior=1.0",
+                "F1": 0.49079266560127804,
+                "A2_count": 0,
+                "cost": 6.2274845534924514
+              },
+              {
+                "candidate": "prior=5.0",
+                "F1": 0.49079266560127804,
+                "A2_count": 0,
+                "cost": 6.2274845534924514
+              },
+              {
+                "candidate": "prior=20.0",
+                "F1": 0.49079266560127804,
+                "A2_count": 0,
+                "cost": 6.2274845534924514
+              }
+            ],
+            "quota": 0.0
+          },
+          "vs_always_A1": {
+            "F1": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            }
+          },
+          "vs_random_same_A2_count": {
+            "F1": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "reference": {
+              "A2_fraction": 0.0,
+              "kind": "expected_uniform_random_allocation",
+              "means": {
+                "F1": 0.4407266104959528,
+                "EM": 0.3179611650485437,
+                "cost": 5.661136181030457
+              },
+              "CI_scope": "cluster sampling only; random allocation integrated analytically"
+            }
+          },
+          "vs_validation_selected_baseline": {
+            "F1": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            }
+          },
+          "vs_ridge": {
+            "F1": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            }
+          },
+          "vs_fuzzy_fixed": {
+            "F1": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            }
+          },
+          "comparison_status": "exploratory; no multiplicity-adjusted confirmatory claim"
+        },
+        "uncertainty-B3": {
+          "F1": {
+            "mean": 0.4407266104959528,
+            "lo": 0.37449491802149937,
+            "hi": 0.5046285761987162
+          },
+          "EM": {
+            "mean": 0.3179611650485437,
+            "lo": 0.25181751816359405,
+            "hi": 0.380252935862692
+          },
+          "cost": {
+            "mean": 5.661136181030457,
+            "lo": 5.598305346677781,
+            "hi": 5.7428107134953486
+          },
+          "counts": {
+            "A1": 412,
+            "A2": 0
+          },
+          "A2_fraction": 0.0,
+          "robustness_incomplete_clusters_skipped": 22,
+          "robustness_pairs": 384,
+          "RFR": {
+            "mean": 0.0,
+            "lo": 0.0,
+            "hi": 0.0
+          },
+          "HRFR_legacy_action_order": {
+            "mean": 0.0,
+            "lo": 0.0,
+            "hi": 0.0
+          },
+          "secondary": {
+            "retrievals": 1.0,
+            "ce_passes": 20.0,
+            "llm_calls": 1.0,
+            "input_tokens": 825.6019417475728,
+            "output_tokens": 6.230582524271845
+          },
+          "within_cluster": {
+            "F1_SD": {
+              "mean": 0.10364897902711465,
+              "lo": 0.07772357356600626,
+              "hi": 0.1351327714826892
+            },
+            "F1_range": {
+              "mean": 0.22810521917828905,
+              "lo": 0.16993852275303334,
+              "hi": 0.29562667472565224
+            },
+            "minimum_F1": {
+              "mean": 0.32753624413780663,
+              "lo": 0.25892193418560605,
+              "hi": 0.39789306992920276
+            }
+          },
+          "fit": {
+            "candidate": "always-A1",
+            "F1": 0.49079266560127804,
+            "A2_count": 0,
+            "cost": 6.2274845534924514,
+            "all_candidates": [
+              {
+                "candidate": "always-A1",
+                "F1": 0.49079266560127804,
+                "A2_count": 0,
+                "cost": 6.2274845534924514
+              },
+              {
+                "candidate": "original-score",
+                "F1": 0.49079266560127804,
+                "A2_count": 0,
+                "cost": 6.2274845534924514
+              }
+            ],
+            "quota": 0.0
+          },
+          "vs_always_A1": {
+            "F1": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            }
+          },
+          "vs_random_same_A2_count": {
+            "F1": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "reference": {
+              "A2_fraction": 0.0,
+              "kind": "expected_uniform_random_allocation",
+              "means": {
+                "F1": 0.4407266104959528,
+                "EM": 0.3179611650485437,
+                "cost": 5.661136181030457
+              },
+              "CI_scope": "cluster sampling only; random allocation integrated analytically"
+            }
+          },
+          "vs_validation_selected_baseline": {
+            "F1": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            }
+          },
+          "vs_ridge": {
+            "F1": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            }
+          },
+          "vs_fuzzy_fixed": {
+            "F1": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            }
+          },
+          "comparison_status": "exploratory; no multiplicity-adjusted confirmatory claim"
+        },
+        "uncertainty-B4": {
+          "F1": {
+            "mean": 0.4407266104959528,
+            "lo": 0.37449491802149937,
+            "hi": 0.5046285761987162
+          },
+          "EM": {
+            "mean": 0.3179611650485437,
+            "lo": 0.25181751816359405,
+            "hi": 0.380252935862692
+          },
+          "cost": {
+            "mean": 5.661136181030457,
+            "lo": 5.598305346677781,
+            "hi": 5.7428107134953486
+          },
+          "counts": {
+            "A1": 412,
+            "A2": 0
+          },
+          "A2_fraction": 0.0,
+          "robustness_incomplete_clusters_skipped": 22,
+          "robustness_pairs": 384,
+          "RFR": {
+            "mean": 0.0,
+            "lo": 0.0,
+            "hi": 0.0
+          },
+          "HRFR_legacy_action_order": {
+            "mean": 0.0,
+            "lo": 0.0,
+            "hi": 0.0
+          },
+          "secondary": {
+            "retrievals": 1.0,
+            "ce_passes": 20.0,
+            "llm_calls": 1.0,
+            "input_tokens": 825.6019417475728,
+            "output_tokens": 6.230582524271845
+          },
+          "within_cluster": {
+            "F1_SD": {
+              "mean": 0.10364897902711465,
+              "lo": 0.07772357356600626,
+              "hi": 0.1351327714826892
+            },
+            "F1_range": {
+              "mean": 0.22810521917828905,
+              "lo": 0.16993852275303334,
+              "hi": 0.29562667472565224
+            },
+            "minimum_F1": {
+              "mean": 0.32753624413780663,
+              "lo": 0.25892193418560605,
+              "hi": 0.39789306992920276
+            }
+          },
+          "fit": {
+            "candidate": "always-A1",
+            "F1": 0.49079266560127804,
+            "A2_count": 0,
+            "cost": 6.2274845534924514,
+            "all_candidates": [
+              {
+                "candidate": "always-A1",
+                "F1": 0.49079266560127804,
+                "A2_count": 0,
+                "cost": 6.2274845534924514
+              },
+              {
+                "candidate": "original-score",
+                "F1": 0.49079266560127804,
+                "A2_count": 0,
+                "cost": 6.2274845534924514
+              }
+            ],
+            "quota": 0.0
+          },
+          "vs_always_A1": {
+            "F1": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            }
+          },
+          "vs_random_same_A2_count": {
+            "F1": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "reference": {
+              "A2_fraction": 0.0,
+              "kind": "expected_uniform_random_allocation",
+              "means": {
+                "F1": 0.4407266104959528,
+                "EM": 0.3179611650485437,
+                "cost": 5.661136181030457
+              },
+              "CI_scope": "cluster sampling only; random allocation integrated analytically"
+            }
+          },
+          "vs_validation_selected_baseline": {
+            "F1": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            }
+          },
+          "vs_ridge": {
+            "F1": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            }
+          },
+          "vs_fuzzy_fixed": {
+            "F1": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            }
+          },
+          "comparison_status": "exploratory; no multiplicity-adjusted confirmatory claim"
+        }
+      }
+    },
+    "0.1": {
+      "quota": 0.1,
+      "strongest_baseline_selected_on_validation": "uncertainty-B3",
+      "methods": {
+        "global": {
+          "F1": {
+            "mean": 0.4407266104959528,
+            "lo": 0.37449491802149937,
+            "hi": 0.5046285761987162
+          },
+          "EM": {
+            "mean": 0.3179611650485437,
+            "lo": 0.25181751816359405,
+            "hi": 0.380252935862692
+          },
+          "cost": {
+            "mean": 5.661136181030457,
+            "lo": 5.598305346677781,
+            "hi": 5.7428107134953486
+          },
+          "counts": {
+            "A1": 412,
+            "A2": 0
+          },
+          "A2_fraction": 0.0,
+          "robustness_incomplete_clusters_skipped": 22,
+          "robustness_pairs": 384,
+          "RFR": {
+            "mean": 0.0,
+            "lo": 0.0,
+            "hi": 0.0
+          },
+          "HRFR_legacy_action_order": {
+            "mean": 0.0,
+            "lo": 0.0,
+            "hi": 0.0
+          },
+          "secondary": {
+            "retrievals": 1.0,
+            "ce_passes": 20.0,
+            "llm_calls": 1.0,
+            "input_tokens": 825.6019417475728,
+            "output_tokens": 6.230582524271845
+          },
+          "within_cluster": {
+            "F1_SD": {
+              "mean": 0.10364897902711465,
+              "lo": 0.07772357356600626,
+              "hi": 0.1351327714826892
+            },
+            "F1_range": {
+              "mean": 0.22810521917828905,
+              "lo": 0.16993852275303334,
+              "hi": 0.29562667472565224
+            },
+            "minimum_F1": {
+              "mean": 0.32753624413780663,
+              "lo": 0.25892193418560605,
+              "hi": 0.39789306992920276
+            }
+          },
+          "fit": {
+            "candidate": "always-A1",
+            "F1": 0.49079266560127804,
+            "A2_count": 0,
+            "cost": 6.2274845534924514,
+            "all_candidates": [
+              {
+                "candidate": "always-A1",
+                "F1": 0.49079266560127804,
+                "A2_count": 0,
+                "cost": 6.2274845534924514
+              },
+              {
+                "candidate": "global",
+                "F1": 0.48473205954067194,
+                "A2_count": 16,
+                "cost": 6.765438769927574
+              }
+            ],
+            "quota": 0.1
+          },
+          "vs_always_A1": {
+            "F1": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            }
+          },
+          "vs_random_same_A2_count": {
+            "F1": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "reference": {
+              "A2_fraction": 0.0,
+              "kind": "expected_uniform_random_allocation",
+              "means": {
+                "F1": 0.4407266104959528,
+                "EM": 0.3179611650485437,
+                "cost": 5.661136181030457
+              },
+              "CI_scope": "cluster sampling only; random allocation integrated analytically"
+            }
+          },
+          "vs_validation_selected_baseline": {
+            "F1": {
+              "diff": 0.00039151786724606064,
+              "lo": -0.0086715328618314,
+              "hi": 0.008797066737109675,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0,
+              "lo": -0.009685230024213076,
+              "hi": 0.009732360097323601,
+              "significant": false
+            },
+            "cost": {
+              "diff": -0.6288062595027437,
+              "lo": -0.8533538679588123,
+              "hi": -0.4398662749044008,
+              "significant": true
+            }
+          },
+          "vs_ridge": {
+            "F1": {
+              "diff": -0.002427184466019472,
+              "lo": -0.009975685785536158,
+              "hi": 0.004902261887556005,
+              "significant": false
+            },
+            "EM": {
+              "diff": -0.0024271844660194164,
+              "lo": -0.009975685785536158,
+              "hi": 0.004902261887556005,
+              "significant": false
+            },
+            "cost": {
+              "diff": -0.6273060338909939,
+              "lo": -0.8658594530385754,
+              "hi": -0.3927823238388514,
+              "significant": true
+            }
+          },
+          "vs_fuzzy_fixed": {
+            "F1": {
+              "diff": -0.0006559177068886091,
+              "lo": -0.005103837688115443,
+              "hi": 0.00333407360406086,
+              "significant": false
+            },
+            "EM": {
+              "diff": -0.0024271844660194164,
+              "lo": -0.007426203228263272,
+              "hi": 0.0,
+              "significant": false
+            },
+            "cost": {
+              "diff": -0.6222177960081758,
+              "lo": -0.8162103858205842,
+              "hi": -0.42956644163325364,
+              "significant": true
+            }
+          },
+          "comparison_status": "exploratory; no multiplicity-adjusted confirmatory claim"
+        },
+        "ridge": {
+          "F1": {
+            "mean": 0.44315379496197227,
+            "lo": 0.3773767122853301,
+            "hi": 0.507600248107479
+          },
+          "EM": {
+            "mean": 0.32038834951456313,
+            "lo": 0.2544027750092118,
+            "hi": 0.38425586486933716
+          },
+          "cost": {
+            "mean": 6.288442214921451,
+            "lo": 6.049504958215508,
+            "hi": 6.539309881830106
+          },
+          "counts": {
+            "A1": 371,
+            "A2": 41
+          },
+          "A2_fraction": 0.09951456310679611,
+          "robustness_incomplete_clusters_skipped": 22,
+          "robustness_pairs": 384,
+          "RFR": {
+            "mean": 0.10416666666666667,
+            "lo": 0.0625,
+            "hi": 0.14596354166666656
+          },
+          "HRFR_legacy_action_order": {
+            "mean": 0.1015625,
+            "lo": 0.0625,
+            "hi": 0.14583333333333334
+          },
+          "secondary": {
+            "retrievals": 1.0970873786407767,
+            "ce_passes": 21.941747572815533,
+            "llm_calls": 1.0995145631067962,
+            "input_tokens": 909.5946601941747,
+            "output_tokens": 7.478155339805825
+          },
+          "within_cluster": {
+            "F1_SD": {
+              "mean": 0.1123626905243835,
+              "lo": 0.08451415395080251,
+              "hi": 0.14511469161504084
+            },
+            "F1_range": {
+              "mean": 0.24763646917828905,
+              "lo": 0.18544900813800172,
+              "hi": 0.31937416478920383
+            },
+            "minimum_F1": {
+              "mean": 0.32362999413780663,
+              "lo": 0.25590460266729803,
+              "hi": 0.3948945862080628
+            }
+          },
+          "fit": {
+            "candidate": "alpha=0.1",
+            "F1": 0.4994506742592867,
+            "A2_count": 16,
+            "cost": 6.774331150739747,
+            "all_candidates": [
+              {
+                "candidate": "always-A1",
+                "F1": 0.49079266560127804,
+                "A2_count": 0,
+                "cost": 6.2274845534924514
+              },
+              {
+                "candidate": "alpha=0.1",
+                "F1": 0.4994506742592867,
+                "A2_count": 16,
+                "cost": 6.774331150739747
+              },
+              {
+                "candidate": "alpha=1.0",
+                "F1": 0.4994506742592867,
+                "A2_count": 16,
+                "cost": 6.774331150739747
+              },
+              {
+                "candidate": "alpha=10.0",
+                "F1": 0.4994506742592867,
+                "A2_count": 16,
+                "cost": 6.774331150739747
+              }
+            ],
+            "quota": 0.1
+          },
+          "vs_always_A1": {
+            "F1": {
+              "diff": 0.002427184466019472,
+              "lo": -0.004902261887556005,
+              "hi": 0.009975685785536158,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0024271844660194164,
+              "lo": -0.004902261887556005,
+              "hi": 0.009975685785536158,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.6273060338909939,
+              "lo": 0.3927823238388514,
+              "hi": 0.8658594530385754,
+              "significant": true
+            }
+          },
+          "vs_random_same_A2_count": {
+            "F1": {
+              "diff": -0.00036650339951593836,
+              "lo": -0.007236744184591301,
+              "hi": 0.007501121332896197,
+              "significant": false
+            },
+            "EM": {
+              "diff": 1.1782448864239292e-05,
+              "lo": -0.007045464660851014,
+              "hi": 0.007721606569552825,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.004817448161589688,
+              "lo": -0.2248566306178548,
+              "hi": 0.24521366900351535,
+              "significant": false
+            },
+            "reference": {
+              "A2_fraction": 0.09951456310679611,
+              "kind": "expected_uniform_random_allocation",
+              "means": {
+                "F1": 0.4435202983614882,
+                "EM": 0.3203765670656989,
+                "cost": 6.2836247667598615
+              },
+              "CI_scope": "cluster sampling only; random allocation integrated analytically"
+            }
+          },
+          "vs_validation_selected_baseline": {
+            "F1": {
+              "diff": 0.0028187023332655325,
+              "lo": -0.0048339260682207594,
+              "hi": 0.010995744791891606,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0024271844660194164,
+              "lo": -0.0049504950495049506,
+              "hi": 0.011849751749040847,
+              "significant": false
+            },
+            "cost": {
+              "diff": -0.0015002256117497836,
+              "lo": -0.2167241552173634,
+              "hi": 0.18956396221705515,
+              "significant": false
+            }
+          },
+          "vs_ridge": {
+            "F1": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            }
+          },
+          "vs_fuzzy_fixed": {
+            "F1": {
+              "diff": 0.0017712667591308628,
+              "lo": -0.007341202445652145,
+              "hi": 0.010957660211116832,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0,
+              "lo": -0.009662420605677789,
+              "hi": 0.009663008301674403,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.005088237882818092,
+              "lo": -0.2945039023038058,
+              "hi": 0.3042419264189995,
+              "significant": false
+            }
+          },
+          "comparison_status": "exploratory; no multiplicity-adjusted confirmatory claim"
+        },
+        "fuzzy-fixed": {
+          "F1": {
+            "mean": 0.4413825282028414,
+            "lo": 0.3755520110126853,
+            "hi": 0.5050124492407533
+          },
+          "EM": {
+            "mean": 0.32038834951456313,
+            "lo": 0.2541805891779467,
+            "hi": 0.3842601715015508
+          },
+          "cost": {
+            "mean": 6.283353977038633,
+            "lo": 6.092977149516334,
+            "hi": 6.473717373555531
+          },
+          "counts": {
+            "A1": 371,
+            "A2": 41
+          },
+          "A2_fraction": 0.09951456310679611,
+          "robustness_incomplete_clusters_skipped": 22,
+          "robustness_pairs": 384,
+          "RFR": {
+            "mean": 0.17708333333333334,
+            "lo": 0.125,
+            "hi": 0.22916666666666666
+          },
+          "HRFR_legacy_action_order": {
+            "mean": 0.17447916666666666,
+            "lo": 0.12239583333333333,
+            "hi": 0.22916666666666666
+          },
+          "secondary": {
+            "retrievals": 1.0970873786407767,
+            "ce_passes": 21.941747572815533,
+            "llm_calls": 1.0995145631067962,
+            "input_tokens": 908.5825242718447,
+            "output_tokens": 7.497572815533981
+          },
+          "within_cluster": {
+            "F1_SD": {
+              "mean": 0.10515906755523649,
+              "lo": 0.07849834530057823,
+              "hi": 0.13651462285863178
+            },
+            "F1_range": {
+              "mean": 0.23216281522807258,
+              "lo": 0.1733505782667088,
+              "hi": 0.3009296375984105
+            },
+            "minimum_F1": {
+              "mean": 0.3261572195165945,
+              "lo": 0.2581596658549784,
+              "hi": 0.3969881008748196
+            }
+          },
+          "fit": {
+            "candidate": "prior=20.0",
+            "F1": 0.5023078171164295,
+            "A2_count": 16,
+            "cost": 6.773074153822523,
+            "all_candidates": [
+              {
+                "candidate": "always-A1",
+                "F1": 0.49079266560127804,
+                "A2_count": 0,
+                "cost": 6.2274845534924514
+              },
+              {
+                "candidate": "prior=1.0",
+                "F1": 0.495843170651783,
+                "A2_count": 16,
+                "cost": 6.8013450154192965
+              },
+              {
+                "candidate": "prior=5.0",
+                "F1": 0.5023078171164295,
+                "A2_count": 16,
+                "cost": 6.773074153822523
+              },
+              {
+                "candidate": "prior=20.0",
+                "F1": 0.5023078171164295,
+                "A2_count": 16,
+                "cost": 6.773074153822523
+              }
+            ],
+            "quota": 0.1
+          },
+          "vs_always_A1": {
+            "F1": {
+              "diff": 0.0006559177068886091,
+              "lo": -0.00333407360406086,
+              "hi": 0.005103837688115443,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0024271844660194164,
+              "lo": 0.0,
+              "hi": 0.007426203228263272,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.6222177960081758,
+              "lo": 0.42956644163325364,
+              "hi": 0.8162103858205842,
+              "significant": true
+            }
+          },
+          "vs_random_same_A2_count": {
+            "F1": {
+              "diff": -0.002137770158646801,
+              "lo": -0.006252449360043999,
+              "hi": 0.0021539859664639815,
+              "significant": false
+            },
+            "EM": {
+              "diff": 1.1782448864239292e-05,
+              "lo": -0.004136555583908963,
+              "hi": 0.005702315208436487,
+              "significant": false
+            },
+            "cost": {
+              "diff": -0.00027078972122840383,
+              "lo": -0.1925053826943541,
+              "hi": 0.19658069289233548,
+              "significant": false
+            },
+            "reference": {
+              "A2_fraction": 0.09951456310679611,
+              "kind": "expected_uniform_random_allocation",
+              "means": {
+                "F1": 0.4435202983614882,
+                "EM": 0.3203765670656989,
+                "cost": 6.2836247667598615
+              },
+              "CI_scope": "cluster sampling only; random allocation integrated analytically"
+            }
+          },
+          "vs_validation_selected_baseline": {
+            "F1": {
+              "diff": 0.0010474355741346697,
+              "lo": -0.0074616965948624235,
+              "hi": 0.009711802925689926,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0024271844660194164,
+              "lo": -0.007407865786578658,
+              "hi": 0.012501570351758794,
+              "significant": false
+            },
+            "cost": {
+              "diff": -0.0065884634945678755,
+              "lo": -0.26040862843869184,
+              "hi": 0.22630709428916201,
+              "significant": false
+            }
+          },
+          "vs_ridge": {
+            "F1": {
+              "diff": -0.0017712667591308628,
+              "lo": -0.010957660211116832,
+              "hi": 0.007341202445652145,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0,
+              "lo": -0.009663008301674403,
+              "hi": 0.009662420605677789,
+              "significant": false
+            },
+            "cost": {
+              "diff": -0.005088237882818092,
+              "lo": -0.3042419264189995,
+              "hi": 0.2945039023038058,
+              "significant": false
+            }
+          },
+          "vs_fuzzy_fixed": {
+            "F1": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            }
+          },
+          "comparison_status": "exploratory; no multiplicity-adjusted confirmatory claim"
+        },
+        "fuzzy-calibrated": {
+          "F1": {
+            "mean": 0.4438097126688608,
+            "lo": 0.3782139379322731,
+            "hi": 0.5084969378920017
+          },
+          "EM": {
+            "mean": 0.32281553398058255,
+            "lo": 0.2559129276645795,
+            "hi": 0.3861428502263429
+          },
+          "cost": {
+            "mean": 6.283554911819087,
+            "lo": 6.084920398757071,
+            "hi": 6.475147623569187
+          },
+          "counts": {
+            "A1": 371,
+            "A2": 41
+          },
+          "A2_fraction": 0.09951456310679611,
+          "robustness_incomplete_clusters_skipped": 22,
+          "robustness_pairs": 384,
+          "RFR": {
+            "mean": 0.17708333333333334,
+            "lo": 0.125,
+            "hi": 0.22916666666666666
+          },
+          "HRFR_legacy_action_order": {
+            "mean": 0.16927083333333334,
+            "lo": 0.11979166666666667,
+            "hi": 0.22135416666666666
+          },
+          "secondary": {
+            "retrievals": 1.0970873786407767,
+            "ce_passes": 21.941747572815533,
+            "llm_calls": 1.0995145631067962,
+            "input_tokens": 908.8422330097087,
+            "output_tokens": 7.485436893203883
+          },
+          "within_cluster": {
+            "F1_SD": {
+              "mean": 0.10884191537391644,
+              "lo": 0.08175579786155372,
+              "hi": 0.1407146464294011
+            },
+            "F1_range": {
+              "mean": 0.23997531522807258,
+              "lo": 0.1805173849205329,
+              "hi": 0.3105778005312702
+            },
+            "minimum_F1": {
+              "mean": 0.3261572195165945,
+              "lo": 0.2581596658549784,
+              "hi": 0.3969881008748196
+            }
+          },
+          "fit": {
+            "candidate": "prior=20.0",
+            "F1": 0.5008936757022882,
+            "A2_count": 16,
+            "cost": 6.781984306951407,
+            "all_candidates": [
+              {
+                "candidate": "always-A1",
+                "F1": 0.49079266560127804,
+                "A2_count": 0,
+                "cost": 6.2274845534924514
+              },
+              {
+                "candidate": "prior=1.0",
+                "F1": 0.49988357469218714,
+                "A2_count": 16,
+                "cost": 6.782301380542236
+              },
+              {
+                "candidate": "prior=5.0",
+                "F1": 0.5008936757022882,
+                "A2_count": 16,
+                "cost": 6.781984306951407
+              },
+              {
+                "candidate": "prior=20.0",
+                "F1": 0.5008936757022882,
+                "A2_count": 16,
+                "cost": 6.781984306951407
+              }
+            ],
+            "quota": 0.1
+          },
+          "vs_always_A1": {
+            "F1": {
+              "diff": 0.0030831021729080255,
+              "lo": -0.0022336677970300946,
+              "hi": 0.009895180980707198,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.004854368932038833,
+              "lo": 0.0,
+              "hi": 0.012106537530266344,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.6224187307886302,
+              "lo": 0.43178056875562143,
+              "hi": 0.8175944326238591,
+              "significant": true
+            }
+          },
+          "vs_random_same_A2_count": {
+            "F1": {
+              "diff": 0.0002894143073726152,
+              "lo": -0.004807711358601096,
+              "hi": 0.00616878324246701,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0024389669148836557,
+              "lo": -0.0031965837081815002,
+              "hi": 0.009679376761666149,
+              "significant": false
+            },
+            "cost": {
+              "diff": -6.985494077405008e-05,
+              "lo": -0.19124001132630108,
+              "hi": 0.1979282680526552,
+              "significant": false
+            },
+            "reference": {
+              "A2_fraction": 0.09951456310679611,
+              "kind": "expected_uniform_random_allocation",
+              "means": {
+                "F1": 0.4435202983614882,
+                "EM": 0.3203765670656989,
+                "cost": 6.2836247667598615
+              },
+              "CI_scope": "cluster sampling only; random allocation integrated analytically"
+            }
+          },
+          "vs_validation_selected_baseline": {
+            "F1": {
+              "diff": 0.003474620040154086,
+              "lo": -0.004403799865560909,
+              "hi": 0.011431439057421198,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.004854368932038833,
+              "lo": -0.004819568127582795,
+              "hi": 0.014634146341463415,
+              "significant": false
+            },
+            "cost": {
+              "diff": -0.006387528714113522,
+              "lo": -0.2312572854383709,
+              "hi": 0.21927756763060313,
+              "significant": false
+            }
+          },
+          "vs_ridge": {
+            "F1": {
+              "diff": 0.0006559177068885536,
+              "lo": -0.007340287798621133,
+              "hi": 0.008411249925346403,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0024271844660194164,
+              "lo": -0.004914004914004914,
+              "hi": 0.011822441742654507,
+              "significant": false
+            },
+            "cost": {
+              "diff": -0.004887303102363738,
+              "lo": -0.27528970388195373,
+              "hi": 0.2705807944819775,
+              "significant": false
+            }
+          },
+          "vs_fuzzy_fixed": {
+            "F1": {
+              "diff": 0.0024271844660194164,
+              "lo": 0.0,
+              "hi": 0.00738961868272213,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0024271844660194164,
+              "lo": 0.0,
+              "hi": 0.00738961868272213,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.00020093478045435376,
+              "lo": -0.0719862252998619,
+              "hi": 0.07112882514104789,
+              "significant": false
+            }
+          },
+          "comparison_status": "exploratory; no multiplicity-adjusted confirmatory claim"
+        },
+        "uncertainty-B3": {
+          "F1": {
+            "mean": 0.44033509262870674,
+            "lo": 0.37373505487534514,
+            "hi": 0.504274889543067
+          },
+          "EM": {
+            "mean": 0.3179611650485437,
+            "lo": 0.25295367524596074,
+            "hi": 0.38026455026455025
+          },
+          "cost": {
+            "mean": 6.289942440533201,
+            "lo": 6.090794483164265,
+            "hi": 6.523301351119395
+          },
+          "counts": {
+            "A1": 371,
+            "A2": 41
+          },
+          "A2_fraction": 0.09951456310679611,
+          "robustness_incomplete_clusters_skipped": 22,
+          "robustness_pairs": 384,
+          "RFR": {
+            "mean": 0.15625,
+            "lo": 0.109375,
+            "hi": 0.20833333333333334
+          },
+          "HRFR_legacy_action_order": {
+            "mean": 0.15364583333333334,
+            "lo": 0.10930989583333339,
+            "hi": 0.20572916666666666
+          },
+          "secondary": {
+            "retrievals": 1.0946601941747574,
+            "ce_passes": 21.893203883495147,
+            "llm_calls": 1.0995145631067962,
+            "input_tokens": 909.002427184466,
+            "output_tokens": 7.558252427184466
+          },
+          "within_cluster": {
+            "F1_SD": {
+              "mean": 0.10632752080324012,
+              "lo": 0.0786510910199764,
+              "hi": 0.13749997680120707
+            },
+            "F1_range": {
+              "mean": 0.23369234039041026,
+              "lo": 0.17419634940860815,
+              "hi": 0.30190768754963376
+            },
+            "minimum_F1": {
+              "mean": 0.3261157895923521,
+              "lo": 0.2575014796401515,
+              "hi": 0.3965464353354979
+            }
+          },
+          "fit": {
+            "candidate": "original-score",
+            "F1": 0.5029138777224902,
+            "A2_count": 16,
+            "cost": 6.769175157157012,
+            "all_candidates": [
+              {
+                "candidate": "always-A1",
+                "F1": 0.49079266560127804,
+                "A2_count": 0,
+                "cost": 6.2274845534924514
+              },
+              {
+                "candidate": "original-score",
+                "F1": 0.5029138777224902,
+                "A2_count": 16,
+                "cost": 6.769175157157012
+              }
+            ],
+            "quota": 0.1
+          },
+          "vs_always_A1": {
+            "F1": {
+              "diff": -0.00039151786724606064,
+              "lo": -0.008797066737109675,
+              "hi": 0.0086715328618314,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0,
+              "lo": -0.009732360097323601,
+              "hi": 0.009685230024213076,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.6288062595027437,
+              "lo": 0.4398662749044008,
+              "hi": 0.8533538679588123,
+              "significant": true
+            }
+          },
+          "vs_random_same_A2_count": {
+            "F1": {
+              "diff": -0.003185205732781471,
+              "lo": -0.01109347535022003,
+              "hi": 0.004986760763377535,
+              "significant": false
+            },
+            "EM": {
+              "diff": -0.002415402017155177,
+              "lo": -0.011200568316362769,
+              "hi": 0.006599180056457726,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.006317673773339472,
+              "lo": -0.18222172583675458,
+              "hi": 0.23119241064783203,
+              "significant": false
+            },
+            "reference": {
+              "A2_fraction": 0.09951456310679611,
+              "kind": "expected_uniform_random_allocation",
+              "means": {
+                "F1": 0.4435202983614882,
+                "EM": 0.3203765670656989,
+                "cost": 6.2836247667598615
+              },
+              "CI_scope": "cluster sampling only; random allocation integrated analytically"
+            }
+          },
+          "vs_validation_selected_baseline": {
+            "F1": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            }
+          },
+          "vs_ridge": {
+            "F1": {
+              "diff": -0.0028187023332655325,
+              "lo": -0.010995744791891606,
+              "hi": 0.0048339260682207594,
+              "significant": false
+            },
+            "EM": {
+              "diff": -0.0024271844660194164,
+              "lo": -0.011849751749040847,
+              "hi": 0.0049504950495049506,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.0015002256117497836,
+              "lo": -0.18956396221705515,
+              "hi": 0.2167241552173634,
+              "significant": false
+            }
+          },
+          "vs_fuzzy_fixed": {
+            "F1": {
+              "diff": -0.0010474355741346697,
+              "lo": -0.009711802925689926,
+              "hi": 0.0074616965948624235,
+              "significant": false
+            },
+            "EM": {
+              "diff": -0.0024271844660194164,
+              "lo": -0.012501570351758794,
+              "hi": 0.007407865786578658,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.0065884634945678755,
+              "lo": -0.22630709428916201,
+              "hi": 0.26040862843869184,
+              "significant": false
+            }
+          },
+          "comparison_status": "exploratory; no multiplicity-adjusted confirmatory claim"
+        },
+        "uncertainty-B4": {
+          "F1": {
+            "mean": 0.4392226330817812,
+            "lo": 0.37322472456822137,
+            "hi": 0.504774334201542
+          },
+          "EM": {
+            "mean": 0.3155339805825243,
+            "lo": 0.25059591424604677,
+            "hi": 0.37857496463932105
+          },
+          "cost": {
+            "mean": 6.2841698597336535,
+            "lo": 6.0932181759176745,
+            "hi": 6.512108400274606
+          },
+          "counts": {
+            "A1": 371,
+            "A2": 41
+          },
+          "A2_fraction": 0.09951456310679611,
+          "robustness_incomplete_clusters_skipped": 22,
+          "robustness_pairs": 384,
+          "RFR": {
+            "mean": 0.16145833333333334,
+            "lo": 0.11458333333333333,
+            "hi": 0.20846354166666656
+          },
+          "HRFR_legacy_action_order": {
+            "mean": 0.16145833333333334,
+            "lo": 0.11458333333333333,
+            "hi": 0.20846354166666656
+          },
+          "secondary": {
+            "retrievals": 1.0946601941747574,
+            "ce_passes": 21.893203883495147,
+            "llm_calls": 1.0995145631067962,
+            "input_tokens": 909.1529126213592,
+            "output_tokens": 7.480582524271845
+          },
+          "within_cluster": {
+            "F1_SD": {
+              "mean": 0.10375318480644463,
+              "lo": 0.07803674202101277,
+              "hi": 0.13356146129377783
+            },
+            "F1_range": {
+              "mean": 0.2284121388211462,
+              "lo": 0.1716385691896951,
+              "hi": 0.29407012449866304
+            },
+            "minimum_F1": {
+              "mean": 0.32655968163780663,
+              "lo": 0.2575014796401515,
+              "hi": 0.39691132868867246
+            }
+          },
+          "fit": {
+            "candidate": "original-score",
+            "F1": 0.4994506742592867,
+            "A2_count": 16,
+            "cost": 6.771208520846088,
+            "all_candidates": [
+              {
+                "candidate": "always-A1",
+                "F1": 0.49079266560127804,
+                "A2_count": 0,
+                "cost": 6.2274845534924514
+              },
+              {
+                "candidate": "original-score",
+                "F1": 0.4994506742592867,
+                "A2_count": 16,
+                "cost": 6.771208520846088
+              }
+            ],
+            "quota": 0.1
+          },
+          "vs_always_A1": {
+            "F1": {
+              "diff": -0.0015039774141715756,
+              "lo": -0.009016296456989974,
+              "hi": 0.006231168035395885,
+              "significant": false
+            },
+            "EM": {
+              "diff": -0.0024271844660194164,
+              "lo": -0.009876543209876543,
+              "hi": 0.004938577191052438,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.6230336787031963,
+              "lo": 0.43504175684635177,
+              "hi": 0.8358116328672218,
+              "significant": true
+            }
+          },
+          "vs_random_same_A2_count": {
+            "F1": {
+              "diff": -0.004297665279706986,
+              "lo": -0.011439978199983901,
+              "hi": 0.002948140741020159,
+              "significant": false
+            },
+            "EM": {
+              "diff": -0.0048425864831745935,
+              "lo": -0.012610456039683263,
+              "hi": 0.002746551440927985,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.0005450929737920163,
+              "lo": -0.1880980007557385,
+              "hi": 0.21335933029500098,
+              "significant": false
+            },
+            "reference": {
+              "A2_fraction": 0.09951456310679611,
+              "kind": "expected_uniform_random_allocation",
+              "means": {
+                "F1": 0.4435202983614882,
+                "EM": 0.3203765670656989,
+                "cost": 6.2836247667598615
+              },
+              "CI_scope": "cluster sampling only; random allocation integrated analytically"
+            }
+          },
+          "vs_validation_selected_baseline": {
+            "F1": {
+              "diff": -0.001112459546925515,
+              "lo": -0.007334963325183374,
+              "hi": 0.0038877928757472505,
+              "significant": false
+            },
+            "EM": {
+              "diff": -0.0024271844660194164,
+              "lo": -0.007481296758104738,
+              "hi": 0.0,
+              "significant": false
+            },
+            "cost": {
+              "diff": -0.005772580799547455,
+              "lo": -0.11082332920632064,
+              "hi": 0.09641833339632196,
+              "significant": false
+            }
+          },
+          "vs_ridge": {
+            "F1": {
+              "diff": -0.0039311618801910475,
+              "lo": -0.014003780974160098,
+              "hi": 0.005231389723617677,
+              "significant": false
+            },
+            "EM": {
+              "diff": -0.004854368932038833,
+              "lo": -0.014671728852657946,
+              "hi": 0.0047735551723744165,
+              "significant": false
+            },
+            "cost": {
+              "diff": -0.004272355187797672,
+              "lo": -0.19287914635641729,
+              "hi": 0.20244565778072773,
+              "significant": false
+            }
+          },
+          "vs_fuzzy_fixed": {
+            "F1": {
+              "diff": -0.0021598951210601847,
+              "lo": -0.00884242835189328,
+              "hi": 0.004979868980511312,
+              "significant": false
+            },
+            "EM": {
+              "diff": -0.004854368932038833,
+              "lo": -0.014458704382748384,
+              "hi": 0.00476218888510058,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.0008158826950204201,
+              "lo": -0.2358198150533057,
+              "hi": 0.24475179182330525,
+              "significant": false
+            }
+          },
+          "comparison_status": "exploratory; no multiplicity-adjusted confirmatory claim"
+        }
+      }
+    },
+    "0.25": {
+      "quota": 0.25,
+      "strongest_baseline_selected_on_validation": "uncertainty-B4",
+      "methods": {
+        "global": {
+          "F1": {
+            "mean": 0.4407266104959528,
+            "lo": 0.37449491802149937,
+            "hi": 0.5046285761987162
+          },
+          "EM": {
+            "mean": 0.3179611650485437,
+            "lo": 0.25181751816359405,
+            "hi": 0.380252935862692
+          },
+          "cost": {
+            "mean": 5.661136181030457,
+            "lo": 5.598305346677781,
+            "hi": 5.7428107134953486
+          },
+          "counts": {
+            "A1": 412,
+            "A2": 0
+          },
+          "A2_fraction": 0.0,
+          "robustness_incomplete_clusters_skipped": 22,
+          "robustness_pairs": 384,
+          "RFR": {
+            "mean": 0.0,
+            "lo": 0.0,
+            "hi": 0.0
+          },
+          "HRFR_legacy_action_order": {
+            "mean": 0.0,
+            "lo": 0.0,
+            "hi": 0.0
+          },
+          "secondary": {
+            "retrievals": 1.0,
+            "ce_passes": 20.0,
+            "llm_calls": 1.0,
+            "input_tokens": 825.6019417475728,
+            "output_tokens": 6.230582524271845
+          },
+          "within_cluster": {
+            "F1_SD": {
+              "mean": 0.10364897902711465,
+              "lo": 0.07772357356600626,
+              "hi": 0.1351327714826892
+            },
+            "F1_range": {
+              "mean": 0.22810521917828905,
+              "lo": 0.16993852275303334,
+              "hi": 0.29562667472565224
+            },
+            "minimum_F1": {
+              "mean": 0.32753624413780663,
+              "lo": 0.25892193418560605,
+              "hi": 0.39789306992920276
+            }
+          },
+          "fit": {
+            "candidate": "always-A1",
+            "F1": 0.49079266560127804,
+            "A2_count": 0,
+            "cost": 6.2274845534924514,
+            "all_candidates": [
+              {
+                "candidate": "always-A1",
+                "F1": 0.49079266560127804,
+                "A2_count": 0,
+                "cost": 6.2274845534924514
+              },
+              {
+                "candidate": "global",
+                "F1": 0.4776324924411049,
+                "A2_count": 41,
+                "cost": 7.621586351299905
+              }
+            ],
+            "quota": 0.25
+          },
+          "vs_always_A1": {
+            "F1": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            }
+          },
+          "vs_random_same_A2_count": {
+            "F1": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "reference": {
+              "A2_fraction": 0.0,
+              "kind": "expected_uniform_random_allocation",
+              "means": {
+                "F1": 0.4407266104959528,
+                "EM": 0.3179611650485437,
+                "cost": 5.661136181030457
+              },
+              "CI_scope": "cluster sampling only; random allocation integrated analytically"
+            }
+          },
+          "vs_validation_selected_baseline": {
+            "F1": {
+              "diff": -0.0030358916760296895,
+              "lo": -0.013063540315002278,
+              "hi": 0.007087503070526048,
+              "significant": false
+            },
+            "EM": {
+              "diff": -0.0024271844660194164,
+              "lo": -0.014564882784750176,
+              "hi": 0.010267164599268042,
+              "significant": false
+            },
+            "cost": {
+              "diff": -1.5676287316411202,
+              "lo": -1.8849012163761174,
+              "hi": -1.2705142179123068,
+              "significant": true
+            }
+          },
+          "vs_ridge": {
+            "F1": {
+              "diff": -0.00783218938558744,
+              "lo": -0.02482984956199244,
+              "hi": 0.0063192664496188,
+              "significant": false
+            },
+            "EM": {
+              "diff": -0.004854368932038833,
+              "lo": -0.02381961259079902,
+              "hi": 0.012135922330097087,
+              "significant": false
+            },
+            "cost": {
+              "diff": -1.5801401628044278,
+              "lo": -1.915541183524404,
+              "hi": -1.2391242623384007,
+              "significant": true
+            }
+          },
+          "vs_fuzzy_fixed": {
+            "F1": {
+              "diff": -0.006319348127600599,
+              "lo": -0.017969952374791313,
+              "hi": 0.004049497436206012,
+              "significant": false
+            },
+            "EM": {
+              "diff": -0.007281553398058249,
+              "lo": -0.02038177004950044,
+              "hi": 0.004878346949728666,
+              "significant": false
+            },
+            "cost": {
+              "diff": -1.5664527947973994,
+              "lo": -1.8543534477466679,
+              "hi": -1.263358236238045,
+              "significant": true
+            }
+          },
+          "comparison_status": "exploratory; no multiplicity-adjusted confirmatory claim"
+        },
+        "ridge": {
+          "F1": {
+            "mean": 0.44855879988154024,
+            "lo": 0.3821911143080738,
+            "hi": 0.5127403562830666
+          },
+          "EM": {
+            "mean": 0.32281553398058255,
+            "lo": 0.2560960881347944,
+            "hi": 0.3876851851851852
+          },
+          "cost": {
+            "mean": 7.241276343834885,
+            "lo": 6.909628307575671,
+            "hi": 7.57763608485035
+          },
+          "counts": {
+            "A1": 309,
+            "A2": 103
+          },
+          "A2_fraction": 0.25,
+          "robustness_incomplete_clusters_skipped": 22,
+          "robustness_pairs": 384,
+          "RFR": {
+            "mean": 0.2604166666666667,
+            "lo": 0.20820312500000013,
+            "hi": 0.3177083333333333
+          },
+          "HRFR_legacy_action_order": {
+            "mean": 0.2421875,
+            "lo": 0.18489583333333334,
+            "hi": 0.2943359374999999
+          },
+          "secondary": {
+            "retrievals": 1.2402912621359223,
+            "ce_passes": 24.805825242718445,
+            "llm_calls": 1.25,
+            "input_tokens": 1036.5873786407767,
+            "output_tokens": 9.439320388349515
+          },
+          "within_cluster": {
+            "F1_SD": {
+              "mean": 0.11530601291721003,
+              "lo": 0.08684231833709348,
+              "hi": 0.14762917255865887
+            },
+            "F1_range": {
+              "mean": 0.2541096834640033,
+              "lo": 0.19176973002742764,
+              "hi": 0.32395232684237735
+            },
+            "minimum_F1": {
+              "mean": 0.32180707747114,
+              "lo": 0.2542239851077742,
+              "hi": 0.3919508139430014
+            }
+          },
+          "fit": {
+            "candidate": "alpha=10.0",
+            "F1": 0.5124862936106954,
+            "A2_count": 41,
+            "cost": 7.613787521706574,
+            "all_candidates": [
+              {
+                "candidate": "always-A1",
+                "F1": 0.49079266560127804,
+                "A2_count": 0,
+                "cost": 6.2274845534924514
+              },
+              {
+                "candidate": "alpha=0.1",
+                "F1": 0.5035974047218066,
+                "A2_count": 41,
+                "cost": 7.6218117085055965
+              },
+              {
+                "candidate": "alpha=1.0",
+                "F1": 0.5035974047218066,
+                "A2_count": 41,
+                "cost": 7.6218117085055965
+              },
+              {
+                "candidate": "alpha=10.0",
+                "F1": 0.5124862936106954,
+                "A2_count": 41,
+                "cost": 7.613787521706574
+              }
+            ],
+            "quota": 0.25
+          },
+          "vs_always_A1": {
+            "F1": {
+              "diff": 0.00783218938558744,
+              "lo": -0.0063192664496188,
+              "hi": 0.02482984956199244,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.004854368932038833,
+              "lo": -0.012135922330097087,
+              "hi": 0.02381961259079902,
+              "significant": false
+            },
+            "cost": {
+              "diff": 1.5801401628044278,
+              "lo": 1.2391242623384007,
+              "hi": 1.915541183524404,
+              "significant": true
+            }
+          },
+          "vs_random_same_A2_count": {
+            "F1": {
+              "diff": 0.0008139003575352022,
+              "lo": -0.010474280603048515,
+              "hi": 0.014701844940356494,
+              "significant": false
+            },
+            "EM": {
+              "diff": -0.0012135922330097082,
+              "lo": -0.014569399496583958,
+              "hi": 0.013889729620661822,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.01632737426470854,
+              "lo": -0.3175116578387803,
+              "hi": 0.35179845703358575,
+              "significant": false
+            },
+            "reference": {
+              "A2_fraction": 0.25,
+              "kind": "expected_uniform_random_allocation",
+              "means": {
+                "F1": 0.44774489952400504,
+                "EM": 0.32402912621359226,
+                "cost": 7.2249489695701765
+              },
+              "CI_scope": "cluster sampling only; random allocation integrated analytically"
+            }
+          },
+          "vs_validation_selected_baseline": {
+            "F1": {
+              "diff": 0.004796297709557751,
+              "lo": -0.008191791278261527,
+              "hi": 0.019741943622117945,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0024271844660194164,
+              "lo": -0.014252629793009841,
+              "hi": 0.01909536809693057,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.012511431163307662,
+              "lo": -0.2904671436857518,
+              "hi": 0.29067075264551573,
+              "significant": false
+            }
+          },
+          "vs_ridge": {
+            "F1": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            }
+          },
+          "vs_fuzzy_fixed": {
+            "F1": {
+              "diff": 0.001512841257986841,
+              "lo": -0.010828718289331076,
+              "hi": 0.01662786517773734,
+              "significant": false
+            },
+            "EM": {
+              "diff": -0.0024271844660194164,
+              "lo": -0.017285020168683534,
+              "hi": 0.014389353901494189,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.013687368007028411,
+              "lo": -0.299791519907744,
+              "hi": 0.33244776311096075,
+              "significant": false
+            }
+          },
+          "comparison_status": "exploratory; no multiplicity-adjusted confirmatory claim"
+        },
+        "fuzzy-fixed": {
+          "F1": {
+            "mean": 0.4470459586235534,
+            "lo": 0.3806620919018353,
+            "hi": 0.5105303174989384
+          },
+          "EM": {
+            "mean": 0.32524271844660196,
+            "lo": 0.2606632101580967,
+            "hi": 0.38876658992617447
+          },
+          "cost": {
+            "mean": 7.227588975827857,
+            "lo": 6.916390757543591,
+            "hi": 7.508643181927672
+          },
+          "counts": {
+            "A1": 309,
+            "A2": 103
+          },
+          "A2_fraction": 0.25,
+          "robustness_incomplete_clusters_skipped": 22,
+          "robustness_pairs": 384,
+          "RFR": {
+            "mean": 0.3229166666666667,
+            "lo": 0.2604166666666667,
+            "hi": 0.3802083333333333
+          },
+          "HRFR_legacy_action_order": {
+            "mean": 0.3125,
+            "lo": 0.2552083333333333,
+            "hi": 0.3723958333333333
+          },
+          "secondary": {
+            "retrievals": 1.2427184466019416,
+            "ce_passes": 24.854368932038835,
+            "llm_calls": 1.25,
+            "input_tokens": 1035.7208737864078,
+            "output_tokens": 9.344660194174757
+          },
+          "within_cluster": {
+            "F1_SD": {
+              "mean": 0.11162608595265706,
+              "lo": 0.08543746352102005,
+              "hi": 0.14337343050334828
+            },
+            "F1_range": {
+              "mean": 0.2451836485614059,
+              "lo": 0.1877009359615058,
+              "hi": 0.314544613946613
+            },
+            "minimum_F1": {
+              "mean": 0.32355305284992786,
+              "lo": 0.2561274153363997,
+              "hi": 0.39442029108044735
+            }
+          },
+          "fit": {
+            "candidate": "prior=20.0",
+            "F1": 0.5150062298148422,
+            "A2_count": 41,
+            "cost": 7.621936207797679,
+            "all_candidates": [
+              {
+                "candidate": "always-A1",
+                "F1": 0.49079266560127804,
+                "A2_count": 0,
+                "cost": 6.2274845534924514
+              },
+              {
+                "candidate": "prior=1.0",
+                "F1": 0.5132169080255204,
+                "A2_count": 41,
+                "cost": 7.649457018289567
+              },
+              {
+                "candidate": "prior=5.0",
+                "F1": 0.5083684231770357,
+                "A2_count": 41,
+                "cost": 7.642207545561398
+              },
+              {
+                "candidate": "prior=20.0",
+                "F1": 0.5150062298148422,
+                "A2_count": 41,
+                "cost": 7.621936207797679
+              }
+            ],
+            "quota": 0.25
+          },
+          "vs_always_A1": {
+            "F1": {
+              "diff": 0.006319348127600599,
+              "lo": -0.004049497436206012,
+              "hi": 0.017969952374791313,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.007281553398058249,
+              "lo": -0.004878346949728666,
+              "hi": 0.02038177004950044,
+              "significant": false
+            },
+            "cost": {
+              "diff": 1.5664527947973994,
+              "lo": 1.263358236238045,
+              "hi": 1.8543534477466679,
+              "significant": true
+            }
+          },
+          "vs_random_same_A2_count": {
+            "F1": {
+              "diff": -0.0006989409004516389,
+              "lo": -0.010123058715754646,
+              "hi": 0.00964023463677571,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0012135922330097082,
+              "lo": -0.010820597627737223,
+              "hi": 0.013126611211031173,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.0026400062576801275,
+              "lo": -0.30170306679664205,
+              "hi": 0.2855920189573404,
+              "significant": false
+            },
+            "reference": {
+              "A2_fraction": 0.25,
+              "kind": "expected_uniform_random_allocation",
+              "means": {
+                "F1": 0.44774489952400504,
+                "EM": 0.32402912621359226,
+                "cost": 7.2249489695701765
+              },
+              "CI_scope": "cluster sampling only; random allocation integrated analytically"
+            }
+          },
+          "vs_validation_selected_baseline": {
+            "F1": {
+              "diff": 0.0032834564515709097,
+              "lo": -0.004154770756244864,
+              "hi": 0.01271650811431332,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.004854368932038833,
+              "lo": -0.004964022960627374,
+              "hi": 0.01699340684121822,
+              "significant": false
+            },
+            "cost": {
+              "diff": -0.0011759368437207485,
+              "lo": -0.3053587637349118,
+              "hi": 0.2697493505648037,
+              "significant": false
+            }
+          },
+          "vs_ridge": {
+            "F1": {
+              "diff": -0.001512841257986841,
+              "lo": -0.01662786517773734,
+              "hi": 0.010828718289331076,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0024271844660194164,
+              "lo": -0.014389353901494189,
+              "hi": 0.017285020168683534,
+              "significant": false
+            },
+            "cost": {
+              "diff": -0.013687368007028411,
+              "lo": -0.33244776311096075,
+              "hi": 0.299791519907744,
+              "significant": false
+            }
+          },
+          "vs_fuzzy_fixed": {
+            "F1": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            }
+          },
+          "comparison_status": "exploratory; no multiplicity-adjusted confirmatory claim"
+        },
+        "fuzzy-calibrated": {
+          "F1": {
+            "mean": 0.4483404570054304,
+            "lo": 0.38239527000648527,
+            "hi": 0.5128945448625605
+          },
+          "EM": {
+            "mean": 0.3276699029126214,
+            "lo": 0.26161087989959564,
+            "hi": 0.39259920634920636
+          },
+          "cost": {
+            "mean": 7.225174376622173,
+            "lo": 6.913314369625105,
+            "hi": 7.518350489447358
+          },
+          "counts": {
+            "A1": 309,
+            "A2": 103
+          },
+          "A2_fraction": 0.25,
+          "robustness_incomplete_clusters_skipped": 22,
+          "robustness_pairs": 384,
+          "RFR": {
+            "mean": 0.296875,
+            "lo": 0.23958333333333334,
+            "hi": 0.3541666666666667
+          },
+          "HRFR_legacy_action_order": {
+            "mean": 0.2838541666666667,
+            "lo": 0.22916666666666666,
+            "hi": 0.3411458333333333
+          },
+          "secondary": {
+            "retrievals": 1.2427184466019416,
+            "ce_passes": 24.854368932038835,
+            "llm_calls": 1.25,
+            "input_tokens": 1035.5655339805826,
+            "output_tokens": 9.322815533980583
+          },
+          "within_cluster": {
+            "F1_SD": {
+              "mean": 0.11120154141341318,
+              "lo": 0.08500174733013892,
+              "hi": 0.14275213128596806
+            },
+            "F1_range": {
+              "mean": 0.2446628152280726,
+              "lo": 0.18705114680815507,
+              "hi": 0.3140123073923625
+            },
+            "minimum_F1": {
+              "mean": 0.32407388618326116,
+              "lo": 0.256695413961039,
+              "hi": 0.3949493117559524
+            }
+          },
+          "fit": {
+            "candidate": "prior=20.0",
+            "F1": 0.5198547146633271,
+            "A2_count": 41,
+            "cost": 7.612182947329689,
+            "all_candidates": [
+              {
+                "candidate": "always-A1",
+                "F1": 0.49079266560127804,
+                "A2_count": 0,
+                "cost": 6.2274845534924514
+              },
+              {
+                "candidate": "prior=1.0",
+                "F1": 0.5132169080255204,
+                "A2_count": 41,
+                "cost": 7.64366564460321
+              },
+              {
+                "candidate": "prior=5.0",
+                "F1": 0.5150062298148422,
+                "A2_count": 41,
+                "cost": 7.6255268725167715
+              },
+              {
+                "candidate": "prior=20.0",
+                "F1": 0.5198547146633271,
+                "A2_count": 41,
+                "cost": 7.612182947329689
+              }
+            ],
+            "quota": 0.25
+          },
+          "vs_always_A1": {
+            "F1": {
+              "diff": 0.0076138465094776064,
+              "lo": -0.003095992862602972,
+              "hi": 0.019383305259217685,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.009708737864077666,
+              "lo": -0.0024635125719664093,
+              "hi": 0.024213075060532687,
+              "significant": false
+            },
+            "cost": {
+              "diff": 1.5640381955917162,
+              "lo": 1.2516961041817463,
+              "hi": 1.8587872621267143,
+              "significant": true
+            }
+          },
+          "vs_random_same_A2_count": {
+            "F1": {
+              "diff": 0.0005955574814253684,
+              "lo": -0.008900056045796806,
+              "hi": 0.010940894936261965,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0036407766990291246,
+              "lo": -0.008336864406779658,
+              "hi": 0.015208995276942892,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.00022540705199691757,
+              "lo": -0.3121826792050405,
+              "hi": 0.294311218280599,
+              "significant": false
+            },
+            "reference": {
+              "A2_fraction": 0.25,
+              "kind": "expected_uniform_random_allocation",
+              "means": {
+                "F1": 0.44774489952400504,
+                "EM": 0.32402912621359226,
+                "cost": 7.2249489695701765
+              },
+              "CI_scope": "cluster sampling only; random allocation integrated analytically"
+            }
+          },
+          "vs_validation_selected_baseline": {
+            "F1": {
+              "diff": 0.004577954833447917,
+              "lo": -0.0025171228170126477,
+              "hi": 0.013669012504096011,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.007281553398058249,
+              "lo": -0.0024274804641250293,
+              "hi": 0.019324841211355578,
+              "significant": false
+            },
+            "cost": {
+              "diff": -0.0035905360494039584,
+              "lo": -0.28801403364646927,
+              "hi": 0.2496754051523067,
+              "significant": false
+            }
+          },
+          "vs_ridge": {
+            "F1": {
+              "diff": -0.00021834287610983383,
+              "lo": -0.015131032452034846,
+              "hi": 0.012748586652805855,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.004854368932038833,
+              "lo": -0.011961722488038277,
+              "hi": 0.01927944222410222,
+              "significant": false
+            },
+            "cost": {
+              "diff": -0.01610196721271162,
+              "lo": -0.31767557122121515,
+              "hi": 0.2822939743277899,
+              "significant": false
+            }
+          },
+          "vs_fuzzy_fixed": {
+            "F1": {
+              "diff": 0.0012944983818770073,
+              "lo": 0.0,
+              "hi": 0.003398058252427131,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0024271844660194164,
+              "lo": 0.0,
+              "hi": 0.007335412771465554,
+              "significant": false
+            },
+            "cost": {
+              "diff": -0.00241459920568321,
+              "lo": -0.10793657557155145,
+              "hi": 0.0943774934046664,
+              "significant": false
+            }
+          },
+          "comparison_status": "exploratory; no multiplicity-adjusted confirmatory claim"
+        },
+        "uncertainty-B3": {
+          "F1": {
+            "mean": 0.4449760944049922,
+            "lo": 0.37992276825823296,
+            "hi": 0.5086510175774341
+          },
+          "EM": {
+            "mean": 0.32038834951456313,
+            "lo": 0.2554299557728957,
+            "hi": 0.3851679071415914
+          },
+          "cost": {
+            "mean": 7.226978722921017,
+            "lo": 6.929334398545051,
+            "hi": 7.550016119308008
+          },
+          "counts": {
+            "A1": 309,
+            "A2": 103
+          },
+          "A2_fraction": 0.25,
+          "robustness_incomplete_clusters_skipped": 22,
+          "robustness_pairs": 384,
+          "RFR": {
+            "mean": 0.3177083333333333,
+            "lo": 0.2604166666666667,
+            "hi": 0.375
+          },
+          "HRFR_legacy_action_order": {
+            "mean": 0.3072916666666667,
+            "lo": 0.25,
+            "hi": 0.3645833333333333
+          },
+          "secondary": {
+            "retrievals": 1.2378640776699028,
+            "ce_passes": 24.75728155339806,
+            "llm_calls": 1.25,
+            "input_tokens": 1036.740291262136,
+            "output_tokens": 9.349514563106796
+          },
+          "within_cluster": {
+            "F1_SD": {
+              "mean": 0.11078079509163759,
+              "lo": 0.08480493048646683,
+              "hi": 0.14226112156253837
+            },
+            "F1_range": {
+              "mean": 0.2440743412020986,
+              "lo": 0.18674218206731993,
+              "hi": 0.3119421540469335
+            },
+            "minimum_F1": {
+              "mean": 0.3263364673520923,
+              "lo": 0.257044848597583,
+              "hi": 0.39712126848845597
+            }
+          },
+          "fit": {
+            "candidate": "original-score",
+            "F1": 0.5095516843602967,
+            "A2_count": 41,
+            "cost": 7.654097742713952,
+            "all_candidates": [
+              {
+                "candidate": "always-A1",
+                "F1": 0.49079266560127804,
+                "A2_count": 0,
+                "cost": 6.2274845534924514
+              },
+              {
+                "candidate": "original-score",
+                "F1": 0.5095516843602967,
+                "A2_count": 41,
+                "cost": 7.654097742713952
+              }
+            ],
+            "quota": 0.25
+          },
+          "vs_always_A1": {
+            "F1": {
+              "diff": 0.004249483909039398,
+              "lo": -0.005733339032657817,
+              "hi": 0.014296231523800877,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0024271844660194164,
+              "lo": -0.010267164599268042,
+              "hi": 0.014564882784750176,
+              "significant": false
+            },
+            "cost": {
+              "diff": 1.56584254189056,
+              "lo": 1.273524499388847,
+              "hi": 1.8767122655406412,
+              "significant": true
+            }
+          },
+          "vs_random_same_A2_count": {
+            "F1": {
+              "diff": -0.0027688051190128404,
+              "lo": -0.011717608456342702,
+              "hi": 0.006340421065152457,
+              "significant": false
+            },
+            "EM": {
+              "diff": -0.0036407766990291246,
+              "lo": -0.014066924944152251,
+              "hi": 0.006879181338028165,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.0020297533508406573,
+              "lo": -0.28482558532653024,
+              "hi": 0.32015058027333154,
+              "significant": false
+            },
+            "reference": {
+              "A2_fraction": 0.25,
+              "kind": "expected_uniform_random_allocation",
+              "means": {
+                "F1": 0.44774489952400504,
+                "EM": 0.32402912621359226,
+                "cost": 7.2249489695701765
+              },
+              "CI_scope": "cluster sampling only; random allocation integrated analytically"
+            }
+          },
+          "vs_validation_selected_baseline": {
+            "F1": {
+              "diff": 0.0012135922330097082,
+              "lo": 0.0,
+              "hi": 0.0037128712871287127,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "cost": {
+              "diff": -0.0017861897505602187,
+              "lo": -0.09257037635121373,
+              "hi": 0.08367237929986782,
+              "significant": false
+            }
+          },
+          "vs_ridge": {
+            "F1": {
+              "diff": -0.0035827054765480426,
+              "lo": -0.019397740159562697,
+              "hi": 0.010192650618409635,
+              "significant": false
+            },
+            "EM": {
+              "diff": -0.0024271844660194164,
+              "lo": -0.01909536809693057,
+              "hi": 0.014252629793009841,
+              "significant": false
+            },
+            "cost": {
+              "diff": -0.014297620913867881,
+              "lo": -0.3023899532100711,
+              "hi": 0.30404639417317564,
+              "significant": false
+            }
+          },
+          "vs_fuzzy_fixed": {
+            "F1": {
+              "diff": -0.0020698642185612015,
+              "lo": -0.011431469856658383,
+              "hi": 0.00556437147305564,
+              "significant": false
+            },
+            "EM": {
+              "diff": -0.004854368932038833,
+              "lo": -0.01699340684121822,
+              "hi": 0.004964022960627374,
+              "significant": false
+            },
+            "cost": {
+              "diff": -0.0006102529068394702,
+              "lo": -0.28669655415236844,
+              "hi": 0.3096015759292877,
+              "significant": false
+            }
+          },
+          "comparison_status": "exploratory; no multiplicity-adjusted confirmatory claim"
+        },
+        "uncertainty-B4": {
+          "F1": {
+            "mean": 0.4437625021719825,
+            "lo": 0.3776661584738892,
+            "hi": 0.5078265338690733
+          },
+          "EM": {
+            "mean": 0.32038834951456313,
+            "lo": 0.2554299557728957,
+            "hi": 0.3851679071415914
+          },
+          "cost": {
+            "mean": 7.228764912671577,
+            "lo": 6.917746283627719,
+            "hi": 7.562183281417854
+          },
+          "counts": {
+            "A1": 309,
+            "A2": 103
+          },
+          "A2_fraction": 0.25,
+          "robustness_incomplete_clusters_skipped": 22,
+          "robustness_pairs": 384,
+          "RFR": {
+            "mean": 0.3020833333333333,
+            "lo": 0.24479166666666666,
+            "hi": 0.359375
+          },
+          "HRFR_legacy_action_order": {
+            "mean": 0.2890625,
+            "lo": 0.23170572916666674,
+            "hi": 0.3463541666666667
+          },
+          "secondary": {
+            "retrievals": 1.2378640776699028,
+            "ce_passes": 24.75728155339806,
+            "llm_calls": 1.25,
+            "input_tokens": 1036.643203883495,
+            "output_tokens": 9.359223300970873
+          },
+          "within_cluster": {
+            "F1_SD": {
+              "mean": 0.11262221900097756,
+              "lo": 0.08557313825973216,
+              "hi": 0.14400884739952635
+            },
+            "F1_range": {
+              "mean": 0.2479805912020986,
+              "lo": 0.18900108788780667,
+              "hi": 0.3166466728736949
+            },
+            "minimum_F1": {
+              "mean": 0.3224302173520923,
+              "lo": 0.2536411548520923,
+              "hi": 0.3935336907016594
+            }
+          },
+          "fit": {
+            "candidate": "original-score",
+            "F1": 0.5144001692087816,
+            "A2_count": 41,
+            "cost": 7.6415596766591145,
+            "all_candidates": [
+              {
+                "candidate": "always-A1",
+                "F1": 0.49079266560127804,
+                "A2_count": 0,
+                "cost": 6.2274845534924514
+              },
+              {
+                "candidate": "original-score",
+                "F1": 0.5144001692087816,
+                "A2_count": 41,
+                "cost": 7.6415596766591145
+              }
+            ],
+            "quota": 0.25
+          },
+          "vs_always_A1": {
+            "F1": {
+              "diff": 0.0030358916760296895,
+              "lo": -0.007087503070526048,
+              "hi": 0.013063540315002278,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0024271844660194164,
+              "lo": -0.010267164599268042,
+              "hi": 0.014564882784750176,
+              "significant": false
+            },
+            "cost": {
+              "diff": 1.5676287316411202,
+              "lo": 1.2705142179123068,
+              "hi": 1.8849012163761174,
+              "significant": true
+            }
+          },
+          "vs_random_same_A2_count": {
+            "F1": {
+              "diff": -0.003982397352022549,
+              "lo": -0.012837661934956356,
+              "hi": 0.005416095519008737,
+              "significant": false
+            },
+            "EM": {
+              "diff": -0.0036407766990291246,
+              "lo": -0.014066924944152251,
+              "hi": 0.006879181338028165,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.003815943101400876,
+              "lo": -0.29140531395622854,
+              "hi": 0.3237747119617255,
+              "significant": false
+            },
+            "reference": {
+              "A2_fraction": 0.25,
+              "kind": "expected_uniform_random_allocation",
+              "means": {
+                "F1": 0.44774489952400504,
+                "EM": 0.32402912621359226,
+                "cost": 7.2249489695701765
+              },
+              "CI_scope": "cluster sampling only; random allocation integrated analytically"
+            }
+          },
+          "vs_validation_selected_baseline": {
+            "F1": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            }
+          },
+          "vs_ridge": {
+            "F1": {
+              "diff": -0.004796297709557751,
+              "lo": -0.019741943622117945,
+              "hi": 0.008191791278261527,
+              "significant": false
+            },
+            "EM": {
+              "diff": -0.0024271844660194164,
+              "lo": -0.01909536809693057,
+              "hi": 0.014252629793009841,
+              "significant": false
+            },
+            "cost": {
+              "diff": -0.012511431163307662,
+              "lo": -0.29067075264551573,
+              "hi": 0.2904671436857518,
+              "significant": false
+            }
+          },
+          "vs_fuzzy_fixed": {
+            "F1": {
+              "diff": -0.0032834564515709097,
+              "lo": -0.01271650811431332,
+              "hi": 0.004154770756244864,
+              "significant": false
+            },
+            "EM": {
+              "diff": -0.004854368932038833,
+              "lo": -0.01699340684121822,
+              "hi": 0.004964022960627374,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.0011759368437207485,
+              "lo": -0.2697493505648037,
+              "hi": 0.3053587637349118,
+              "significant": false
+            }
+          },
+          "comparison_status": "exploratory; no multiplicity-adjusted confirmatory claim"
+        }
+      }
+    },
+    "0.5": {
+      "quota": 0.5,
+      "strongest_baseline_selected_on_validation": "uncertainty-B3",
+      "methods": {
+        "global": {
+          "F1": {
+            "mean": 0.46233861895833256,
+            "lo": 0.39620546565778675,
+            "hi": 0.5285814325093136
+          },
+          "EM": {
+            "mean": 0.33980582524271846,
+            "lo": 0.2738053171048013,
+            "hi": 0.4052860037551354
+          },
+          "cost": {
+            "mean": 8.7799923422743,
+            "lo": 8.475873291594267,
+            "hi": 9.112179275205033
+          },
+          "counts": {
+            "A1": 206,
+            "A2": 206
+          },
+          "A2_fraction": 0.5,
+          "robustness_incomplete_clusters_skipped": 22,
+          "robustness_pairs": 384,
+          "RFR": {
+            "mean": 0.4895833333333333,
+            "lo": 0.4375,
+            "hi": 0.5365885416666666
+          },
+          "HRFR_legacy_action_order": {
+            "mean": 0.4296875,
+            "lo": 0.3775390625000001,
+            "hi": 0.4817708333333333
+          },
+          "secondary": {
+            "retrievals": 1.4733009708737863,
+            "ce_passes": 29.466019417475728,
+            "llm_calls": 1.5,
+            "input_tokens": 1245.0339805825242,
+            "output_tokens": 12.504854368932039
+          },
+          "within_cluster": {
+            "F1_SD": {
+              "mean": 0.11706665417864563,
+              "lo": 0.08986380541297334,
+              "hi": 0.15002178457940815
+            },
+            "F1_range": {
+              "mean": 0.2569775493603619,
+              "lo": 0.19818609504644666,
+              "hi": 0.3290780042440199
+            },
+            "minimum_F1": {
+              "mean": 0.33731718776525765,
+              "lo": 0.26638634324468424,
+              "hi": 0.40818684439921804
+            }
+          },
+          "fit": {
+            "candidate": "global",
+            "F1": 0.49551783941736094,
+            "A2_count": 82,
+            "cost": 9.049578687964306,
+            "all_candidates": [
+              {
+                "candidate": "always-A1",
+                "F1": 0.49079266560127804,
+                "A2_count": 0,
+                "cost": 6.2274845534924514
+              },
+              {
+                "candidate": "global",
+                "F1": 0.49551783941736094,
+                "A2_count": 82,
+                "cost": 9.049578687964306
+              }
+            ],
+            "quota": 0.5
+          },
+          "vs_always_A1": {
+            "F1": {
+              "diff": 0.02161200846237976,
+              "lo": 0.005639160476640647,
+              "hi": 0.03751943926599482,
+              "significant": true
+            },
+            "EM": {
+              "diff": 0.021844660194174748,
+              "lo": 0.004853491636448708,
+              "hi": 0.03913190830085452,
+              "significant": true
+            },
+            "cost": {
+              "diff": 3.1188561612438424,
+              "lo": 2.817415460629009,
+              "hi": 3.432719688654138,
+              "significant": true
+            }
+          },
+          "vs_random_same_A2_count": {
+            "F1": {
+              "diff": 0.007575430406275174,
+              "lo": -0.0035700031593846092,
+              "hi": 0.019349313273259065,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.009708737864077666,
+              "lo": -0.0036234077271291715,
+              "hi": 0.02334152334152334,
+              "significant": false
+            },
+            "cost": {
+              "diff": -0.00876941583559443,
+              "lo": -0.31022106940817956,
+              "hi": 0.3117844027330864,
+              "significant": false
+            },
+            "reference": {
+              "A2_fraction": 0.5,
+              "kind": "expected_uniform_random_allocation",
+              "means": {
+                "F1": 0.4547631885520574,
+                "EM": 0.3300970873786408,
+                "cost": 8.788761758109894
+              },
+              "CI_scope": "cluster sampling only; random allocation integrated analytically"
+            }
+          },
+          "vs_validation_selected_baseline": {
+            "F1": {
+              "diff": 0.02177768867724239,
+              "lo": 0.00513405743144841,
+              "hi": 0.04086975989120336,
+              "significant": true
+            },
+            "EM": {
+              "diff": 0.021844660194174748,
+              "lo": 0.002444395768335929,
+              "hi": 0.04337874500422999,
+              "significant": true
+            },
+            "cost": {
+              "diff": -0.006452014873840284,
+              "lo": -0.47568164683930314,
+              "hi": 0.4831009650913795,
+              "significant": false
+            }
+          },
+          "vs_ridge": {
+            "F1": {
+              "diff": 0.008874909148249288,
+              "lo": -0.006148822983552213,
+              "hi": 0.02518938986542328,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.014563106796116498,
+              "lo": -0.004784688995215311,
+              "hi": 0.03580166379280812,
+              "significant": false
+            },
+            "cost": {
+              "diff": -0.021711870604212535,
+              "lo": -0.45138449259233676,
+              "hi": 0.4606220693855166,
+              "significant": false
+            }
+          },
+          "vs_fuzzy_fixed": {
+            "F1": {
+              "diff": 0.012278746411309882,
+              "lo": -0.0030363011546584258,
+              "hi": 0.029707221382431325,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.012135922330097082,
+              "lo": -0.004854960928250059,
+              "hi": 0.03140286696845282,
+              "significant": false
+            },
+            "cost": {
+              "diff": -0.012381668250267097,
+              "lo": -0.44380371582090145,
+              "hi": 0.43737233978338114,
+              "significant": false
+            }
+          },
+          "comparison_status": "exploratory; no multiplicity-adjusted confirmatory claim"
+        },
+        "ridge": {
+          "F1": {
+            "mean": 0.45346370981008327,
+            "lo": 0.38749612211736334,
+            "hi": 0.5172758470502015
+          },
+          "EM": {
+            "mean": 0.32524271844660196,
+            "lo": 0.2597836436732967,
+            "hi": 0.3911025215822075
+          },
+          "cost": {
+            "mean": 8.801704212878512,
+            "lo": 8.387851970329068,
+            "hi": 9.155877142138953
+          },
+          "counts": {
+            "A1": 206,
+            "A2": 206
+          },
+          "A2_fraction": 0.5,
+          "robustness_incomplete_clusters_skipped": 22,
+          "robustness_pairs": 384,
+          "RFR": {
+            "mean": 0.3489583333333333,
+            "lo": 0.2916666666666667,
+            "hi": 0.4114583333333333
+          },
+          "HRFR_legacy_action_order": {
+            "mean": 0.3255208333333333,
+            "lo": 0.2681640625000001,
+            "hi": 0.3854166666666667
+          },
+          "secondary": {
+            "retrievals": 1.4781553398058251,
+            "ce_passes": 29.563106796116504,
+            "llm_calls": 1.5,
+            "input_tokens": 1247.1893203883494,
+            "output_tokens": 12.53640776699029
+          },
+          "within_cluster": {
+            "F1_SD": {
+              "mean": 0.1156253681158864,
+              "lo": 0.08959603641590902,
+              "hi": 0.14744966403539914
+            },
+            "F1_range": {
+              "mean": 0.25485006721219955,
+              "lo": 0.1968615290576458,
+              "hi": 0.32429628888268597
+            },
+            "minimum_F1": {
+              "mean": 0.32554338023088025,
+              "lo": 0.25682966664411977,
+              "hi": 0.396343795093795
+            }
+          },
+          "fit": {
+            "candidate": "alpha=0.1",
+            "F1": 0.5062341619040185,
+            "A2_count": 82,
+            "cost": 8.978190340373004,
+            "all_candidates": [
+              {
+                "candidate": "always-A1",
+                "F1": 0.49079266560127804,
+                "A2_count": 0,
+                "cost": 6.2274845534924514
+              },
+              {
+                "candidate": "alpha=0.1",
+                "F1": 0.5062341619040185,
+                "A2_count": 82,
+                "cost": 8.978190340373004
+              },
+              {
+                "candidate": "alpha=1.0",
+                "F1": 0.5062341619040185,
+                "A2_count": 82,
+                "cost": 8.978190340373004
+              },
+              {
+                "candidate": "alpha=10.0",
+                "F1": 0.5062341619040185,
+                "A2_count": 82,
+                "cost": 8.981273589667401
+              }
+            ],
+            "quota": 0.5
+          },
+          "vs_always_A1": {
+            "F1": {
+              "diff": 0.012737099314130473,
+              "lo": -0.0062221581679449516,
+              "hi": 0.03291131459151776,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.007281553398058249,
+              "lo": -0.017117016994767604,
+              "hi": 0.029495058422739213,
+              "significant": false
+            },
+            "cost": {
+              "diff": 3.140568031848055,
+              "lo": 2.729254635963723,
+              "hi": 3.489325783895107,
+              "significant": true
+            }
+          },
+          "vs_random_same_A2_count": {
+            "F1": {
+              "diff": -0.0012994787419741138,
+              "lo": -0.01233234616983086,
+              "hi": 0.009901432033633844,
+              "significant": false
+            },
+            "EM": {
+              "diff": -0.004854368932038833,
+              "lo": -0.01765231092436974,
+              "hi": 0.007318421525738598,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.012942454768618106,
+              "lo": -0.39678792184427286,
+              "hi": 0.3678179815108756,
+              "significant": false
+            },
+            "reference": {
+              "A2_fraction": 0.5,
+              "kind": "expected_uniform_random_allocation",
+              "means": {
+                "F1": 0.4547631885520574,
+                "EM": 0.3300970873786408,
+                "cost": 8.788761758109894
+              },
+              "CI_scope": "cluster sampling only; random allocation integrated analytically"
+            }
+          },
+          "vs_validation_selected_baseline": {
+            "F1": {
+              "diff": 0.012902779528993102,
+              "lo": -0.0005856893455048815,
+              "hi": 0.027883875700090793,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.007281553398058249,
+              "lo": -0.004964022960627374,
+              "hi": 0.022171613147697684,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.015259855730372252,
+              "lo": -0.34822798375849723,
+              "hi": 0.3965958885021074,
+              "significant": false
+            }
+          },
+          "vs_ridge": {
+            "F1": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            }
+          },
+          "vs_fuzzy_fixed": {
+            "F1": {
+              "diff": 0.003403837263060594,
+              "lo": -0.011064674091553988,
+              "hi": 0.018284941323783926,
+              "significant": false
+            },
+            "EM": {
+              "diff": -0.0024271844660194164,
+              "lo": -0.017457450124688276,
+              "hi": 0.014320665517123249,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.009330202353945438,
+              "lo": -0.4174933300526546,
+              "hi": 0.429228455018631,
+              "significant": false
+            }
+          },
+          "comparison_status": "exploratory; no multiplicity-adjusted confirmatory claim"
+        },
+        "fuzzy-fixed": {
+          "F1": {
+            "mean": 0.4500598725470227,
+            "lo": 0.3855818581303651,
+            "hi": 0.5147321577651036
+          },
+          "EM": {
+            "mean": 0.3276699029126214,
+            "lo": 0.2620192307692308,
+            "hi": 0.39705971371599486
+          },
+          "cost": {
+            "mean": 8.792374010524567,
+            "lo": 8.42386989231553,
+            "hi": 9.134061896125424
+          },
+          "counts": {
+            "A1": 206,
+            "A2": 206
+          },
+          "A2_fraction": 0.5,
+          "robustness_incomplete_clusters_skipped": 22,
+          "robustness_pairs": 384,
+          "RFR": {
+            "mean": 0.4166666666666667,
+            "lo": 0.3644531250000001,
+            "hi": 0.4739583333333333
+          },
+          "HRFR_legacy_action_order": {
+            "mean": 0.3984375,
+            "lo": 0.34375,
+            "hi": 0.4505208333333333
+          },
+          "secondary": {
+            "retrievals": 1.483009708737864,
+            "ce_passes": 29.660194174757283,
+            "llm_calls": 1.5,
+            "input_tokens": 1245.9417475728155,
+            "output_tokens": 12.490291262135923
+          },
+          "within_cluster": {
+            "F1_SD": {
+              "mean": 0.10411901930328549,
+              "lo": 0.07870053102286714,
+              "hi": 0.13276018231804615
+            },
+            "F1_range": {
+              "mean": 0.22949664459315194,
+              "lo": 0.1751534373765532,
+              "hi": 0.29388080178349024
+            },
+            "minimum_F1": {
+              "mean": 0.33466416396103893,
+              "lo": 0.26437874842171716,
+              "hi": 0.40627795815295814
+            }
+          },
+          "fit": {
+            "candidate": "prior=20.0",
+            "F1": 0.5168244116330241,
+            "A2_count": 82,
+            "cost": 9.036512485742815,
+            "all_candidates": [
+              {
+                "candidate": "always-A1",
+                "F1": 0.49079266560127804,
+                "A2_count": 0,
+                "cost": 6.2274845534924514
+              },
+              {
+                "candidate": "prior=1.0",
+                "F1": 0.5137941086027211,
+                "A2_count": 82,
+                "cost": 9.030785576105362
+              },
+              {
+                "candidate": "prior=5.0",
+                "F1": 0.5168244116330241,
+                "A2_count": 82,
+                "cost": 9.037401645436676
+              },
+              {
+                "candidate": "prior=20.0",
+                "F1": 0.5168244116330241,
+                "A2_count": 82,
+                "cost": 9.036512485742815
+              }
+            ],
+            "quota": 0.5
+          },
+          "vs_always_A1": {
+            "F1": {
+              "diff": 0.00933326205106988,
+              "lo": -0.008522799407678012,
+              "hi": 0.02768217465788556,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.009708737864077666,
+              "lo": -0.012048920318956987,
+              "hi": 0.03125377415458937,
+              "significant": false
+            },
+            "cost": {
+              "diff": 3.1312378294941094,
+              "lo": 2.761225826773826,
+              "hi": 3.469737911930016,
+              "significant": true
+            }
+          },
+          "vs_random_same_A2_count": {
+            "F1": {
+              "diff": -0.004703316005034708,
+              "lo": -0.01536628534449604,
+              "hi": 0.0062730792114676975,
+              "significant": false
+            },
+            "EM": {
+              "diff": -0.0024271844660194164,
+              "lo": -0.014671728852657946,
+              "hi": 0.00987900618823312,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.0036122524146726676,
+              "lo": -0.359181538789117,
+              "hi": 0.3387741741349107,
+              "significant": false
+            },
+            "reference": {
+              "A2_fraction": 0.5,
+              "kind": "expected_uniform_random_allocation",
+              "means": {
+                "F1": 0.4547631885520574,
+                "EM": 0.3300970873786408,
+                "cost": 8.788761758109894
+              },
+              "CI_scope": "cluster sampling only; random allocation integrated analytically"
+            }
+          },
+          "vs_validation_selected_baseline": {
+            "F1": {
+              "diff": 0.009498942265932508,
+              "lo": 0.00020225001730917667,
+              "hi": 0.020063153220273383,
+              "significant": true
+            },
+            "EM": {
+              "diff": 0.009708737864077666,
+              "lo": -0.002348398265487915,
+              "hi": 0.02158273381294964,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.005929653376426813,
+              "lo": -0.31508130382210037,
+              "hi": 0.30858226830427865,
+              "significant": false
+            }
+          },
+          "vs_ridge": {
+            "F1": {
+              "diff": -0.003403837263060594,
+              "lo": -0.018284941323783926,
+              "hi": 0.011064674091553988,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0024271844660194164,
+              "lo": -0.014320665517123249,
+              "hi": 0.017457450124688276,
+              "significant": false
+            },
+            "cost": {
+              "diff": -0.009330202353945438,
+              "lo": -0.429228455018631,
+              "hi": 0.4174933300526546,
+              "significant": false
+            }
+          },
+          "vs_fuzzy_fixed": {
+            "F1": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            }
+          },
+          "comparison_status": "exploratory; no multiplicity-adjusted confirmatory claim"
+        },
+        "fuzzy-calibrated": {
+          "F1": {
+            "mean": 0.4514468350990338,
+            "lo": 0.38626628438171806,
+            "hi": 0.5163877616578411
+          },
+          "EM": {
+            "mean": 0.3276699029126214,
+            "lo": 0.2620192307692308,
+            "hi": 0.39705971371599486
+          },
+          "cost": {
+            "mean": 8.783769343384126,
+            "lo": 8.4472191660085,
+            "hi": 9.130669323356953
+          },
+          "counts": {
+            "A1": 206,
+            "A2": 206
+          },
+          "A2_fraction": 0.5,
+          "robustness_incomplete_clusters_skipped": 22,
+          "robustness_pairs": 384,
+          "RFR": {
+            "mean": 0.4322916666666667,
+            "lo": 0.375,
+            "hi": 0.484375
+          },
+          "HRFR_legacy_action_order": {
+            "mean": 0.4036458333333333,
+            "lo": 0.3488932291666667,
+            "hi": 0.4557942708333333
+          },
+          "secondary": {
+            "retrievals": 1.483009708737864,
+            "ce_passes": 29.660194174757283,
+            "llm_calls": 1.5,
+            "input_tokens": 1246.0412621359224,
+            "output_tokens": 12.41504854368932
+          },
+          "within_cluster": {
+            "F1_SD": {
+              "mean": 0.10622350377110258,
+              "lo": 0.0808764571956706,
+              "hi": 0.13596015359292932
+            },
+            "F1_range": {
+              "mean": 0.23396093030743767,
+              "lo": 0.17811544409430438,
+              "hi": 0.29831649196136784
+            },
+            "minimum_F1": {
+              "mean": 0.33466416396103893,
+              "lo": 0.26437874842171716,
+              "hi": 0.40627795815295814
+            }
+          },
+          "fit": {
+            "candidate": "prior=5.0",
+            "F1": 0.5198547146633271,
+            "A2_count": 82,
+            "cost": 9.052978610225152,
+            "all_candidates": [
+              {
+                "candidate": "always-A1",
+                "F1": 0.49079266560127804,
+                "A2_count": 0,
+                "cost": 6.2274845534924514
+              },
+              {
+                "candidate": "prior=1.0",
+                "F1": 0.5164203712289837,
+                "A2_count": 82,
+                "cost": 9.047774282323948
+              },
+              {
+                "candidate": "prior=5.0",
+                "F1": 0.5198547146633271,
+                "A2_count": 82,
+                "cost": 9.052978610225152
+              },
+              {
+                "candidate": "prior=20.0",
+                "F1": 0.5198547146633271,
+                "A2_count": 82,
+                "cost": 9.056309572088352
+              }
+            ],
+            "quota": 0.5
+          },
+          "vs_always_A1": {
+            "F1": {
+              "diff": 0.01072022460308103,
+              "lo": -0.007281301513663334,
+              "hi": 0.029017893133098663,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.009708737864077666,
+              "lo": -0.012048920318956987,
+              "hi": 0.03125377415458937,
+              "significant": false
+            },
+            "cost": {
+              "diff": 3.1226331623536687,
+              "lo": 2.7860419463927153,
+              "hi": 3.460457867733046,
+              "significant": true
+            }
+          },
+          "vs_random_same_A2_count": {
+            "F1": {
+              "diff": -0.0033163534530235572,
+              "lo": -0.014387255317360572,
+              "hi": 0.007004377618171475,
+              "significant": false
+            },
+            "EM": {
+              "diff": -0.0024271844660194164,
+              "lo": -0.014671728852657946,
+              "hi": 0.00987900618823312,
+              "significant": false
+            },
+            "cost": {
+              "diff": -0.004992414725768057,
+              "lo": -0.3396570198088374,
+              "hi": 0.33077511384435476,
+              "significant": false
+            },
+            "reference": {
+              "A2_fraction": 0.5,
+              "kind": "expected_uniform_random_allocation",
+              "means": {
+                "F1": 0.4547631885520574,
+                "EM": 0.3300970873786408,
+                "cost": 8.788761758109894
+              },
+              "CI_scope": "cluster sampling only; random allocation integrated analytically"
+            }
+          },
+          "vs_validation_selected_baseline": {
+            "F1": {
+              "diff": 0.010885904817943659,
+              "lo": 0.001397592413217296,
+              "hi": 0.02159250523558793,
+              "significant": true
+            },
+            "EM": {
+              "diff": 0.009708737864077666,
+              "lo": -0.002348398265487915,
+              "hi": 0.02158273381294964,
+              "significant": false
+            },
+            "cost": {
+              "diff": -0.0026750137640139116,
+              "lo": -0.34031300142816007,
+              "hi": 0.32417761276732154,
+              "significant": false
+            }
+          },
+          "vs_ridge": {
+            "F1": {
+              "diff": -0.0020168747110494434,
+              "lo": -0.017499549021214353,
+              "hi": 0.012686811613640832,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0024271844660194164,
+              "lo": -0.014320665517123249,
+              "hi": 0.017457450124688276,
+              "significant": false
+            },
+            "cost": {
+              "diff": -0.017934869494386163,
+              "lo": -0.4402546306564102,
+              "hi": 0.3747698573342242,
+              "significant": false
+            }
+          },
+          "vs_fuzzy_fixed": {
+            "F1": {
+              "diff": 0.0013869625520111506,
+              "lo": 0.0,
+              "hi": 0.003501615633968613,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "cost": {
+              "diff": -0.008604667140440725,
+              "lo": -0.1301257623733889,
+              "hi": 0.11431610235997047,
+              "significant": false
+            }
+          },
+          "comparison_status": "exploratory; no multiplicity-adjusted confirmatory claim"
+        },
+        "uncertainty-B3": {
+          "F1": {
+            "mean": 0.44056093028109017,
+            "lo": 0.37534841157147986,
+            "hi": 0.5026244757839121
+          },
+          "EM": {
+            "mean": 0.3179611650485437,
+            "lo": 0.2518505195843325,
+            "hi": 0.384620253164557
+          },
+          "cost": {
+            "mean": 8.78644435714814,
+            "lo": 8.374311548240543,
+            "hi": 9.176576748204385
+          },
+          "counts": {
+            "A1": 206,
+            "A2": 206
+          },
+          "A2_fraction": 0.5,
+          "robustness_incomplete_clusters_skipped": 22,
+          "robustness_pairs": 384,
+          "RFR": {
+            "mean": 0.3072916666666667,
+            "lo": 0.2552083333333333,
+            "hi": 0.3697916666666667
+          },
+          "HRFR_legacy_action_order": {
+            "mean": 0.2942708333333333,
+            "lo": 0.2421875,
+            "hi": 0.3515625
+          },
+          "secondary": {
+            "retrievals": 1.4757281553398058,
+            "ce_passes": 29.514563106796118,
+            "llm_calls": 1.5,
+            "input_tokens": 1246.8907766990292,
+            "output_tokens": 12.427184466019417
+          },
+          "within_cluster": {
+            "F1_SD": {
+              "mean": 0.10679850613335194,
+              "lo": 0.08088385521405352,
+              "hi": 0.13778256238682218
+            },
+            "F1_range": {
+              "mean": 0.23464353763066997,
+              "lo": 0.17910755400645112,
+              "hi": 0.30081008758398464
+            },
+            "minimum_F1": {
+              "mean": 0.3207003066378067,
+              "lo": 0.2498440459280303,
+              "hi": 0.39405166339736647
+            }
+          },
+          "fit": {
+            "candidate": "original-score",
+            "F1": 0.5242318190404315,
+            "A2_count": 82,
+            "cost": 9.006800921360897,
+            "all_candidates": [
+              {
+                "candidate": "always-A1",
+                "F1": 0.49079266560127804,
+                "A2_count": 0,
+                "cost": 6.2274845534924514
+              },
+              {
+                "candidate": "original-score",
+                "F1": 0.5242318190404315,
+                "A2_count": 82,
+                "cost": 9.006800921360897
+              }
+            ],
+            "quota": 0.5
+          },
+          "vs_always_A1": {
+            "F1": {
+              "diff": -0.00016568021486262907,
+              "lo": -0.017579399557443216,
+              "hi": 0.016330724964219882,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0,
+              "lo": -0.0225,
+              "hi": 0.022224979321753515,
+              "significant": false
+            },
+            "cost": {
+              "diff": 3.1253081761176826,
+              "lo": 2.72927134199834,
+              "hi": 3.5130006695248315,
+              "significant": true
+            }
+          },
+          "vs_random_same_A2_count": {
+            "F1": {
+              "diff": -0.014202258270967216,
+              "lo": -0.02607974312098006,
+              "hi": -0.0015683235829575645,
+              "significant": true
+            },
+            "EM": {
+              "diff": -0.012135922330097082,
+              "lo": -0.02638822137320987,
+              "hi": 0.002439173474864333,
+              "significant": false
+            },
+            "cost": {
+              "diff": -0.0023174009617541458,
+              "lo": -0.388287839140291,
+              "hi": 0.3817879214395909,
+              "significant": false
+            },
+            "reference": {
+              "A2_fraction": 0.5,
+              "kind": "expected_uniform_random_allocation",
+              "means": {
+                "F1": 0.4547631885520574,
+                "EM": 0.3300970873786408,
+                "cost": 8.788761758109894
+              },
+              "CI_scope": "cluster sampling only; random allocation integrated analytically"
+            }
+          },
+          "vs_validation_selected_baseline": {
+            "F1": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            }
+          },
+          "vs_ridge": {
+            "F1": {
+              "diff": -0.012902779528993102,
+              "lo": -0.027883875700090793,
+              "hi": 0.0005856893455048815,
+              "significant": false
+            },
+            "EM": {
+              "diff": -0.007281553398058249,
+              "lo": -0.022171613147697684,
+              "hi": 0.004964022960627374,
+              "significant": false
+            },
+            "cost": {
+              "diff": -0.015259855730372252,
+              "lo": -0.3965958885021074,
+              "hi": 0.34822798375849723,
+              "significant": false
+            }
+          },
+          "vs_fuzzy_fixed": {
+            "F1": {
+              "diff": -0.009498942265932508,
+              "lo": -0.020063153220273383,
+              "hi": -0.00020225001730917667,
+              "significant": true
+            },
+            "EM": {
+              "diff": -0.009708737864077666,
+              "lo": -0.02158273381294964,
+              "hi": 0.002348398265487915,
+              "significant": false
+            },
+            "cost": {
+              "diff": -0.005929653376426813,
+              "lo": -0.30858226830427865,
+              "hi": 0.31508130382210037,
+              "significant": false
+            }
+          },
+          "comparison_status": "exploratory; no multiplicity-adjusted confirmatory claim"
+        },
+        "uncertainty-B4": {
+          "F1": {
+            "mean": 0.44056093028109017,
+            "lo": 0.37534841157147986,
+            "hi": 0.5026244757839121
+          },
+          "EM": {
+            "mean": 0.3179611650485437,
+            "lo": 0.2518505195843325,
+            "hi": 0.384620253164557
+          },
+          "cost": {
+            "mean": 8.782132353447661,
+            "lo": 8.367580122203192,
+            "hi": 9.167962869034387
+          },
+          "counts": {
+            "A1": 206,
+            "A2": 206
+          },
+          "A2_fraction": 0.5,
+          "robustness_incomplete_clusters_skipped": 22,
+          "robustness_pairs": 384,
+          "RFR": {
+            "mean": 0.3020833333333333,
+            "lo": 0.24479166666666666,
+            "hi": 0.359375
+          },
+          "HRFR_legacy_action_order": {
+            "mean": 0.2890625,
+            "lo": 0.234375,
+            "hi": 0.34375
+          },
+          "secondary": {
+            "retrievals": 1.4757281553398058,
+            "ce_passes": 29.514563106796118,
+            "llm_calls": 1.5,
+            "input_tokens": 1246.7888349514562,
+            "output_tokens": 12.381067961165048
+          },
+          "within_cluster": {
+            "F1_SD": {
+              "mean": 0.10679850613335194,
+              "lo": 0.08088385521405352,
+              "hi": 0.13778256238682218
+            },
+            "F1_range": {
+              "mean": 0.23464353763066997,
+              "lo": 0.17910755400645112,
+              "hi": 0.30081008758398464
+            },
+            "minimum_F1": {
+              "mean": 0.3207003066378067,
+              "lo": 0.2498440459280303,
+              "hi": 0.39405166339736647
+            }
+          },
+          "fit": {
+            "candidate": "original-score",
+            "F1": 0.521807576616189,
+            "A2_count": 82,
+            "cost": 9.018286473426198,
+            "all_candidates": [
+              {
+                "candidate": "always-A1",
+                "F1": 0.49079266560127804,
+                "A2_count": 0,
+                "cost": 6.2274845534924514
+              },
+              {
+                "candidate": "original-score",
+                "F1": 0.521807576616189,
+                "A2_count": 82,
+                "cost": 9.018286473426198
+              }
+            ],
+            "quota": 0.5
+          },
+          "vs_always_A1": {
+            "F1": {
+              "diff": -0.00016568021486262907,
+              "lo": -0.017579399557443216,
+              "hi": 0.016330724964219882,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0,
+              "lo": -0.0225,
+              "hi": 0.022224979321753515,
+              "significant": false
+            },
+            "cost": {
+              "diff": 3.120996172417204,
+              "lo": 2.7185634327454435,
+              "hi": 3.506867061435046,
+              "significant": true
+            }
+          },
+          "vs_random_same_A2_count": {
+            "F1": {
+              "diff": -0.014202258270967216,
+              "lo": -0.02607974312098006,
+              "hi": -0.0015683235829575645,
+              "significant": true
+            },
+            "EM": {
+              "diff": -0.012135922330097082,
+              "lo": -0.02638822137320987,
+              "hi": 0.002439173474864333,
+              "significant": false
+            },
+            "cost": {
+              "diff": -0.0066294046622328295,
+              "lo": -0.40638959602016245,
+              "hi": 0.37147115793139834,
+              "significant": false
+            },
+            "reference": {
+              "A2_fraction": 0.5,
+              "kind": "expected_uniform_random_allocation",
+              "means": {
+                "F1": 0.4547631885520574,
+                "EM": 0.3300970873786408,
+                "cost": 8.788761758109894
+              },
+              "CI_scope": "cluster sampling only; random allocation integrated analytically"
+            }
+          },
+          "vs_validation_selected_baseline": {
+            "F1": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "cost": {
+              "diff": -0.004312003700478684,
+              "lo": -0.08249891118204317,
+              "hi": 0.07482130123485807,
+              "significant": false
+            }
+          },
+          "vs_ridge": {
+            "F1": {
+              "diff": -0.012902779528993102,
+              "lo": -0.027883875700090793,
+              "hi": 0.0005856893455048815,
+              "significant": false
+            },
+            "EM": {
+              "diff": -0.007281553398058249,
+              "lo": -0.022171613147697684,
+              "hi": 0.004964022960627374,
+              "significant": false
+            },
+            "cost": {
+              "diff": -0.019571859430850935,
+              "lo": -0.3914845681343527,
+              "hi": 0.3471632580751149,
+              "significant": false
+            }
+          },
+          "vs_fuzzy_fixed": {
+            "F1": {
+              "diff": -0.009498942265932508,
+              "lo": -0.020063153220273383,
+              "hi": -0.00020225001730917667,
+              "significant": true
+            },
+            "EM": {
+              "diff": -0.009708737864077666,
+              "lo": -0.02158273381294964,
+              "hi": 0.002348398265487915,
+              "significant": false
+            },
+            "cost": {
+              "diff": -0.010241657076905497,
+              "lo": -0.31692872923369064,
+              "hi": 0.3121168704051554,
+              "significant": false
+            }
+          },
+          "comparison_status": "exploratory; no multiplicity-adjusted confirmatory claim"
+        }
+      }
+    },
+    "1.0": {
+      "quota": 1.0,
+      "strongest_baseline_selected_on_validation": "ridge",
+      "methods": {
+        "global": {
+          "F1": {
+            "mean": 0.46879976660816186,
+            "lo": 0.4057308955086299,
+            "hi": 0.5333465577638892
+          },
+          "EM": {
+            "mean": 0.3422330097087379,
+            "lo": 0.2764383404645477,
+            "hi": 0.40898888946130196
+          },
+          "cost": {
+            "mean": 11.916387335189338,
+            "lo": 11.81246425096535,
+            "hi": 12.029932634219252
+          },
+          "counts": {
+            "A1": 0,
+            "A2": 412
+          },
+          "A2_fraction": 1.0,
+          "robustness_incomplete_clusters_skipped": 22,
+          "robustness_pairs": 384,
+          "RFR": {
+            "mean": 0.0,
+            "lo": 0.0,
+            "hi": 0.0
+          },
+          "HRFR_legacy_action_order": {
+            "mean": 0.0,
+            "lo": 0.0,
+            "hi": 0.0
+          },
+          "secondary": {
+            "retrievals": 1.9563106796116505,
+            "ce_passes": 39.12621359223301,
+            "llm_calls": 2.0,
+            "input_tokens": 1665.7791262135922,
+            "output_tokens": 18.87864077669903
+          },
+          "within_cluster": {
+            "F1_SD": {
+              "mean": 0.11258432583074583,
+              "lo": 0.08613346421605536,
+              "hi": 0.14341297106538098
+            },
+            "F1_range": {
+              "mean": 0.246510434010434,
+              "lo": 0.18881648516414146,
+              "hi": 0.31434102789571544
+            },
+            "minimum_F1": {
+              "mean": 0.3429062818309142,
+              "lo": 0.274585704073296,
+              "hi": 0.41298930995220046
+            }
+          },
+          "fit": {
+            "candidate": "global",
+            "F1": 0.5110851783339821,
+            "A2_count": 165,
+            "cost": 11.890395077033721,
+            "all_candidates": [
+              {
+                "candidate": "always-A1",
+                "F1": 0.49079266560127804,
+                "A2_count": 0,
+                "cost": 6.2274845534924514
+              },
+              {
+                "candidate": "global",
+                "F1": 0.5110851783339821,
+                "A2_count": 165,
+                "cost": 11.890395077033721
+              }
+            ],
+            "quota": 1.0
+          },
+          "vs_always_A1": {
+            "F1": {
+              "diff": 0.028073156112209063,
+              "lo": 0.004427838469245763,
+              "hi": 0.050659054726815964,
+              "significant": true
+            },
+            "EM": {
+              "diff": 0.024271844660194164,
+              "lo": -0.0024816989783605498,
+              "hi": 0.050359712230215826,
+              "significant": false
+            },
+            "cost": {
+              "diff": 6.255251154158881,
+              "lo": 6.174267203791024,
+              "hi": 6.331072735668307,
+              "significant": true
+            }
+          },
+          "vs_random_same_A2_count": {
+            "F1": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "reference": {
+              "A2_fraction": 1.0,
+              "kind": "expected_uniform_random_allocation",
+              "means": {
+                "F1": 0.46879976660816186,
+                "EM": 0.3422330097087379,
+                "cost": 11.916387335189338
+              },
+              "CI_scope": "cluster sampling only; random allocation integrated analytically"
+            }
+          },
+          "vs_validation_selected_baseline": {
+            "F1": {
+              "diff": 0.017770596368540448,
+              "lo": 0.006163011248570103,
+              "hi": 0.030198812864799158,
+              "significant": true
+            },
+            "EM": {
+              "diff": 0.016990291262135915,
+              "lo": 0.007009256494476008,
+              "hi": 0.0308093545475062,
+              "significant": true
+            },
+            "cost": {
+              "diff": 2.517994780657615,
+              "lo": 2.1232387589441757,
+              "hi": 2.945498081296512,
+              "significant": true
+            }
+          },
+          "vs_ridge": {
+            "F1": {
+              "diff": 0.017770596368540448,
+              "lo": 0.006163011248570103,
+              "hi": 0.030198812864799158,
+              "significant": true
+            },
+            "EM": {
+              "diff": 0.016990291262135915,
+              "lo": 0.007009256494476008,
+              "hi": 0.0308093545475062,
+              "significant": true
+            },
+            "cost": {
+              "diff": 2.517994780657615,
+              "lo": 2.1232387589441757,
+              "hi": 2.945498081296512,
+              "significant": true
+            }
+          },
+          "vs_fuzzy_fixed": {
+            "F1": {
+              "diff": 0.007236479809295371,
+              "lo": -0.0005598568936038344,
+              "hi": 0.01713907424039799,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.004854368932038833,
+              "lo": -0.0024813895781637717,
+              "hi": 0.01488833746898263,
+              "significant": false
+            },
+            "cost": {
+              "diff": 1.542268585147669,
+              "lo": 1.2856317064125575,
+              "hi": 1.8252563340215888,
+              "significant": true
+            }
+          },
+          "comparison_status": "exploratory; no multiplicity-adjusted confirmatory claim"
+        },
+        "ridge": {
+          "F1": {
+            "mean": 0.4510291702396214,
+            "lo": 0.38551914029209766,
+            "hi": 0.5148014591256627
+          },
+          "EM": {
+            "mean": 0.32524271844660196,
+            "lo": 0.2589928057553957,
+            "hi": 0.3922603353959286
+          },
+          "cost": {
+            "mean": 9.398392554531723,
+            "lo": 8.98368756044113,
+            "hi": 9.787140390090377
+          },
+          "counts": {
+            "A1": 166,
+            "A2": 246
+          },
+          "A2_fraction": 0.5970873786407767,
+          "robustness_incomplete_clusters_skipped": 22,
+          "robustness_pairs": 384,
+          "RFR": {
+            "mean": 0.3125,
+            "lo": 0.2552083333333333,
+            "hi": 0.3697916666666667
+          },
+          "HRFR_legacy_action_order": {
+            "mean": 0.2942708333333333,
+            "lo": 0.23951822916666674,
+            "hi": 0.3515625
+          },
+          "secondary": {
+            "retrievals": 1.5703883495145632,
+            "ce_passes": 31.40776699029126,
+            "llm_calls": 1.5970873786407767,
+            "input_tokens": 1327.5339805825242,
+            "output_tokens": 13.689320388349515
+          },
+          "within_cluster": {
+            "F1_SD": {
+              "mean": 0.11413710603945462,
+              "lo": 0.08802735810429074,
+              "hi": 0.14672536853392742
+            },
+            "F1_range": {
+              "mean": 0.2503198318225892,
+              "lo": 0.19263990681499873,
+              "hi": 0.3216034987530852
+            },
+            "minimum_F1": {
+              "mean": 0.3257784316378066,
+              "lo": 0.2551437223800505,
+              "hi": 0.39734584967983405
+            }
+          },
+          "fit": {
+            "candidate": "alpha=0.1",
+            "F1": 0.5114306241339734,
+            "A2_count": 107,
+            "cost": 9.836154385585955,
+            "all_candidates": [
+              {
+                "candidate": "always-A1",
+                "F1": 0.49079266560127804,
+                "A2_count": 0,
+                "cost": 6.2274845534924514
+              },
+              {
+                "candidate": "alpha=0.1",
+                "F1": 0.5114306241339734,
+                "A2_count": 107,
+                "cost": 9.836154385585955
+              },
+              {
+                "candidate": "alpha=1.0",
+                "F1": 0.5114306241339734,
+                "A2_count": 108,
+                "cost": 9.872786774966919
+              },
+              {
+                "candidate": "alpha=10.0",
+                "F1": 0.5114306241339734,
+                "A2_count": 108,
+                "cost": 9.871058871716427
+              }
+            ],
+            "quota": 1.0
+          },
+          "vs_always_A1": {
+            "F1": {
+              "diff": 0.010302559743668616,
+              "lo": -0.011117610415615754,
+              "hi": 0.031983208780307006,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.007281553398058249,
+              "lo": -0.019231927710843373,
+              "hi": 0.03197386006174602,
+              "significant": false
+            },
+            "cost": {
+              "diff": 3.737256373501266,
+              "lo": 3.333305712150128,
+              "hi": 4.1264143104854965,
+              "significant": true
+            }
+          },
+          "vs_random_same_A2_count": {
+            "F1": {
+              "diff": -0.006459567449543568,
+              "lo": -0.01912732221226746,
+              "hi": 0.005171795624540233,
+              "significant": false
+            },
+            "EM": {
+              "diff": -0.007210858704873202,
+              "lo": -0.02172883523913299,
+              "hi": 0.005862251127861341,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.002324859124847478,
+              "lo": -0.40998325853773215,
+              "hi": 0.3885847423492683,
+              "significant": false
+            },
+            "reference": {
+              "A2_fraction": 0.5970873786407767,
+              "kind": "expected_uniform_random_allocation",
+              "means": {
+                "F1": 0.457488737689165,
+                "EM": 0.33245357715147517,
+                "cost": 9.396067695406876
+              },
+              "CI_scope": "cluster sampling only; random allocation integrated analytically"
+            }
+          },
+          "vs_validation_selected_baseline": {
+            "F1": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            }
+          },
+          "vs_ridge": {
+            "F1": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            }
+          },
+          "vs_fuzzy_fixed": {
+            "F1": {
+              "diff": -0.010534116559245077,
+              "lo": -0.023735813480641785,
+              "hi": 0.002757241086227094,
+              "significant": false
+            },
+            "EM": {
+              "diff": -0.012135922330097082,
+              "lo": -0.026635998730576645,
+              "hi": 0.0023530799112097666,
+              "significant": false
+            },
+            "cost": {
+              "diff": -0.9757261955099459,
+              "lo": -1.3055928994731407,
+              "hi": -0.6277729389518967,
+              "significant": true
+            }
+          },
+          "comparison_status": "exploratory; no multiplicity-adjusted confirmatory claim"
+        },
+        "fuzzy-fixed": {
+          "F1": {
+            "mean": 0.4615632867988665,
+            "lo": 0.3965976193089831,
+            "hi": 0.5264807385416075
+          },
+          "EM": {
+            "mean": 0.33737864077669905,
+            "lo": 0.2716285910757946,
+            "hi": 0.403474866717441
+          },
+          "cost": {
+            "mean": 10.374118750041669,
+            "lo": 10.061269719766127,
+            "hi": 10.664508015815922
+          },
+          "counts": {
+            "A1": 101,
+            "A2": 311
+          },
+          "A2_fraction": 0.7548543689320388,
+          "robustness_incomplete_clusters_skipped": 22,
+          "robustness_pairs": 384,
+          "RFR": {
+            "mean": 0.3541666666666667,
+            "lo": 0.296875,
+            "hi": 0.4114583333333333
+          },
+          "HRFR_legacy_action_order": {
+            "mean": 0.3333333333333333,
+            "lo": 0.28125,
+            "hi": 0.390625
+          },
+          "secondary": {
+            "retrievals": 1.7233009708737863,
+            "ce_passes": 34.46601941747573,
+            "llm_calls": 1.7548543689320388,
+            "input_tokens": 1459.9563106796118,
+            "output_tokens": 15.62378640776699
+          },
+          "within_cluster": {
+            "F1_SD": {
+              "mean": 0.10967076369937395,
+              "lo": 0.08284067076372832,
+              "hi": 0.13942320886506562
+            },
+            "F1_range": {
+              "mean": 0.24158055486180485,
+              "lo": 0.18296351435023311,
+              "hi": 0.3061131013084138
+            },
+            "minimum_F1": {
+              "mean": 0.3385975697097021,
+              "lo": 0.270441973901303,
+              "hi": 0.4097156695301227
+            }
+          },
+          "fit": {
+            "candidate": "prior=20.0",
+            "F1": 0.5098323216744269,
+            "A2_count": 117,
+            "cost": 10.246502324935229,
+            "all_candidates": [
+              {
+                "candidate": "always-A1",
+                "F1": 0.49079266560127804,
+                "A2_count": 0,
+                "cost": 6.2274845534924514
+              },
+              {
+                "candidate": "prior=1.0",
+                "F1": 0.509724844533457,
+                "A2_count": 103,
+                "cost": 9.75994338967385
+              },
+              {
+                "candidate": "prior=5.0",
+                "F1": 0.509724844533457,
+                "A2_count": 110,
+                "cost": 10.002991314572762
+              },
+              {
+                "candidate": "prior=20.0",
+                "F1": 0.5098323216744269,
+                "A2_count": 117,
+                "cost": 10.246502324935229
+              }
+            ],
+            "quota": 1.0
+          },
+          "vs_always_A1": {
+            "F1": {
+              "diff": 0.020836676302913693,
+              "lo": -0.0007112336261986955,
+              "hi": 0.04183196923768056,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.01941747572815533,
+              "lo": -0.0048667749361983115,
+              "hi": 0.045002819548872176,
+              "significant": false
+            },
+            "cost": {
+              "diff": 4.712982569011212,
+              "lo": 4.414770535115985,
+              "hi": 4.981279664065511,
+              "significant": true
+            }
+          },
+          "vs_random_same_A2_count": {
+            "F1": {
+              "diff": -0.00035446823809848205,
+              "lo": -0.009873090221879943,
+              "hi": 0.007338295081660336,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.001095767744368037,
+              "lo": -0.008578654459356525,
+              "hi": 0.00966392307528086,
+              "significant": false
+            },
+            "cost": {
+              "diff": -0.00882109347279858,
+              "lo": -0.2980417798290489,
+              "hi": 0.24850889170768214,
+              "significant": false
+            },
+            "reference": {
+              "A2_fraction": 0.7548543689320388,
+              "kind": "expected_uniform_random_allocation",
+              "means": {
+                "F1": 0.46191775503696497,
+                "EM": 0.336282873032331,
+                "cost": 10.382939843514468
+              },
+              "CI_scope": "cluster sampling only; random allocation integrated analytically"
+            }
+          },
+          "vs_validation_selected_baseline": {
+            "F1": {
+              "diff": 0.010534116559245077,
+              "lo": -0.002757241086227094,
+              "hi": 0.023735813480641785,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.012135922330097082,
+              "lo": -0.0023530799112097666,
+              "hi": 0.026635998730576645,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.9757261955099459,
+              "lo": 0.6277729389518967,
+              "hi": 1.3055928994731407,
+              "significant": true
+            }
+          },
+          "vs_ridge": {
+            "F1": {
+              "diff": 0.010534116559245077,
+              "lo": -0.002757241086227094,
+              "hi": 0.023735813480641785,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.012135922330097082,
+              "lo": -0.0023530799112097666,
+              "hi": 0.026635998730576645,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.9757261955099459,
+              "lo": 0.6277729389518967,
+              "hi": 1.3055928994731407,
+              "significant": true
+            }
+          },
+          "vs_fuzzy_fixed": {
+            "F1": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            }
+          },
+          "comparison_status": "exploratory; no multiplicity-adjusted confirmatory claim"
+        },
+        "fuzzy-calibrated": {
+          "F1": {
+            "mean": 0.4568265995379074,
+            "lo": 0.3919890565437734,
+            "hi": 0.5215180224854409
+          },
+          "EM": {
+            "mean": 0.3300970873786408,
+            "lo": 0.26440797738693467,
+            "hi": 0.39712918660287083
+          },
+          "cost": {
+            "mean": 9.829184513697516,
+            "lo": 9.48378792269676,
+            "hi": 10.134239824901726
+          },
+          "counts": {
+            "A1": 137,
+            "A2": 275
+          },
+          "A2_fraction": 0.6674757281553398,
+          "robustness_incomplete_clusters_skipped": 22,
+          "robustness_pairs": 384,
+          "RFR": {
+            "mean": 0.3958333333333333,
+            "lo": 0.3385416666666667,
+            "hi": 0.453125
+          },
+          "HRFR_legacy_action_order": {
+            "mean": 0.3723958333333333,
+            "lo": 0.3151041666666667,
+            "hi": 0.4271484374999999
+          },
+          "secondary": {
+            "retrievals": 1.6383495145631068,
+            "ce_passes": 32.76699029126213,
+            "llm_calls": 1.6674757281553398,
+            "input_tokens": 1385.5218446601941,
+            "output_tokens": 14.611650485436893
+          },
+          "within_cluster": {
+            "F1_SD": {
+              "mean": 0.10647217233263626,
+              "lo": 0.08006821683218864,
+              "hi": 0.13575566137325074
+            },
+            "F1_range": {
+              "mean": 0.23364968364968364,
+              "lo": 0.1763098197375541,
+              "hi": 0.29818823320776444
+            },
+            "minimum_F1": {
+              "mean": 0.3423617742551566,
+              "lo": 0.27509943513390206,
+              "hi": 0.41218413205717885
+            }
+          },
+          "fit": {
+            "candidate": "prior=1.0",
+            "F1": 0.5120817468903593,
+            "A2_count": 104,
+            "cost": 9.780405163193905,
+            "all_candidates": [
+              {
+                "candidate": "always-A1",
+                "F1": 0.49079266560127804,
+                "A2_count": 0,
+                "cost": 6.2274845534924514
+              },
+              {
+                "candidate": "prior=1.0",
+                "F1": 0.5120817468903593,
+                "A2_count": 104,
+                "cost": 9.780405163193905
+              },
+              {
+                "candidate": "prior=5.0",
+                "F1": 0.5120817468903593,
+                "A2_count": 111,
+                "cost": 10.036899862720041
+              },
+              {
+                "candidate": "prior=20.0",
+                "F1": 0.5074080792501845,
+                "A2_count": 121,
+                "cost": 10.3867313940738
+              }
+            ],
+            "quota": 1.0
+          },
+          "vs_always_A1": {
+            "F1": {
+              "diff": 0.016099989041954588,
+              "lo": -0.0033750623669845593,
+              "hi": 0.0345786318950912,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.012135922330097082,
+              "lo": -0.00963913625516559,
+              "hi": 0.03406533736870215,
+              "significant": false
+            },
+            "cost": {
+              "diff": 4.168048332667059,
+              "lo": 3.840352104901467,
+              "hi": 4.456151232649861,
+              "significant": true
+            }
+          },
+          "vs_random_same_A2_count": {
+            "F1": {
+              "diff": -0.002638161275660633,
+              "lo": -0.012649676511008495,
+              "hi": 0.006588796005359896,
+              "significant": false
+            },
+            "EM": {
+              "diff": -0.004064944858139241,
+              "lo": -0.015908890575245672,
+              "hi": 0.007150477237418414,
+              "significant": false
+            },
+            "cost": {
+              "diff": -0.007179986249671089,
+              "lo": -0.3231660552154419,
+              "hi": 0.2728667555391986,
+              "significant": false
+            },
+            "reference": {
+              "A2_fraction": 0.6674757281553398,
+              "kind": "expected_uniform_random_allocation",
+              "means": {
+                "F1": 0.459464760813568,
+                "EM": 0.33416203223678004,
+                "cost": 9.836364499947187
+              },
+              "CI_scope": "cluster sampling only; random allocation integrated analytically"
+            }
+          },
+          "vs_validation_selected_baseline": {
+            "F1": {
+              "diff": 0.005797429298285972,
+              "lo": -0.008051064355694077,
+              "hi": 0.01901236887539479,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.004854368932038833,
+              "lo": -0.00963855421686747,
+              "hi": 0.019417475728155338,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.43079195916579316,
+              "lo": 0.052692724672771515,
+              "hi": 0.792158715502488,
+              "significant": true
+            }
+          },
+          "vs_ridge": {
+            "F1": {
+              "diff": 0.005797429298285972,
+              "lo": -0.008051064355694077,
+              "hi": 0.01901236887539479,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.004854368932038833,
+              "lo": -0.00963855421686747,
+              "hi": 0.019417475728155338,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.43079195916579316,
+              "lo": 0.052692724672771515,
+              "hi": 0.792158715502488,
+              "significant": true
+            }
+          },
+          "vs_fuzzy_fixed": {
+            "F1": {
+              "diff": -0.004736687260959105,
+              "lo": -0.014309481939423016,
+              "hi": 0.003669985459117328,
+              "significant": false
+            },
+            "EM": {
+              "diff": -0.007281553398058249,
+              "lo": -0.018781557268137124,
+              "hi": 0.002469288595526219,
+              "significant": false
+            },
+            "cost": {
+              "diff": -0.5449342363441527,
+              "lo": -0.7179042579214855,
+              "hi": -0.3779971557882578,
+              "significant": true
+            }
+          },
+          "comparison_status": "exploratory; no multiplicity-adjusted confirmatory claim"
+        },
+        "uncertainty-B3": {
+          "F1": {
+            "mean": 0.46879976660816186,
+            "lo": 0.4057308955086299,
+            "hi": 0.5333465577638892
+          },
+          "EM": {
+            "mean": 0.3422330097087379,
+            "lo": 0.2764383404645477,
+            "hi": 0.40898888946130196
+          },
+          "cost": {
+            "mean": 11.916387335189338,
+            "lo": 11.81246425096535,
+            "hi": 12.029932634219252
+          },
+          "counts": {
+            "A1": 0,
+            "A2": 412
+          },
+          "A2_fraction": 1.0,
+          "robustness_incomplete_clusters_skipped": 22,
+          "robustness_pairs": 384,
+          "RFR": {
+            "mean": 0.0,
+            "lo": 0.0,
+            "hi": 0.0
+          },
+          "HRFR_legacy_action_order": {
+            "mean": 0.0,
+            "lo": 0.0,
+            "hi": 0.0
+          },
+          "secondary": {
+            "retrievals": 1.9563106796116505,
+            "ce_passes": 39.12621359223301,
+            "llm_calls": 2.0,
+            "input_tokens": 1665.7791262135922,
+            "output_tokens": 18.87864077669903
+          },
+          "within_cluster": {
+            "F1_SD": {
+              "mean": 0.11258432583074583,
+              "lo": 0.08613346421605536,
+              "hi": 0.14341297106538098
+            },
+            "F1_range": {
+              "mean": 0.246510434010434,
+              "lo": 0.18881648516414146,
+              "hi": 0.31434102789571544
+            },
+            "minimum_F1": {
+              "mean": 0.3429062818309142,
+              "lo": 0.274585704073296,
+              "hi": 0.41298930995220046
+            }
+          },
+          "fit": {
+            "candidate": "original-score",
+            "F1": 0.5110851783339821,
+            "A2_count": 165,
+            "cost": 11.890395077033721,
+            "all_candidates": [
+              {
+                "candidate": "always-A1",
+                "F1": 0.49079266560127804,
+                "A2_count": 0,
+                "cost": 6.2274845534924514
+              },
+              {
+                "candidate": "original-score",
+                "F1": 0.5110851783339821,
+                "A2_count": 165,
+                "cost": 11.890395077033721
+              }
+            ],
+            "quota": 1.0
+          },
+          "vs_always_A1": {
+            "F1": {
+              "diff": 0.028073156112209063,
+              "lo": 0.004427838469245763,
+              "hi": 0.050659054726815964,
+              "significant": true
+            },
+            "EM": {
+              "diff": 0.024271844660194164,
+              "lo": -0.0024816989783605498,
+              "hi": 0.050359712230215826,
+              "significant": false
+            },
+            "cost": {
+              "diff": 6.255251154158881,
+              "lo": 6.174267203791024,
+              "hi": 6.331072735668307,
+              "significant": true
+            }
+          },
+          "vs_random_same_A2_count": {
+            "F1": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "reference": {
+              "A2_fraction": 1.0,
+              "kind": "expected_uniform_random_allocation",
+              "means": {
+                "F1": 0.46879976660816186,
+                "EM": 0.3422330097087379,
+                "cost": 11.916387335189338
+              },
+              "CI_scope": "cluster sampling only; random allocation integrated analytically"
+            }
+          },
+          "vs_validation_selected_baseline": {
+            "F1": {
+              "diff": 0.017770596368540448,
+              "lo": 0.006163011248570103,
+              "hi": 0.030198812864799158,
+              "significant": true
+            },
+            "EM": {
+              "diff": 0.016990291262135915,
+              "lo": 0.007009256494476008,
+              "hi": 0.0308093545475062,
+              "significant": true
+            },
+            "cost": {
+              "diff": 2.517994780657615,
+              "lo": 2.1232387589441757,
+              "hi": 2.945498081296512,
+              "significant": true
+            }
+          },
+          "vs_ridge": {
+            "F1": {
+              "diff": 0.017770596368540448,
+              "lo": 0.006163011248570103,
+              "hi": 0.030198812864799158,
+              "significant": true
+            },
+            "EM": {
+              "diff": 0.016990291262135915,
+              "lo": 0.007009256494476008,
+              "hi": 0.0308093545475062,
+              "significant": true
+            },
+            "cost": {
+              "diff": 2.517994780657615,
+              "lo": 2.1232387589441757,
+              "hi": 2.945498081296512,
+              "significant": true
+            }
+          },
+          "vs_fuzzy_fixed": {
+            "F1": {
+              "diff": 0.007236479809295371,
+              "lo": -0.0005598568936038344,
+              "hi": 0.01713907424039799,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.004854368932038833,
+              "lo": -0.0024813895781637717,
+              "hi": 0.01488833746898263,
+              "significant": false
+            },
+            "cost": {
+              "diff": 1.542268585147669,
+              "lo": 1.2856317064125575,
+              "hi": 1.8252563340215888,
+              "significant": true
+            }
+          },
+          "comparison_status": "exploratory; no multiplicity-adjusted confirmatory claim"
+        },
+        "uncertainty-B4": {
+          "F1": {
+            "mean": 0.46879976660816186,
+            "lo": 0.4057308955086299,
+            "hi": 0.5333465577638892
+          },
+          "EM": {
+            "mean": 0.3422330097087379,
+            "lo": 0.2764383404645477,
+            "hi": 0.40898888946130196
+          },
+          "cost": {
+            "mean": 11.916387335189338,
+            "lo": 11.81246425096535,
+            "hi": 12.029932634219252
+          },
+          "counts": {
+            "A1": 0,
+            "A2": 412
+          },
+          "A2_fraction": 1.0,
+          "robustness_incomplete_clusters_skipped": 22,
+          "robustness_pairs": 384,
+          "RFR": {
+            "mean": 0.0,
+            "lo": 0.0,
+            "hi": 0.0
+          },
+          "HRFR_legacy_action_order": {
+            "mean": 0.0,
+            "lo": 0.0,
+            "hi": 0.0
+          },
+          "secondary": {
+            "retrievals": 1.9563106796116505,
+            "ce_passes": 39.12621359223301,
+            "llm_calls": 2.0,
+            "input_tokens": 1665.7791262135922,
+            "output_tokens": 18.87864077669903
+          },
+          "within_cluster": {
+            "F1_SD": {
+              "mean": 0.11258432583074583,
+              "lo": 0.08613346421605536,
+              "hi": 0.14341297106538098
+            },
+            "F1_range": {
+              "mean": 0.246510434010434,
+              "lo": 0.18881648516414146,
+              "hi": 0.31434102789571544
+            },
+            "minimum_F1": {
+              "mean": 0.3429062818309142,
+              "lo": 0.274585704073296,
+              "hi": 0.41298930995220046
+            }
+          },
+          "fit": {
+            "candidate": "original-score",
+            "F1": 0.5110851783339821,
+            "A2_count": 165,
+            "cost": 11.890395077033721,
+            "all_candidates": [
+              {
+                "candidate": "always-A1",
+                "F1": 0.49079266560127804,
+                "A2_count": 0,
+                "cost": 6.2274845534924514
+              },
+              {
+                "candidate": "original-score",
+                "F1": 0.5110851783339821,
+                "A2_count": 165,
+                "cost": 11.890395077033721
+              }
+            ],
+            "quota": 1.0
+          },
+          "vs_always_A1": {
+            "F1": {
+              "diff": 0.028073156112209063,
+              "lo": 0.004427838469245763,
+              "hi": 0.050659054726815964,
+              "significant": true
+            },
+            "EM": {
+              "diff": 0.024271844660194164,
+              "lo": -0.0024816989783605498,
+              "hi": 0.050359712230215826,
+              "significant": false
+            },
+            "cost": {
+              "diff": 6.255251154158881,
+              "lo": 6.174267203791024,
+              "hi": 6.331072735668307,
+              "significant": true
+            }
+          },
+          "vs_random_same_A2_count": {
+            "F1": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "cost": {
+              "diff": 0.0,
+              "lo": 0.0,
+              "hi": 0.0,
+              "significant": false
+            },
+            "reference": {
+              "A2_fraction": 1.0,
+              "kind": "expected_uniform_random_allocation",
+              "means": {
+                "F1": 0.46879976660816186,
+                "EM": 0.3422330097087379,
+                "cost": 11.916387335189338
+              },
+              "CI_scope": "cluster sampling only; random allocation integrated analytically"
+            }
+          },
+          "vs_validation_selected_baseline": {
+            "F1": {
+              "diff": 0.017770596368540448,
+              "lo": 0.006163011248570103,
+              "hi": 0.030198812864799158,
+              "significant": true
+            },
+            "EM": {
+              "diff": 0.016990291262135915,
+              "lo": 0.007009256494476008,
+              "hi": 0.0308093545475062,
+              "significant": true
+            },
+            "cost": {
+              "diff": 2.517994780657615,
+              "lo": 2.1232387589441757,
+              "hi": 2.945498081296512,
+              "significant": true
+            }
+          },
+          "vs_ridge": {
+            "F1": {
+              "diff": 0.017770596368540448,
+              "lo": 0.006163011248570103,
+              "hi": 0.030198812864799158,
+              "significant": true
+            },
+            "EM": {
+              "diff": 0.016990291262135915,
+              "lo": 0.007009256494476008,
+              "hi": 0.0308093545475062,
+              "significant": true
+            },
+            "cost": {
+              "diff": 2.517994780657615,
+              "lo": 2.1232387589441757,
+              "hi": 2.945498081296512,
+              "significant": true
+            }
+          },
+          "vs_fuzzy_fixed": {
+            "F1": {
+              "diff": 0.007236479809295371,
+              "lo": -0.0005598568936038344,
+              "hi": 0.01713907424039799,
+              "significant": false
+            },
+            "EM": {
+              "diff": 0.004854368932038833,
+              "lo": -0.0024813895781637717,
+              "hi": 0.01488833746898263,
+              "significant": false
+            },
+            "cost": {
+              "diff": 1.542268585147669,
+              "lo": 1.2856317064125575,
+              "hi": 1.8252563340215888,
+              "significant": true
+            }
+          },
+          "comparison_status": "exploratory; no multiplicity-adjusted confirmatory claim"
+        }
+      }
+    }
+  },
+  "train_action_headroom": {
+    "mean_A2_minus_A1": 0.0031968044192863376,
+    "share_gain_above_0.02": 0.10474308300395258,
+    "share_harm_below_minus_0.02": 0.09683794466403162,
+    "oracle_positive_gain_mean": 0.057384864354173816,
+    "interpretation": "training diagnostic only; oracle gain is not an attainable policy result"
+  },
+  "primary_budget": 0.25,
+  "synthetic": false
+}

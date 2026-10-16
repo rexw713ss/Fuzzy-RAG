@@ -1,0 +1,230 @@
+{
+  "hotpotqa": {
+    "root": "D:\\ICGHIT 2027\\Fuzzy-RAG\\runs",
+    "dataset": "hotpotqa",
+    "archive_version": "v0.4",
+    "test_set": "fresh",
+    "actions": [
+      "A1",
+      "A2"
+    ],
+    "signals": [
+      "S1",
+      "S2",
+      "S3",
+      "S4"
+    ],
+    "cost_key": "latency_total",
+    "preprocessing_mode": "archived_frozen_preprocessing",
+    "calibration_split": "train",
+    "scaler_origin": "v0.3 archived scalers, documented as TRAIN-fitted",
+    "raw_training_signals_available": false,
+    "scalers_independently_refitted": false,
+    "preprocessing_limitation": "Original raw signals were not archived. The original scaler fit cannot be independently verified or repeated; archived scaled values and documented TRAIN scaler parameters are frozen inputs.",
+    "jitter_recomputed_from_training_scaled_signals": true,
+    "scalers": {
+      "S1": {
+        "p5": 0.1441582007875869,
+        "p95": 1.0
+      },
+      "S2": {
+        "p5": 0.4186118627678571,
+        "p95": 1.0
+      },
+      "S3": {
+        "p5": 0.2846522621188851,
+        "p95": 0.6247847265665281
+      },
+      "S4": {
+        "p5": 0.00955309398447453,
+        "p95": 0.8784784025798003
+      }
+    },
+    "jitter": {
+      "widths": [
+        0.22108483538841792,
+        0.2,
+        0.2,
+        0.2
+      ],
+      "p75": [
+        0.22108483538841792,
+        0.18906742749767574,
+        0.11095373491630553,
+        0.14584644428122068
+      ],
+      "widths_median": [
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ],
+      "training_complete_clusters": 174,
+      "training_incomplete_clusters_skipped": 6,
+      "saved_metadata_verified": true
+    },
+    "counts": {
+      "train": {
+        "instances": 531,
+        "clusters": 180,
+        "complete_clusters": 174,
+        "incomplete_clusters_in_source": 6
+      },
+      "val": {
+        "instances": 179,
+        "clusters": 60,
+        "complete_clusters": 59,
+        "incomplete_clusters_in_source": 1
+      },
+      "test": {
+        "instances": 443,
+        "clusters": 150,
+        "complete_clusters": 143,
+        "incomplete_clusters_in_source": 7
+      }
+    },
+    "fresh_disjointness": {
+      "cluster_overlap_original_all_splits": 0,
+      "normalized_question_overlap_original_all_splits": 0,
+      "question_normalization": "NFKC + casefold + remove Unicode Cf + punctuation/whitespace collapse",
+      "clipped_fraction": {
+        "S1": 0.09932279909706546,
+        "S2": 0.024830699774266364,
+        "S3": 0.09480812641083522,
+        "S4": 0.1399548532731377
+      },
+      "raw_signal_source": "D:\\ICGHIT 2027\\Fuzzy-RAG\\runs\\v0.4\\fresh_src\\hotpotqa\\signals.jsonl"
+    },
+    "test_status": "previously reported archived test; exploratory reanalysis",
+    "input_sha256": {
+      "v0.3/splits.json": "e2c36230c5dea67f936cff34a21ed325bd09560abfa6095b35a53e068449c5d3",
+      "v0.3/hotpotqa/queries.jsonl": "550adcd206d496b9ae9d346f4717378177fffa3d43ff86d01a25805d01d7786b",
+      "v0.3/signals_scaled.jsonl": "fff47c0c0c723de8e6727735fc824805f2af88b271cf74f5347b964acbf30fc4",
+      "v0.3/scalers.json": "a3ad86f4cb98322c2cbbaaeee9a7f9689aaebda369c62af1bb4bfb8bb545501b",
+      "v0.3/jitter.json": "06d8dd0daefe04a7efc1ec5cfb07e8690d4fc61a87e42efbd327a783bb74b854",
+      "v0.4/hotpotqa/outcomes.jsonl": "cc45b8450980f4cc88877924eb3db53f49463a6bc6c092e6adfc36e280609479",
+      "v0.4/fresh_src/hotpotqa/queries.jsonl": "b04025833114e8e1cb07b17a643a24ae0e73f4174b34a29b756885412460625f",
+      "v0.4/fresh_src/hotpotqa/signals.jsonl": "2f38e95fd0001221f49d721d03611bfe2894f7492fdfe831cc0d179d9fee57de",
+      "v0.4/fresh/hotpotqa/outcomes.jsonl": "637e5f0b068653b6205ce50338f5ad66350613bd55c8683479f2a2445b8e7822"
+    },
+    "selected_signals": [
+      "S2",
+      "S3",
+      "S4"
+    ]
+  },
+  "nq": {
+    "root": "D:\\ICGHIT 2027\\Fuzzy-RAG\\runs",
+    "dataset": "nq",
+    "archive_version": "v0.4",
+    "test_set": "fresh",
+    "actions": [
+      "A1",
+      "A2"
+    ],
+    "signals": [
+      "S1",
+      "S2",
+      "S3",
+      "S4"
+    ],
+    "cost_key": "latency_total",
+    "preprocessing_mode": "archived_frozen_preprocessing",
+    "calibration_split": "train",
+    "scaler_origin": "v0.3 archived scalers, documented as TRAIN-fitted",
+    "raw_training_signals_available": false,
+    "scalers_independently_refitted": false,
+    "preprocessing_limitation": "Original raw signals were not archived. The original scaler fit cannot be independently verified or repeated; archived scaled values and documented TRAIN scaler parameters are frozen inputs.",
+    "jitter_recomputed_from_training_scaled_signals": true,
+    "scalers": {
+      "S1": {
+        "p5": 0.35831887828373177,
+        "p95": 1.0
+      },
+      "S2": {
+        "p5": 0.4351824633089285,
+        "p95": 1.0
+      },
+      "S3": {
+        "p5": 0.2359775294052055,
+        "p95": 0.5668816571998407
+      },
+      "S4": {
+        "p5": 0.1173695465463142,
+        "p95": 0.9235339521485962
+      }
+    },
+    "jitter": {
+      "widths": [
+        0.25,
+        0.22874885521744998,
+        0.2,
+        0.25
+      ],
+      "p75": [
+        0.4438599465863231,
+        0.22874885521744998,
+        0.1685067670099325,
+        0.3761490857344935
+      ],
+      "widths_median": [
+        0.21033971567238102,
+        0.2,
+        0.2,
+        0.2
+      ],
+      "training_complete_clusters": 157,
+      "training_incomplete_clusters_skipped": 23,
+      "saved_metadata_verified": true
+    },
+    "counts": {
+      "train": {
+        "instances": 506,
+        "clusters": 180,
+        "complete_clusters": 157,
+        "incomplete_clusters_in_source": 23
+      },
+      "val": {
+        "instances": 165,
+        "clusters": 60,
+        "complete_clusters": 50,
+        "incomplete_clusters_in_source": 10
+      },
+      "test": {
+        "instances": 412,
+        "clusters": 150,
+        "complete_clusters": 128,
+        "incomplete_clusters_in_source": 22
+      }
+    },
+    "fresh_disjointness": {
+      "cluster_overlap_original_all_splits": 0,
+      "normalized_question_overlap_original_all_splits": 0,
+      "question_normalization": "NFKC + casefold + remove Unicode Cf + punctuation/whitespace collapse",
+      "clipped_fraction": {
+        "S1": 0.06796116504854369,
+        "S2": 0.024271844660194174,
+        "S3": 0.06796116504854369,
+        "S4": 0.13106796116504854
+      },
+      "raw_signal_source": "D:\\ICGHIT 2027\\Fuzzy-RAG\\runs\\v0.4\\fresh_src\\nq\\signals.jsonl"
+    },
+    "test_status": "previously reported archived test; exploratory reanalysis",
+    "input_sha256": {
+      "v0.3/splits.json": "e2c36230c5dea67f936cff34a21ed325bd09560abfa6095b35a53e068449c5d3",
+      "v0.3/nq/queries.jsonl": "20f4adbc8731f30c34ccfabf09c8657abfc098c0fcb24e16ea7a3ab938513324",
+      "v0.3/signals_scaled.jsonl": "fff47c0c0c723de8e6727735fc824805f2af88b271cf74f5347b964acbf30fc4",
+      "v0.3/scalers.json": "a3ad86f4cb98322c2cbbaaeee9a7f9689aaebda369c62af1bb4bfb8bb545501b",
+      "v0.3/jitter.json": "06d8dd0daefe04a7efc1ec5cfb07e8690d4fc61a87e42efbd327a783bb74b854",
+      "v0.4/nq/outcomes.jsonl": "03d97b2f269211adc436367a1e8a71778e8099ed8b49713a8c727edd0b139d90",
+      "v0.4/fresh_src/nq/queries.jsonl": "ac1973e6c2a5279f00ba1069221024c81c358ee1a47b23bb2d987d2f77491750",
+      "v0.4/fresh_src/nq/signals.jsonl": "73e60c44546b0966c242ea0144974399e20e1d9e8b7c52af79985c327c0175bd",
+      "v0.4/fresh/nq/outcomes.jsonl": "26904b3046febae25d1ee501712f61a225ba3418679d7a5e92f95eba04383c50"
+    },
+    "selected_signals": [
+      "S2",
+      "S3",
+      "S4"
+    ]
+  }
+}

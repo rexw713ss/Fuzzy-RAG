@@ -1,0 +1,62 @@
+{
+  "commit": "1b2f1e34353603cafccb2c2a457f88de1a642a51",
+  "branch": "experiment_ver2",
+  "working_tree_status": "?? experiment_ver2/evidence/",
+  "source_sha256": {
+    "experiment_ver2/__init__.py": "0f6333bf654b45bb10a00f0d9a865934a29c37dd8f59f486249a94728de5d46e",
+    "experiment_ver2/archive.py": "8f4b29c0216e501324e61fc6c3e40ea7ba5cc7d476ffa2e70c8eff4afe5ea07c",
+    "experiment_ver2/data.py": "a8d70f27be35f993bcb6695be5a3cda5b69aaf05af13693483e918554638399a",
+    "experiment_ver2/demo.py": "89f9623e15bbb64adab13cd5a6943ceac98494738ce9604ddd4c7259dd0b679c",
+    "experiment_ver2/metrics.py": "b33d62becae71a834d83d5d83b4a245ff0555534e55afc690e214c8ac1908d63",
+    "experiment_ver2/models.py": "27988de592d05d2016bd0343aee84fb6f3e68a5fb7802f935a285b55fed9d0ee",
+    "experiment_ver2/package_cache.py": "b30b8e57c35932ce09e6c4b9773975c2e8d6ad9bf80123d9a08cd5547647e3ca",
+    "experiment_ver2/plot_results.py": "257d868fef8a140e7314add1e57aae1f97223001aa4f4f3cff1691a34d956ba7",
+    "experiment_ver2/policies.py": "40dad8c38bf23fcc9ccc1f11de7170ac7ae3a6a5547905f711227ccfa587a42a",
+    "experiment_ver2/reproduction.py": "8597c91f71dc1d44eadfc88bc8cca2e50213852caaf4702053a982223061dc5a",
+    "experiment_ver2/run.py": "481d607ad5e4400baea64912ed644a39a40d78416c544e370167864d7534ec11",
+    "main_logic/signals.py": "4b5f45f965f45179925ec60ed6cf06341ae8314d9d43a95e34b5142ba4be7039",
+    "main_logic/calibration.py": "43ea3fb076e4db2009ab65b3467d6734d6a96d9edc1def34c64734addd09583b",
+    "main_logic/fuzzy.py": "2d730982b771547f420143568d8e6a21ab3f501516bef34a7046b2e5afba26c7",
+    "main_logic/evaluation.py": "cc17f27478255de9379c336457dde9ba462fc25fdb2b289a5689e4b8347fdb7b",
+    "main_logic/routing.py": "2a078a2d82e9a5f2ed96bbbacfebfe18a987f7ff6e04f18cf0e3bb1cbcd9e99d"
+  },
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "numpy": "2.3.5",
+  "seed": 42,
+  "budgets": [
+    0.0,
+    0.1,
+    0.25,
+    0.5,
+    1.0
+  ],
+  "primary_budget": 0.25,
+  "priors": [
+    1.0,
+    5.0,
+    20.0
+  ],
+  "ridge_alphas": [
+    0.1,
+    1.0,
+    10.0
+  ],
+  "decision_mode": "offline batch quota; no online guarantee",
+  "test_status": "archived published results already inspected; exploratory replay, including the set named fresh",
+  "synthetic": false,
+  "bootstrap_resamples": 1000,
+  "input_root": "D:\\ICGHIT 2027\\Fuzzy-RAG\\runs",
+  "datasets": [
+    "hotpotqa",
+    "nq"
+  ],
+  "archive_version": "v0.4",
+  "archive_test_set": "old_test",
+  "signals": [
+    "S1",
+    "S2",
+    "S3",
+    "S4"
+  ]
+}
