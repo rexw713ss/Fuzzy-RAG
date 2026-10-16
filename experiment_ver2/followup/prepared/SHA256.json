@@ -1,0 +1,10 @@
+{
+  "hotpotqa/exposure_inventory.json": "c281aed8ddb2dda5c22c55dfcac7be49a15fa35c575f5be1fa6ba079f5ac95b6",
+  "hotpotqa/pilot_manifest.json": "5121e18d5e41b8e4d169d9ee9db90a46d942f0fb9dee36b99eb76c576f200718",
+  "hotpotqa/pilot_queries.jsonl": "042d49c2626d8fe26761ace70159adebb502919cea4ed7029d80ceac69093e7a",
+  "hotpotqa/policy_lock.json": "555dbb90931208d756c68c178e59fa058dfdea43053f99c8964d907373376162",
+  "nq/exposure_inventory.json": "869097b83948efc7a960920d448ce004775cdd154b49fffda0070f1a5b3f364d",
+  "nq/pilot_manifest.json": "eb5071b6b8676b032337cf56ef19629310f6b59f6a1caff4d3d370c7a91a445d",
+  "nq/pilot_queries.jsonl": "3b5f04ef177fa61eeaa808b051d175b8cbf93e1e45b9524a8a16408d647bdac8",
+  "nq/policy_lock.json": "37140dfc09637d633233c01ace82a558b91134ef7152d7b3c7ccadd82dca2802"
+}

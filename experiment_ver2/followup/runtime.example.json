@@ -1,0 +1,28 @@
+{
+  "dataset": "nq",
+  "llama_server": "D:/Han/rex_rag/tools/llama.cpp/llama-server.exe",
+  "llama_server_sha256": null,
+  "llama_server_release": "b11505",
+  "model": "D:/Han/rex_rag/data/models/Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf",
+  "model_sha256": null,
+  "generator_identity": {
+    "model_id": "meta-llama/Llama-3.1-8B-Instruct",
+    "quantization": "Q4_K_M",
+    "source": {"url": null, "revision": null},
+    "historical_model_sha256": null,
+    "historical_evidence": null
+  },
+  "model_cache": "C:/Users/MCU_ITM/.cache/huggingface/hub",
+  "bm25_python": "D:/Han/rex_rag/.venv-bm25/Scripts/python.exe",
+  "java_home": "C:/Program Files/Microsoft/jdk-25.0.4.101-hotspot",
+  "bm25_index": "D:/Han/rex_rag/data/bm25/lucene-inverted.wikipedia-dpr-100w.20260508.deb4c7b",
+  "dense_index": "D:/Han/rex_rag/data/contriever-msmarco/wikipedia_embeddings",
+  "index_manifests": {
+    "dense": {"path": "path/to/dense-manifest.json", "sha256": null},
+    "bm25": {"path": "path/to/bm25-manifest.json", "sha256": null}
+  },
+  "passage_store": "experiment_ver2/runs/nq_passages.sqlite",
+  "passage_store_sha256": null,
+  "corpus_sha256": null,
+  "port": 8089
+}

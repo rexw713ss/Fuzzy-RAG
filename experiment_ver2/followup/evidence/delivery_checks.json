@@ -1,0 +1,19 @@
+{
+  "cli_help": {
+    "sampling": 0,
+    "paraphrases": 0,
+    "review": 0,
+    "freeze": 0,
+    "runtime": 0,
+    "passages": 0,
+    "collect": 0,
+    "evaluate": 0,
+    "confirmation": 0,
+    "planning": 0,
+    "prepare": 0,
+    "audit_preparation": 0
+  },
+  "readiness_source_hashes_match": true,
+  "final_planning_source_hash_matches": true,
+  "tests": "702 passed, 2 skipped; see tests.txt"
+}

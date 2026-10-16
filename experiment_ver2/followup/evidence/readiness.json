@@ -1,0 +1,330 @@
+{
+  "status": "preparation_verified_actual_research_incomplete",
+  "datasets": {
+    "nq": {
+      "pilot_queries": 102,
+      "pilot_clusters": 34,
+      "pilot_train_only": true,
+      "frozen_policy_unchanged": true,
+      "exposed_originals": 450,
+      "runtime_assets": {
+        "status": "blocked_missing_runtime_assets",
+        "checks": [
+          {
+            "check": "dataset",
+            "passed": true
+          },
+          {
+            "check": "local_port",
+            "passed": true
+          },
+          {
+            "check": "declared_corpus_sha256",
+            "passed": false
+          },
+          {
+            "check": "llama_server",
+            "path": "D:/Han/rex_rag/tools/llama.cpp/llama-server.exe",
+            "passed": false
+          },
+          {
+            "check": "model",
+            "path": "D:/Han/rex_rag/data/models/Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf",
+            "passed": false
+          },
+          {
+            "check": "bm25_python",
+            "path": "D:/Han/rex_rag/.venv-bm25/Scripts/python.exe",
+            "passed": false
+          },
+          {
+            "check": "bm25_index",
+            "path": "D:/Han/rex_rag/data/bm25/lucene-inverted.wikipedia-dpr-100w.20260508.deb4c7b",
+            "passed": false
+          },
+          {
+            "check": "dense_index",
+            "path": "D:/Han/rex_rag/data/contriever-msmarco/wikipedia_embeddings",
+            "passed": false
+          },
+          {
+            "check": "passage_store",
+            "path": "experiment_ver2/runs/nq_passages.sqlite",
+            "passed": false
+          },
+          {
+            "check": "model_cache",
+            "path": "C:/Users/MCU_ITM/.cache/huggingface/hub",
+            "passed": true
+          },
+          {
+            "check": "java_home",
+            "path": "C:/Program Files/Microsoft/jdk-25.0.4.101-hotspot",
+            "passed": false
+          },
+          {
+            "check": "package:torch",
+            "passed": false
+          },
+          {
+            "check": "package:transformers",
+            "passed": false
+          },
+          {
+            "check": "package:numpy",
+            "passed": true
+          },
+          {
+            "check": "model_sha256",
+            "passed": false,
+            "expected": null,
+            "observed": null
+          },
+          {
+            "check": "llama_server_sha256",
+            "passed": false,
+            "expected": null,
+            "observed": null
+          },
+          {
+            "check": "passage_store_sha256",
+            "passed": false,
+            "expected": null,
+            "observed": null
+          },
+          {
+            "check": "generator_identity",
+            "passed": false,
+            "error": "source must identify an HTTPS URL and immutable revision"
+          },
+          {
+            "check": "index_manifest:dense",
+            "passed": false,
+            "error": "dense manifest path and SHA256 are required"
+          },
+          {
+            "check": "index_manifest:bm25",
+            "passed": false,
+            "error": "bm25 manifest path and SHA256 are required"
+          },
+          {
+            "check": "pinned_hf:encoder",
+            "passed": false,
+            "error": "missing pinned HF snapshot: facebook/contriever-msmarco@abe8c1493371369031bcb1e02acb754cf4e162fa"
+          },
+          {
+            "check": "pinned_hf:reranker",
+            "passed": false,
+            "error": "missing pinned HF snapshot: cross-encoder/ms-marco-MiniLM-L-6-v2@233902d25c440f23af6f7d6e94d2946bac0bee0a"
+          }
+        ],
+        "hashes_checked": true,
+        "scope": "read-only checks; hashes establish consistency with supplied manifests, not authentic historical provenance; backend initialization and warmup must still succeed; this is not a completed experiment",
+        "timing_scope": "CPU dense encoding/exact search/CE; configured llama.cpp GPU offload; separate JVM startup paid each retrieval; hash verification and model initialization are setup costs outside per-action latency"
+      }
+    },
+    "hotpotqa": {
+      "pilot_queries": 102,
+      "pilot_clusters": 34,
+      "pilot_train_only": true,
+      "frozen_policy_unchanged": true,
+      "exposed_originals": 450,
+      "runtime_assets": {
+        "status": "blocked_missing_runtime_assets",
+        "checks": [
+          {
+            "check": "dataset",
+            "passed": true
+          },
+          {
+            "check": "local_port",
+            "passed": true
+          },
+          {
+            "check": "declared_corpus_sha256",
+            "passed": false
+          },
+          {
+            "check": "llama_server",
+            "path": "D:/Han/rex_rag/tools/llama.cpp/llama-server.exe",
+            "passed": false
+          },
+          {
+            "check": "model",
+            "path": "D:/Han/rex_rag/data/models/Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf",
+            "passed": false
+          },
+          {
+            "check": "bm25_python",
+            "path": "D:/Han/rex_rag/.venv-bm25/Scripts/python.exe",
+            "passed": false
+          },
+          {
+            "check": "bm25_index",
+            "path": "D:/Han/rex_rag/data/bm25/lucene-inverted.wikipedia-dpr-100w.20260508.deb4c7b",
+            "passed": false
+          },
+          {
+            "check": "dense_index",
+            "path": "D:/Han/rex_rag/data/contriever-msmarco/wikipedia_embeddings",
+            "passed": false
+          },
+          {
+            "check": "passage_store",
+            "path": "experiment_ver2/runs/nq_passages.sqlite",
+            "passed": false
+          },
+          {
+            "check": "model_cache",
+            "path": "C:/Users/MCU_ITM/.cache/huggingface/hub",
+            "passed": true
+          },
+          {
+            "check": "java_home",
+            "path": "C:/Program Files/Microsoft/jdk-25.0.4.101-hotspot",
+            "passed": false
+          },
+          {
+            "check": "package:torch",
+            "passed": false
+          },
+          {
+            "check": "package:transformers",
+            "passed": false
+          },
+          {
+            "check": "package:numpy",
+            "passed": true
+          },
+          {
+            "check": "model_sha256",
+            "passed": false,
+            "expected": null,
+            "observed": null
+          },
+          {
+            "check": "llama_server_sha256",
+            "passed": false,
+            "expected": null,
+            "observed": null
+          },
+          {
+            "check": "passage_store_sha256",
+            "passed": false,
+            "expected": null,
+            "observed": null
+          },
+          {
+            "check": "generator_identity",
+            "passed": false,
+            "error": "source must identify an HTTPS URL and immutable revision"
+          },
+          {
+            "check": "index_manifest:dense",
+            "passed": false,
+            "error": "dense manifest path and SHA256 are required"
+          },
+          {
+            "check": "index_manifest:bm25",
+            "passed": false,
+            "error": "bm25 manifest path and SHA256 are required"
+          },
+          {
+            "check": "pinned_hf:encoder",
+            "passed": false,
+            "error": "missing pinned HF snapshot: facebook/contriever-msmarco@abe8c1493371369031bcb1e02acb754cf4e162fa"
+          },
+          {
+            "check": "pinned_hf:reranker",
+            "passed": false,
+            "error": "missing pinned HF snapshot: cross-encoder/ms-marco-MiniLM-L-6-v2@233902d25c440f23af6f7d6e94d2946bac0bee0a"
+          }
+        ],
+        "hashes_checked": true,
+        "scope": "read-only checks; hashes establish consistency with supplied manifests, not authentic historical provenance; backend initialization and warmup must still succeed; this is not a completed experiment",
+        "timing_scope": "CPU dense encoding/exact search/CE; configured llama.cpp GPU offload; separate JVM startup paid each retrieval; hash verification and model initialization are setup costs outside per-action latency"
+      }
+    }
+  },
+  "human_review": {
+    "status": "incomplete",
+    "n_tasks": 60,
+    "pending": 60,
+    "resolved_pairs": 0
+  },
+  "paraphrase_assets": {
+    "status": "blocked_missing_paraphrase_assets",
+    "checks": [
+      {
+        "check": "generator_identity",
+        "passed": false,
+        "error": "source must identify an HTTPS URL and immutable revision"
+      },
+      {
+        "check": "local_port",
+        "passed": true
+      },
+      {
+        "check": "package:torch",
+        "passed": false
+      },
+      {
+        "check": "package:transformers",
+        "passed": false
+      },
+      {
+        "check": "package:numpy",
+        "passed": true
+      },
+      {
+        "check": "model",
+        "path": "D:/Han/rex_rag/data/models/Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf",
+        "expected": null,
+        "observed": null,
+        "passed": false
+      },
+      {
+        "check": "llama_server",
+        "path": "D:/Han/rex_rag/tools/llama.cpp/llama-server.exe",
+        "expected": null,
+        "observed": null,
+        "passed": false
+      },
+      {
+        "check": "nli_pinned_local_snapshot",
+        "path": "C:\\Users\\MCU_ITM\\.cache\\huggingface\\hub\\models--microsoft--deberta-large-mnli\\snapshots\\7296194b9009373def4f7c5dad292651e4b5cf4e",
+        "revision": "7296194b9009373def4f7c5dad292651e4b5cf4e",
+        "passed": false
+      },
+      {
+        "check": "embedder_pinned_local_snapshot",
+        "path": "C:\\Users\\MCU_ITM\\.cache\\huggingface\\hub\\models--sentence-transformers--all-mpnet-base-v2\\snapshots\\e8c3b32edf5434bc2275fc9bab85f82640a19130",
+        "revision": "e8c3b32edf5434bc2275fc9bab85f82640a19130",
+        "passed": false
+      }
+    ],
+    "snapshot_sha256": {},
+    "scope": "read-only local asset/package check; loading and generation must still succeed; no retrieval indices or downloads needed"
+  },
+  "source_sha256": {
+    "experiment_ver2/followup/__init__.py": "e06c407b3a1143cacbc69c384396e1ee70e70fe1d8f0c626165350f7a324198e",
+    "experiment_ver2/followup/actions.py": "d1386735dfa21a86394cf131f08e678dcf9d052c86def070defffdbd99c52a49",
+    "experiment_ver2/followup/audit_preparation.py": "a83b23c39e6fa5d01c454801ab3c8f304fd505ff88127ff8be87f643a9d15215",
+    "experiment_ver2/followup/bm25_worker.py": "b91487dc7ff3c09cd581ea0c0ea143bb0e177d3471c9bc87d8ebe52b8c65e6b1",
+    "experiment_ver2/followup/collect.py": "9ae3679d3890275f60acd40c5fa2885ddfc5977eaf2fdc0c06e9755806ffd464",
+    "experiment_ver2/followup/confirmation.py": "d479e188b639a1a72b9cd14c8b34296a782b155c66bbbab9e62bd14d56f9267d",
+    "experiment_ver2/followup/evaluate.py": "a634310ae523ee805573d64f82f716b8db39c52b3773990263d2a8d1b061b699",
+    "experiment_ver2/followup/freeze.py": "6b4315bb56d961d050cadecbbac225f59eadf3377de096ed3cf45c7d12574b0f",
+    "experiment_ver2/followup/io.py": "355dd9419cc32420bb9085e02481848c55e1636c2e5d4506846c6a7a39164115",
+    "experiment_ver2/followup/paraphrases.py": "4391b5bdcb9fcc6375ef2f36752df4bd76566d9291ccb33172497aa232b2f3cb",
+    "experiment_ver2/followup/passages.py": "a70529cd3d06e1cd275190ecaf16aa201a9cf894fbb428389d172ca883eb5b2e",
+    "experiment_ver2/followup/planning.py": "ac0fca09395e55b1c91175c5299682baf42636f564b0eba8f49df936ff718457",
+    "experiment_ver2/followup/prepare.py": "4fa31c46598438c6b05eeb2bf4e19cb835e563efdb42fd2892cf398cb8bbe183",
+    "experiment_ver2/followup/review.py": "401e6c31194e461c5466f99e7fe956c8b6b399d896ef961c4846db40ec756b78",
+    "experiment_ver2/followup/runtime.py": "0d56b6095e16b78a4398a298e7b37e5d282356d231487c8989e2fb1f9f4cc0a6",
+    "experiment_ver2/followup/sampling.py": "55fb17e2befffcc63a8246457579bff8a681d404595ec48134953a424a878f3e",
+    "experiment_ver2/followup/validation.py": "938055cd983862f00c83024ddf641a56b30c835096ed7bd07a6ed20682844a68"
+  },
+  "protocol_sha256": "b6ec08e11b649767546f72e92e5cc307bd681bb8ac091b060dfea0d0b2ca5ec9",
+  "limits": "uses example runtime paths because actual assets are unavailable; no new model outcomes or human completion inferred from preparation/tests"
+}

@@ -1,0 +1,83 @@
+{
+  "status": "blocked_missing_runtime_assets",
+  "checks": [
+    {
+      "check": "dataset",
+      "passed": true
+    },
+    {
+      "check": "local_port",
+      "passed": true
+    },
+    {
+      "check": "declared_corpus_sha256",
+      "passed": false
+    },
+    {
+      "check": "llama_server",
+      "path": "D:/Han/rex_rag/tools/llama.cpp/llama-server.exe",
+      "passed": false
+    },
+    {
+      "check": "model",
+      "path": "D:/Han/rex_rag/data/models/Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf",
+      "passed": false
+    },
+    {
+      "check": "bm25_python",
+      "path": "D:/Han/rex_rag/.venv-bm25/Scripts/python.exe",
+      "passed": false
+    },
+    {
+      "check": "bm25_index",
+      "path": "D:/Han/rex_rag/data/bm25/lucene-inverted.wikipedia-dpr-100w.20260508.deb4c7b",
+      "passed": false
+    },
+    {
+      "check": "dense_index",
+      "path": "D:/Han/rex_rag/data/contriever-msmarco/wikipedia_embeddings",
+      "passed": false
+    },
+    {
+      "check": "passage_store",
+      "path": "experiment_ver2/runs/nq_passages.sqlite",
+      "passed": false
+    },
+    {
+      "check": "model_cache",
+      "path": "C:/Users/MCU_ITM/.cache/huggingface/hub",
+      "passed": true
+    },
+    {
+      "check": "java_home",
+      "path": "C:/Program Files/Microsoft/jdk-25.0.4.101-hotspot",
+      "passed": false
+    },
+    {
+      "check": "package:torch",
+      "passed": false
+    },
+    {
+      "check": "package:transformers",
+      "passed": false
+    },
+    {
+      "check": "package:numpy",
+      "passed": true
+    },
+    {
+      "check": "model_sha256",
+      "passed": false,
+      "expected": null,
+      "observed": null
+    },
+    {
+      "check": "llama_server_sha256",
+      "passed": false,
+      "expected": null,
+      "observed": null
+    }
+  ],
+  "hashes_checked": true,
+  "scope": "read-only asset/package check; backend initialization and warmup must still succeed; this is not a completed experiment"
+}

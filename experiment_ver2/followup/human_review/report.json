@@ -1,0 +1,6 @@
+{
+  "status": "pending_human_review",
+  "n_tasks": 60,
+  "completed_ratings": 0,
+  "instructions": "Give one blank form to each independent human. Do not disclose the key, outcomes or policy. Fill rater_id/status/criteria/notes/attestations; never label AI ratings as human."
+}

@@ -1,0 +1,35 @@
+{
+  "datasets": {
+    "nq": {
+      "pilot_queries": 102,
+      "pilot_clusters": 34,
+      "all_pilot_clusters_in_train": true,
+      "primary_validation_choices_match_previous_evidence": true,
+      "exposed_originals": 450,
+      "new_outcomes_collected": 0
+    },
+    "hotpotqa": {
+      "pilot_queries": 102,
+      "pilot_clusters": 34,
+      "all_pilot_clusters_in_train": true,
+      "primary_validation_choices_match_previous_evidence": true,
+      "exposed_originals": 450,
+      "new_outcomes_collected": 0
+    }
+  },
+  "human_reviews_completed": 0,
+  "source_sha256": {
+    "experiment_ver2/followup/__init__.py": "e06c407b3a1143cacbc69c384396e1ee70e70fe1d8f0c626165350f7a324198e",
+    "experiment_ver2/followup/actions.py": "e6bb75c077a5a029d054d61d18554a6a7e0c49bf6b600762903d0875f8f36c6c",
+    "experiment_ver2/followup/bm25_worker.py": "b91487dc7ff3c09cd581ea0c0ea143bb0e177d3471c9bc87d8ebe52b8c65e6b1",
+    "experiment_ver2/followup/collect.py": "8e353e3f4b9f6780df5f86c75c46fe269d07b44c22eebdf4d760b88834077cc1",
+    "experiment_ver2/followup/evaluate.py": "4f59a7f563cedf170c73eaca264cc190da23e384d866b7a0cd7d2eb30a6abafa",
+    "experiment_ver2/followup/io.py": "355dd9419cc32420bb9085e02481848c55e1636c2e5d4506846c6a7a39164115",
+    "experiment_ver2/followup/passages.py": "a70529cd3d06e1cd275190ecaf16aa201a9cf894fbb428389d172ca883eb5b2e",
+    "experiment_ver2/followup/prepare.py": "d8ab53dc3c4b31f6754f2a106698c9111fe4e8d0a3013c89cccdf033d65ad84c",
+    "experiment_ver2/followup/review.py": "b41d54b6fef7e9a204695f9c668dcf364399c2b76c420291de7d6b29933778bb",
+    "experiment_ver2/followup/runtime.py": "434882428697bdc0ca22f7ad8a9292883a0deb52f7e6634b6e6d6ea90238b1fa",
+    "experiment_ver2/followup/sampling.py": "54b75561478efd8485f74ab0d1487de761551179898baf29de2a9afb9e7efb90"
+  },
+  "status": "preparation_verified_not_research_complete"
+}

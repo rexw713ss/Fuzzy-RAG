@@ -10,7 +10,7 @@ Environment: Windows 10, Python 3.12.14, NumPy 2.3.5, pytest 9.1.1, regex 2026.9
 .\.venv-core\Scripts\python.exe -m pytest -q -rs
 ```
 
-Final result after robustness and additive follow-up: **641 passed, 2 skipped**. The two existing external rule-CSV tests are skipped because `Fuzzy_RAG_personal/etc/rule_base_81.csv` and `rule_base_27.csv` are not in this repository. Internal generated rule-base tests pass. All 269 ver2 tests pass.
+The current prospective-followup checkpoint has **702 passed, 2 skipped**, recorded in [its raw test output](followup/evidence/tests.txt). The earlier robustness/additive checkpoint had 641 passed, 2 skipped. These are engineering tests, not newly generated research outcomes. The two existing external rule-CSV tests are skipped because `Fuzzy_RAG_personal/etc/rule_base_81.csv` and `rule_base_27.csv` are not in this repository. Internal generated rule-base tests pass.
 
 The suite covers:
 
@@ -24,6 +24,10 @@ The suite covers:
 - Three test-bootstrap estimands checked against literal duplicated-row calculations, cluster weighting, conservative family intervals, and descriptive subgroups.
 - Metadata and split audits, outcome-blind human-review sampling, cluster-level support/ESS and tied-rank diagnostics.
 - Additive basis geometry, independent weighted-ridge solve, collinearity, inability to learn a balanced XOR interaction, model serialization, TEST-outcome absence/perturbation invariance, and saved-reference verification.
+- Prospective sample/exposure fingerprints, complete human-review source records, unique pair/text binding, pre-collection population freeze, immutable action schedules, preserved failed attempts, interrupted-run recovery, and original journal/export reconciliation.
+- A1/A2/A2-union context and decoding reconstruction, empty/wrong traces, cost/token inconsistencies, offline asset/index manifests, original retention after paraphrase screening, and a complete miniature confirmation chain using explicitly toy backends in temporary test directories.
+
+The [followup readiness audit](followup/evidence/readiness.json) verifies real TRAIN pilot inputs and unchanged policy locks, and records missing runtime assets plus incomplete human review. The [planning simulation](followup/evidence/planning_final/report.json) uses exposed cached clusters; it supplies variance sensitivity for future sample sizes, not new answers or evidence of superiority. Full prospective research remains incomplete as detailed in [STATUS](followup/STATUS.zh-TW.md).
 
 ## Original result reproduction
 
