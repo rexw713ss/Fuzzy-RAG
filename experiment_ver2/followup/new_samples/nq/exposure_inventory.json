@@ -1,0 +1,3523 @@
+{
+  "dataset": "nq",
+  "originals": {
+    "nq-01921": {
+      "source_index": 1921,
+      "question": "where does the optic nerve cross the midline",
+      "source_id": null
+    },
+    "nq-00554": {
+      "source_index": 554,
+      "question": "when does walking dead season 8 second half start",
+      "source_id": null
+    },
+    "nq-01470": {
+      "source_index": 1470,
+      "question": "who was the chief guest of 2014 republic day",
+      "source_id": null
+    },
+    "nq-01429": {
+      "source_index": 1429,
+      "question": "where does jack ryan live in patriot games",
+      "source_id": null
+    },
+    "nq-01283": {
+      "source_index": 1283,
+      "question": "when was it was not death for i stood up published",
+      "source_id": null
+    },
+    "nq-03040": {
+      "source_index": 3040,
+      "question": "who was the first chief minister of west bengal",
+      "source_id": null
+    },
+    "nq-00122": {
+      "source_index": 122,
+      "question": "where does new york drinking water come from",
+      "source_id": null
+    },
+    "nq-01968": {
+      "source_index": 1968,
+      "question": "who sings theme tune to orange is the new black",
+      "source_id": null
+    },
+    "nq-00581": {
+      "source_index": 581,
+      "question": "do you have to have a gun permit to shoot at a range",
+      "source_id": null
+    },
+    "nq-00713": {
+      "source_index": 713,
+      "question": "which level of weight bearing often comes with a set number of pounds",
+      "source_id": null
+    },
+    "nq-03374": {
+      "source_index": 3374,
+      "question": "how many nuclear power plants in washington state",
+      "source_id": null
+    },
+    "nq-01924": {
+      "source_index": 1924,
+      "question": "where does the song 10 green bottles come from",
+      "source_id": null
+    },
+    "nq-03061": {
+      "source_index": 3061,
+      "question": "who is singing in something just like this",
+      "source_id": null
+    },
+    "nq-02041": {
+      "source_index": 2041,
+      "question": "who played lead guitar on 25 or 6 to 4",
+      "source_id": null
+    },
+    "nq-01276": {
+      "source_index": 1276,
+      "question": "the man in the high castle episode 1 season 1",
+      "source_id": null
+    },
+    "nq-01895": {
+      "source_index": 1895,
+      "question": "who has the most goals in soccer 2018",
+      "source_id": null
+    },
+    "nq-00578": {
+      "source_index": 578,
+      "question": "who was the girl in the video brenda got a baby",
+      "source_id": null
+    },
+    "nq-00497": {
+      "source_index": 497,
+      "question": "who did deion sanders go in the hall of fame as",
+      "source_id": null
+    },
+    "nq-00424": {
+      "source_index": 424,
+      "question": "during the first world war against which country germany did not fight",
+      "source_id": null
+    },
+    "nq-02722": {
+      "source_index": 2722,
+      "question": "who has won the most world series in baseball",
+      "source_id": null
+    },
+    "nq-01646": {
+      "source_index": 1646,
+      "question": "when did all night long come out lionel richie",
+      "source_id": null
+    },
+    "nq-02223": {
+      "source_index": 2223,
+      "question": "how many wing stops are there in the united states",
+      "source_id": null
+    },
+    "nq-02354": {
+      "source_index": 2354,
+      "question": "who wrote the declaration of man and citizen",
+      "source_id": null
+    },
+    "nq-03188": {
+      "source_index": 3188,
+      "question": "how many episodes in game if thrones season 7",
+      "source_id": null
+    },
+    "nq-02408": {
+      "source_index": 2408,
+      "question": "where does the red badge of courage take place",
+      "source_id": null
+    },
+    "nq-01430": {
+      "source_index": 1430,
+      "question": "when does season 8 for blue bloods start",
+      "source_id": null
+    },
+    "nq-02379": {
+      "source_index": 2379,
+      "question": "when did the nba start playing zone defense",
+      "source_id": null
+    },
+    "nq-01045": {
+      "source_index": 1045,
+      "question": "when was the first driver s license required",
+      "source_id": null
+    },
+    "nq-01960": {
+      "source_index": 1960,
+      "question": "who is the most losing team in nfl history",
+      "source_id": null
+    },
+    "nq-00381": {
+      "source_index": 381,
+      "question": "when was the last time the ducks won the stanley cup",
+      "source_id": null
+    },
+    "nq-02113": {
+      "source_index": 2113,
+      "question": "who negotiated an agreement with japan concerning the future of korea",
+      "source_id": null
+    },
+    "nq-01405": {
+      "source_index": 1405,
+      "question": "when was south african youth day first celebrated",
+      "source_id": null
+    },
+    "nq-03182": {
+      "source_index": 3182,
+      "question": "who sings somebody s watching me with michael jackson",
+      "source_id": null
+    },
+    "nq-00108": {
+      "source_index": 108,
+      "question": "the chinese dragons are protectors of how many seas diggy",
+      "source_id": null
+    },
+    "nq-00078": {
+      "source_index": 78,
+      "question": "who captained the first european ship to sail around the tip of africa",
+      "source_id": null
+    },
+    "nq-00492": {
+      "source_index": 492,
+      "question": "who does april end up with on parks and rec",
+      "source_id": null
+    },
+    "nq-00352": {
+      "source_index": 352,
+      "question": "who holds the world record for the most world records",
+      "source_id": null
+    },
+    "nq-00518": {
+      "source_index": 518,
+      "question": "where was the tv show in the heat of the night filmed",
+      "source_id": null
+    },
+    "nq-02554": {
+      "source_index": 2554,
+      "question": "who sings the wizards of waverly place theme song",
+      "source_id": null
+    },
+    "nq-02254": {
+      "source_index": 2254,
+      "question": "delhi is on the banks of which river",
+      "source_id": null
+    },
+    "nq-00293": {
+      "source_index": 293,
+      "question": "who played shmuel in the boy in the striped pyjamas",
+      "source_id": null
+    },
+    "nq-03107": {
+      "source_index": 3107,
+      "question": "when did i ain t mad at cha come out",
+      "source_id": null
+    },
+    "nq-01966": {
+      "source_index": 1966,
+      "question": "who is the writer of a walk to remember",
+      "source_id": null
+    },
+    "nq-01451": {
+      "source_index": 1451,
+      "question": "when did the name of bombay change to mumbai",
+      "source_id": null
+    },
+    "nq-01914": {
+      "source_index": 1914,
+      "question": "list of books written by abul kalam azad",
+      "source_id": null
+    },
+    "nq-03472": {
+      "source_index": 3472,
+      "question": "when was the time the eagles won the superbowl",
+      "source_id": null
+    },
+    "nq-01340": {
+      "source_index": 1340,
+      "question": "who wrote the theme song for the winter olympics",
+      "source_id": null
+    },
+    "nq-03207": {
+      "source_index": 3207,
+      "question": "the very last episode of that s so raven",
+      "source_id": null
+    },
+    "nq-02068": {
+      "source_index": 2068,
+      "question": "when did season 4 of glee come out",
+      "source_id": null
+    },
+    "nq-00743": {
+      "source_index": 743,
+      "question": "who sang the song a white sports coat and a pink carnation",
+      "source_id": null
+    },
+    "nq-02257": {
+      "source_index": 2257,
+      "question": "who starred in the tv show even stevens",
+      "source_id": null
+    },
+    "nq-02307": {
+      "source_index": 2307,
+      "question": "what channel is big 10 network on fios",
+      "source_id": null
+    },
+    "nq-03329": {
+      "source_index": 3329,
+      "question": "star cast of ab tumhare hawale watan sathiyon",
+      "source_id": null
+    },
+    "nq-00321": {
+      "source_index": 321,
+      "question": "star wars episode ii attack of the clones characters",
+      "source_id": null
+    },
+    "nq-00281": {
+      "source_index": 281,
+      "question": "the legend of heroes trails in the sky the 3rd vita",
+      "source_id": null
+    },
+    "nq-01485": {
+      "source_index": 1485,
+      "question": "who played shaggy in the new scooby doo movie",
+      "source_id": null
+    },
+    "nq-03376": {
+      "source_index": 3376,
+      "question": "who was the book of philippians written to",
+      "source_id": null
+    },
+    "nq-01784": {
+      "source_index": 1784,
+      "question": "who is known as father of green revolution in india",
+      "source_id": null
+    },
+    "nq-01605": {
+      "source_index": 1605,
+      "question": "when does the sword art online movie take place",
+      "source_id": null
+    },
+    "nq-01690": {
+      "source_index": 1690,
+      "question": "when did the right to buy scheme start",
+      "source_id": null
+    },
+    "nq-03433": {
+      "source_index": 3433,
+      "question": "where did students for a democratic society start",
+      "source_id": null
+    },
+    "nq-02874": {
+      "source_index": 2874,
+      "question": "when was the first star wars film released",
+      "source_id": null
+    },
+    "nq-00889": {
+      "source_index": 889,
+      "question": "state with highest population growth rate in india 2011",
+      "source_id": null
+    },
+    "nq-02705": {
+      "source_index": 2705,
+      "question": "who is the cast of despicable me 3",
+      "source_id": null
+    },
+    "nq-00495": {
+      "source_index": 495,
+      "question": "where did huntington s disease get its name",
+      "source_id": null
+    },
+    "nq-02550": {
+      "source_index": 2550,
+      "question": "the probability of making a type i error when retaining ho at the 05 level of significance is",
+      "source_id": null
+    },
+    "nq-03033": {
+      "source_index": 3033,
+      "question": "who was the sixteenth century physician who published",
+      "source_id": null
+    },
+    "nq-02768": {
+      "source_index": 2768,
+      "question": "what is the full scientific name for the e coli bacteria",
+      "source_id": null
+    },
+    "nq-03071": {
+      "source_index": 3071,
+      "question": "who hosted they think it s all over",
+      "source_id": null
+    },
+    "nq-02740": {
+      "source_index": 2740,
+      "question": "who sings god is great beer is good",
+      "source_id": null
+    },
+    "nq-01087": {
+      "source_index": 1087,
+      "question": "what kind of beer is st pauli girl",
+      "source_id": null
+    },
+    "nq-01116": {
+      "source_index": 1116,
+      "question": "when is season 8 for game of thrones",
+      "source_id": null
+    },
+    "nq-00017": {
+      "source_index": 17,
+      "question": "who is under the mask of darth vader",
+      "source_id": null
+    },
+    "nq-03410": {
+      "source_index": 3410,
+      "question": "what is the name of the dragon in eragon",
+      "source_id": null
+    },
+    "nq-01165": {
+      "source_index": 1165,
+      "question": "when did the dallas cowboys win their last playoff game",
+      "source_id": null
+    },
+    "nq-03380": {
+      "source_index": 3380,
+      "question": "where do they grow hops in the us",
+      "source_id": null
+    },
+    "nq-00769": {
+      "source_index": 769,
+      "question": "which abbott and costello movie has who on first",
+      "source_id": null
+    },
+    "nq-03441": {
+      "source_index": 3441,
+      "question": "los angeles stadium at hollywood park opening date",
+      "source_id": null
+    },
+    "nq-03104": {
+      "source_index": 3104,
+      "question": "when did marley die in a christmas carol",
+      "source_id": null
+    },
+    "nq-01220": {
+      "source_index": 1220,
+      "question": "when did the uk and us become allies",
+      "source_id": null
+    },
+    "nq-02367": {
+      "source_index": 2367,
+      "question": "who sang raindrops keep fallin on my head",
+      "source_id": null
+    },
+    "nq-00050": {
+      "source_index": 50,
+      "question": "what is the meaning of veronica in english",
+      "source_id": null
+    },
+    "nq-03088": {
+      "source_index": 3088,
+      "question": "when does the second half of vikings season 5 air",
+      "source_id": null
+    },
+    "nq-03404": {
+      "source_index": 3404,
+      "question": "how many seasons has greys anatomy been on tv",
+      "source_id": null
+    },
+    "nq-02045": {
+      "source_index": 2045,
+      "question": "what mlb teams did deion sanders play for",
+      "source_id": null
+    },
+    "nq-01993": {
+      "source_index": 1993,
+      "question": "who has won the canada open women s doubles",
+      "source_id": null
+    },
+    "nq-02249": {
+      "source_index": 2249,
+      "question": "who won the oscar for best picture in 1976",
+      "source_id": null
+    },
+    "nq-02158": {
+      "source_index": 2158,
+      "question": "who played junior on in the heat of the night",
+      "source_id": null
+    },
+    "nq-01727": {
+      "source_index": 1727,
+      "question": "which approach to psychology focuses on the body especially the brain and nervous system",
+      "source_id": null
+    },
+    "nq-02022": {
+      "source_index": 2022,
+      "question": "where did the term spirits for alcohol come from",
+      "source_id": null
+    },
+    "nq-03483": {
+      "source_index": 3483,
+      "question": "when does season 2 of just add magic come out",
+      "source_id": null
+    },
+    "nq-00680": {
+      "source_index": 680,
+      "question": "where is fort myers located at in florida",
+      "source_id": null
+    },
+    "nq-02598": {
+      "source_index": 2598,
+      "question": "who sang heard it thru the grapevine first",
+      "source_id": null
+    },
+    "nq-03109": {
+      "source_index": 3109,
+      "question": "what happened to the west wing of the white house during a christmas party in 1929",
+      "source_id": null
+    },
+    "nq-00929": {
+      "source_index": 929,
+      "question": "when does season 18 of law and order svu start",
+      "source_id": null
+    },
+    "nq-01799": {
+      "source_index": 1799,
+      "question": "when did britain set up east indian trading company",
+      "source_id": null
+    },
+    "nq-00786": {
+      "source_index": 786,
+      "question": "what is the number of cities in texas",
+      "source_id": null
+    },
+    "nq-01246": {
+      "source_index": 1246,
+      "question": "who is the captain of richmond football club",
+      "source_id": null
+    },
+    "nq-02228": {
+      "source_index": 2228,
+      "question": "what is the latest version of chrome for linux",
+      "source_id": null
+    },
+    "nq-03068": {
+      "source_index": 3068,
+      "question": "who were the first kings to issue coins bearing their names",
+      "source_id": null
+    },
+    "nq-01946": {
+      "source_index": 1946,
+      "question": "where did the british army launch a successful invasion in 1776",
+      "source_id": null
+    },
+    "nq-02587": {
+      "source_index": 2587,
+      "question": "who is considered the father of modern cosmology",
+      "source_id": null
+    },
+    "nq-01551": {
+      "source_index": 1551,
+      "question": "who hit 6 sixes in an over in test cricket",
+      "source_id": null
+    },
+    "nq-01072": {
+      "source_index": 1072,
+      "question": "what is the largest ethnic group in mexico today",
+      "source_id": null
+    },
+    "nq-01438": {
+      "source_index": 1438,
+      "question": "when did the first episode of that 70s show air",
+      "source_id": null
+    },
+    "nq-02729": {
+      "source_index": 2729,
+      "question": "who was last person to be executed in us",
+      "source_id": null
+    },
+    "nq-02446": {
+      "source_index": 2446,
+      "question": "who wrote the song balls to the wall",
+      "source_id": null
+    },
+    "nq-02251": {
+      "source_index": 2251,
+      "question": "where does porter fly out of in toronto",
+      "source_id": null
+    },
+    "nq-00178": {
+      "source_index": 178,
+      "question": "how many super bowl games has the patriots played in",
+      "source_id": null
+    },
+    "nq-02036": {
+      "source_index": 2036,
+      "question": "who plays frankie s sister teddy on grace and frankie",
+      "source_id": null
+    },
+    "nq-02858": {
+      "source_index": 2858,
+      "question": "who owns and operates the panama canal today",
+      "source_id": null
+    },
+    "nq-02192": {
+      "source_index": 2192,
+      "question": "who wrote the guitar solo in beat it",
+      "source_id": null
+    },
+    "nq-01850": {
+      "source_index": 1850,
+      "question": "where are trigger points located in the body",
+      "source_id": null
+    },
+    "nq-02987": {
+      "source_index": 2987,
+      "question": "what nfl team is robert griffin the third playing for",
+      "source_id": null
+    },
+    "nq-03171": {
+      "source_index": 3171,
+      "question": "where was it happened at the world fair filmed",
+      "source_id": null
+    },
+    "nq-00723": {
+      "source_index": 723,
+      "question": "what is the term of an official in the house of representatives",
+      "source_id": null
+    },
+    "nq-00510": {
+      "source_index": 510,
+      "question": "who sang the song i think we re alone now",
+      "source_id": null
+    },
+    "nq-00070": {
+      "source_index": 70,
+      "question": "where does the white witch live in narnia",
+      "source_id": null
+    },
+    "nq-03549": {
+      "source_index": 3549,
+      "question": "tujhe dekha toh yeh jana sanam movie name",
+      "source_id": null
+    },
+    "nq-03098": {
+      "source_index": 3098,
+      "question": "when do you get your dress blues in the army",
+      "source_id": null
+    },
+    "nq-02197": {
+      "source_index": 2197,
+      "question": "who is the original singer of just when i needed you most",
+      "source_id": null
+    },
+    "nq-03070": {
+      "source_index": 3070,
+      "question": "who are the stars in dancing with the stars",
+      "source_id": null
+    },
+    "nq-02831": {
+      "source_index": 2831,
+      "question": "where is the new football stadium in atlanta",
+      "source_id": null
+    },
+    "nq-02293": {
+      "source_index": 2293,
+      "question": "why did jean valjean take care of cosette",
+      "source_id": null
+    },
+    "nq-00913": {
+      "source_index": 913,
+      "question": "who plays the dwarf king in the hobbit",
+      "source_id": null
+    },
+    "nq-01441": {
+      "source_index": 1441,
+      "question": "when did the nba add the three point line",
+      "source_id": null
+    },
+    "nq-00663": {
+      "source_index": 663,
+      "question": "what is the legal age for marriage in australia",
+      "source_id": null
+    },
+    "nq-00249": {
+      "source_index": 249,
+      "question": "which country is the last member of saarc",
+      "source_id": null
+    },
+    "nq-01662": {
+      "source_index": 1662,
+      "question": "where did aeneas go when he left carthage",
+      "source_id": null
+    },
+    "nq-02115": {
+      "source_index": 2115,
+      "question": "who did the central powers defeat on the eastern front before concentrating back on france",
+      "source_id": null
+    },
+    "nq-02090": {
+      "source_index": 2090,
+      "question": "who was the first executive president of guyana",
+      "source_id": null
+    },
+    "nq-01694": {
+      "source_index": 1694,
+      "question": "how many winnie the pooh books are there",
+      "source_id": null
+    },
+    "nq-03487": {
+      "source_index": 3487,
+      "question": "when did the black death end in england",
+      "source_id": null
+    },
+    "nq-01439": {
+      "source_index": 1439,
+      "question": "what is an example of an americanized mexican food created by tex mex cuisine",
+      "source_id": null
+    },
+    "nq-02362": {
+      "source_index": 2362,
+      "question": "what is the location at the end of minority report",
+      "source_id": null
+    },
+    "nq-03064": {
+      "source_index": 3064,
+      "question": "what was the population of the roman empire at its height",
+      "source_id": null
+    },
+    "nq-02487": {
+      "source_index": 2487,
+      "question": "where are they playing the superbowl at this year",
+      "source_id": null
+    },
+    "nq-03278": {
+      "source_index": 3278,
+      "question": "when did united states enter world war i",
+      "source_id": null
+    },
+    "nq-02733": {
+      "source_index": 2733,
+      "question": "who sings in cry baby for johnny depp",
+      "source_id": null
+    },
+    "nq-01031": {
+      "source_index": 1031,
+      "question": "which term describes the replacement of damaged cells to mend a tissue",
+      "source_id": null
+    },
+    "nq-00481": {
+      "source_index": 481,
+      "question": "when do the new episodes of supernatural start",
+      "source_id": null
+    },
+    "nq-02750": {
+      "source_index": 2750,
+      "question": "calpurnia son name in to kill a mockingbird",
+      "source_id": null
+    },
+    "nq-02025": {
+      "source_index": 2025,
+      "question": "who wrote the phantom of the opera music",
+      "source_id": null
+    },
+    "nq-02323": {
+      "source_index": 2323,
+      "question": "who sings the song i feel it still",
+      "source_id": null
+    },
+    "nq-01771": {
+      "source_index": 1771,
+      "question": "who won the king of dance season 2",
+      "source_id": null
+    },
+    "nq-01064": {
+      "source_index": 1064,
+      "question": "who played the girl in my two dads",
+      "source_id": null
+    },
+    "nq-02462": {
+      "source_index": 2462,
+      "question": "who was the first to say i m going to disney world",
+      "source_id": null
+    },
+    "nq-01765": {
+      "source_index": 1765,
+      "question": "what is the longest river in the united states",
+      "source_id": null
+    },
+    "nq-02316": {
+      "source_index": 2316,
+      "question": "where does the movie mothers day take place",
+      "source_id": null
+    },
+    "nq-03304": {
+      "source_index": 3304,
+      "question": "when was the last time the crows were in the grand final",
+      "source_id": null
+    },
+    "nq-02442": {
+      "source_index": 2442,
+      "question": "who sings in everybody dies in their nightmares",
+      "source_id": null
+    },
+    "nq-01767": {
+      "source_index": 1767,
+      "question": "who plays the evil doctor in wonder woman",
+      "source_id": null
+    },
+    "nq-00612": {
+      "source_index": 612,
+      "question": "how long have we been celebrating pi day",
+      "source_id": null
+    },
+    "nq-01217": {
+      "source_index": 1217,
+      "question": "who expanded the palace of versailles to its present size",
+      "source_id": null
+    },
+    "nq-00028": {
+      "source_index": 28,
+      "question": "who plays joker in batman the dark knight",
+      "source_id": null
+    },
+    "nq-00068": {
+      "source_index": 68,
+      "question": "points on a sphere or angles in a circle are measured in units called",
+      "source_id": null
+    },
+    "nq-02524": {
+      "source_index": 2524,
+      "question": "avatar the last airbender season 3 episode 12",
+      "source_id": null
+    },
+    "nq-01071": {
+      "source_index": 1071,
+      "question": "when did muhammad ali win an olympic gold medal",
+      "source_id": null
+    },
+    "nq-01103": {
+      "source_index": 1103,
+      "question": "the cuban revolt against spain was led by",
+      "source_id": null
+    },
+    "nq-01359": {
+      "source_index": 1359,
+      "question": "where does the last name cintron come from",
+      "source_id": null
+    },
+    "nq-02804": {
+      "source_index": 2804,
+      "question": "where does the last name hidalgo come from",
+      "source_id": null
+    },
+    "nq-00230": {
+      "source_index": 230,
+      "question": "what are the active materials of a lead acid battery",
+      "source_id": null
+    },
+    "nq-03026": {
+      "source_index": 3026,
+      "question": "who won the battle of saratoga in 1777",
+      "source_id": null
+    },
+    "nq-00322": {
+      "source_index": 322,
+      "question": "what does hp mean in war and order",
+      "source_id": null
+    },
+    "nq-02056": {
+      "source_index": 2056,
+      "question": "who played the first phantom of the opera",
+      "source_id": null
+    },
+    "nq-02386": {
+      "source_index": 2386,
+      "question": "what type of snake is kaa in jungle book",
+      "source_id": null
+    },
+    "nq-02026": {
+      "source_index": 2026,
+      "question": "when did starbucks become a publicly traded company",
+      "source_id": null
+    },
+    "nq-01542": {
+      "source_index": 1542,
+      "question": "when did american idol end the first time",
+      "source_id": null
+    },
+    "nq-01373": {
+      "source_index": 1373,
+      "question": "when does the new adventure time come out",
+      "source_id": null
+    },
+    "nq-02176": {
+      "source_index": 2176,
+      "question": "who sang never gonna let you go",
+      "source_id": null
+    },
+    "nq-03224": {
+      "source_index": 3224,
+      "question": "the xix of the social security act of 1965 established",
+      "source_id": null
+    },
+    "nq-02523": {
+      "source_index": 2523,
+      "question": "latest series of keeping up with the kardashians",
+      "source_id": null
+    },
+    "nq-03054": {
+      "source_index": 3054,
+      "question": "what was the first kind of vertebrate to exist on earth",
+      "source_id": null
+    },
+    "nq-02233": {
+      "source_index": 2233,
+      "question": "how many seasons of ray donovan has there been",
+      "source_id": null
+    },
+    "nq-01758": {
+      "source_index": 1758,
+      "question": "iupac name of element with atomic number 107",
+      "source_id": null
+    },
+    "nq-03496": {
+      "source_index": 3496,
+      "question": "who played susanna in legends of the fall",
+      "source_id": null
+    },
+    "nq-03578": {
+      "source_index": 3578,
+      "question": "when does the stock market open in hong kong",
+      "source_id": null
+    },
+    "nq-03251": {
+      "source_index": 3251,
+      "question": "who wrote i m in the mood for dancing",
+      "source_id": null
+    },
+    "nq-03017": {
+      "source_index": 3017,
+      "question": "when does the new season of law and order svu come on",
+      "source_id": null
+    },
+    "nq-01034": {
+      "source_index": 1034,
+      "question": "prior to 1948 north and south vietnam were a part of",
+      "source_id": null
+    },
+    "nq-03327": {
+      "source_index": 3327,
+      "question": "what does the air gap do on a dishwasher",
+      "source_id": null
+    },
+    "nq-03127": {
+      "source_index": 3127,
+      "question": "who win road march in trinidad and tobago",
+      "source_id": null
+    },
+    "nq-00192": {
+      "source_index": 192,
+      "question": "who wins the next iron chef super chefs",
+      "source_id": null
+    },
+    "nq-03509": {
+      "source_index": 3509,
+      "question": "who drove the number 18 car in nascar",
+      "source_id": null
+    },
+    "nq-01698": {
+      "source_index": 1698,
+      "question": "who represented the state of tennessee in the scopes trial",
+      "source_id": null
+    },
+    "nq-01843": {
+      "source_index": 1843,
+      "question": "what ethnic group celebrates its contribution to america in october",
+      "source_id": null
+    },
+    "nq-01293": {
+      "source_index": 1293,
+      "question": "a country having an island location and a country having continental location",
+      "source_id": null
+    },
+    "nq-01062": {
+      "source_index": 1062,
+      "question": "how many books are in the diary of a whimpy kid series",
+      "source_id": null
+    },
+    "nq-01706": {
+      "source_index": 1706,
+      "question": "who sings the christmas song all i want for christmas is you",
+      "source_id": null
+    },
+    "nq-01716": {
+      "source_index": 1716,
+      "question": "what is the most current adobe flash player version",
+      "source_id": null
+    },
+    "nq-00751": {
+      "source_index": 751,
+      "question": "what is the point of a menstrual cup",
+      "source_id": null
+    },
+    "nq-00048": {
+      "source_index": 48,
+      "question": "location of the ten commandments in the bible",
+      "source_id": null
+    },
+    "nq-01361": {
+      "source_index": 1361,
+      "question": "what is the biggest town in west virginia",
+      "source_id": null
+    },
+    "nq-00591": {
+      "source_index": 591,
+      "question": "what are the spices in chinese 5 spice powder",
+      "source_id": null
+    },
+    "nq-01714": {
+      "source_index": 1714,
+      "question": "dark parables return of the salt princess release date",
+      "source_id": null
+    },
+    "nq-01750": {
+      "source_index": 1750,
+      "question": "how many episodes of sabrina the teenage witch are there",
+      "source_id": null
+    },
+    "nq-02342": {
+      "source_index": 2342,
+      "question": "who wrote were going on a bear hunt",
+      "source_id": null
+    },
+    "nq-01104": {
+      "source_index": 1104,
+      "question": "when did sweet caroline start at red sox games",
+      "source_id": null
+    },
+    "nq-03520": {
+      "source_index": 3520,
+      "question": "what kind of book is where s waldo",
+      "source_id": null
+    },
+    "nq-01704": {
+      "source_index": 1704,
+      "question": "when did the newest macbook pro come out",
+      "source_id": null
+    },
+    "nq-02649": {
+      "source_index": 2649,
+      "question": "where was the film coming home for christmas filmed",
+      "source_id": null
+    },
+    "nq-01306": {
+      "source_index": 1306,
+      "question": "who won mark and goal of the year 2017",
+      "source_id": null
+    },
+    "nq-00866": {
+      "source_index": 866,
+      "question": "who sings you can t get what you want",
+      "source_id": null
+    },
+    "nq-00683": {
+      "source_index": 683,
+      "question": "when did beds become popular in france and germany",
+      "source_id": null
+    },
+    "nq-02675": {
+      "source_index": 2675,
+      "question": "who is the actor that plays ducky on ncis",
+      "source_id": null
+    },
+    "nq-02456": {
+      "source_index": 2456,
+      "question": "what is a real world application of an atwood machine",
+      "source_id": null
+    },
+    "nq-01346": {
+      "source_index": 1346,
+      "question": "where does the largest amount of federal tax revenue come from",
+      "source_id": null
+    },
+    "nq-01981": {
+      "source_index": 1981,
+      "question": "what is the song in red dead redemption",
+      "source_id": null
+    },
+    "nq-01355": {
+      "source_index": 1355,
+      "question": "who played g baby in the movie hardball",
+      "source_id": null
+    },
+    "nq-01018": {
+      "source_index": 1018,
+      "question": "who does the voice of alistair in dragon age",
+      "source_id": null
+    },
+    "nq-03478": {
+      "source_index": 3478,
+      "question": "where does the band imagine dragons come from",
+      "source_id": null
+    },
+    "nq-02579": {
+      "source_index": 2579,
+      "question": "who does luke skywalker fall in love with",
+      "source_id": null
+    },
+    "nq-03280": {
+      "source_index": 3280,
+      "question": "all of the states in the northeast region",
+      "source_id": null
+    },
+    "nq-00220": {
+      "source_index": 220,
+      "question": "the cast of don t tell mom the babysitter s dead",
+      "source_id": null
+    },
+    "nq-00310": {
+      "source_index": 310,
+      "question": "where is arachidonic acid found in the body",
+      "source_id": null
+    },
+    "nq-01916": {
+      "source_index": 1916,
+      "question": "when did ohio state join the big 10",
+      "source_id": null
+    },
+    "nq-02605": {
+      "source_index": 2605,
+      "question": "what areas of africa were involved in colonization",
+      "source_id": null
+    },
+    "nq-01890": {
+      "source_index": 1890,
+      "question": "when is i can only imagine coming out",
+      "source_id": null
+    },
+    "nq-01401": {
+      "source_index": 1401,
+      "question": "who plays the queen in victoria and abdul",
+      "source_id": null
+    },
+    "nq-03402": {
+      "source_index": 3402,
+      "question": "what level is a city and guilds qualification",
+      "source_id": null
+    },
+    "nq-00125": {
+      "source_index": 125,
+      "question": "how many seasons of rules of engagement is there",
+      "source_id": null
+    },
+    "nq-03532": {
+      "source_index": 3532,
+      "question": "who plays the coach in old spice commercial",
+      "source_id": null
+    },
+    "nq-02387": {
+      "source_index": 2387,
+      "question": "when does ellen s new game show start",
+      "source_id": null
+    },
+    "nq-03536": {
+      "source_index": 3536,
+      "question": "who said some are born great in twelfth night",
+      "source_id": null
+    },
+    "nq-00498": {
+      "source_index": 498,
+      "question": "who are the leaders of the jehovah witnesses",
+      "source_id": null
+    },
+    "nq-02341": {
+      "source_index": 2341,
+      "question": "when was the day that the pubs ran dry in the poem 9 3",
+      "source_id": null
+    },
+    "nq-01509": {
+      "source_index": 1509,
+      "question": "who wrote the music for christmas story live",
+      "source_id": null
+    },
+    "nq-02014": {
+      "source_index": 2014,
+      "question": "who is the book of acts written to",
+      "source_id": null
+    },
+    "nq-01668": {
+      "source_index": 1668,
+      "question": "first day collection of mission china assamese film",
+      "source_id": null
+    },
+    "nq-01171": {
+      "source_index": 1171,
+      "question": "what is the highest base on the ph scale",
+      "source_id": null
+    },
+    "nq-03479": {
+      "source_index": 3479,
+      "question": "when do new episodes of ncis los angeles return",
+      "source_id": null
+    },
+    "nq-01376": {
+      "source_index": 1376,
+      "question": "who played tom on as the world turns",
+      "source_id": null
+    },
+    "nq-00303": {
+      "source_index": 303,
+      "question": "when was as you like it first performed",
+      "source_id": null
+    },
+    "nq-03530": {
+      "source_index": 3530,
+      "question": "when was the us department of homeland security created",
+      "source_id": null
+    },
+    "nq-00077": {
+      "source_index": 77,
+      "question": "when did marathon change its name to snickers",
+      "source_id": null
+    },
+    "nq-03106": {
+      "source_index": 3106,
+      "question": "the art and science of making objects from clay is called",
+      "source_id": null
+    },
+    "nq-02628": {
+      "source_index": 2628,
+      "question": "the removal of temperature in fire fighting method is known as",
+      "source_id": null
+    },
+    "nq-02935": {
+      "source_index": 2935,
+      "question": "who plays meredith quill in guardians of the galaxy 2",
+      "source_id": null
+    },
+    "nq-01778": {
+      "source_index": 1778,
+      "question": "who won last year s grand national 2017",
+      "source_id": null
+    },
+    "nq-01248": {
+      "source_index": 1248,
+      "question": "who is the writer of 50 shades of grey",
+      "source_id": null
+    },
+    "nq-02005": {
+      "source_index": 2005,
+      "question": "who won season 8 of america s next top model",
+      "source_id": null
+    },
+    "nq-00770": {
+      "source_index": 770,
+      "question": "how many episodes in series 7 of game of thrones are there",
+      "source_id": null
+    },
+    "nq-00841": {
+      "source_index": 841,
+      "question": "when was the last time university of michigan won a national championship",
+      "source_id": null
+    },
+    "nq-00132": {
+      "source_index": 132,
+      "question": "how many gold medals did australia win in the 2000 olympics",
+      "source_id": null
+    },
+    "nq-00500": {
+      "source_index": 500,
+      "question": "who turned out to be the mother on how i met your mother",
+      "source_id": null
+    },
+    "nq-01160": {
+      "source_index": 1160,
+      "question": "how long is the famous suspension bridge in san francisco and what is it called",
+      "source_id": null
+    },
+    "nq-02032": {
+      "source_index": 2032,
+      "question": "who plays the main character in hacksaw ridge",
+      "source_id": null
+    },
+    "nq-00772": {
+      "source_index": 772,
+      "question": "fast and furious 7 red car abu dhabi",
+      "source_id": null
+    },
+    "nq-00008": {
+      "source_index": 8,
+      "question": "what is the hot coffee mod in san andreas",
+      "source_id": null
+    },
+    "nq-01719": {
+      "source_index": 1719,
+      "question": "when did the first wireless beats come out",
+      "source_id": null
+    },
+    "nq-01176": {
+      "source_index": 1176,
+      "question": "who invented the first home video security system",
+      "source_id": null
+    },
+    "nq-01313": {
+      "source_index": 1313,
+      "question": "who did the astros play last time they were in the world series",
+      "source_id": null
+    },
+    "nq-00654": {
+      "source_index": 654,
+      "question": "who sings the original windmills of your mind",
+      "source_id": null
+    },
+    "nq-00737": {
+      "source_index": 737,
+      "question": "who sang the songs in the movie beyond the sea",
+      "source_id": null
+    },
+    "nq-03145": {
+      "source_index": 3145,
+      "question": "where is nuclear energy used most in the world",
+      "source_id": null
+    },
+    "nq-02510": {
+      "source_index": 2510,
+      "question": "how many episodes in my name is earl season 4",
+      "source_id": null
+    },
+    "nq-01084": {
+      "source_index": 1084,
+      "question": "when did they start vaccinating for whooping cough",
+      "source_id": null
+    },
+    "nq-00343": {
+      "source_index": 343,
+      "question": "who plays general hux in the last jedi",
+      "source_id": null
+    },
+    "nq-00628": {
+      "source_index": 628,
+      "question": "how many pennsylvania house of representatives are there",
+      "source_id": null
+    },
+    "nq-02586": {
+      "source_index": 2586,
+      "question": "what is the name of the chief justice of ghana",
+      "source_id": null
+    },
+    "nq-02284": {
+      "source_index": 2284,
+      "question": "how many co2 molecules are produced in aerobic respiration",
+      "source_id": null
+    },
+    "nq-02906": {
+      "source_index": 2906,
+      "question": "who played the face in the a team",
+      "source_id": null
+    },
+    "nq-00876": {
+      "source_index": 876,
+      "question": "who is the actor that plays sneaky pete",
+      "source_id": null
+    },
+    "nq-01511": {
+      "source_index": 1511,
+      "question": "which is the ring finger for male in india",
+      "source_id": null
+    },
+    "nq-02047": {
+      "source_index": 2047,
+      "question": "branch of science that deals with the structure of human body parts",
+      "source_id": null
+    },
+    "nq-02140": {
+      "source_index": 2140,
+      "question": "what is the most popular religion in sweden",
+      "source_id": null
+    },
+    "nq-00885": {
+      "source_index": 885,
+      "question": "where was the movie silver linings playbook filmed",
+      "source_id": null
+    },
+    "nq-02692": {
+      "source_index": 2692,
+      "question": "where did the term liberal arts come from",
+      "source_id": null
+    },
+    "nq-02286": {
+      "source_index": 2286,
+      "question": "who is the father of genetics and what did he study",
+      "source_id": null
+    },
+    "nq-00422": {
+      "source_index": 422,
+      "question": "who plays at the prudential center in newark",
+      "source_id": null
+    },
+    "nq-00441": {
+      "source_index": 441,
+      "question": "who sings the song it ain t me",
+      "source_id": null
+    },
+    "nq-01692": {
+      "source_index": 1692,
+      "question": "when does the new episode of scorpion come on",
+      "source_id": null
+    },
+    "nq-00712": {
+      "source_index": 712,
+      "question": "who is doing 2018 super bowl half time show",
+      "source_id": null
+    },
+    "nq-01011": {
+      "source_index": 1011,
+      "question": "who starred in the movie natural born killers",
+      "source_id": null
+    },
+    "nq-00129": {
+      "source_index": 129,
+      "question": "who is currently serving as president of the senate",
+      "source_id": null
+    },
+    "nq-02791": {
+      "source_index": 2791,
+      "question": "who won the oscar for best actor when titanic was nominated",
+      "source_id": null
+    },
+    "nq-01044": {
+      "source_index": 1044,
+      "question": "when does the call of the wild take place",
+      "source_id": null
+    },
+    "nq-03055": {
+      "source_index": 3055,
+      "question": "who wrote shes always a woman to me",
+      "source_id": null
+    },
+    "nq-00147": {
+      "source_index": 147,
+      "question": "when was the last episode of vampire diaries aired",
+      "source_id": null
+    },
+    "nq-01212": {
+      "source_index": 1212,
+      "question": "when does mexico play in the winter olympics",
+      "source_id": null
+    },
+    "nq-00365": {
+      "source_index": 365,
+      "question": "who is in charge of ratifying treaties in the us",
+      "source_id": null
+    },
+    "nq-01178": {
+      "source_index": 1178,
+      "question": "who sold the most records elvis or the beatles",
+      "source_id": null
+    },
+    "nq-01979": {
+      "source_index": 1979,
+      "question": "sending money home to the native country is an example of",
+      "source_id": null
+    },
+    "nq-01986": {
+      "source_index": 1986,
+      "question": "who scored the most points in a single game in the nba",
+      "source_id": null
+    },
+    "nq-03119": {
+      "source_index": 3119,
+      "question": "who ruled the ottoman empire in the 1500s",
+      "source_id": null
+    },
+    "nq-01243": {
+      "source_index": 1243,
+      "question": "the first element on the periodic table is",
+      "source_id": null
+    },
+    "nq-00738": {
+      "source_index": 738,
+      "question": "the cast of a good day to die hard",
+      "source_id": null
+    },
+    "nq-01707": {
+      "source_index": 1707,
+      "question": "when was christmas first celebrated as a holiday",
+      "source_id": null
+    },
+    "nq-03467": {
+      "source_index": 3467,
+      "question": "when does the nba season end this year",
+      "source_id": null
+    },
+    "nq-01407": {
+      "source_index": 1407,
+      "question": "how many counties does the state of georgia have",
+      "source_id": null
+    },
+    "nq-02558": {
+      "source_index": 2558,
+      "question": "where does the bob and tom show broadcast from",
+      "source_id": null
+    },
+    "nq-03162": {
+      "source_index": 3162,
+      "question": "the sport psychology sub field of performance enhancement deals primarily with",
+      "source_id": null
+    },
+    "nq-01575": {
+      "source_index": 1575,
+      "question": "how many countries in the world have scouts",
+      "source_id": null
+    },
+    "nq-03403": {
+      "source_index": 3403,
+      "question": "when is the last time the dolphins went to the superbowl",
+      "source_id": null
+    },
+    "nq-00400": {
+      "source_index": 400,
+      "question": "when did the bill of rights come out",
+      "source_id": null
+    },
+    "nq-01152": {
+      "source_index": 1152,
+      "question": "when did the government change the retirement age",
+      "source_id": null
+    },
+    "nq-00788": {
+      "source_index": 788,
+      "question": "who sings find out who your friends are with tracy lawrence",
+      "source_id": null
+    },
+    "nq-02574": {
+      "source_index": 2574,
+      "question": "who cracked the enigma code in world war 2",
+      "source_id": null
+    },
+    "nq-00461": {
+      "source_index": 461,
+      "question": "who is jojo in horton hears a who",
+      "source_id": null
+    },
+    "nq-00158": {
+      "source_index": 158,
+      "question": "what is the baby elephants name in jungle book",
+      "source_id": null
+    },
+    "nq-02790": {
+      "source_index": 2790,
+      "question": "in which city are the wimbledon game held",
+      "source_id": null
+    },
+    "nq-01135": {
+      "source_index": 1135,
+      "question": "who has appeared in the most royal rumbles",
+      "source_id": null
+    },
+    "nq-00080": {
+      "source_index": 80,
+      "question": "who sang let me tell you about the birds and the bees",
+      "source_id": null
+    },
+    "nq-00242": {
+      "source_index": 242,
+      "question": "who won college basketball player of the year",
+      "source_id": null
+    },
+    "nq-02663": {
+      "source_index": 2663,
+      "question": "who holds the most home runs in mlb history",
+      "source_id": null
+    },
+    "nq-03543": {
+      "source_index": 3543,
+      "question": "who did the music for your lie in april",
+      "source_id": null
+    },
+    "nq-03043": {
+      "source_index": 3043,
+      "question": "which supreme court judge has surved in international court of justice",
+      "source_id": null
+    },
+    "nq-01055": {
+      "source_index": 1055,
+      "question": "what states do not allow daylight savings time",
+      "source_id": null
+    },
+    "nq-03252": {
+      "source_index": 3252,
+      "question": "who plays the robot maid in richie rich",
+      "source_id": null
+    },
+    "nq-02381": {
+      "source_index": 2381,
+      "question": "who plays max voice in a goofy movie",
+      "source_id": null
+    },
+    "nq-01489": {
+      "source_index": 1489,
+      "question": "who sang oh annie i not your daddy",
+      "source_id": null
+    },
+    "nq-00223": {
+      "source_index": 223,
+      "question": "which country has the most coastline in the world",
+      "source_id": null
+    },
+    "nq-02824": {
+      "source_index": 2824,
+      "question": "nearest metro station to gandhi nagar in delhi",
+      "source_id": null
+    },
+    "nq-00514": {
+      "source_index": 514,
+      "question": "what is the highest peak in the ozarks",
+      "source_id": null
+    },
+    "nq-03204": {
+      "source_index": 3204,
+      "question": "who proposed the first accurate model of dna",
+      "source_id": null
+    },
+    "nq-03243": {
+      "source_index": 3243,
+      "question": "who has the biggest airport in the us",
+      "source_id": null
+    },
+    "nq-02939": {
+      "source_index": 2939,
+      "question": "who was the oldest man elected president of usa",
+      "source_id": null
+    },
+    "nq-00177": {
+      "source_index": 177,
+      "question": "name two fibres which are made of proteins",
+      "source_id": null
+    },
+    "nq-02714": {
+      "source_index": 2714,
+      "question": "when was the last time the womens hockey team won gold",
+      "source_id": null
+    },
+    "nq-03113": {
+      "source_index": 3113,
+      "question": "the general term for software that is designed to damage disable or steal data is",
+      "source_id": null
+    },
+    "nq-01333": {
+      "source_index": 1333,
+      "question": "which state was returned to spain after the revolutionary war",
+      "source_id": null
+    },
+    "nq-00175": {
+      "source_index": 175,
+      "question": "who starred in an officer and a gentleman",
+      "source_id": null
+    },
+    "nq-01487": {
+      "source_index": 1487,
+      "question": "the resting stage of the cell cycle is",
+      "source_id": null
+    },
+    "nq-01375": {
+      "source_index": 1375,
+      "question": "when did the revolution begin in the united states",
+      "source_id": null
+    },
+    "nq-00530": {
+      "source_index": 530,
+      "question": "when was the first book made into a movie",
+      "source_id": null
+    },
+    "nq-01660": {
+      "source_index": 1660,
+      "question": "what s the biggest nfl stadium in the united states",
+      "source_id": null
+    },
+    "nq-01226": {
+      "source_index": 1226,
+      "question": "who invented the transtheoretical model of behavior change",
+      "source_id": null
+    },
+    "nq-00402": {
+      "source_index": 402,
+      "question": "who was elected president in mexico in 2000",
+      "source_id": null
+    },
+    "nq-02485": {
+      "source_index": 2485,
+      "question": "who sings i just want to use your love tonight",
+      "source_id": null
+    },
+    "nq-00719": {
+      "source_index": 719,
+      "question": "who plays genie in ferris bueller s day off",
+      "source_id": null
+    },
+    "nq-03012": {
+      "source_index": 3012,
+      "question": "when do you pray the chaplet of divine mercy",
+      "source_id": null
+    },
+    "nq-01568": {
+      "source_index": 1568,
+      "question": "winner of first series of great british bake off",
+      "source_id": null
+    },
+    "nq-01670": {
+      "source_index": 1670,
+      "question": "who won french open 2017 tennis tournament in men s double category",
+      "source_id": null
+    },
+    "nq-02019": {
+      "source_index": 2019,
+      "question": "when did the song push it come out",
+      "source_id": null
+    },
+    "nq-00435": {
+      "source_index": 435,
+      "question": "what is the full form of cfc s",
+      "source_id": null
+    },
+    "nq-01419": {
+      "source_index": 1419,
+      "question": "who plays bianca in that s so raven",
+      "source_id": null
+    },
+    "nq-01100": {
+      "source_index": 1100,
+      "question": "who won the womens 2017 ncaa basketball tournament",
+      "source_id": null
+    },
+    "nq-00783": {
+      "source_index": 783,
+      "question": "how long are the episodes in stranger things season 1",
+      "source_id": null
+    },
+    "nq-00974": {
+      "source_index": 974,
+      "question": "who won oscar for best director this month",
+      "source_id": null
+    },
+    "nq-01120": {
+      "source_index": 1120,
+      "question": "who is the director of nightmare before christmas",
+      "source_id": null
+    },
+    "nq-01963": {
+      "source_index": 1963,
+      "question": "when did bihar bifurcate from bengal and some parts of chota nagpur merged into bengal",
+      "source_id": null
+    },
+    "nq-03199": {
+      "source_index": 3199,
+      "question": "who was the editor of the journal jugantor published in the time of swadeshi movement",
+      "source_id": null
+    },
+    "nq-03348": {
+      "source_index": 3348,
+      "question": "where is the world cup being held 2018",
+      "source_id": null
+    },
+    "nq-02352": {
+      "source_index": 2352,
+      "question": "who s playing in the sec championship 2017",
+      "source_id": null
+    },
+    "nq-02330": {
+      "source_index": 2330,
+      "question": "blood alcohol concentration means the parts of alcohol in the blood in relation to what",
+      "source_id": null
+    },
+    "nq-00854": {
+      "source_index": 854,
+      "question": "how many times have real madrid won the champions league in a row",
+      "source_id": null
+    },
+    "nq-01762": {
+      "source_index": 1762,
+      "question": "when does the movie jeepers creepers come out",
+      "source_id": null
+    },
+    "nq-02776": {
+      "source_index": 2776,
+      "question": "when did the usa join world war one",
+      "source_id": null
+    },
+    "nq-01917": {
+      "source_index": 1917,
+      "question": "when did the ouija board first come out",
+      "source_id": null
+    },
+    "nq-02334": {
+      "source_index": 2334,
+      "question": "what is the average time in hospice care",
+      "source_id": null
+    },
+    "nq-00880": {
+      "source_index": 880,
+      "question": "what part of the brain is in the middle cranial fossa",
+      "source_id": null
+    },
+    "nq-01144": {
+      "source_index": 1144,
+      "question": "who plays harley quinn in the lego batman movie",
+      "source_id": null
+    },
+    "nq-00592": {
+      "source_index": 592,
+      "question": "who played major hochstetter in hogan s heroes",
+      "source_id": null
+    },
+    "nq-01386": {
+      "source_index": 1386,
+      "question": "who owns the biggest house in beverly hills",
+      "source_id": null
+    },
+    "nq-03330": {
+      "source_index": 3330,
+      "question": "who sings the theme song to all that",
+      "source_id": null
+    },
+    "nq-00859": {
+      "source_index": 859,
+      "question": "a concave mirror can form a real image which is a copy of an object that forms",
+      "source_id": null
+    },
+    "nq-00409": {
+      "source_index": 409,
+      "question": "who are the australia s got talent judges",
+      "source_id": null
+    },
+    "nq-03314": {
+      "source_index": 3314,
+      "question": "where did the tea come from in the boston tea party",
+      "source_id": null
+    },
+    "nq-02030": {
+      "source_index": 2030,
+      "question": "who has climbed mount everest the number of times",
+      "source_id": null
+    },
+    "nq-01964": {
+      "source_index": 1964,
+      "question": "how many series of diary of a wimpy kid are there",
+      "source_id": null
+    },
+    "nq-01776": {
+      "source_index": 1776,
+      "question": "who won the american league pennant in 2017",
+      "source_id": null
+    },
+    "nq-02322": {
+      "source_index": 2322,
+      "question": "who played guitar on my guitar gently weeps",
+      "source_id": null
+    },
+    "nq-01517": {
+      "source_index": 1517,
+      "question": "who plays grace in the secret life of the american teenager",
+      "source_id": null
+    },
+    "nq-01693": {
+      "source_index": 1693,
+      "question": "who sings the songs in crazy ex girlfriend",
+      "source_id": null
+    },
+    "nq-01879": {
+      "source_index": 1879,
+      "question": "suffix applied to the end of the name of enzymes",
+      "source_id": null
+    },
+    "nq-03244": {
+      "source_index": 3244,
+      "question": "who does the voice of mrs wolowitz on the big bang theory",
+      "source_id": null
+    },
+    "nq-02611": {
+      "source_index": 2611,
+      "question": "what was the name of darth vader star destroyer",
+      "source_id": null
+    },
+    "nq-02845": {
+      "source_index": 2845,
+      "question": "dogs name in the grinch who stole christmas",
+      "source_id": null
+    },
+    "nq-01196": {
+      "source_index": 1196,
+      "question": "where is the protien made in the cell",
+      "source_id": null
+    },
+    "nq-02878": {
+      "source_index": 2878,
+      "question": "actor who played caesar in dawn of the planet of the apes",
+      "source_id": null
+    },
+    "nq-01780": {
+      "source_index": 1780,
+      "question": "who plays the dad in drake and josh",
+      "source_id": null
+    },
+    "nq-01390": {
+      "source_index": 1390,
+      "question": "who has the most number one single hits",
+      "source_id": null
+    },
+    "nq-01403": {
+      "source_index": 1403,
+      "question": "when is last time the astros won the world series",
+      "source_id": null
+    },
+    "nq-03318": {
+      "source_index": 3318,
+      "question": "when was the last episode of the flash aired",
+      "source_id": null
+    },
+    "nq-01321": {
+      "source_index": 1321,
+      "question": "who sponsored the phoenix open before waste management",
+      "source_id": null
+    },
+    "nq-02696": {
+      "source_index": 2696,
+      "question": "tv show theme song would you like to swing on a star",
+      "source_id": null
+    },
+    "nq-01637": {
+      "source_index": 1637,
+      "question": "where is the bread plate located in a formal setting",
+      "source_id": null
+    },
+    "nq-00285": {
+      "source_index": 285,
+      "question": "what type of government did the ming dynasty have",
+      "source_id": null
+    },
+    "nq-00957": {
+      "source_index": 957,
+      "question": "what is bermuda competing in the winter olympics",
+      "source_id": null
+    },
+    "nq-01988": {
+      "source_index": 1988,
+      "question": "disagreements involving slavery and states rights were two of the main causes of",
+      "source_id": null
+    },
+    "nq-02868": {
+      "source_index": 2868,
+      "question": "first dynasty to issue gold coins in india",
+      "source_id": null
+    },
+    "nq-02242": {
+      "source_index": 2242,
+      "question": "who played anne in anne with an e",
+      "source_id": null
+    },
+    "nq-02222": {
+      "source_index": 2222,
+      "question": "royal society for the protection of birds number of members",
+      "source_id": null
+    },
+    "nq-00372": {
+      "source_index": 372,
+      "question": "where does hydrogen peroxide come from in the body",
+      "source_id": null
+    },
+    "nq-01847": {
+      "source_index": 1847,
+      "question": "who plays elsa s aunt in once upon a time",
+      "source_id": null
+    },
+    "nq-02965": {
+      "source_index": 2965,
+      "question": "how many national parks are present in india",
+      "source_id": null
+    },
+    "nq-02309": {
+      "source_index": 2309,
+      "question": "when does the 2017 college football season end",
+      "source_id": null
+    },
+    "nq-02752": {
+      "source_index": 2752,
+      "question": "the plane of earth s orbit is called the",
+      "source_id": null
+    },
+    "nq-00332": {
+      "source_index": 332,
+      "question": "the fertile crescent is located between what two bodies of water",
+      "source_id": null
+    },
+    "nq-01323": {
+      "source_index": 1323,
+      "question": "how much money did the film titanic make",
+      "source_id": null
+    },
+    "nq-02434": {
+      "source_index": 2434,
+      "question": "who become the ceo of it wipro company in 2016",
+      "source_id": null
+    },
+    "nq-00668": {
+      "source_index": 668,
+      "question": "who played the female lead in the 1942 film casablanca",
+      "source_id": null
+    },
+    "nq-00216": {
+      "source_index": 216,
+      "question": "if a piece of music is perceived to have changed key then we say the piece has",
+      "source_id": null
+    },
+    "nq-01592": {
+      "source_index": 1592,
+      "question": "the elements in each period have the same number of",
+      "source_id": null
+    },
+    "nq-00956": {
+      "source_index": 956,
+      "question": "what river is associated with the city of rome",
+      "source_id": null
+    },
+    "nq-00739": {
+      "source_index": 739,
+      "question": "last world series that didn t go 7 games",
+      "source_id": null
+    },
+    "nq-00191": {
+      "source_index": 191,
+      "question": "who appoints the chair of the federal reserve system",
+      "source_id": null
+    },
+    "nq-02832": {
+      "source_index": 2832,
+      "question": "when was the last god of war made",
+      "source_id": null
+    },
+    "nq-03421": {
+      "source_index": 3421,
+      "question": "what is the main character s name in layer cake",
+      "source_id": null
+    },
+    "nq-02108": {
+      "source_index": 2108,
+      "question": "when was the last time mount ruapehu erupted",
+      "source_id": null
+    },
+    "nq-01073": {
+      "source_index": 1073,
+      "question": "where are the mitochondria located in the sperm",
+      "source_id": null
+    },
+    "nq-00522": {
+      "source_index": 522,
+      "question": "the golden age of india took place during the rule of the",
+      "source_id": null
+    },
+    "nq-01129": {
+      "source_index": 1129,
+      "question": "how many indian astronauts have gone to space",
+      "source_id": null
+    },
+    "nq-02621": {
+      "source_index": 2621,
+      "question": "what is the general structure of an url",
+      "source_id": null
+    },
+    "nq-00797": {
+      "source_index": 797,
+      "question": "where does saying bob s your uncle come from",
+      "source_id": null
+    },
+    "nq-01976": {
+      "source_index": 1976,
+      "question": "who does the voice of marceline on adventure time",
+      "source_id": null
+    },
+    "nq-00233": {
+      "source_index": 233,
+      "question": "who developed the central processing unit cpu",
+      "source_id": null
+    },
+    "nq-01132": {
+      "source_index": 1132,
+      "question": "who plays manny in diary of a wimpy kid",
+      "source_id": null
+    },
+    "nq-00709": {
+      "source_index": 709,
+      "question": "what type of speed does a speedometer measure",
+      "source_id": null
+    },
+    "nq-02606": {
+      "source_index": 2606,
+      "question": "who took the first steps on the moon in 1969",
+      "source_id": null
+    },
+    "nq-02995": {
+      "source_index": 2995,
+      "question": "what does rt mean on a dodge car",
+      "source_id": null
+    },
+    "nq-02703": {
+      "source_index": 2703,
+      "question": "chandra and bhaga river meets at the place",
+      "source_id": null
+    },
+    "nq-02304": {
+      "source_index": 2304,
+      "question": "who wrote it s gonna take a lot of love",
+      "source_id": null
+    },
+    "nq-03046": {
+      "source_index": 3046,
+      "question": "who gave the famous objective co relative theory",
+      "source_id": null
+    },
+    "nq-03545": {
+      "source_index": 3545,
+      "question": "where are unipolar neurons found in spinal cord",
+      "source_id": null
+    },
+    "nq-02799": {
+      "source_index": 2799,
+      "question": "the witch and the hundred knight 2 us release",
+      "source_id": null
+    },
+    "nq-01503": {
+      "source_index": 1503,
+      "question": "when is the new series of keeping faith starting",
+      "source_id": null
+    },
+    "nq-03324": {
+      "source_index": 3324,
+      "question": "when did they start adding zinc to pennies",
+      "source_id": null
+    },
+    "nq-01460": {
+      "source_index": 1460,
+      "question": "who sang the song brother let me be your shelter",
+      "source_id": null
+    },
+    "nq-00660": {
+      "source_index": 660,
+      "question": "who is the father of lucius in gladiator",
+      "source_id": null
+    },
+    "nq-03213": {
+      "source_index": 3213,
+      "question": "who missed the plane the day the music died",
+      "source_id": null
+    },
+    "nq-02573": {
+      "source_index": 2573,
+      "question": "where does new crust come from in sea floor spreading",
+      "source_id": null
+    },
+    "nq-00686": {
+      "source_index": 686,
+      "question": "who came out first batman or spider man",
+      "source_id": null
+    },
+    "nq-00454": {
+      "source_index": 454,
+      "question": "who does the head of the fbi report to",
+      "source_id": null
+    },
+    "nq-00466": {
+      "source_index": 466,
+      "question": "what are the power of supreme court in the philippines",
+      "source_id": null
+    },
+    "nq-00947": {
+      "source_index": 947,
+      "question": "when did hootie and the blowfish come out",
+      "source_id": null
+    },
+    "nq-03533": {
+      "source_index": 3533,
+      "question": "where can i get a state issued id",
+      "source_id": null
+    },
+    "nq-01157": {
+      "source_index": 1157,
+      "question": "what happens when an air mass is pushed up and over a mountain range",
+      "source_id": null
+    },
+    "nq-00100": {
+      "source_index": 100,
+      "question": "who has won the most games in nfl 2017",
+      "source_id": null
+    },
+    "nq-01618": {
+      "source_index": 1618,
+      "question": "which two regions grow most of china s rice",
+      "source_id": null
+    },
+    "nq-03263": {
+      "source_index": 3263,
+      "question": "when was the taj mahal built and completed",
+      "source_id": null
+    },
+    "nq-00001": {
+      "source_index": 1,
+      "question": "who wrote he ain t heavy he s my brother lyrics",
+      "source_id": null
+    },
+    "nq-01338": {
+      "source_index": 1338,
+      "question": "which nfl coach has the most superbowl rings",
+      "source_id": null
+    },
+    "nq-03235": {
+      "source_index": 3235,
+      "question": "most runs ever scored in a mlb inning",
+      "source_id": null
+    },
+    "nq-02748": {
+      "source_index": 2748,
+      "question": "when was 1 john 5 7 added to the bible",
+      "source_id": null
+    },
+    "nq-02017": {
+      "source_index": 2017,
+      "question": "when did billy don t be a hero come out",
+      "source_id": null
+    },
+    "nq-00847": {
+      "source_index": 847,
+      "question": "who was charlie writing to in perks of being a wallflower movie",
+      "source_id": null
+    },
+    "nq-02437": {
+      "source_index": 2437,
+      "question": "who plays the protagonist peter rabbit in the 2018 motion picture release",
+      "source_id": null
+    },
+    "nq-01770": {
+      "source_index": 1770,
+      "question": "when did indoor toilets become common in america",
+      "source_id": null
+    },
+    "nq-02741": {
+      "source_index": 2741,
+      "question": "when was night at the museum 3 filmed",
+      "source_id": null
+    },
+    "nq-02820": {
+      "source_index": 2820,
+      "question": "how many episodes is season 4 of the flash",
+      "source_id": null
+    },
+    "nq-02855": {
+      "source_index": 2855,
+      "question": "the boiling point of water is 100 degrees celsius express this in si units",
+      "source_id": null
+    },
+    "nq-02943": {
+      "source_index": 2943,
+      "question": "where does sleeping freshmen never lie take place",
+      "source_id": null
+    },
+    "nq-03309": {
+      "source_index": 3309,
+      "question": "what is the process to become a santero",
+      "source_id": null
+    },
+    "nq-01983": {
+      "source_index": 1983,
+      "question": "who is the ceo of what s up",
+      "source_id": null
+    },
+    "nq-02988": {
+      "source_index": 2988,
+      "question": "who did the united states fight in the war of 1812",
+      "source_id": null
+    },
+    "nq-01251": {
+      "source_index": 1251,
+      "question": "who was defeated in the french and indian war",
+      "source_id": null
+    },
+    "nq-00031": {
+      "source_index": 31,
+      "question": "who did bette midler portray in the rose",
+      "source_id": null
+    },
+    "nq-03439": {
+      "source_index": 3439,
+      "question": "who sang it my party and i ll cry if i want to in the 80",
+      "source_id": null
+    },
+    "nq-03485": {
+      "source_index": 3485,
+      "question": "who won nfl football coach of the year",
+      "source_id": null
+    }
+  },
+  "normalized_texts": [
+    "a concave mirror can create a genuine replica of an object by producing a real image that is a faithful copy of it",
+    "a concave mirror can form a real image which is a copy of an object that forms",
+    "a concave mirror is capable of producing a real image which is an exact replica of an object that is being reflected",
+    "a country having an island location and a country having continental location",
+    "a country situated on an island and a country located on the mainland",
+    "actor who played caesar in dawn of the planet of the apes",
+    "all of the states in the northeast region",
+    "angles in a circle or points on a sphere are measured in terms of certain units known as",
+    "at its peak how many people lived within the boundaries of the roman empire",
+    "at its peak what was the estimated number of inhabitants within the territorial boundaries of the roman empire",
+    "at what location do the chandra and bhaga rivers converge",
+    "at what point does the optic nerve intersect the midline of the body",
+    "at what point does the optic nerve intersect with the midline of the body",
+    "at what point in american history did indoor plumbing specifically toilets start to become a widespread and common household feature",
+    "at what point in history did christmas first emerge as a recognized and observed holiday",
+    "at what point in history did the separation of bihar from bengal occur and to what extent did parts of chota nagpur become integrated into bengal",
+    "at what point in history did the united kingdom and the united states establish a formal alliance",
+    "at what point in history was 1 john 5 7 inserted into the bible",
+    "at what point in time did indoor toilets begin to gain widespread acceptance and usage throughout the united states",
+    "at what point in time did muhammad ali secure an olympic gold medal",
+    "at what point in time did sweet caroline begin being played at boston red sox games",
+    "at what point in time did sweet caroline begin being played at red sox games",
+    "at what point in time did the british establish the east india trading company",
+    "at what point in time did the government implement a change to the retirement age",
+    "at what point in time did the government modify the retirement age requirements",
+    "at what point in time did the introduction of zinc into pennies take place",
+    "at what point in time did the nba introduce the three point line feature",
+    "at what point in time did the revolution in the united states initially start",
+    "at what point in time did the right to buy scheme first come into existence",
+    "at what point in time did the united states become involved in world war i",
+    "at what point in time did the united states of america enter into involvement in world war one",
+    "at what point in time was the bill of rights first made public",
+    "at what point in time was the united states department of homeland security established",
+    "at what point in your military service can you expect to receive the traditional dress uniform commonly referred to as the dress blues in the army",
+    "at what time do you recite the chaplet of divine mercy",
+    "at which location was the filming of it happened at the world s fair conducted",
+    "avatar the last airbender season 3 episode 12",
+    "before 1948 north and south vietnam were a constituent part of what region or entity",
+    "before 1948 north and south vietnam were components of what entity",
+    "blood alcohol concentration means the parts of alcohol in the blood in relation to what",
+    "branch of science that deals with the structure of human body parts",
+    "calpurnia son name in to kill a mockingbird",
+    "chandra and bhaga river meets at the place",
+    "countries with island and continental geographical settings respectively",
+    "dark parables return of the salt princess release date",
+    "delhi is on the banks of which river",
+    "disagreements involving slavery and states rights were two of the main causes of",
+    "do you have to have a gun permit to shoot at a range",
+    "dogs name in the grinch who stole christmas",
+    "during a christmas party in 1929 what incident or occurrence occurred at the west wing of the white house",
+    "during the first world war against which country germany did not fight",
+    "during the revolutionary war which u s territory was subsequently regained by spanish control",
+    "during which period did india s golden age occur under the governance of which rulers",
+    "during world war 2 which individual successfully deciphered the infamous enigma code",
+    "episode 1 of season 1 from the man in the high castle",
+    "fast and furious 7 red car abu dhabi",
+    "first day collection of mission china assamese film",
+    "first dynasty to issue gold coins in india",
+    "from what historical origins and sources does the concept of liberal arts derive",
+    "from what historical origins does the term liberal arts derive",
+    "from what origin did the term spirits for alcohol derive",
+    "from where did the name huntington s disease originate",
+    "from where does the body produce hydrogen peroxide",
+    "from where does the phrase bob s your uncle originate",
+    "from which origin did the tea arrive during the boston tea party",
+    "from which origin or source does the term spirits for alcohol derive",
+    "from which origins does the song 10 green bottles derive",
+    "from which sources does the federal government derive the majority of its tax revenue",
+    "how long are the episodes in stranger things season 1",
+    "how long have we been celebrating pi day",
+    "how long is the famous suspension bridge in san francisco and what is it called",
+    "how many books are in the diary of a whimpy kid series",
+    "how many cities are there in the state of texas",
+    "how many cities exist within the state of texas",
+    "how many co2 molecules are produced in aerobic respiration",
+    "how many consecutive times has real madrid won the champions league",
+    "how many counties does the state of georgia have",
+    "how many countries in the world have scouts",
+    "how many different book series are there in the diary of a wimpy kid series",
+    "how many episodes in game if thrones season 7",
+    "how many episodes in my name is earl season 4",
+    "how many episodes in series 7 of game of thrones are there",
+    "how many episodes is season 4 of the flash",
+    "how many episodes of sabrina the teenage witch are there",
+    "how many gold medals did australia win in the 2000 olympics",
+    "how many indian astronauts have gone to space",
+    "how many members does the royal society for the protection of birds have",
+    "how many national parks are present in india",
+    "how many nuclear power plants in washington state",
+    "how many pennsylvania house of representatives are there",
+    "how many seas are protected by the chinese dragons diggy",
+    "how many seas do the chinese dragons protect diggy",
+    "how many seasons has greys anatomy been on tv",
+    "how many seasons of ray donovan has there been",
+    "how many seasons of rules of engagement is there",
+    "how many series of diary of a wimpy kid are there",
+    "how many super bowl appearances have the patriots made in total",
+    "how many super bowl games has the patriots played in",
+    "how many times have real madrid won the champions league in a row",
+    "how many wing stops are there in the united states",
+    "how many winnie the pooh books are there",
+    "how many years has the television show grey s anatomy been broadcasting in terms of the number of seasons it has been on the air",
+    "how much money did the film titanic make",
+    "if a piece of music is perceived to have changed key then we say the piece has",
+    "if you could choose a tv show theme song which one would be fitting for the lyrics swing on a star",
+    "in 1777 which side emerged victorious in the battle of saratoga",
+    "in 1969 who was the first person to set foot on the moon",
+    "in 2017 which team claimed the american league pennant title",
+    "in 2017 which team secured the american league pennant",
+    "in a formal setting where is the bread plate typically positioned",
+    "in a formal setting where is the placement of the bread plate typically situated",
+    "in a test cricket match which player achieved the feat of hitting 6 sixes in a single over",
+    "in a test cricket match which player achieved the feat of hitting six consecutive sixes in a single over",
+    "in aerobic respiration what is the total number of co2 molecules generated",
+    "in australia what is the minimum age at which a person is allowed to legally get married",
+    "in guardians of the galaxy 2 who portrays the character of meredith quill",
+    "in india on which finger is the ring worn by a male",
+    "in india which finger is traditionally considered the ring finger for a male",
+    "in mexico which presidential candidate was successful in an election held in the year 2000",
+    "in nascar who was the driver of the number 18 car",
+    "in the 1942 film casablanca which actress took on the female lead role",
+    "in the 1942 film casablanca who was the actress to portray the female lead",
+    "in the 1980s who performed the song my party and i ll cry if i want to",
+    "in the 1980s who was the artist behind the song it s my party and i ll cry if i want to",
+    "in the 1986 film ferris bueller s day off which actor portrays the character of genie",
+    "in the 2000 olympics what was the total number of gold medals awarded to australia",
+    "in the 2018 motion picture release who portrays the main character peter rabbit",
+    "in the 2018 motion picture release who portrays the protagonist peter rabbit",
+    "in the book eragon what is the dragon s name",
+    "in the brenda got a baby video which girl appeared in it",
+    "in the context of war and order what does the abbreviation hp represent",
+    "in the context of war and order what does the abbreviation hp signify",
+    "in the film a goofy movie who provides the voice for max goof",
+    "in the film adaptation of the boy in the striped pajamas who portrayed the character of shmuel",
+    "in the film richie rich who portrays the character of the robotic maid",
+    "in the film the rose who was the character portrayed by actress bette midler",
+    "in the film victoria and abdul who portrays the queen",
+    "in the film victoria and abdul who portrays the role of the queen",
+    "in the film wonder woman who portrays the role of the sinister doctor",
+    "in the first world war which country was not a combatant against germany",
+    "in the french and indian war which of the opposing sides ultimately suffered a defeat",
+    "in the hobbit who portrays the character of the dwarf king",
+    "in the jungle book what is the name of the baby elephant",
+    "in the jungle book what is the name of the baby elephant character",
+    "in the jungle book what species of serpent is kaa portrayed as",
+    "in the jungle book what species of snake is kaa depicted as",
+    "in the last jedi who portrays the character of general hux",
+    "in the lego batman movie who portrays the character of harley quinn",
+    "in the most recent adaptation of the scooby doo film who portrayed the character of shaggy",
+    "in the movie a goofy movie who provides the voice of max",
+    "in the movie adaptation of the boy in the striped pyjamas who portrayed the character shmuel",
+    "in the movie adaptation of the hobbit who portrays the character of the dwarf king",
+    "in the movie batman the dark knight who portrays the character of the joker",
+    "in the movie diary of a wimpy kid who portrays manny",
+    "in the movie ferris bueller s day off who portrays the character of genie",
+    "in the movie gladiator who is the father of lucius",
+    "in the movie gladiator who is the parent of the character lucius",
+    "in the movie guardians of the galaxy 2 who portrays the character meredith quill",
+    "in the movie hardball who portrayed the character g baby",
+    "in the movie hardball who portrayed the character known as g baby",
+    "in the movie legends of the fall who portrayed the character susanna",
+    "in the movie richie rich who portrays the character of the robot maid",
+    "in the movie the dark knight which actor portrays the character of the joker",
+    "in the movie the last jedi who portrays the character general hux",
+    "in the movie the rose who was the character played by bette midler",
+    "in the movie wonder woman who portrays the role of the villainous doctor",
+    "in the new scooby doo movie who portrayed the character of shaggy",
+    "in the old spice commercial who is the actor portraying the coach",
+    "in the old spice commercial who portrays the coach",
+    "in the perks of being a wallflower movie to whom is charlie corresponding",
+    "in the perks of being a wallflower movie who was charlie addressing his letters to",
+    "in the poem 9 3 what date is mentioned as the day when the pubs ran out of beer or supplies",
+    "in the poem 9 3 what specific day is associated with pubs running out of liquor",
+    "in the process of sea floor spreading what is the origin of newly created crust",
+    "in the scopes trial which individual served as the representative of the state of tennessee",
+    "in the story horton hears a who what character is known as jojo",
+    "in the story horton hears a who who is the character referred to as jojo",
+    "in the television series anne with an e who portrayed the character of anne",
+    "in the television series hogan s heroes who portrayed the character major hochstetter",
+    "in the television series that s so raven who portrays the character of bianca",
+    "in the television series the secret life of the american teenager which actress portrays the character of grace bowman",
+    "in the television series the secret life of the american teenager who portrays the character of grace",
+    "in the television show drake and josh who portrays the character of the father",
+    "in the television show my two dads who was the female lead",
+    "in the television show the big bang theory who provides the voice of mrs wolowitz",
+    "in the tv series grace and frankie who portrays the character of frankie s sister teddy",
+    "in the tv series hogan s heroes who portrayed the character of major hochstetter",
+    "in the tv series my two dads who was the actress portraying the female lead",
+    "in the tv series once upon a time who portrays elsa s aunt",
+    "in the tv series once upon a time who portrays the character that is elsa s aunt",
+    "in the tv show drake and josh who portrays the character of drake s father",
+    "in the tv show parks and recreation which character does april ludgate ultimately end up with romantically",
+    "in the tv show parks and recreation who is april ludgate s primary romantic partner by the end of the series",
+    "in the tv show that s so raven who portrays the character bianca",
+    "in the tv show the big bang theory who provides the voice of mrs wolowitz",
+    "in the video brenda got a baby what was the identity of the female character",
+    "in the war of 1812 which nation or nations was the united states in conflict with",
+    "in the war of 1812 which nations or groups did the united states engage in combat with",
+    "in their most recent appearance in the world series who were the opponents of the astros",
+    "in their most recent world series appearance who were the opposing team that the astros faced",
+    "in twelfth night who is the one that claims some individuals are born with greatness",
+    "in twelfth night who made the statement that some people are born naturally great",
+    "in what category or capacity was deion sanders inducted into the hall of fame",
+    "in what category was deion sanders inducted into the hall of fame",
+    "in what geographical location does the movie mothers day unfold",
+    "in what geographical locations does the story of the red badge of courage unfold",
+    "in what location did the british army carry out a successful invasion in the year 1776",
+    "in what location did the british army execute a successful invasion in the year 1776",
+    "in what location did the students for a democratic society originate",
+    "in what location does the setting of the novel the red badge of courage unfold",
+    "in what location does the story of sleeping freshmen never lie unfold",
+    "in what location does the story sleeping freshmen never lie unfold",
+    "in what locations does the movie mothers day unfold",
+    "in what stage of army service or training do you typically receive your dress uniform commonly referred to as the dress blues",
+    "in what temporal context does the sword art online movie unfold",
+    "in what time period did beds become a common household item in france and germany",
+    "in what time period does the call of the wild occur",
+    "in what time period or sequence does the storyline of the sword art online movie unfold",
+    "in what time period or setting does the call of the wild occur",
+    "in what winter olympic events does bermuda participate",
+    "in what year and under what circumstances does marley die in charles dickens a christmas carol",
+    "in what year did ohio state university become a member of the big ten conference",
+    "in what year did starbucks transition from a private to a publicly owned business entity",
+    "in what year did the ducks most recently claim the stanley cup championship",
+    "in what year did the nba introduce the three point line to the game",
+    "in what year did the philadelphia eagles win the super bowl",
+    "in what year did the united states initially become involved in the conflict known as world war i",
+    "in what year was the ouija board initially introduced",
+    "in which abbott and costello film does the who s on first routine appear",
+    "in which abbott and costello film does who s on first appear",
+    "in which airport does porter fly out of in toronto",
+    "in which areas of the body do trigger points typically reside",
+    "in which city are the wimbledon game held",
+    "in which city does the wimbledon game take place",
+    "in which country was the 2018 world cup tournament scheduled to take place",
+    "in which location does the white witch reside in narnia",
+    "in which location does the white witch reside within the realm of narnia",
+    "in which location was the 2018 world cup tournament taking place",
+    "in which location was the filming of it happened at the world s fair conducted",
+    "in which location was the tv show in the heat of the night primarily filmed",
+    "in which locations was the film coming home for christmas primarily shot for production",
+    "in which locations was the film coming home for christmas shot",
+    "in which locations were the scenes for the movie silver linings playbook actually shot",
+    "in which locations were the scenes for the movie silver linings playbook set",
+    "in which locations within the body is arachidonic acid present",
+    "in which major league baseball teams did deion sanders play his professional career",
+    "in which metropolitan area is the wimbledon tournament located",
+    "in which mlb teams did deion sanders have a playing career",
+    "in which part of florida is fort myers situated",
+    "in which part of the sperm cell are the mitochondria situated",
+    "in which part of the state of florida is fort myers situated",
+    "in which parts of the body is arachidonic acid typically located",
+    "in which regions of the spinal cord are unipolar neurons typically located",
+    "in which regions of the united states do hops cultivation take place",
+    "in which regions of the united states do hops typically cultivate",
+    "in which regions or countries does nuclear energy have the highest utilization worldwide",
+    "in which river does delhi have its location on the banks of",
+    "in which states does daylight saving time not apply",
+    "in which two areas does the majority of china s rice production take place",
+    "is a gun permit necessary to engage in target shooting at a shooting facility",
+    "is a gun permit required to use a shooting range",
+    "is the witch and the hundred knight 2 available for release in the us",
+    "iupac name of element with atomic number 107",
+    "last world series that didn t go 7 games",
+    "latest series of keeping up with the kardashians",
+    "list of books written by abul kalam azad",
+    "list the characters from star wars episode ii attack of the clones",
+    "list the main characters from the movie star wars episode ii attack of the clones",
+    "list two examples of protein based fibres",
+    "location of the ten commandments in the bible",
+    "los angeles stadium at hollywood park opening date",
+    "most runs ever scored in a mlb inning",
+    "name two fibres which are made of proteins",
+    "nearest metro station to gandhi nagar in delhi",
+    "on the day the music died which musician failed to board the plane",
+    "on the day the music died who was the person who failed to catch their flight",
+    "on what date did the first south african youth day celebration take place",
+    "points on a sphere or angles in a circle are measured in units called",
+    "prior to 1948 north and south vietnam were a part of",
+    "prior to shifting their focus back to france which of the main adversaries on the eastern front did the central powers emerge victorious against",
+    "prior to waste management who was the sponsor of the phoenix open",
+    "royal society for the protection of birds number of members",
+    "sending money home to the native country is an example of",
+    "star cast of ab tumhare hawale watan sathiyon",
+    "star wars episode ii attack of the clones characters",
+    "state with highest population growth rate in india 2011",
+    "suffix applied to the end of the name of enzymes",
+    "the art and science of making objects from clay is called",
+    "the boiling point of water is 100 degrees celsius express this in si units",
+    "the cast of a good day to die hard",
+    "the cast of don t tell mom the babysitter s dead",
+    "the chinese dragons are protectors of how many seas diggy",
+    "the craft and technique of shaping objects from clay is referred to as what",
+    "the cuban revolt against spain was led by",
+    "the elements in each period have the same number of",
+    "the fertile crescent is located between what two bodies of water",
+    "the field of study that focuses on the anatomical composition of various human bodily components",
+    "the field of study that focuses on the internal organization and composition of various human body components",
+    "the first day collection of the assamese film mission china",
+    "the first element on the periodic table is",
+    "the general term for software that is designed to damage disable or steal data is",
+    "the golden age of india took place during the rule of the",
+    "the legend of heroes trails in the sky the 3rd vita",
+    "the man in the high castle episode 1 season 1",
+    "the plane in which the earth orbits is referred to as the",
+    "the plane of earth s orbit is called the",
+    "the primary focus of the sport psychology sub field of performance enhancement revolves around",
+    "the primary sources of contention that led to disagreements were rooted in slavery and states rights",
+    "the probability of making a type i error when retaining ho at the 05 level of significance is",
+    "the process of creating objects from clay combining artistic and technical skills is referred to as what",
+    "the release of the witch and the hundred knight 2 in the united states",
+    "the removal of temperature in fire fighting method is known as",
+    "the resting stage of the cell cycle is",
+    "the sport psychology sub field of performance enhancement deals primarily with",
+    "the suffix that is added to the end of the name of enzymes",
+    "the very last episode of that s so raven",
+    "the vita version of legend of heroes trails in the sky the 3rd",
+    "the vita version of the legend of heroes trails in the sky the 3rd",
+    "the witch and the hundred knight 2 us release",
+    "the xix of the social security act of 1965 established",
+    "to whom does luke skywalker develop romantic feelings",
+    "to whom does the head of the fbi submit their authority",
+    "to whom is the book of acts primarily addressed",
+    "to whom is the book of philippians addressed",
+    "to whom is the head of the fbi accountable",
+    "to whom was the book of acts primarily addressed",
+    "to whom was the book of philippians addressed",
+    "tujhe dekha toh yeh jana sanam movie name",
+    "tv show theme song would you like to swing on a star",
+    "units used to quantify points on a sphere or angles in a circle are called what",
+    "upon aeneas departure from carthage what location did he travel to",
+    "we describe a piece of music as having changed key when its key is perceived to have shifted",
+    "what actor or voice actor provides the voice of alistair in the game dragon age",
+    "what actor portrayed caesar in the film dawn of the planet of the apes",
+    "what actor portrayed caesar in the movie dawn of the planet of the apes",
+    "what actor portrayed the character of junior in the tv series the heat of the night",
+    "what actor portrayed the original phantom of the opera character",
+    "what actor portrayed the phantom in the original adaptation of the opera",
+    "what actor portrays the central figure in the film hacksaw ridge",
+    "what actor portrays the character sneaky pete",
+    "what actor portrays the lead role in the film hacksaw ridge",
+    "what actor provides the voice of alistair in the dragon age series",
+    "what actor received the oscar for best actor during the year titanic received an oscar nomination",
+    "what actor received the oscar for best actor in a year when titanic was a nominee",
+    "what actors appeared in the film an officer and a gentleman",
+    "what actors appeared in the film natural born killers",
+    "what actors appeared in the television series even stevens",
+    "what airport in toronto is the departure point for porter flights",
+    "what approach to psychology concentrates primarily on the physical aspects particularly the brain and nervous system",
+    "what approach to psychology primarily emphasizes the study of the body with a special emphasis on the brain and nervous system",
+    "what are practical examples of an atwood machine being used in real world contexts",
+    "what are some practical examples of the use of an atwood machine in everyday life or industry",
+    "what are the active materials of a lead acid battery",
+    "what are the actors and actresses featured in the movie despicable me 3",
+    "what are the hours of operation for the stock market in hong kong",
+    "what are the identities of the judges on the australian version of australia s got talent",
+    "what are the identities of the judges on the australian version of the television show australia s got talent",
+    "what are the individual spices typically found in a traditional chinese five spice powder blend",
+    "what are the individual spices typically found in chinese five spice powder",
+    "what are the key figures or individuals who serve as the governing or spiritual leaders within the jehovah s witnesses organization",
+    "what are the key individuals in positions of authority within the jehovah s witnesses organization",
+    "what are the main actors featured in the movie despicable me 3",
+    "what are the names of two types of fibres that are primarily composed of proteins",
+    "what are the operating hours of the hong kong stock market",
+    "what are the power of supreme court in the philippines",
+    "what are the powers and authorities vested in the supreme court of the philippines",
+    "what are the primary components or substances within a lead acid battery that facilitate chemical reactions",
+    "what are the primary sources of federal tax revenue specifically which one contributes the greatest share",
+    "what are the primary sources of new york s drinking water supply",
+    "what are the primary substances within a lead acid battery that facilitate its electrochemical reactions",
+    "what are the scheduled dates for mexico s participation in the winter olympics",
+    "what are the sources of new york s drinking water supply",
+    "what are the spices in chinese 5 spice powder",
+    "what are the total number of series within the diary of a wimpy kid book collection",
+    "what are the two primary regions in china responsible for cultivating the majority of its rice",
+    "what areas of africa were involved in colonization",
+    "what areas of the body typically contain trigger points",
+    "what areas within the spinal cord are home to unipolar neurons",
+    "what artist initially performed the song heard it through the grapevine",
+    "what artist is known for performing the song i think we re alone now",
+    "what artist is responsible for performing the theme song to the tv series all that",
+    "what artist is responsible for performing the wizards of waverly place theme song",
+    "what artist is the performer of the song i feel it still",
+    "what artist or composer is credited with creating the song balls to the wall",
+    "what artist or performer recorded the song let me tell you about the birds and the bees",
+    "what artist or songwriter is credited with writing the song she s always a woman to me",
+    "what artist performed the original version of the song windmills of your mind",
+    "what artist performed the song brother let me be your shelter",
+    "what artist performed the song featuring a white sports coat and a pink carnation",
+    "what artist performed the song oh annie i m not your daddy",
+    "what artist performs the opening theme song for the tv show orange is the new black",
+    "what artist performs the popular christmas song all i want for christmas is you",
+    "what artist performs the song cry baby in the johnny depp film",
+    "what artist performs the song everybody dies in their nightmares",
+    "what artist performs the song god is great beer is good",
+    "what artist performs the song i feel it still",
+    "what artist performs the song i just want to use your love tonight",
+    "what artist performs the song it ain t me",
+    "what artist performs the song you can t get what you want",
+    "what artist performs the theme song for the tv show all that",
+    "what artist performs the wizards of waverly place theme song",
+    "what artist recorded the song never gonna let you go",
+    "what artist recorded the song raindrops keep fallin on my head",
+    "what artists or composers are responsible for the soundtrack in your lie in april",
+    "what artists performed the music featured in the film beyond the sea",
+    "what artists provided the vocals for the soundtrack in the film beyond the sea",
+    "what author is responsible for drafting the declaration of man and citizen",
+    "what author is the writer of a walk to remember",
+    "what author penned the book a walk to remember",
+    "what books have been written by abul kalam azad",
+    "what books were written by abul kalam azad",
+    "what celebrities are participating in the television show dancing with the stars",
+    "what celebrities participate in the television show dancing with the stars",
+    "what channel is big 10 network on fios",
+    "what college basketball player was awarded the player of the year honor",
+    "what company sponsored the phoenix open prior to waste management s involvement",
+    "what components typically make up a standard url",
+    "what components typically make up a standard url format",
+    "what composer is credited with creating the music for the phantom of the opera",
+    "what composer is credited with creating the theme music for the winter olympics",
+    "what composer is responsible for the music featured in the production of christmas story live",
+    "what composer or artist created the official theme music for the winter olympics",
+    "what composer or artist is responsible for the music in the production christmas story live",
+    "what cranial structure houses the part of the brain that is located within the middle cranial fossa",
+    "what destination did aeneas head towards after departing from carthage",
+    "what dignitary was honored as the chief guest at the 2014 republic day celebrations",
+    "what director received the oscar for best director award this past month",
+    "what director received the oscar for best director this past month",
+    "what does hp mean in war and order",
+    "what does rt mean on a dodge car",
+    "what does the abbreviation rt signify on a dodge vehicle",
+    "what does the abbreviation rt signify on a dodge vehicle model",
+    "what does the air gap do on a dishwasher",
+    "what does the name veronica signify in the english language",
+    "what does the name veronica translate to in the english language",
+    "what does the term blood alcohol concentration refer to in terms of the proportion of alcohol present in the bloodstream",
+    "what driver was behind the wheel of the number 18 car in nascar competitions",
+    "what entity currently possesses and manages control over the panama canal s operations",
+    "what entity or individual is responsible for selecting the chair of the federal reserve system",
+    "what ethnic group celebrates its contribution to america in october",
+    "what ethnic group commemorates its impact on american history during the month of october",
+    "what ethnic group comprises the majority of mexico s population as of the current day",
+    "what ethnic group constitutes the majority of the population in mexico as of the current time",
+    "what female doubles teams have claimed victory in the canada open",
+    "what female pair has taken home the title in the canada open women s doubles competition",
+    "what figure is commonly regarded as the originator of contemporary cosmological research and theories",
+    "what figure is widely regarded as the originator of contemporary cosmology",
+    "what film received the oscar for best picture in 1976",
+    "what film was awarded the oscar for best picture in 1976",
+    "what forces did the central powers initially overcome on the eastern front before redeploying their efforts towards france",
+    "what forces emerged victorious in the battle of saratoga which took place in 1777",
+    "what forces were on the losing side of the french and indian war",
+    "what form of governance characterized the ming dynasty",
+    "what form of government did the ming dynasty employ",
+    "what geographical bodies of water are situated on either side of the fertile crescent region",
+    "what geographical boundaries specifically bodies of water does the fertile crescent lie between",
+    "what happened to the west wing of the white house during a christmas party in 1929",
+    "what happens when an air mass is pushed up and over a mountain range",
+    "what incident occurred in the west wing of the white house during a christmas party in 1929",
+    "what individual achieved the historic milestone of being the first to set foot on the moon s surface in the year 1969",
+    "what individual assumed the office of the president of mexico following an election that took place in the year 2000",
+    "what individual currently holds the office of president of the senate",
+    "what individual is credited with developing the initial home video security system",
+    "what individual is credited with developing the transtheoretical model of behavior change",
+    "what individual is presently occupying the office of president of the senate",
+    "what individual or group is credited with creating the central processing unit cpu",
+    "what individual or group is credited with developing the initial home video surveillance system",
+    "what individual or individuals are credited with developing the transtheoretical model of behavior change",
+    "what individual or team is credited with the creation of the central processing unit cpu",
+    "what individual was the originator of the phrase i m going to disney world",
+    "what individuals or parties were involved in negotiating a treaty or agreement with japan regarding the fate or future of korea",
+    "what individuals received the 2017 awards for mark of the year and goal of the year",
+    "what individuals were awarded the mark and goal of the year for the year 2017",
+    "what individuals were responsible for the expansion of the palace of versailles to its current dimensions",
+    "what is a notable dish that resulted from the fusion of mexican and american culinary traditions as exemplified by tex mex cuisine",
+    "what is a notable instance of a mexican dish that has been adapted and incorporated into american cuisine through the influence of tex mex cooking",
+    "what is a real world application of an atwood machine",
+    "what is an example of an americanized mexican food created by tex mex cuisine",
+    "what is an example of sending money back to one s native or home country",
+    "what is an illustration of transferring funds back to one s country of origin",
+    "what is bermuda competing in the winter olympics",
+    "what is calpurnia s son s name in to kill a mockingbird",
+    "what is the air date of the upcoming episode of scorpion",
+    "what is the airdate for the second half of the walking dead s eighth season",
+    "what is the airdate for the upcoming episodes of supernatural",
+    "what is the airdate for the upcoming season of law and order svu",
+    "what is the alkaline substance with the highest ph value on the ph scale",
+    "what is the anticipated premiere date for season 18 of law order special victims unit",
+    "what is the anticipated start date for the upcoming series of keeping faith",
+    "what is the author of the novel 50 shades of grey",
+    "what is the author of the song i m in the mood for dancing",
+    "what is the average length of each episode in the first season of stranger things",
+    "what is the average time in hospice care",
+    "what is the baby elephants name in jungle book",
+    "what is the biggest town in west virginia",
+    "what is the broadcast schedule for the second half of vikings season 5",
+    "what is the channel number for the big 10 network on fios",
+    "what is the channel number for the big ten network on fios",
+    "what is the closest metro station to gandhi nagar in delhi",
+    "what is the complete abbreviation for cfc s",
+    "what is the complete abbreviation for cfcs",
+    "what is the conclusion date of the 2017 college football season",
+    "what is the construction timeline for the taj mahal including both the start and completion dates",
+    "what is the current captain of richmond football club",
+    "what is the current or most recent season of the reality tv show keeping up with the kardashians",
+    "what is the current version of adobe flash player available",
+    "what is the current version of chrome browser available for linux operating systems",
+    "what is the current version of the chrome browser available for linux systems",
+    "what is the date of the construction and completion of the taj mahal",
+    "what is the dominant faith in sweden in terms of adherents",
+    "what is the duration of an elected official s position within the house of representatives",
+    "what is the earliest known instance of a book being adapted into a film",
+    "what is the earliest recorded date on which christmas was observed as a formal holiday",
+    "what is the earliest recorded instance of a book being adapted into a film",
+    "what is the ensemble of the film don t tell mom the babysitter s dead",
+    "what is the exact date when the name of bombay was officially changed to mumbai",
+    "what is the expected release date for season 2 of just add magic",
+    "what is the expected release date of i can only imagine",
+    "what is the final country to join the saarc organization",
+    "what is the final date of the 2017 college football season",
+    "what is the final nation to join the south asian association for regional cooperation saarc",
+    "what is the full form of cfc s",
+    "what is the full scientific name for the e coli bacteria",
+    "what is the general structure of an url",
+    "what is the geographic origin of the band imagine dragons",
+    "what is the geographical origin of the band imagine dragons",
+    "what is the highest base on the ph scale",
+    "what is the highest number of points scored by a player in a single game in the nba",
+    "what is the highest peak in the ozarks",
+    "what is the highest single game scoring record held by an individual in the nba",
+    "what is the highest value on the ph scale",
+    "what is the historical date marking the beginning of the alliance between the united kingdom and the united states",
+    "what is the hot coffee mod in san andreas",
+    "what is the identity of the artist who first performed the song just when i needed you most",
+    "what is the identity of the author behind the novel 50 shades of grey",
+    "what is the identity of the author behind the song it s gonna take a lot of love",
+    "what is the identity of the individual or entity possessing the largest dwelling within beverly hills",
+    "what is the identity of the individual or entity possessing the largest residence within the beverly hills area",
+    "what is the identity of the most recent individual to have been put to death within the united states",
+    "what is the iupac name of the element with atomic number 107",
+    "what is the largest city in the western region of west virginia",
+    "what is the largest ethnic group in mexico today",
+    "what is the largest national football league stadium located within the united states",
+    "what is the largest stadium in the national football league located within the united states",
+    "what is the largest urban center in the state of west virginia",
+    "what is the latest version of adobe flash player currently available",
+    "what is the latest version of chrome for linux",
+    "what is the legal age for marriage in australia",
+    "what is the location at the end of minority report",
+    "what is the location from which the bob and tom show is broadcast",
+    "what is the location of the broadcast for the bob and tom show",
+    "what is the location of the new football stadium in atlanta",
+    "what is the longest consecutive number of times real madrid has won the champions league",
+    "what is the longest river flowing through the continental united states",
+    "what is the longest river flowing within the geographical boundaries of the united states",
+    "what is the longest river in the united states",
+    "what is the main character s name in layer cake",
+    "what is the meaning of veronica in english",
+    "what is the minimum age at which a person is legally permitted to get married in australia",
+    "what is the most current adobe flash player version",
+    "what is the most popular religion in sweden",
+    "what is the most recent date on which mount ruapehu experienced volcanic activity",
+    "what is the most recent date on which mount ruapehu underwent an eruption",
+    "what is the most recent season of the reality television show keeping up with the kardashians",
+    "what is the most recent year in which the crows appeared in a grand final",
+    "what is the most recent year in which the ducks have claimed the stanley cup championship title",
+    "what is the most recent year in which the university of michigan secured a national championship title",
+    "what is the most recent year in which the university of michigan won a national championship",
+    "what is the most recent year in which the women s hockey team achieved a gold medal victory",
+    "what is the most recent year in which the women s hockey team secured the gold medal",
+    "what is the most recent year the crows appeared in a grand final",
+    "what is the most recent year the dolphins have appeared in the super bowl",
+    "what is the most recent year the miami dolphins appeared in or participated in the super bowl",
+    "what is the name of calpurnia s son in to kill a mockingbird",
+    "what is the name of the 12th episode in season 3 of the animated series avatar the last airbender",
+    "what is the name of the actor who portrays ducky on ncis",
+    "what is the name of the actor who portrays the character ducky in the tv show ncis",
+    "what is the name of the artist who first recorded the song just when i needed you most",
+    "what is the name of the chief justice of ghana",
+    "what is the name of the director behind the film nightmare before christmas",
+    "what is the name of the director behind the movie nightmare before christmas",
+    "what is the name of the dog in the grinch who stole christmas",
+    "what is the name of the dragon in eragon",
+    "what is the name of the individual credited with being the founder of the field of genetics and what specific area or subject did he focus his research on",
+    "what is the name of the individual credited with pioneering the field of genetics and what specific area of research did they concentrate on",
+    "what is the name of the renowned suspension bridge in san francisco and how long is it",
+    "what is the name of the song featured in red dead redemption",
+    "what is the name of the well known suspension bridge in san francisco and how long is it",
+    "what is the nature of the hot coffee modification found within the game san andreas",
+    "what is the nearest metro station to gandhi nagar in delhi",
+    "what is the number of cities in texas",
+    "what is the number of episodes in game of thrones season 7",
+    "what is the number of members in the pennsylvania house of representatives",
+    "what is the officially accepted name of the element with atomic number 107 according to the international union of pure and applied chemistry iupac",
+    "what is the opening date of the los angeles stadium at hollywood park",
+    "what is the opening date of the los angeles stadium located at hollywood park",
+    "what is the origin and history behind the surname cintron",
+    "what is the origin and history behind the surname hidalgo",
+    "what is the origin of new crust in the process of sea floor spreading",
+    "what is the origin of the name huntington s disease",
+    "what is the origin of the phrase bob s your uncle",
+    "what is the origin of the song 10 green bottles",
+    "what is the origin of the surname cintron",
+    "what is the origin of the surname hidalgo",
+    "what is the origin or source of hydrogen peroxide within the human body",
+    "what is the point of a menstrual cup",
+    "what is the predominant faith in sweden s population",
+    "what is the premiere date for the second half of the walking dead season 8",
+    "what is the primary purpose or function of a menstrual cup",
+    "what is the primary purpose or function of using a menstrual cup",
+    "what is the process to become a santero",
+    "what is the purpose of the air gap feature in a dishwasher",
+    "what is the purpose or function of the air gap in a dishwasher",
+    "what is the record for the most times someone has successfully climbed mount everest",
+    "what is the release date for dark parables return of the salt princess",
+    "what is the release date for season 2 of just add magic",
+    "what is the release date for season 8 of blue bloods",
+    "what is the release date for season 8 of game of thrones",
+    "what is the release date for the upcoming adventure time series",
+    "what is the release date for the upcoming new season or installment of the animated series adventure time",
+    "what is the release date of dark parables return of the salt princess",
+    "what is the release date of i can only imagine",
+    "what is the release date of the latest macbook pro model",
+    "what is the release date of the movie jeepers creepers",
+    "what is the scheduled airdate for the next episode of scorpion",
+    "what is the scheduled broadcast date for the second half of vikings season 5",
+    "what is the scheduled broadcast date for the upcoming season of law and order svu",
+    "what is the scheduled conclusion date for the nba season in the current year",
+    "what is the scheduled conclusion date of the current nba season",
+    "what is the scheduled premiere date for ellen s latest game show",
+    "what is the scheduled premiere date for season 18 of law and order special victims unit",
+    "what is the scheduled release date for season 8 of the game of thrones series",
+    "what is the scheduled release date for season 8 of the television show blue bloods",
+    "what is the scheduled release date for the movie jeepers creepers",
+    "what is the scheduled release date for the upcoming series of keeping faith",
+    "what is the scheduled start date for ellen s latest game show",
+    "what is the scheduled start date for the new episodes of supernatural",
+    "what is the scheduled time and date for mexico s participation in the winter olympics",
+    "what is the song in red dead redemption",
+    "what is the specific location of mitochondria within a sperm cell",
+    "what is the specific modification or feature known as the hot coffee mod within the context of the game grand theft auto san andreas",
+    "what is the specific time or occasion when one typically recites the chaplet of divine mercy",
+    "what is the term of an official in the house of representatives",
+    "what is the theme song or soundtrack associated with the game red dead redemption",
+    "what is the title given to the dragon in the story of eragon",
+    "what is the title of season 3 episode 12 of the animated series avatar the last airbender",
+    "what is the title of the first episode in season 1 of the series the man in the high castle",
+    "what is the total count of episodes in the television series sabrina the teenage witch",
+    "what is the total count of indian individuals who have traveled to outer space",
+    "what is the total count of indian individuals who have traveled to outer space as part of space missions",
+    "what is the total count of members in the royal society for the protection of birds",
+    "what is the total count of national parks that exist within the geographical boundaries of india",
+    "what is the total count of nuclear power plants located within the state of washington",
+    "what is the total count of wing stop locations within the united states",
+    "what is the total number of co2 molecules generated during the process of aerobic respiration",
+    "what is the total number of counties within the boundaries of the state of georgia",
+    "what is the total number of counties within the state of georgia",
+    "what is the total number of countries globally that have scouting organizations",
+    "what is the total number of countries globally where scouting organizations are established",
+    "what is the total number of episodes in game of thrones season 7",
+    "what is the total number of episodes in season 4 of the flash television series",
+    "what is the total number of episodes in season 4 of the show the flash",
+    "what is the total number of episodes in season 4 of the television series my name is earl",
+    "what is the total number of episodes in the fourth season of the tv show my name is earl",
+    "what is the total number of episodes in the seventh season of game of thrones",
+    "what is the total number of episodes in the television series sabrina the teenage witch",
+    "what is the total number of episodes present in the seventh season of game of thrones",
+    "what is the total number of members in the pennsylvania house of representatives",
+    "what is the total number of national parks found within the geographical boundaries of india",
+    "what is the total number of nuclear power plants located in the state of washington",
+    "what is the total number of seasons in the television series rules of engagement",
+    "what is the total number of seasons that the television series ray donovan has aired",
+    "what is the total number of seasons that the television series ray donovan has been broadcast for",
+    "what is the total number of seasons that the television series rules of engagement had",
+    "what is the total number of seasons that the television show grey s anatomy has been broadcast",
+    "what is the total number of super bowl games in which the patriots have participated",
+    "what is the total number of wing stops located within the united states",
+    "what is the total number of winnie the pooh books",
+    "what is the total number of winnie the pooh books that have been published",
+    "what is the typical duration of each episode in the first season of the show stranger things",
+    "what is the typical duration of hospice care for patients",
+    "what is the typical duration of stay in hospice care settings",
+    "what is the typical return date for new episodes of the television series ncis los angeles",
+    "what is the voice actor for marceline in the animated series adventure time",
+    "what kind of beer is st pauli girl",
+    "what kind of book is where s waldo",
+    "what kind of velocity does a speedometer gauge",
+    "what kind of velocity does a speedometer typically gauge or indicate",
+    "what leaders governed the ottoman empire during the 16th century",
+    "what leaders held power over the ottoman empire during the 1500s",
+    "what level is a city and guilds qualification",
+    "what level of qualification does a city and guilds certification represent",
+    "what level of qualification is a city and guilds certification",
+    "what level of weight bearing is typically associated with a specific weight or poundage",
+    "what level of weight bearing typically involves a predetermined amount of weight often measured in pounds",
+    "what lies beneath the disguise of darth vader",
+    "what lies beneath the mask of darth vader",
+    "what location is hosting the super bowl this year",
+    "what location or setting marked the origin of the students for a democratic society",
+    "what locations issue state issued identification cards",
+    "what locations offer state issued identification cards",
+    "what locations were used as the primary filming sites for the tv series in the heat of the night",
+    "what men s doubles team emerged victorious at the 2017 french open tennis championship",
+    "what men s doubles team emerged victorious at the 2017 french open tennis tournament",
+    "what mlb teams did deion sanders play for",
+    "what monarchs were among the first to have their names featured on the coins they issued",
+    "what monarchs were the first to have their names featured on coins that they minted",
+    "what motivated jean valjean to assume responsibility for cosette s well being",
+    "what motivated jean valjean to provide for and care for cosette",
+    "what musician is credited with composing the guitar solo in the song beat it",
+    "what musician performed the lead guitar parts on the song 25 or 6 to 4",
+    "what nfl coach received the award for coach of the year",
+    "what nfl team is robert griffin the third playing for",
+    "what number of gold medals did australia secure at the 2000 olympic games",
+    "what occurs when an air mass is forced upwards and crosses over a mountainous terrain",
+    "what official or body is responsible for the formal approval and validation of treaties within the united states",
+    "what part of the brain is in the middle cranial fossa",
+    "what parts of alcohol in the blood are related to its blood alcohol concentration",
+    "what period in indian history is commonly referred to as the golden age which occurred under the governance of the",
+    "what player has accumulated the most home runs throughout the entire history of major league baseball",
+    "what player scored the highest number of goals in soccer during the year 2018",
+    "what player scored the most goals in soccer during the year 2018",
+    "what provision or section xix of the social security act of 1965 was established",
+    "what provisions were established by section xix of the social security act of 1965",
+    "what regions of the globe have the highest consumption of nuclear energy",
+    "what river flows alongside the city of delhi",
+    "what river is associated with the city of rome",
+    "what s the biggest nfl stadium in the united states",
+    "what scientist developed the initial precise representation of dna s structure",
+    "what scientist initially devised an accurate representation of the structure of dna",
+    "what scientist or theorist is credited with the development of the famous objective co relative theory",
+    "what sixteenth century physician is known to have published works",
+    "what songwriter or authors composed the lyrics to the song he ain t heavy he s my brother",
+    "what sports or events is bermuda participating in at the winter olympics",
+    "what stadium is hosting the super bowl this year",
+    "what states do not allow daylight savings time",
+    "what states make up the entire northeast region",
+    "what steps and procedures are involved in becoming a santero",
+    "what steps must one follow to become a santero",
+    "what team emerged victorious in the 2017 ncaa women s division i basketball championship",
+    "what team has accumulated the most losses throughout the entire history of the nfl",
+    "what team or player was declared the champion of the women s 2017 ncaa basketball tournament",
+    "what team or teams accumulated the highest number of victories in the nfl during the 2017 season",
+    "what teams and or events typically perform or take place at the prudential center in newark",
+    "what teams competed in the 2017 sec championship game",
+    "what teams or performers regularly host events at the prudential center located in newark",
+    "what teams participated in the 2017 sec championship game",
+    "what term best describes the process of repairing a tissue by replacing damaged cells",
+    "what term is added to the end of enzyme names",
+    "what term is used to describe the process of repairing a tissue by replacing damaged cells",
+    "what time period saw the rise in popularity of beds in france and germany",
+    "what type of beer is associated with st pauli girl",
+    "what type of beer is associated with the st pauli girl",
+    "what type of government did the ming dynasty have",
+    "what type of literature is the book where s waldo categorized as",
+    "what type of publication is the book where s waldo",
+    "what type of snake is kaa in jungle book",
+    "what type of speed does a speedometer measure",
+    "what was the age of the oldest man to be elected as the president of the united states",
+    "what was the air date of the final episode of the vampire diaries",
+    "what was the air date of the most recent episode of the flash",
+    "what was the airdate of the final episode of the vampire diaries television series",
+    "what was the airdate of the most recent episode of the tv series the flash",
+    "what was the designation of darth vader s star destroyer",
+    "what was the earliest known vertebrate species to inhabit the earth",
+    "what was the earliest vertebrate species to inhabit the planet earth",
+    "what was the filming date for night at the museum 3",
+    "what was the filming date for the movie night at the museum 3",
+    "what was the final episode of that s so raven",
+    "what was the final episode of the television show that s so raven",
+    "what was the first dynasty in india to mint and circulate gold coins as a form of currency",
+    "what was the first kind of vertebrate to exist on earth",
+    "what was the identity of the inaugural chief minister of west bengal",
+    "what was the identity of the inaugural executive president of guyana",
+    "what was the identity of the initial chief minister of west bengal",
+    "what was the identity of the initial executive president of guyana",
+    "what was the identity of the person responsible for overseeing the publication of the journal jugantor during the period of the swadeshi movement",
+    "what was the identity of the person who took on the role of ceo at wipro in the year 2016",
+    "what was the identity of the victor in the 2017 grand national",
+    "what was the initial airdate of the first episode of that 70s show",
+    "what was the initial conclusion date of the american idol television series",
+    "what was the initial end date of the american idol television series",
+    "what was the initial release date of the first star wars film",
+    "what was the most recent world series that concluded in fewer than seven games",
+    "what was the most recent world series that did not extend to seven games",
+    "what was the name of darth vader s star destroyer",
+    "what was the name of darth vader star destroyer",
+    "what was the name of the person responsible for editing the journal jugantor during the period of the swadeshi movement",
+    "what was the origin of the tea involved in the boston tea party",
+    "what was the original airdate of the first episode of that 70 s show",
+    "what was the population of the roman empire at its height",
+    "what was the release date of season 4 of the television series glee",
+    "what was the release date of season 4 of the tv series glee",
+    "what was the release date of the initial star wars film",
+    "what was the release date of the initial wireless beats headphones",
+    "what was the release date of the initial wireless beats model",
+    "what was the starting date of the revolution in the united states",
+    "what was the state in india with the highest population growth rate in the year 2011",
+    "what was the terminal year of the black death in england",
+    "what was the winner of season 8 of america s next top model",
+    "what was the winner of the 2017 grand national",
+    "what was the winner of the king of dance season 2",
+    "what was the year the black death finally ceased to have a significant impact in england",
+    "what were the primary reasons behind the disagreements that involved slavery and states rights",
+    "what will be the victorious outcome of the next iron chef super chefs competition",
+    "what year did muhammad ali receive an olympic gold medal",
+    "what year did ohio state university officially become a member of the big ten conference",
+    "what year did the astros most recently capture the world series championship",
+    "what year did the astros most recently claim the world series championship title",
+    "what year did the british establish the east india trading company",
+    "what year did the first driver s license become mandatory",
+    "what year did the first south african youth day celebration take place",
+    "what year did the initial requirement for a driver s license come into effect",
+    "what year did the introduction of the right to buy scheme take place",
+    "what year did the music group hootie and the blowfish first release their music",
+    "what year did the name of the marathon candy bar change to snickers",
+    "what year did the nba begin employing zone defense strategies in its gameplay",
+    "what year did the origins of the ouija board begin",
+    "what year did the philadelphia eagles win the super bowl",
+    "what year did the practice of vaccinating against whooping cough begin",
+    "what year did the united states participate in the onset of world war one",
+    "what year was i ain t mad at cha released",
+    "what year was lionel richie s song all night long released",
+    "what year was the bill of rights first introduced",
+    "what year was the us department of homeland security established",
+    "when a piece of music appears to shift key we describe it as having undergone a change in key",
+    "when an air mass is forced upwards and over a mountain range what phenomenon occurs",
+    "when can i expect new episodes of ncis los angeles to be aired",
+    "when did all night long come out lionel richie",
+    "when did american idol end the first time",
+    "when did beds become popular in france and germany",
+    "when did bihar bifurcate from bengal and some parts of chota nagpur merged into bengal",
+    "when did bihar cease to be a part of bengal and subsequent to which point did some areas of chota nagpur become incorporated into the territory of bengal",
+    "when did billy don t be a hero come out",
+    "when did britain set up east indian trading company",
+    "when did hootie and the blowfish come out",
+    "when did i ain t mad at cha come out",
+    "when did indoor toilets become common in america",
+    "when did marathon change its name to snickers",
+    "when did marley die in a christmas carol",
+    "when did muhammad ali win an olympic gold medal",
+    "when did ohio state join the big 10",
+    "when did season 4 of glee come out",
+    "when did starbucks become a publicly traded company",
+    "when did sweet caroline start at red sox games",
+    "when did the bill of rights come out",
+    "when did the black death end in england",
+    "when did the dallas cowboys win their last playoff game",
+    "when did the first episode of that 70s show air",
+    "when did the first wireless beats come out",
+    "when did the government change the retirement age",
+    "when did the name of bombay change to mumbai",
+    "when did the name of the marathon candy bar change to snickers",
+    "when did the nba add the three point line",
+    "when did the nba begin employing zone defensive strategies",
+    "when did the nba start playing zone defense",
+    "when did the newest macbook pro come out",
+    "when did the ouija board first come out",
+    "when did the practice of incorporating zinc into the composition of pennies begin",
+    "when did the revolution begin in the united states",
+    "when did the right to buy scheme start",
+    "when did the song push it come out",
+    "when did the tradition of observing pi day first begin",
+    "when did the uk and us become allies",
+    "when did the usa join world war one",
+    "when did they start adding zinc to pennies",
+    "when did they start vaccinating for whooping cough",
+    "when did united states enter world war i",
+    "when did we start observing pi day",
+    "when do new episodes of ncis los angeles return",
+    "when do the new episodes of supernatural start",
+    "when do you get your dress blues in the army",
+    "when do you pray the chaplet of divine mercy",
+    "when does ellen s new game show start",
+    "when does mexico play in the winter olympics",
+    "when does season 18 of law and order svu start",
+    "when does season 2 of just add magic come out",
+    "when does season 8 for blue bloods start",
+    "when does the 2017 college football season end",
+    "when does the call of the wild take place",
+    "when does the movie jeepers creepers come out",
+    "when does the nba season end this year",
+    "when does the new adventure time come out",
+    "when does the new episode of scorpion come on",
+    "when does the new season of law and order svu come on",
+    "when does the second half of vikings season 5 air",
+    "when does the stock market open in hong kong",
+    "when does the sword art online movie take place",
+    "when does walking dead season 8 second half start",
+    "when is i can only imagine coming out",
+    "when is last time the astros won the world series",
+    "when is season 8 for game of thrones",
+    "when is the last time the dolphins went to the superbowl",
+    "when is the new series of keeping faith starting",
+    "when was 1 john 5 7 added to the bible",
+    "when was as you like it first performed",
+    "when was christmas first celebrated as a holiday",
+    "when was it not fatal for i stood up published",
+    "when was it was not death for i stood up published",
+    "when was night at the museum 3 filmed",
+    "when was south african youth day first celebrated",
+    "when was the city formerly known as bombay officially renamed mumbai",
+    "when was the day that the pubs ran dry in the poem 9 3",
+    "when was the first book made into a movie",
+    "when was the first driver s license required",
+    "when was the first star wars film released",
+    "when was the last episode of the flash aired",
+    "when was the last episode of vampire diaries aired",
+    "when was the last god of war made",
+    "when was the last time mount ruapehu erupted",
+    "when was the last time the crows were in the grand final",
+    "when was the last time the ducks won the stanley cup",
+    "when was the last time the womens hockey team won gold",
+    "when was the last time university of michigan won a national championship",
+    "when was the song all night long by lionel richie initially released to the public",
+    "when was the taj mahal built and completed",
+    "when was the time the eagles won the superbowl",
+    "when was the us department of homeland security created",
+    "when was the vaccination for whooping cough first implemented",
+    "when was the verse 1 john 5 7 incorporated into the scriptures of the bible",
+    "where are the mitochondria located in the sperm",
+    "where are they playing the superbowl at this year",
+    "where are trigger points located in the body",
+    "where are unipolar neurons found in spinal cord",
+    "where can i get a state issued id",
+    "where can the ten commandments be found in the bible",
+    "where did aeneas go when he left carthage",
+    "where did huntington s disease get its name",
+    "where did students for a democratic society start",
+    "where did the british army launch a successful invasion in 1776",
+    "where did the tea come from in the boston tea party",
+    "where did the term liberal arts come from",
+    "where did the term spirits for alcohol come from",
+    "where do the chandra and bhaga rivers converge",
+    "where do they grow hops in the us",
+    "where does hydrogen peroxide come from in the body",
+    "where does jack ryan live in patriot games",
+    "where does new crust come from in sea floor spreading",
+    "where does new york drinking water come from",
+    "where does porter fly out of in toronto",
+    "where does saying bob s your uncle come from",
+    "where does sleeping freshmen never lie take place",
+    "where does the band imagine dragons come from",
+    "where does the bob and tom show broadcast from",
+    "where does the largest amount of federal tax revenue come from",
+    "where does the last name cintron come from",
+    "where does the last name hidalgo come from",
+    "where does the movie mothers day take place",
+    "where does the optic nerve cross the midline",
+    "where does the red badge of courage take place",
+    "where does the song 10 green bottles come from",
+    "where does the white witch live in narnia",
+    "where in the bible can the ten commandments be found",
+    "where is arachidonic acid found in the body",
+    "where is fort myers located at in florida",
+    "where is nuclear energy used most in the world",
+    "where is the bread plate located in a formal setting",
+    "where is the new football stadium in atlanta",
+    "where is the protien made in the cell",
+    "where is the world cup being held 2018",
+    "where was it happened at the world fair filmed",
+    "where was the film coming home for christmas filmed",
+    "where was the movie silver linings playbook filmed",
+    "where was the tv show in the heat of the night filmed",
+    "which abbott and costello movie has who on first",
+    "which airport in the us has the largest size or capacity",
+    "which approach to psychology focuses on the body especially the brain and nervous system",
+    "which artist elvis or the beatles achieved the highest record sales",
+    "which artist elvis or the beatles had the highest record sales",
+    "which artist has accumulated the highest count of number one singles",
+    "which artist or group has achieved the highest number of number one single hits",
+    "which cerebral structure is located within the middle cranial fossa",
+    "which country did germany not engage in conflict with during the first world war",
+    "which country has the most coastline in the world",
+    "which country is the last member of saarc",
+    "which dynasty in india was the first to mint gold coins",
+    "which ethnic group observes and honors its significant role in shaping american history during the month of october",
+    "which indian state exhibited the highest population growth rate in the year 2011",
+    "which individuals have participated in the most royal rumble events",
+    "which individuals have participated in the most royal rumbles",
+    "which is the ring finger for male in india",
+    "which level of weight bearing often comes with a set number of pounds",
+    "which nfl coach has the most superbowl rings",
+    "which nfl coach holds the record for the most super bowl championship wins",
+    "which nfl head coach has accumulated the most super bowl championship titles",
+    "which nfl team is currently being represented by robert griffin iii",
+    "which nfl team is robert griffin iii currently affiliated with",
+    "which of the u s presidents was the oldest to have taken office specifically the one who held the record for the highest age at election",
+    "which player currently holds the record for the most home runs in the history of major league baseball",
+    "which regions and territories on the african continent were subject to colonial influence and occupation",
+    "which regions of the african continent were subject to colonization during historical periods",
+    "which river is linked to the city of rome",
+    "which river is primarily connected to the city of rome",
+    "which sixteenth century physician is known to have published works",
+    "which state was returned to spain after the revolutionary war",
+    "which states in the us do not observe daylight saving time",
+    "which superhero appeared on the scene first batman or spider man",
+    "which superhero batman or spider man was introduced first",
+    "which supreme court judge has served at the international court of justice",
+    "which supreme court judge has served on the international court of justice",
+    "which supreme court judge has surved in international court of justice",
+    "which team has accumulated the most losses throughout the history of the national football league",
+    "which team or teams accumulated the highest number of victories in the 2017 nfl season",
+    "which term describes the replacement of damaged cells to mend a tissue",
+    "which territory was ceded back to spain as a result of the revolutionary war",
+    "which tv show theme song would you like to be swinging on a star to",
+    "which two regions grow most of china s rice",
+    "which us airport possesses the largest size or capacity",
+    "who appoints the chair of the federal reserve system",
+    "who are the australia s got talent judges",
+    "who are the leaders of the jehovah witnesses",
+    "who are the stars in dancing with the stars",
+    "who authored the declaration of man and citizen",
+    "who authored the story we re going on a bear hunt",
+    "who authored we re going on a bear hunt",
+    "who become the ceo of it wipro company in 2016",
+    "who came out first batman or spider man",
+    "who captained the first european ship to sail around the tip of africa",
+    "who coined the phrase i m going to disney world first",
+    "who composed the guitar solo in the song beat it",
+    "who composed the music for the phantom of the opera",
+    "who composed the soundtrack for your lie in april",
+    "who comprised the cast of a good day to die hard",
+    "who comprised the ensemble for the movie a good day to die hard",
+    "who cracked the enigma code in world war 2",
+    "who currently manages and possesses control over the operation of the panama canal",
+    "who developed the central processing unit cpu",
+    "who did bette midler portray in the rose",
+    "who did deion sanders go in the hall of fame as",
+    "who did the astros play last time they were in the world series",
+    "who did the central powers defeat on the eastern front before concentrating back on france",
+    "who did the music for your lie in april",
+    "who did the united states fight in the war of 1812",
+    "who do you think hosted they think it s all over",
+    "who do you think was the host of they think it s all over",
+    "who does april end up with on parks and rec",
+    "who does luke skywalker fall in love with",
+    "who does the head of the fbi report to",
+    "who does the voice of alistair in dragon age",
+    "who does the voice of marceline on adventure time",
+    "who does the voice of mrs wolowitz on the big bang theory",
+    "who drove the number 18 car in nascar",
+    "who emerged victorious in the road march competition in trinidad and tobago",
+    "who emerged victorious in trinidad and tobago s road march competition",
+    "who expanded the palace of versailles to its present size",
+    "who gave the famous objective co relative theory",
+    "who has appeared in the most royal rumbles",
+    "who has climbed mount everest the number of times",
+    "who has the biggest airport in the us",
+    "who has the most goals in soccer 2018",
+    "who has the most number one single hits",
+    "who has won the canada open women s doubles",
+    "who has won the most games in nfl 2017",
+    "who has won the most world series in baseball",
+    "who hit 6 sixes in an over in test cricket",
+    "who holds the most home runs in mlb history",
+    "who holds the record for the most ascents of mount everest",
+    "who holds the world record for the most world records",
+    "who hosted they think it s all over",
+    "who invented the first home video security system",
+    "who invented the transtheoretical model of behavior change",
+    "who is commonly referred to as the pioneer behind the green revolution in india",
+    "who is considered the father of modern cosmology",
+    "who is credited with developing the famous objective co relative theory",
+    "who is currently serving as president of the senate",
+    "who is doing 2018 super bowl half time show",
+    "who is in charge of ratifying treaties in the us",
+    "who is jojo in horton hears a who",
+    "who is known as father of green revolution in india",
+    "who is referred to as the pioneer of the green revolution in india",
+    "who is responsible for confirming and approving treaties in the united states",
+    "who is responsible for selecting the head of the federal reserve system specifically its chair",
+    "who is singing in something just like this",
+    "who is the actor that plays ducky on ncis",
+    "who is the actor that plays sneaky pete",
+    "who is the artist behind the main theme song of the tv series orange is the new black",
+    "who is the artist behind the popular christmas song all i want for christmas is you",
+    "who is the artist behind the song brother let me be your shelter",
+    "who is the artist behind the song everybody dies in their nightmares",
+    "who is the artist behind the song find out who your friends are featuring tracy lawrence",
+    "who is the artist behind the song i just want to use your love tonight",
+    "who is the artist behind the song i think we re alone now",
+    "who is the artist behind the song it ain t me",
+    "who is the artist behind the song never gonna let you go",
+    "who is the artist behind the song oh annie i m not your daddy",
+    "who is the artist behind the song raindrops keep fallin on my head",
+    "who is the artist behind the song the windmills of your mind",
+    "who is the artist behind the song you can t get what you want",
+    "who is the author of the song i m in the mood for dancing",
+    "who is the author of the song it s gonna take a lot of love",
+    "who is the book of acts written to",
+    "who is the captain of richmond football club",
+    "who is the cast of despicable me 3",
+    "who is the ceo of what s up",
+    "who is the composer of the song balls to the wall",
+    "who is the director of nightmare before christmas",
+    "who is the father of genetics and what did he study",
+    "who is the father of lucius in gladiator",
+    "who is the most losing team in nfl history",
+    "who is the original singer of just when i needed you most",
+    "who is the singer featured in the movie cry baby starring johnny depp",
+    "who is the writer of 50 shades of grey",
+    "who is the writer of a walk to remember",
+    "who is under the mask of darth vader",
+    "who missed the plane the day the music died",
+    "who negotiated an agreement with japan concerning the future of korea",
+    "who owns and operates the panama canal today",
+    "who owns the biggest house in beverly hills",
+    "who performed at the halftime show of the 2018 super bowl",
+    "who performed the song featuring a white sports coat and a pink carnation",
+    "who performed the song let me tell you about the birds and the bees",
+    "who performs the song find out who your friends are featuring tracy lawrence",
+    "who performs the song god is great beer is good",
+    "who performs the song somebody s watching me alongside michael jackson",
+    "who performs the song somebody s watching me with michael jackson",
+    "who played anne in anne with an e",
+    "who played g baby in the movie hardball",
+    "who played guitar on my guitar gently weeps",
+    "who played junior on in the heat of the night",
+    "who played lead guitar on 25 or 6 to 4",
+    "who played major hochstetter in hogan s heroes",
+    "who played shaggy in the new scooby doo movie",
+    "who played shmuel in the boy in the striped pyjamas",
+    "who played susanna in legends of the fall",
+    "who played the face in the a team",
+    "who played the female lead in the 1942 film casablanca",
+    "who played the first phantom of the opera",
+    "who played the girl in my two dads",
+    "who played tom on as the world turns",
+    "who plays at the prudential center in newark",
+    "who plays bianca in that s so raven",
+    "who plays elsa s aunt in once upon a time",
+    "who plays frankie s sister teddy on grace and frankie",
+    "who plays general hux in the last jedi",
+    "who plays genie in ferris bueller s day off",
+    "who plays grace in the secret life of the american teenager",
+    "who plays harley quinn in the lego batman movie",
+    "who plays joker in batman the dark knight",
+    "who plays manny in diary of a wimpy kid",
+    "who plays max voice in a goofy movie",
+    "who plays meredith quill in guardians of the galaxy 2",
+    "who plays the coach in old spice commercial",
+    "who plays the dad in drake and josh",
+    "who plays the dwarf king in the hobbit",
+    "who plays the evil doctor in wonder woman",
+    "who plays the main character in hacksaw ridge",
+    "who plays the protagonist peter rabbit in the 2018 motion picture release",
+    "who plays the queen in victoria and abdul",
+    "who plays the robot maid in richie rich",
+    "who portrayed the character of anne in the television series anne with an e",
+    "who portrayed the character of junior in the tv series in the heat of the night",
+    "who portrayed the character of susanna in the film legends of the fall",
+    "who portrayed the character of tom on the soap opera as the world turns",
+    "who portrayed the character of tom on the television show as the world turns",
+    "who portrays the character of manny in the movie diary of a wimpy kid",
+    "who portrays the character of teddy frankie s sister in the television show grace and frankie",
+    "who proposed the first accurate model of dna",
+    "who provides the voice for marceline in the animated series adventure time",
+    "who received the college basketball player of the year award",
+    "who received the nfl football coach of the year award",
+    "who represented the state of tennessee in the scopes trial",
+    "who ruled the ottoman empire in the 1500s",
+    "who s playing in the sec championship 2017",
+    "who said some are born great in twelfth night",
+    "who sang heard it thru the grapevine first",
+    "who sang it my party and i ll cry if i want to in the 80",
+    "who sang let me tell you about the birds and the bees",
+    "who sang never gonna let you go",
+    "who sang oh annie i not your daddy",
+    "who sang raindrops keep fallin on my head",
+    "who sang the song a white sports coat and a pink carnation",
+    "who sang the song brother let me be your shelter",
+    "who sang the song i think we re alone now",
+    "who sang the songs in the movie beyond the sea",
+    "who scored the most points in a single game in the nba",
+    "who served as the representative of tennessee during the scopes trial",
+    "who sings find out who your friends are with tracy lawrence",
+    "who sings god is great beer is good",
+    "who sings i just want to use your love tonight",
+    "who sings in cry baby for johnny depp",
+    "who sings in everybody dies in their nightmares",
+    "who sings somebody s watching me with michael jackson",
+    "who sings the christmas song all i want for christmas is you",
+    "who sings the original windmills of your mind",
+    "who sings the song i feel it still",
+    "who sings the song it ain t me",
+    "who sings the songs in crazy ex girlfriend",
+    "who sings the theme song to all that",
+    "who sings the wizards of waverly place theme song",
+    "who sings theme tune to orange is the new black",
+    "who sings you can t get what you want",
+    "who sold the most records elvis or the beatles",
+    "who sponsored the phoenix open before waste management",
+    "who starred in an officer and a gentleman",
+    "who starred in the movie natural born killers",
+    "who starred in the tv show even stevens",
+    "who took over as the ceo of wipro in 2016",
+    "who took the first steps on the moon in 1969",
+    "who took the title in the inaugural season of the great british bake off",
+    "who turned out to be the mother on how i met your mother",
+    "who was charlie writing to in perks of being a wallflower movie",
+    "who was defeated in the french and indian war",
+    "who was elected president in mexico in 2000",
+    "who was last person to be executed in us",
+    "who was responsible for deciphering the enigma code during world war ii",
+    "who was responsible for enlarging the palace of versailles to its current dimensions",
+    "who was responsible for negotiating a treaty or pact with japan regarding korea s long term prospects or future status",
+    "who was the book of philippians written to",
+    "who was the champion of the inaugural season of the great british bake off",
+    "who was the chief guest of 2014 republic day",
+    "who was the distinguished guest of honor at the 2014 republic day celebration",
+    "who was the editor of the journal jugantor published in the time of swadeshi movement",
+    "who was the first chief minister of west bengal",
+    "who was the first executive president of guyana",
+    "who was the first to say i m going to disney world",
+    "who was the girl in the video brenda got a baby",
+    "who was the musician primarily responsible for the lead guitar parts in the song 25 or 6 to 4",
+    "who was the oldest man elected president of usa",
+    "who was the original performer of the song heard it through the grapevine",
+    "who was the sixteenth century physician who published",
+    "who were the first kings to issue coins bearing their names",
+    "who were the lead actors in the film an officer and a gentleman",
+    "who were the main actors in the television series even stevens",
+    "who were the principal actors featured in the film natural born killers",
+    "who will be crowned the champion in the upcoming iron chef super chefs competition",
+    "who win road march in trinidad and tobago",
+    "who wins the next iron chef super chefs",
+    "who won college basketball player of the year",
+    "who won french open 2017 tennis tournament in men s double category",
+    "who won last year s grand national 2017",
+    "who won mark and goal of the year 2017",
+    "who won nfl football coach of the year",
+    "who won oscar for best director this month",
+    "who won season 8 of america s next top model",
+    "who won the american league pennant in 2017",
+    "who won the battle of saratoga in 1777",
+    "who won the king of dance season 2",
+    "who won the oscar for best actor when titanic was nominated",
+    "who won the oscar for best picture in 1976",
+    "who won the womens 2017 ncaa basketball tournament",
+    "who wrote he ain t heavy he s my brother lyrics",
+    "who wrote i m in the mood for dancing",
+    "who wrote it s gonna take a lot of love",
+    "who wrote shes always a woman to me",
+    "who wrote the declaration of man and citizen",
+    "who wrote the guitar solo in beat it",
+    "who wrote the music for christmas story live",
+    "who wrote the phantom of the opera music",
+    "who wrote the song balls to the wall",
+    "who wrote the theme song for the winter olympics",
+    "who wrote were going on a bear hunt",
+    "why did jean valjean take care of cosette",
+    "winner of first series of great british bake off"
+  ],
+  "files_sha256": {
+    "v0.3/nq/clusters.jsonl": "1cba90e703b58c58b77476fadf868a8198ee8ec75818e2f2aad2e7c3329abf9b",
+    "v0.3/nq/outcomes.jsonl": "30117a3d39f2170a1a9b91ce515b5590cc2cd7121f73bfe60b7ee7df416bb87c",
+    "v0.3/nq/queries.jsonl": "20f4adbc8731f30c34ccfabf09c8657abfc098c0fcb24e16ea7a3ab938513324",
+    "v0.4/fresh/nq/outcomes.jsonl": "26904b3046febae25d1ee501712f61a225ba3418679d7a5e92f95eba04383c50",
+    "v0.4/fresh_src/nq/clusters.jsonl": "0e62291c9031e4cc060b1a63a93aab834db23c57ea49e791393cd96c98e68d28",
+    "v0.4/fresh_src/nq/queries.jsonl": "ac1973e6c2a5279f00ba1069221024c81c358ee1a47b23bb2d987d2f77491750",
+    "v0.4/fresh_src/nq/signals.jsonl": "73e60c44546b0966c242ea0144974399e20e1d9e8b7c52af79985c327c0175bd",
+    "v0.4/nq/outcomes.jsonl": "03d97b2f269211adc436367a1e8a71778e8099ed8b49713a8c727edd0b139d90"
+  },
+  "n_exposed_originals": 450,
+  "scope": "all available archived JSONL records; separate undisclosed exposure requires extra archive records",
+  "pilot_scope": "scripts/escalate.py choose_instances selects pilot from complete v0.3 TRAIN clusters; original pilot instances were not archived"
+}

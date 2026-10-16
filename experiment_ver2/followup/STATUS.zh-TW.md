@@ -8,12 +8,12 @@
 | 新A2設計 | A2-union把兩次候選合併、去重，再用原問題rerank；保留全部prompt/context/raw answer、額外CE與生成成本 |
 | 新action pilot | 已固定每資料集34個TRAIN clusters、102題；共612個action outcomes **尚未生成** |
 | 原政策鎖定 | fuzzy／ridge政策與前版完全一致，附TRAIN來源與protocol／scaler／policy hashes；測試題不擬合模型 |
-| 新題抽樣 | 已排除每資料集450個已曝光原題及全部可見variants；實際來源題庫缺失，尚未抽取新樣本 |
+| 新題抽樣 | 已取得來源題庫並固定NQ 1,800／HotpotQA 3,500個新原題；各450個已曝光原題的題序、原文／ID及gold lists全部核對通過，見new_samples |
 | 樣本數 | 已跑真實cache的規劃模擬；新規劃NQ 1,800、HotpotQA 3,500個原題，不能把模擬當新生成答案 |
 | 人工審核 | 既有60對的兩份表均未填；新資料需審全部保留pairs。沒有AI代簽，也沒有把空白補成有效 |
 | 確認性分析 | 已實作完整指紋綁定與paired cluster推論，**沒有新確認結果** |
 | 環境可用性 | 實際preflight失敗：原D:\Han\rex_rag資產、必要模型套件／snapshots、indices與passage store缺失 |
-| Git交付 | 本輪工作限experiment_ver2分支與目錄；上一次已推送的commit為33984dc。本輪新增後續流程尚未推送，不能報成遠端已完成 |
+| Git交付 | 本輪工作限experiment_ver2分支與目錄；fetch已恢復並確認main仍為667639a。交付內容是準備流程與新題輸入，研究整體完成狀態仍為未完成；同步commit以Git實際回應為準 |
 
 整套測試 **702 passed、2 skipped**；兩項skip是原repo缺少的外部rule CSV。具體檢查見[readiness.json](evidence/readiness.json)、[測試原始輸出](evidence/tests.txt)、[固定程序](PROTOCOL.zh-TW.md)。初版prepared及規劃證據保留在`evidence/prior_preparation`、`planning`、`planning_v2`；目前使用`prepared`與`planning_final`，不要混用protocol hash。
 
@@ -33,6 +33,6 @@
 
 ## 解除阻礙所需資料
 
-請原實驗人提供可存取的原機器／封存路徑，包含原始NQ／HotpotQA題庫、corpus、dense／BM25 indices、generator GGUF、llama.cpp binary及固定revision的HF模型；另附可信來源與hash、未入repo的額外曝露題目。需要兩位真人完成盲審；分歧需第三人裁決。可直接使用[README](README.zh-TW.md)中的命令在具備資產的機器執行，所有失敗與不顯著結果都須保留。
+請原實驗人提供可存取的原機器／封存路徑，包含corpus、dense／BM25 indices、generator GGUF、llama.cpp binary及固定revision的HF模型；特別需要原程式提到但未上傳的`data/SOURCES.txt`、可信來源／hash及未入repo的額外曝露題目。題庫已恢復並核對，HotpotQA使用固定版本副本的限制詳見[new_samples](new_samples/README.md)。需要兩位真人完成盲審；分歧需第三人裁決。可直接使用[README](README.zh-TW.md)中的命令在具備資產的機器執行，所有失敗與不顯著結果都須保留。
 
-先前自動核准審查因用量限制拒絕Git fetch／同步；本輪未改走其他連線繞過限制。環境資產、人審與同步限制解除前，不能把「全部完成並推送」標記為完成。
+先前自動核准審查因用量限制拒絕Git fetch／同步；下載核准恢復後，已直接重試原fetch並成功，沒有改用其他管道繞過拒絕。現在的研究阻礙是原runtime資產／來源證據及真人審核，不能把程式或抽樣完成誤報為全部實驗完成。

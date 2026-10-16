@@ -8,6 +8,7 @@
 - [human_review](human_review/)：同60個blind pairs的兩份空白獨立評分表。A／B只是兩個檔案的角色，不能由同一人或AI填成兩位真人。現在沒有任何人工分數。
 - [evidence/readiness.json](evidence/readiness.json)：本機實際資產檢查。缺模型／索引等時明確顯示blocked；不會回退到合成資料或舊答案。
 - [evidence/planning_final/report.json](evidence/planning_final/report.json)：已曝光資料的樣本數模擬，固定quota重配置及多重比較後，主規劃為NQ 1,800／HotpotQA 3,500個新原題。這是規劃估計，沒有新增模型生成結果。
+- [new_samples](new_samples/README.md)：已實際取得及核對來源題庫，固定NQ 1,800／HotpotQA 3,500個新原題；原文／ID／題序及既有450題的gold lists均核對通過。可直接用這兩個sample目錄進行下一步，無須再次抽樣。
 
 ## 人工審核
 
@@ -29,7 +30,7 @@
 
 ## 新題抽樣
 
-先取得原來源題庫。官方來源可從[EfficientQA資料說明](https://efficientqa.github.io/getting_started.html)與[HotpotQA官方資料說明](https://github.com/hotpotqa/hotpot)找到；下載後必須與已曝露450題逐一核對題序與原文。工具會保存下載來源URL及實際檔案SHA256；URL本身不等於原版本已驗證。
+本輪已完成抽樣，以下命令供從來源重現選樣；既有`new_samples`才是本輪固定輸入，不要覆寫或依結果重抽。官方來源可從[EfficientQA資料說明](https://efficientqa.github.io/getting_started.html)與[HotpotQA官方資料說明](https://github.com/hotpotqa/hotpot)找到；HotpotQA原主機本次無法連線，固定版本副本與轉換方式見[new_samples](new_samples/README.md)。下載後必須與已曝露450題逐一核對題序與原文。工具保存來源URL及檔案SHA256；URL本身不等於原版本已驗證。
 
 ```powershell
 .\.venv-core\Scripts\python.exe -m experiment_ver2.followup.sampling --archive runs --dataset nq --pool path/to/NQ-open.dev.jsonl --source-url https://raw.githubusercontent.com/efficientqa/nq-open/master/NQ-open.dev.jsonl --protocol experiment_ver2/followup/PROTOCOL.zh-TW.md --n 1800 --out experiment_ver2/runs/new-nq
@@ -72,14 +73,14 @@ python -m experiment_ver2.followup.collect --queries experiment_ver2/followup/pr
 
 ```powershell
 python -m experiment_ver2.followup.paraphrases --config path/to/runtime.json --preflight-only
-python -m experiment_ver2.followup.paraphrases --sample experiment_ver2/runs/new-nq --protocol experiment_ver2/followup/PROTOCOL.zh-TW.md --config path/to/runtime.json --out experiment_ver2/runs/new-nq-paraphrases
+python -m experiment_ver2.followup.paraphrases --sample experiment_ver2/followup/new_samples/nq --protocol experiment_ver2/followup/PROTOCOL.zh-TW.md --config path/to/runtime.json --out experiment_ver2/runs/new-nq-paraphrases
 .\.venv-core\Scripts\python.exe -m experiment_ver2.followup.review export --tasks experiment_ver2/runs/new-nq-paraphrases/blind_review_tasks.jsonl --out experiment_ver2/runs/new-nq-blank-review
 ```
 
 把這一批兩份空白表交兩位真人；既有60對審核不能代替新題審核。收回完整評分與必要裁決後執行`review audit`，以新的tasks檔及新的output保存原始評分。再執行：
 
 ```powershell
-.\.venv-core\Scripts\python.exe -m experiment_ver2.followup.freeze --sample experiment_ver2/runs/new-nq --paraphrases experiment_ver2/runs/new-nq-paraphrases --lock experiment_ver2/followup/prepared/nq/policy_lock.json --protocol experiment_ver2/followup/PROTOCOL.zh-TW.md --human-report experiment_ver2/runs/new-nq-review/report.json --out experiment_ver2/runs/new-nq-frozen
+.\.venv-core\Scripts\python.exe -m experiment_ver2.followup.freeze --sample experiment_ver2/followup/new_samples/nq --paraphrases experiment_ver2/runs/new-nq-paraphrases --lock experiment_ver2/followup/prepared/nq/policy_lock.json --protocol experiment_ver2/followup/PROTOCOL.zh-TW.md --human-report experiment_ver2/runs/new-nq-review/report.json --out experiment_ver2/runs/new-nq-frozen
 python -m experiment_ver2.followup.collect --queries experiment_ver2/runs/new-nq-paraphrases/queries.jsonl --config path/to/runtime.json --protocol experiment_ver2/followup/PROTOCOL.zh-TW.md --confirmation-bundle experiment_ver2/runs/new-nq-frozen --out experiment_ver2/runs/new-nq-actions
 .\.venv-core\Scripts\python.exe -m experiment_ver2.followup.confirmation --queries experiment_ver2/runs/new-nq-paraphrases/queries.jsonl --run experiment_ver2/runs/new-nq-actions --protocol experiment_ver2/followup/PROTOCOL.zh-TW.md --confirmation-bundle experiment_ver2/runs/new-nq-frozen --out experiment_ver2/runs/new-nq-confirmation
 ```
@@ -90,7 +91,7 @@ freeze會重新核對人審原始評分、題文、sample／exposure／policy／
 
 ## 還需要原實驗人提供
 
-1. 兩個原始題庫、retrieval corpus、dense與BM25 indices；若有未入repo的試跑題目，也要提供曝光清單。
+1. retrieval corpus、dense與BM25 indices及原`data/SOURCES.txt`；兩個題庫已恢復，若有未入repo的試跑題目，仍要提供曝光清單。
 2. 原generator GGUF、llama.cpp binary、HF pinned snapshots及來源revision／hash；可直接提供原機器的可用路徑或可存取的封存。
 3. 兩位真人完成審核，遇分歧再由第三人裁決。這不是可由測試或AI評分代替的項目。
 

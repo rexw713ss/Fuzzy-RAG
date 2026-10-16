@@ -1,0 +1,19 @@
+{
+  "pool_size": 3610,
+  "eligible_originals": 3160,
+  "excluded": {
+    "previous_original_id": 450
+  },
+  "n": 1800,
+  "seed": 20261018,
+  "source_order_verified_against_all_exposed_originals": true,
+  "dataset": "nq",
+  "source_url": "https://raw.githubusercontent.com/efficientqa/nq-open/master/NQ-open.dev.jsonl",
+  "source_sha256": "f15567f38099f3615f5b8a685c0aef449c11ad90d3da3735e8d1b98115b40616",
+  "protocol_sha256": "b6ec08e11b649767546f72e92e5cc307bd681bb8ac091b060dfea0d0b2ca5ec9",
+  "sample_sha256": "a7ccb849bec6eeca8eff80b63f221b13aef5bce4a8327efacf0e9aa528e5147a",
+  "exposure_sha256": "869097b83948efc7a960920d448ce004775cdd154b49fffda0070f1a5b3f364d",
+  "semantic_deduplication": "pending independent semantic review",
+  "outcomes_generated": false,
+  "confirmatory_complete": false
+}

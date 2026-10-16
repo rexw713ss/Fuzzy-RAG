@@ -1,0 +1,19 @@
+{
+  "pool_size": 7405,
+  "eligible_originals": 6955,
+  "excluded": {
+    "previous_original_id": 450
+  },
+  "n": 3500,
+  "seed": 20261018,
+  "source_order_verified_against_all_exposed_originals": true,
+  "dataset": "hotpotqa",
+  "source_url": "https://huggingface.co/datasets/hotpotqa/hotpot_qa/resolve/1908d6afbbead072334abe2965f91bd2709910ab/fullwiki/validation-00000-of-00001.parquet",
+  "source_sha256": "19e52e00793af2262c2f456194d4db9a705dff8de97afe7d954ef54a594843a4",
+  "protocol_sha256": "b6ec08e11b649767546f72e92e5cc307bd681bb8ac091b060dfea0d0b2ca5ec9",
+  "sample_sha256": "77869b1c1f085f27211320dbc04d75448a9e8c0acb4c4c4e817083b0f90a1524",
+  "exposure_sha256": "c281aed8ddb2dda5c22c55dfcac7be49a15fa35c575f5be1fa6ba079f5ac95b6",
+  "semantic_deduplication": "pending independent semantic review",
+  "outcomes_generated": false,
+  "confirmatory_complete": false
+}
